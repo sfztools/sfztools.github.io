@@ -1,0 +1,76 @@
+navigation:
+- title: Projects
+  type: dropdown
+  pages:
+  - title: BeatBox
+    url: /beatbox
+    icon_type: "drum"
+    icon_category: "fas"
+
+  - title: Sfizz Library
+    url: /sfizz
+    icon_type: "play-circle"
+    icon_category: "fas"
+
+  - title: Sfizz Juce (Archived)
+    url: /sfizz-juce
+    icon_type: "play-circle"
+    icon_category: "fas"
+  -
+  - title: SFZ-Flat
+    url: https://github.com/sfztools/sfz-flat
+  -
+  - title: Geany Syntax Highlight
+    url: https://github.com/sfztools/syntax-highlighting-geany
+
+  - title: Sublime Text Syntax Highlight
+    url: https://github.com/sfztools/syntax-highlighting-sublime-text
+
+  - title: VSCode Syntax Highlight
+    url: https://github.com/sfztools/syntax-highlighting-vscode
+
+- title: GitHub Repository
+  icon_type: github
+  icon_category: fab
+  type: normal
+  url: https://github.com/sfztools/sfztools.github.io
+
+- title: Contacts
+  icon_type: at
+  icon_category: fas
+  type: normal
+  url: /contacts
+
+cards:
+- title: Follow us
+  icon_type: eye
+  icon_category: fas
+  links:
+  - title: GitHub Organization
+    url: https://github.com/sfztools/
+    icon_type: github
+    icon_category: fab
+
+  - title: "Discord Chat"
+    url: "https://discord.gg/3ArE9Mw"
+    icon_type: "discord"
+    icon_category: "fab"
+
+  - title: News Atom Feed
+    url: /atom.xml
+    icon_type: rss
+    icon_category: fas
+
+- title: "Quick links"
+  icon_type: "link"
+  icon_category: "fas"
+  links:
+  - title: "SFZ Format"
+    url: "https://sfzformat.github.io/"
+    icon_type: "book"
+    icon_category: "fas"
+
+  - title: "Free SFZ Instruments"
+    url: "https://github.com/sfzinstruments/"
+    icon_type: "download"
+    icon_category: "fas"
