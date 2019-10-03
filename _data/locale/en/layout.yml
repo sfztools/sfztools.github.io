@@ -1,6 +1,8 @@
 navigation:
 - title: Projects
   type: dropdown
+  icon_type: "hammer"
+  icon_category: "fas"
   pages:
   - title: BeatBox
     url: /beatbox
@@ -29,11 +31,16 @@ navigation:
   - title: VSCode Syntax Highlight
     url: https://github.com/sfztools/syntax-highlighting-vscode
 
-- title: GitHub Repository
+- title: Pages
+  type: dropdown
   icon_type: github
   icon_category: fab
-  type: normal
-  url: https://github.com/sfztools/sfztools.github.io
+  pages:
+  - title: Organization
+    url: https://github.com/sfztools/
+
+  - title: Repository
+    url: https://github.com/sfztools/sfztools.github.io
 
 - title: Contacts
   icon_type: at
@@ -46,11 +53,6 @@ cards:
   icon_type: eye
   icon_category: fas
   links:
-  - title: GitHub Organization
-    url: https://github.com/sfztools/
-    icon_type: github
-    icon_category: fab
-
   - title: "Discord Chat"
     url: "https://discord.gg/3ArE9Mw"
     icon_type: "discord"

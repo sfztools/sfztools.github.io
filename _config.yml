@@ -36,20 +36,26 @@ plugins:
 
 url: "https://sfztools.github.io"
 
-project:
-  name: "SFZTools"
-
 organization:
   name: "SFZTools"
   url: "https://github.com/sfztools"
 
-authors:
-  content: "Paul Ferrand"
-  web: "RedTide"
+project:
+  name: "SFZTools"
+  copyright_owner: "SFZTools Organization"
+  docs_path: "master"
+  authors:
+    content: "Paul Ferrand"
+    web: "RedTide"
 
 google:
   analytics_code:
   cse_code:
+
+realfavicongenerator:
+  mask_icon_color: "#000000"
+  msapplication_tile_color: "#ffffff"
+  theme_color: "#ffffff"
 
 disqus_shortname:
 
