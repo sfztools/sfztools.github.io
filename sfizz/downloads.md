@@ -21,7 +21,7 @@ the development version from [Arch User Repository].
 
 macOS and Windows binaries and source code are all available via [Github Releases]
 
-[Open Build Server]:    https://download.opensuse.org/repositories/home:/sfztools:/sfizz/
+[Open Build Server]:    https://software.opensuse.org//download.html?project=home%3Asfztools%3Asfizz&package=sfizz
 [Arch Linux Community]: https://www.archlinux.org/packages/community/x86_64/sfizz/
 [Arch User Repository]: https://aur.archlinux.org/packages/sfizz-git/
 [Github Releases]:      https://github.com/sfztools/sfizz/releases/latest
