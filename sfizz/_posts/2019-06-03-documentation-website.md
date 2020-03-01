@@ -1,10 +1,7 @@
 ---
-title: "Documentation Website"
-lang: "en"
-date: "2019-03-10"
-date_fmt: "%F"
-comments: false
-categories: "news"
+title:  "Documentation Website"
+author: "redtide"
+date:   "2019-03-10"
 ---
 This website is where you will find the sfizz sampler documentation.
 
@@ -14,9 +11,8 @@ This website is where you will find the sfizz sampler documentation.
   making the website available to mobile devices.
 - Utilizes [FontAwesome] and [Favicon Generator] for content and website icons.
 
-[Bootstrap]: http://getbootstrap.com/
+[Bootstrap]:         http://getbootstrap.com/
 [Favicon Generator]: https://realfavicongenerator.net/
-[FontAwesome]: http://fontawesome.io/
-[Jekyll]: http://jekyllrb.com/
-[Markdown]: http://daringfireball.net/projects/markdown/
-[SASS]: https://sass-lang.com/
+[FontAwesome]:       http://fontawesome.io/
+[Jekyll]:            http://jekyllrb.com/
+[Markdown]:          http://daringfireball.net/projects/markdown/

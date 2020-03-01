@@ -1,21 +1,27 @@
 ---
 title: "Downloads"
-lang: "en"
 ---
 
 ## <i class="fab fa-linux fa-fw"/> Linux
 
-* [AppImage](https://github.com/sfztools/sfizz/releases/)
-* [Arch User Repository](https://aur.archlinux.org/packages/?K=sfizz)
+Packages for the following distributions are available on [Open Build Server]:
 
-## <i class="fab fa-apple fa-fw"/> macOS
+- Arch
+- Debian
+- Fedora
+- Mageia
+- openSUSE
+- Raspbian
+- xUbuntu
 
-* [Apple Disk Image](https://github.com/sfztools/sfizz/releases/)
+The Arch official package is available on [Arch Linux Community] repository,
+the development version from [Arch User Repository].
 
-## <i class="fab fa-windows fa-fw"/> Windows
+## <i class="fab fa-apple fa-fw"/> macOS <i class="fab fa-windows fa-fw"/> Windows <i class="fab fa-github fa-fw"/> Source Code
 
-* [Setup Package](https://github.com/sfztools/sfizz/releases/)
+macOS and Windows binaries and source code are all available via [Github Releases]
 
-## <i class="fab fa-github fa-fw"/> Source Code
-
-* [Github Repository](https://github.com/sfztools/sfizz/)
+[Open Build Server]:    https://download.opensuse.org/repositories/home:/sfztools:/sfizz/
+[Arch Linux Community]: https://www.archlinux.org/packages/community/x86_64/sfizz/
+[Arch User Repository]: https://aur.archlinux.org/packages/sfizz-git/
+[Github Releases]:      https://github.com/sfztools/sfizz/releases/latest

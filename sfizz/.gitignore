@@ -1,23 +1,22 @@
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
-.bundle
-.vendor
-assets/css/*.map
-assets/css/style.css
-assets/js/*.map
-node_modules
+/_site/
+/.sass-cache/
+/.jekyll-cache/
+/.jekyll-metadata/
+/.bundle/
+/.vendor/
+/node_modules/
+/assets/css/*.map
+/assets/css/style.css
+/assets/js/*.map
+!/development/build/*
 Gemfile.lock
 package-lock.json
 yarn.lock
 *.log
 
 # Unstaged files in other branches
+/.DS_Store/
+/external/
 /build*
-!/development/build/*
-external/abseil-cpp/
 *.txt.user*
 *.code-workspace
-
-.DS_Store

@@ -47,7 +47,7 @@ organization:
   url: "https://github.com/sfztools"
 
 project:
-  name: "Sfizz"
+  name: "sfizz"
   url: "https://sfztools.github.io/sfizz"
   copyright_owner: "Paul Ferrand"
   spdx_license_id: "BSD-2-Clause"
