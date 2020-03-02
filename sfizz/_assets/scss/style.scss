@@ -6,6 +6,11 @@ $navbar-dark-hover-color: #fff;
 @import "syntax-highlight";
 @import "google-cse";
 
+pre {
+	padding: 0.5rem 0.75rem;
+	border: 1px solid rgba($black, .2);
+	border-radius: 0.50rem;
+}
 #scrollButton {
 	display: none;
 	position: fixed;
