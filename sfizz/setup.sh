@@ -16,14 +16,12 @@ fi
 
 if [ ! -d "node_modules" ] || [ "$1" == "-i" ] || [ "$1" == "--install" ]; then
 	gem update
-	echo "Installing Bundler..."
 	gem install bundler
-	echo "Running Yarn install..."
+	bundle install
 	yarn --no-bin-links
 fi
 
 if [ ! -f "assets/css/style.min.css" ] || [ "$1" == "-a" ] || [ "$1" == "--assets" ]; then
-	echo "Running Yarn dist..."
 	yarn dist
 fi
 
