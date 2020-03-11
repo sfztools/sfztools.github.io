@@ -18,5 +18,6 @@ yarn.lock
 /.DS_Store/
 /external/
 /build*
+/Doxyfile
 *.txt.user*
 *.code-workspace
