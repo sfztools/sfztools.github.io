@@ -8,11 +8,12 @@
 /assets/css/*.map
 /assets/css/style.css
 /assets/js/*.map
-!/development/build/*
 Gemfile.lock
 package-lock.json
 yarn.lock
+*.code-workspace
 *.log
+!/development/build/*
 
 # Unstaged files in other branches
 /.DS_Store/
@@ -20,4 +21,3 @@ yarn.lock
 /build*
 /Doxyfile
 *.txt.user*
-*.code-workspace
