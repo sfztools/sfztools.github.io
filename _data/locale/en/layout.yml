@@ -1,78 +1,97 @@
 navigation:
-- title: Projects
-  type: dropdown
+- label: "Projects"
+  type: "dropdown"
   icon_type: "hammer"
   icon_category: "fas"
   pages:
-  - title: BeatBox
-    url: /beatbox
+  - label: "BeatBox"
+    url: "https://sfztools.github.io/beatbox/"
     icon_type: "drum"
     icon_category: "fas"
 
-  - title: Sfizz Library
-    url: /sfizz
-    icon_type: "play-circle"
-    icon_category: "fas"
-
-  - title: Sfizz Juce (Archived)
-    url: /sfizz-juce
+  - label: "sfizz"
+    url: "https://sfztools.github.io/sfizz/"
     icon_type: "play-circle"
     icon_category: "fas"
   -
-  - title: SFZ-Flat
-    url: https://github.com/sfztools/sfz-flat
+  - label: "sfizz-render"
+    url: "https://github.com/sfztools/sfizz-render/"
+
+  - label: "sfz-flat"
+    url: "https://github.com/sfztools/sfz-flat/"
+
+  - label: "sfz-opcode-checker"
+    url: "https://github.com/sfztools/sfz-opcode-checker/"
   -
-  - title: Geany Syntax Highlight
-    url: https://github.com/sfztools/syntax-highlighting-geany
+  - label: "Emacs Syntax Highlight"
+    url: "https://github.com/sfztools/emacs-sfz-mode/"
 
-  - title: Sublime Text Syntax Highlight
-    url: https://github.com/sfztools/syntax-highlighting-sublime-text
+  - label: "gedit Syntax Highlight"
+    url: "https://github.com/sfztools/syntax-highlighting-gedit/"
 
-  - title: VSCode Syntax Highlight
-    url: https://github.com/sfztools/syntax-highlighting-vscode
+  - label: "Geany Syntax Highlight"
+    url: "https://github.com/sfztools/syntax-highlighting-geany/"
 
-- title: Pages
-  type: dropdown
-  icon_type: github
-  icon_category: fab
-  pages:
-  - title: Organization
-    url: https://github.com/sfztools/
+  - label: "Sublime Text Syntax Highlight"
+    url: "https://github.com/sfztools/syntax-highlighting-sublime-text/"
 
-  - title: Repository
-    url: https://github.com/sfztools/sfztools.github.io
+  - label: "Vim Syntax Highlight"
+    url: https://github.com/sfztools/sfz.vim
 
-- title: Contacts
-  icon_type: at
-  icon_category: fas
-  type: normal
-  url: /contacts
+  - label: "VSCode Syntax Highlight"
+    url: "https://github.com/sfztools/syntax-highlighting-vscode/"
 
 cards:
-- title: Follow us
+- label: Follow us
   icon_type: eye
   icon_category: fas
   links:
-  - title: "Discord Chat"
+  - label: "Discord Chat"
     url: "https://discord.gg/3ArE9Mw"
     icon_type: "discord"
     icon_category: "fab"
 
-  - title: News Atom Feed
-    url: /atom.xml
-    icon_type: rss
-    icon_category: fas
+  - label: "IRC"
+    url: https://kiwiirc.com/nextclient/#irc://irc.freenode.net:+6697/#sfztools
+    icon_type: "hashtag"
+    icon_category: "fas"
 
-- title: "Quick links"
+  - label: "News Atom Feed"
+    url: "/atom.xml"
+    icon_type: "rss"
+    icon_category: "fas"
+
+  - label: "GitHub Organization"
+    url: "https://github.com/sfztools/"
+    icon_type: "github"
+    icon_category: "fab"
+
+  - label: "EMail"
+    type: "normal"
+    icon_type: "at"
+    icon_category: "fas"
+    url: "/contacts"
+
+- label: "Quick links"
   icon_type: "link"
   icon_category: "fas"
   links:
-  - title: "SFZ Format"
+  - label: "SFZ Format"
     url: "https://sfzformat.github.io/"
     icon_type: "book"
     icon_category: "fas"
 
-  - title: "Free SFZ Instruments"
+  - label: "Free SFZ Instruments"
     url: "https://github.com/sfzinstruments/"
     icon_type: "download"
+    icon_category: "fas"
+
+  - label: "Linuxaudio.org"
+    url: "https://linuxaudio.org/"
+    icon_type: "music"
+    icon_category: "fas"
+
+  - label: "LinuxMAO"
+    url: "https://linuxmao.org/"
+    icon_type: "music"
     icon_category: "fas"
