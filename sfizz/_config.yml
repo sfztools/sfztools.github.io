@@ -59,10 +59,6 @@ project:
 locale:
   default: "en"
 
-google:
-  analytics_code:
-  cse_code:
-
 realfavicongenerator:
   mask_icon_color: "#5bbad5"
   msapplication_tile_color: "#da532c"

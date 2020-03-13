@@ -1,4 +1,10 @@
 navigation:
+- label: "Home"
+  type: "normal"
+  icon_type: "home"
+  icon_category: "fas"
+  url: "https://sfztools.github.io/"
+
 - label: "Projects"
   type: "dropdown"
   icon_type: "hammer"
@@ -14,11 +20,6 @@ navigation:
     icon_type: "play-circle"
     icon_category: "fas"
     disabled: true
-
-  - label: "sfizz Juce (Archived)"
-    url: "https://sfztools.github.io/sfizz-juce/"
-    icon_type: "play-circle"
-    icon_category: "fas"
   -
   - label: "sfizz-render"
     url: "https://github.com/sfztools/sfizz-render/"
@@ -32,6 +33,9 @@ navigation:
   - label: "Emacs Syntax Highlight"
     url: "https://github.com/sfztools/emacs-sfz-mode/"
 
+  - label: "gedit Syntax Highlight"
+    url: "https://github.com/sfztools/syntax-highlighting-gedit/"
+
   - label: "Geany Syntax Highlight"
     url: "https://github.com/sfztools/syntax-highlighting-geany/"
 
@@ -44,49 +48,25 @@ navigation:
   - label: "VSCode Syntax Highlight"
     url: "https://github.com/sfztools/syntax-highlighting-vscode/"
 
-- label: "Dev"
+- label: "Documentation"
   type: "dropdown"
-  icon_type: "code"
+  icon_type: "book"
   icon_category: "fas"
   pages:
-  - label: "Documentation"
-    icon_type: "book"
+  - label: "API"
+    icon_type: "code"
     icon_category: "fas"
     url: "/api"
-
-  - label: "Status"
-    icon_type: "tasks"
-    icon_category: "fas"
-    url: "/development/status"
 
   - label: "Build"
     icon_type: "code"
     icon_category: "fas"
     url: "/development/build"
 
-#- label: "Downloads"
-#  type: "normal"
-#  icon_type: "download"
-#  icon_category: "fas"
-#  url: "/downloads"
-
-- label: "Downloads"
-  type: "normal"
-  icon_type: "download"
-  icon_category: "fas"
-  url: "/downloads"
-
-- label: "Contacts"
-  type: "normal"
-  icon_type: "at"
-  icon_category: "fas"
-  url: "/contacts"
-
-- label: "Home"
-  type: "normal"
-  icon_type: "home"
-  icon_category: "fas"
-  url: "https://sfztools.github.io/"
+  - label: "SFZ Opcodes"
+    icon_type: "tasks"
+    icon_category: "fas"
+    url: "/development/status"
 
 cards:
 - label: "Follow us"
@@ -113,6 +93,12 @@ cards:
     icon_type: "github"
     icon_category: "fab"
 
+  - label: "EMail"
+    type: "normal"
+    icon_type: "at"
+    icon_category: "fas"
+    url: "/contacts"
+
 - label: "Quick links"
   icon_type: "link"
   icon_category: "fas"
@@ -125,4 +111,14 @@ cards:
   - label: "Free SFZ Instruments"
     url: "https://github.com/sfzinstruments/"
     icon_type: "download"
+    icon_category: "fas"
+
+  - label: "Linuxaudio.org"
+    url: "https://linuxaudio.org/"
+    icon_type: "music"
+    icon_category: "fas"
+
+  - label: "LinuxMAO"
+    url: "https://linuxmao.org/"
+    icon_type: "music"
     icon_category: "fas"
