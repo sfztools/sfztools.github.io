@@ -25,6 +25,7 @@ Current configuration switches for CMake are:
 ENABLE_LTO              Enable Link Time Optimization          [default: ON]
 SFIZZ_JACK              Enable JACK stand-alone build          [default: ON]
 SFIZZ_LV2               Enable LV2 plug-in build               [default: ON]
+SFIZZ_VST               Enable VST plug-in build               [default: OFF]
 SFIZZ_BENCHMARKS        Enable benchmarks build                [default: OFF]
 SFIZZ_TESTS             Enable tests build                     [default: OFF]
 SFIZZ_SHARED            Enable shared library build            [default: ON]
