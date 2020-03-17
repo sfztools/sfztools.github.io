@@ -23,6 +23,8 @@
 		{%-assign header_support = ":x:"-%}
 	{%-elsif header.support == 'v'-%}
 		{%-assign header_support = ":heavy_check_mark:"-%}
+	{%-elsif header.support == "wip"-%}
+		{%-assign header_support = ":construction:"-%}
 	{%-else-%}
 		{%-assign header_support = header.support-%}
 	{%-endif-%}
@@ -58,6 +60,8 @@
 			{%-assign opcode_support = ":x:"-%}
 		{%-elsif opcode.support == 'v'-%}
 			{%-assign opcode_support = ":heavy_check_mark:"-%}
+		{%-elsif opcode.support == "wip"-%}
+			{%-assign opcode_support = ":construction:"-%}
 		{%-else-%}
 			{%-assign opcode_support = opcode.support-%}
 		{%-endif-%}
