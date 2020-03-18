@@ -3,9 +3,10 @@
 
 <p>Posted on <time datetime="{{ post.date | datetime | date_to_xmlschema }}"
 	{%-if updated-%}data-updated="true"{%-endif-%}>
-		{{ post.date | date: page.date_fmt }}</time></p>
-
+	{{ post.date | date: page.date_fmt }}</time>
+	{% if post.author %}by {{ post.author }}{% endif %}
 {{ post.content }}
+</p>
 
 	{%-if post.comments and site.disqus_shortname-%}
 <p><a href="{{ post.url | relative_url }}#disqus_thread"
