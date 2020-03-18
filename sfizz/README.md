@@ -8,25 +8,30 @@ Icons are provided by [Font Awesome], favicons by [Favicon Generator].
 
 ## Local Build Quick-start Guide
 
-- Install `ruby` and `yarn`
+- Install [rvm] and `yarn`
 - Use the automatic setup via `setup.sh`
 
 or manually:
 
-	$ gem update
-	$ gem install bundler
-	$ yarn --no-bin-links
-	$ yarn dist
-	$ bundle exec jekyll serve -w
+```bash
+$ gem update --user-install
+$ gem install bundler --user-install
+$ bundle config set path '.bundle'
+$ bundle install
+$ yarn --no-bin-links
+$ yarn dist
+$ bundle exec jekyll serve --watch --host 0.0.0.0
+```
 
 The local website should be available at <http://localhost:4000/>
 
-[Bootstrap]: http://getbootstrap.com/
+[Bootstrap]:         http://getbootstrap.com/
 [Favicon Generator]: https://realfavicongenerator.net/
-[Font Awesome]: http://fontawesome.io/
-[Jekyll]: http://jekyllrb.com/
-[Markdown]: https://daringfireball.net/projects/markdown/
-[Node.js]: http://nodejs.org/
-[SASS]: https://sass-lang.com/
-[sfizz]: https://sfztools.github.io/sfizz
+[Font Awesome]:      http://fontawesome.io/
+[Jekyll]:            http://jekyllrb.com/
+[Markdown]:          https://daringfireball.net/projects/markdown/
+[Node.js]:           http://nodejs.org/
+[rvm]:               https://redtide.github.io/dev-docs/en/jekyll/rvm
+[SASS]:              https://sass-lang.com/
+[sfizz]:             https://sfztools.github.io/sfizz
 
