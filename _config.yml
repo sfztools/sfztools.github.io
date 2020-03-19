@@ -42,26 +42,23 @@ plugins:
 - jekyll-sitemap
 - jemoji
 
-organization:
-  name: "SFZTools"
-  url: "https://github.com/sfztools"
+name: "SFZTools"
+url: "https://sfztools.github.io"
 
-project:
-  name: "SFZTools"
-  url: "https://sfztools.github.io/"
-  copyright_owner: "SFZTools Organization"
-  spdx_license_id: ""
-  docs_path: "master"
-  authors:
-    content: "Paul Ferrand"
-    web: "RedTide"
+repository:
+  branch: "master"
+  url: "https://github.com/sfztools/sfztools.github.io"
 
 locale:
   default: "en"
+
+authors:
+  content: "Paul Ferrand"
+  web: "RedTide"
+
+copyright: "SFZTools Organization"
 
 realfavicongenerator:
   mask_icon_color: "#000000"
   msapplication_tile_color: "#ffffff"
   theme_color: "#ffffff"
-
-disqus_shortname:
