@@ -18,6 +18,7 @@ yarn.lock
 # Unstaged files in other branches
 /.DS_Store/
 /external/
+/vst/
 /build*
 /Doxyfile
 *.txt.user*
