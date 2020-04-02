@@ -77,6 +77,9 @@ categories:
   - name: "oscillator_phase"
     version: "SFZ v2"
     support: "wip"
+  - name: "oscillator_multi"
+    version: "SFZ v2"
+    support: "x"
 
 - name: "Instrument Settings"
   opcodes:
@@ -662,3 +665,45 @@ categories:
   - name: "eq_type"
     version: "SFZ v2"
     support: "v"
+
+- name: "Effect: Strings"
+  opcodes:
+  - name: "strings_number"
+    version: "SFZ v2"
+    support: "wip"
+  - name: "strings_wet"
+    version: "sfizz"
+    support: "wip"
+  - name: "strings_wet_oncc"
+    version: "SFZ v2"
+    support: "x"
+
+- name: "Effect: Rectify"
+  opcodes:
+  - name: "rectify_mode"
+    version: "sfizz"
+    support: "wip"
+  - name: "rectify"
+    version: "sfizz"
+    support: "wip"
+  - name: "rectify_oncc"
+    version: "sfizz"
+    support: "x"
+
+- name: "Effect: Gain"
+  opcodes:
+  - name: "gain"
+    version: "sfizz"
+    support: "wip"
+  - name: "gain_oncc"
+    version: "sfizz"
+    support: "x"
+
+- name: "Effect: Width"
+  opcodes:
+  - name: "width"
+    version: "sfizz"
+    support: "wip"
+  - name: "width_oncc"
+    version: "sfizz"
+    support: "x"
