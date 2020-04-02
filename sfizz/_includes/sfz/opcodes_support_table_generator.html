@@ -48,6 +48,7 @@
 			<th scope="col">Opcode</th>
 			<th scope="col" style="text-align:center">Version</th>
 			<th scope="col" style="text-align:center">Supported</th>
+			<th scope="col" style="text-align:center">Comment</th>
 {%-comment-%}
 			<th scope="col" style="text-align:center">Tested</th>
 {%-endcomment-%}
@@ -56,8 +57,12 @@
 	<tbody>
 	{%-for opcode in category.opcodes-%}
 		{%-assign opcode_name = opcode.name | replace: '#', ''-%}
-		{%-assign opcode_url = "<a href='https://sfzformat.com/opcodes/" |
-			append: opcode_name | append: "'>" | append: opcode.name | append: "</a>" -%}
+		{%-unless opcode.undocumented-%}
+			{%-assign opcode_url = "<a href='https://sfzformat.com/opcodes/" |
+				append: opcode_name | append: "'>" | append: opcode.name | append: "</a>" -%}
+		{%-else-%}
+			{%-assign opcode_url = opcode_name-%}
+		{%-endunless-%}
 		{%-if opcode.support == nil or opcode.support == 'x'-%}
 			{%-assign opcode_support = ":x:"-%}
 		{%-elsif opcode.support == 'v'-%}
@@ -80,6 +85,7 @@
 			<td>{{ opcode_url }}</td>
 			<td style="text-align:center">{{ opcode.version }}</td>
 			<td style="text-align:center">{{ opcode_support }}</td>
+			<td style="text-align:center">{{ opcode.comment }}</td>
 {%-comment-%}
 			<td style="text-align:center">{{ opcode_tested }}</td>
 {%-endcomment-%}

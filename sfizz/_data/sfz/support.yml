@@ -359,6 +359,7 @@ categories:
   - name: "fil_gainccN"
     version: "sfizz"
     support: "v"
+    undocumented: true
   - name: "resonance"
     version: "SFZ v1"
     support: "v"
@@ -407,6 +408,7 @@ categories:
   - name: "fil2_gainccN"
     version: "sfizz"
     support: "v"
+    undocumented: true
   - name: "resonance2"
     version: "SFZ v2"
     support: "v"
@@ -641,9 +643,11 @@ categories:
   - name: "filter_gain"
     version: "sfizz"
     support: "v"
+    undocumented: true
   - name: "filter_gain_onccN"
     version: "sfizz"
     support: "x"
+    undocumented: true
 
 - name: "Effect: EQ"
   opcodes:
@@ -674,6 +678,7 @@ categories:
   - name: "strings_wet"
     version: "sfizz"
     support: "wip"
+    undocumented: true
   - name: "strings_wet_onccN"
     version: "SFZ v2"
     support: "x"
@@ -683,27 +688,38 @@ categories:
   - name: "rectify_mode"
     version: "sfizz"
     support: "wip"
+    undocumented: true
   - name: "rectify"
     version: "sfizz"
     support: "wip"
+    undocumented: true
   - name: "rectify_onccN"
     version: "sfizz"
     support: "x"
+    undocumented: true
 
 - name: "Effect: Gain"
   opcodes:
   - name: "gain"
     version: "sfizz"
     support: "wip"
+    comment: "Disambiguation needed"
+    undocumented: true
   - name: "gain_onccN"
     version: "sfizz"
     support: "x"
+    undocumented: true
+    comment: "Disambiguation needed"
 
 - name: "Effect: Width"
   opcodes:
   - name: "width"
     version: "sfizz"
     support: "wip"
+    undocumented: true
+    comment: "Disambiguation needed"
   - name: "width_onccN"
     version: "sfizz"
     support: "x"
+    undocumented: true
+    comment: "Disambiguation needed"
