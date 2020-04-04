@@ -73,10 +73,10 @@ categories:
   opcodes:
   - name: "oscillator"
     version: "SFZ v2"
-    support: "wip"
+    support: "v"
   - name: "oscillator_phase"
     version: "SFZ v2"
-    support: "wip"
+    support: "v"
   - name: "oscillator_multi"
     version: "SFZ v2"
     support: "wip"
