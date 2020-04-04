@@ -79,7 +79,11 @@ categories:
     support: "wip"
   - name: "oscillator_multi"
     version: "SFZ v2"
-    support: "x"
+    support: "wip"
+    comment: "Only unison 3-9"
+  - name: "oscillator_detune"
+    version: "SFZ v2"
+    support: "wip"
 
 - name: "Instrument Settings"
   opcodes:
@@ -558,37 +562,37 @@ categories:
   opcodes:
   - name: "apan_dry"
     version: "SFZ v2"
-    support: "wip"
+    support: "v"
   - name: "apan_dry_onccN"
     version: "SFZ v2"
     support: "x"
   - name: "apan_wet"
     version: "SFZ v2"
-    support: "wip"
+    support: "v"
   - name: "apan_wet_onccN"
     version: "SFZ v2"
     support: "x"
   - name: "apan_depth"
     version: "SFZ v2"
-    support: "wip"
+    support: "v"
   - name: "apan_depth_onccN"
     version: "SFZ v2"
     support: "x"
   - name: "apan_freq"
     version: "SFZ v2"
-    support: "wip"
+    support: "v"
   - name: "apan_freq_onccN"
     version: "SFZ v2"
     support: "x"
   - name: "apan_phase"
     version: "SFZ v2"
-    support: "wip"
+    support: "v"
   - name: "apan_phase_onccN"
     version: "SFZ v2"
     support: "x"
   - name: "apan_waveform"
     version: "SFZ v2"
-    support: "wip"
+    support: "v"
 
 - name: "Effect: Lofi"
   opcodes:
@@ -674,10 +678,11 @@ categories:
   opcodes:
   - name: "strings_number"
     version: "SFZ v2"
-    support: "wip"
+    support: "v"
+    comment: "Difference of behavior"
   - name: "strings_wet"
     version: "sfizz"
-    support: "wip"
+    support: "v"
     undocumented: true
   - name: "strings_wet_onccN"
     version: "SFZ v2"
@@ -687,11 +692,11 @@ categories:
   opcodes:
   - name: "rectify_mode"
     version: "sfizz"
-    support: "wip"
+    support: "v"
     undocumented: true
   - name: "rectify"
     version: "sfizz"
-    support: "wip"
+    support: "v"
     undocumented: true
   - name: "rectify_onccN"
     version: "sfizz"
@@ -702,7 +707,7 @@ categories:
   opcodes:
   - name: "gain"
     version: "sfizz"
-    support: "wip"
+    support: "v"
     comment: "Disambiguation needed"
     undocumented: true
   - name: "gain_onccN"
@@ -715,7 +720,7 @@ categories:
   opcodes:
   - name: "width"
     version: "sfizz"
-    support: "wip"
+    support: "v"
     undocumented: true
     comment: "Disambiguation needed"
   - name: "width_onccN"
