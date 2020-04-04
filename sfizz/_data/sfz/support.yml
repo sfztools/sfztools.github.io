@@ -31,6 +31,9 @@ headers:
 - name: "master"
   version: "ARIA"
   support: "v"
+- name: "sample"
+  version: "SFZ v2"
+  support: "x"
 
 categories:
 - name: "Sound Source: Sample Playback"
