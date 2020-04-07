@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['interpolator_720',['Interpolator',['../classsfz_1_1_curve.html#a3de66a5c934f6a6fa043f5f2f4db8592',1,'sfz::Curve']]]
+  ['sfizz_5foversampling_5ffactor_5ft_154',['sfizz_oversampling_factor_t',['../sfizz_8h.html#a20d60faa6a0073219370ec125cfb9c2b',1,'sfizz.h']]]
 ];

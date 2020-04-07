@@ -107,6 +107,9 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">sfizz.h File Reference</div>  </div>
@@ -118,123 +121,173 @@ $(function() {
 <div class="textblock"><code>#include &lt;stddef.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a6d35a836f13fc29f389cc5238cda6bf5"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a></td></tr>
+<tr class="memdesc:a6d35a836f13fc29f389cc5238cda6bf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synth handle.  <a href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">More...</a><br /></td></tr>
+<tr class="separator:a6d35a836f13fc29f389cc5238cda6bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a20d60faa6a0073219370ec125cfb9c2b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a20d60faa6a0073219370ec125cfb9c2b">sfizz_oversampling_factor_t</a> { <b>SFIZZ_OVERSAMPLING_X1</b> = 1, 
+<b>SFIZZ_OVERSAMPLING_X2</b> = 2, 
+<b>SFIZZ_OVERSAMPLING_X4</b> = 4, 
+<b>SFIZZ_OVERSAMPLING_X8</b> = 8
+ }</td></tr>
+<tr class="memdesc:a20d60faa6a0073219370ec125cfb9c2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Oversampling factor.  <a href="sfizz_8h.html#a20d60faa6a0073219370ec125cfb9c2b">More...</a><br /></td></tr>
+<tr class="separator:a20d60faa6a0073219370ec125cfb9c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5833814d7befbccc93c93700b036dc00"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API sfizz_synth_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a5833814d7befbccc93c93700b036dc00">sfizz_create_synth</a> ()</td></tr>
+<tr class="memitem:a5833814d7befbccc93c93700b036dc00"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API <a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a5833814d7befbccc93c93700b036dc00">sfizz_create_synth</a> ()</td></tr>
 <tr class="memdesc:a5833814d7befbccc93c93700b036dc00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a sfizz synth.  <a href="sfizz_8h.html#a5833814d7befbccc93c93700b036dc00">More...</a><br /></td></tr>
 <tr class="separator:a5833814d7befbccc93c93700b036dc00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47fbf4b15adb59175fcaa234c24d99c0"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a47fbf4b15adb59175fcaa234c24d99c0">sfizz_free</a> (sfizz_synth_t *synth)</td></tr>
+<tr class="memitem:a47fbf4b15adb59175fcaa234c24d99c0"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a47fbf4b15adb59175fcaa234c24d99c0">sfizz_free</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
 <tr class="memdesc:a47fbf4b15adb59175fcaa234c24d99c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees an existing sfizz synth.  <a href="sfizz_8h.html#a47fbf4b15adb59175fcaa234c24d99c0">More...</a><br /></td></tr>
 <tr class="separator:a47fbf4b15adb59175fcaa234c24d99c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3b52ff6e9ad7a8d7e9f5b60d010311ca"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a3b52ff6e9ad7a8d7e9f5b60d010311ca">sfizz_load_file</a> (sfizz_synth_t *synth, const char *path)</td></tr>
+<tr class="memitem:a3b52ff6e9ad7a8d7e9f5b60d010311ca"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a3b52ff6e9ad7a8d7e9f5b60d010311ca">sfizz_load_file</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth, const char *path)</td></tr>
 <tr class="memdesc:a3b52ff6e9ad7a8d7e9f5b60d010311ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads an SFZ file.  <a href="sfizz_8h.html#a3b52ff6e9ad7a8d7e9f5b60d010311ca">More...</a><br /></td></tr>
 <tr class="separator:a3b52ff6e9ad7a8d7e9f5b60d010311ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99743b62aa4a56b6af89eb40bb8c78bc"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a99743b62aa4a56b6af89eb40bb8c78bc">sfizz_get_num_regions</a> (sfizz_synth_t *synth)</td></tr>
-<tr class="memdesc:a99743b62aa4a56b6af89eb40bb8c78bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of regions in the currently loaded SFZ file.  <a href="sfizz_8h.html#a99743b62aa4a56b6af89eb40bb8c78bc">More...</a><br /></td></tr>
+<tr class="memitem:a99743b62aa4a56b6af89eb40bb8c78bc"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a99743b62aa4a56b6af89eb40bb8c78bc">sfizz_get_num_regions</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
+<tr class="memdesc:a99743b62aa4a56b6af89eb40bb8c78bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of regions in the currently loaded SFZ file.  <a href="sfizz_8h.html#a99743b62aa4a56b6af89eb40bb8c78bc">More...</a><br /></td></tr>
 <tr class="separator:a99743b62aa4a56b6af89eb40bb8c78bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5610a937429837a02b88aa710b7daa59"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a5610a937429837a02b88aa710b7daa59">sfizz_get_num_groups</a> (sfizz_synth_t *synth)</td></tr>
-<tr class="memdesc:a5610a937429837a02b88aa710b7daa59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of groups in the currently loaded SFZ file.  <a href="sfizz_8h.html#a5610a937429837a02b88aa710b7daa59">More...</a><br /></td></tr>
+<tr class="memitem:a5610a937429837a02b88aa710b7daa59"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a5610a937429837a02b88aa710b7daa59">sfizz_get_num_groups</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
+<tr class="memdesc:a5610a937429837a02b88aa710b7daa59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of groups in the currently loaded SFZ file.  <a href="sfizz_8h.html#a5610a937429837a02b88aa710b7daa59">More...</a><br /></td></tr>
 <tr class="separator:a5610a937429837a02b88aa710b7daa59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a58b63f5284066396337e2a9fa87858"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a1a58b63f5284066396337e2a9fa87858">sfizz_get_num_masters</a> (sfizz_synth_t *synth)</td></tr>
-<tr class="memdesc:a1a58b63f5284066396337e2a9fa87858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of masters in the currently loaded SFZ file.  <a href="sfizz_8h.html#a1a58b63f5284066396337e2a9fa87858">More...</a><br /></td></tr>
+<tr class="memitem:a1a58b63f5284066396337e2a9fa87858"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a1a58b63f5284066396337e2a9fa87858">sfizz_get_num_masters</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
+<tr class="memdesc:a1a58b63f5284066396337e2a9fa87858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of masters in the currently loaded SFZ file.  <a href="sfizz_8h.html#a1a58b63f5284066396337e2a9fa87858">More...</a><br /></td></tr>
 <tr class="separator:a1a58b63f5284066396337e2a9fa87858"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae99e2a39ed7e908625b942faf315bbde"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#ae99e2a39ed7e908625b942faf315bbde">sfizz_get_num_curves</a> (sfizz_synth_t *synth)</td></tr>
-<tr class="memdesc:ae99e2a39ed7e908625b942faf315bbde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of curves in the currently loaded SFZ file.  <a href="sfizz_8h.html#ae99e2a39ed7e908625b942faf315bbde">More...</a><br /></td></tr>
+<tr class="memitem:ae99e2a39ed7e908625b942faf315bbde"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#ae99e2a39ed7e908625b942faf315bbde">sfizz_get_num_curves</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
+<tr class="memdesc:ae99e2a39ed7e908625b942faf315bbde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of curves in the currently loaded SFZ file.  <a href="sfizz_8h.html#ae99e2a39ed7e908625b942faf315bbde">More...</a><br /></td></tr>
 <tr class="separator:ae99e2a39ed7e908625b942faf315bbde"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa065eb3d93eb08f0148a8011192598ab"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#aa065eb3d93eb08f0148a8011192598ab">sfizz_export_midnam</a> (sfizz_synth_t *synth, const char *model)</td></tr>
+<tr class="memitem:aa065eb3d93eb08f0148a8011192598ab"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#aa065eb3d93eb08f0148a8011192598ab">sfizz_export_midnam</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth, const char *model)</td></tr>
 <tr class="memdesc:aa065eb3d93eb08f0148a8011192598ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Export a MIDI Name document describing the the currently loaded SFZ file.  <a href="sfizz_8h.html#aa065eb3d93eb08f0148a8011192598ab">More...</a><br /></td></tr>
 <tr class="separator:aa065eb3d93eb08f0148a8011192598ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d4791d1f40ae976f5bbbb7573955511"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a2d4791d1f40ae976f5bbbb7573955511">sfizz_get_num_preloaded_samples</a> (sfizz_synth_t *synth)</td></tr>
-<tr class="memdesc:a2d4791d1f40ae976f5bbbb7573955511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of preloaded samples for the current SFZ file.  <a href="sfizz_8h.html#a2d4791d1f40ae976f5bbbb7573955511">More...</a><br /></td></tr>
+<tr class="memitem:a2d4791d1f40ae976f5bbbb7573955511"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a2d4791d1f40ae976f5bbbb7573955511">sfizz_get_num_preloaded_samples</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
+<tr class="memdesc:a2d4791d1f40ae976f5bbbb7573955511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of preloaded samples for the current SFZ file.  <a href="sfizz_8h.html#a2d4791d1f40ae976f5bbbb7573955511">More...</a><br /></td></tr>
 <tr class="separator:a2d4791d1f40ae976f5bbbb7573955511"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96c434533f95022ed907ba5270679902"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a96c434533f95022ed907ba5270679902">sfizz_get_num_active_voices</a> (sfizz_synth_t *synth)</td></tr>
-<tr class="memdesc:a96c434533f95022ed907ba5270679902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of active voices.  <a href="sfizz_8h.html#a96c434533f95022ed907ba5270679902">More...</a><br /></td></tr>
+<tr class="memitem:a96c434533f95022ed907ba5270679902"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a96c434533f95022ed907ba5270679902">sfizz_get_num_active_voices</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
+<tr class="memdesc:a96c434533f95022ed907ba5270679902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of active voices.  <a href="sfizz_8h.html#a96c434533f95022ed907ba5270679902">More...</a><br /></td></tr>
 <tr class="separator:a96c434533f95022ed907ba5270679902"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad31787b359d564f7ec930373596af801"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#ad31787b359d564f7ec930373596af801">sfizz_set_samples_per_block</a> (sfizz_synth_t *synth, int samples_per_block)</td></tr>
-<tr class="memdesc:ad31787b359d564f7ec930373596af801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the expected number of samples per block.  <a href="sfizz_8h.html#ad31787b359d564f7ec930373596af801">More...</a><br /></td></tr>
+<tr class="memitem:ad31787b359d564f7ec930373596af801"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#ad31787b359d564f7ec930373596af801">sfizz_set_samples_per_block</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth, int samples_per_block)</td></tr>
+<tr class="memdesc:ad31787b359d564f7ec930373596af801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the expected number of samples per block.  <a href="sfizz_8h.html#ad31787b359d564f7ec930373596af801">More...</a><br /></td></tr>
 <tr class="separator:ad31787b359d564f7ec930373596af801"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a405d0f8f3ba3605b39c6bf5f21968e42"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a405d0f8f3ba3605b39c6bf5f21968e42">sfizz_set_sample_rate</a> (sfizz_synth_t *synth, float sample_rate)</td></tr>
-<tr class="memdesc:a405d0f8f3ba3605b39c6bf5f21968e42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the sample rate for the synth.  <a href="sfizz_8h.html#a405d0f8f3ba3605b39c6bf5f21968e42">More...</a><br /></td></tr>
+<tr class="memitem:a405d0f8f3ba3605b39c6bf5f21968e42"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a405d0f8f3ba3605b39c6bf5f21968e42">sfizz_set_sample_rate</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth, float sample_rate)</td></tr>
+<tr class="memdesc:a405d0f8f3ba3605b39c6bf5f21968e42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the sample rate for the synth.  <a href="sfizz_8h.html#a405d0f8f3ba3605b39c6bf5f21968e42">More...</a><br /></td></tr>
 <tr class="separator:a405d0f8f3ba3605b39c6bf5f21968e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8138cb3f374c5ebc25d2f8de61b60a8d"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a8138cb3f374c5ebc25d2f8de61b60a8d">sfizz_send_note_on</a> (sfizz_synth_t *synth, int delay, int note_number, char velocity)</td></tr>
+<tr class="memitem:a8138cb3f374c5ebc25d2f8de61b60a8d"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a8138cb3f374c5ebc25d2f8de61b60a8d">sfizz_send_note_on</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth, int delay, int note_number, char velocity)</td></tr>
 <tr class="memdesc:a8138cb3f374c5ebc25d2f8de61b60a8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a note on event to the synth.  <a href="sfizz_8h.html#a8138cb3f374c5ebc25d2f8de61b60a8d">More...</a><br /></td></tr>
 <tr class="separator:a8138cb3f374c5ebc25d2f8de61b60a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cff4a46cf2efe947a820068be8ab374"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a2cff4a46cf2efe947a820068be8ab374">sfizz_send_note_off</a> (sfizz_synth_t *synth, int delay, int note_number, char velocity)</td></tr>
+<tr class="memitem:a2cff4a46cf2efe947a820068be8ab374"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a2cff4a46cf2efe947a820068be8ab374">sfizz_send_note_off</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth, int delay, int note_number, char velocity)</td></tr>
 <tr class="memdesc:a2cff4a46cf2efe947a820068be8ab374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a note off event to the synth.  <a href="sfizz_8h.html#a2cff4a46cf2efe947a820068be8ab374">More...</a><br /></td></tr>
 <tr class="separator:a2cff4a46cf2efe947a820068be8ab374"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f951e0297fa4faff0457f3ef99a9530"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a0f951e0297fa4faff0457f3ef99a9530">sfizz_send_cc</a> (sfizz_synth_t *synth, int delay, int cc_number, char cc_value)</td></tr>
+<tr class="memitem:a0f951e0297fa4faff0457f3ef99a9530"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a0f951e0297fa4faff0457f3ef99a9530">sfizz_send_cc</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth, int delay, int cc_number, char cc_value)</td></tr>
 <tr class="memdesc:a0f951e0297fa4faff0457f3ef99a9530"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a CC event to the synth.  <a href="sfizz_8h.html#a0f951e0297fa4faff0457f3ef99a9530">More...</a><br /></td></tr>
 <tr class="separator:a0f951e0297fa4faff0457f3ef99a9530"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa37aa3daabbba80a2497eb4a2e604b1a"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#aa37aa3daabbba80a2497eb4a2e604b1a">sfizz_send_pitch_wheel</a> (sfizz_synth_t *synth, int delay, int pitch)</td></tr>
+<tr class="memitem:aa37aa3daabbba80a2497eb4a2e604b1a"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#aa37aa3daabbba80a2497eb4a2e604b1a">sfizz_send_pitch_wheel</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth, int delay, int pitch)</td></tr>
 <tr class="memdesc:aa37aa3daabbba80a2497eb4a2e604b1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a pitch wheel event.  <a href="sfizz_8h.html#aa37aa3daabbba80a2497eb4a2e604b1a">More...</a><br /></td></tr>
 <tr class="separator:aa37aa3daabbba80a2497eb4a2e604b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1955b112fa8fa7162c665ada79d3badd"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a1955b112fa8fa7162c665ada79d3badd">sfizz_send_aftertouch</a> (sfizz_synth_t *synth, int delay, char aftertouch)</td></tr>
+<tr class="memitem:a1955b112fa8fa7162c665ada79d3badd"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a1955b112fa8fa7162c665ada79d3badd">sfizz_send_aftertouch</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth, int delay, char aftertouch)</td></tr>
 <tr class="memdesc:a1955b112fa8fa7162c665ada79d3badd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send an aftertouch event.  <a href="sfizz_8h.html#a1955b112fa8fa7162c665ada79d3badd">More...</a><br /></td></tr>
 <tr class="separator:a1955b112fa8fa7162c665ada79d3badd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e24f99a94ee71cb5bd2dfa48e2b7ea0"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a5e24f99a94ee71cb5bd2dfa48e2b7ea0">sfizz_send_tempo</a> (sfizz_synth_t *synth, int delay, float seconds_per_quarter)</td></tr>
+<tr class="memitem:a5e24f99a94ee71cb5bd2dfa48e2b7ea0"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a5e24f99a94ee71cb5bd2dfa48e2b7ea0">sfizz_send_tempo</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth, int delay, float seconds_per_quarter)</td></tr>
 <tr class="memdesc:a5e24f99a94ee71cb5bd2dfa48e2b7ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a tempo event.  <a href="sfizz_8h.html#a5e24f99a94ee71cb5bd2dfa48e2b7ea0">More...</a><br /></td></tr>
 <tr class="separator:a5e24f99a94ee71cb5bd2dfa48e2b7ea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40757584901175974d05d687570bd39a"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a40757584901175974d05d687570bd39a">sfizz_render_block</a> (sfizz_synth_t *synth, float **channels, int num_channels, int num_frames)</td></tr>
+<tr class="memitem:a40757584901175974d05d687570bd39a"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a40757584901175974d05d687570bd39a">sfizz_render_block</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth, float **channels, int num_channels, int num_frames)</td></tr>
 <tr class="memdesc:a40757584901175974d05d687570bd39a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Render a block audio data into a stereo channel.  <a href="sfizz_8h.html#a40757584901175974d05d687570bd39a">More...</a><br /></td></tr>
 <tr class="separator:a40757584901175974d05d687570bd39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe62939ce7648c1c4c4c7bc2a5bf7191"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#afe62939ce7648c1c4c4c7bc2a5bf7191">sfizz_get_preload_size</a> (sfizz_synth_t *synth)</td></tr>
+<tr class="memitem:afe62939ce7648c1c4c4c7bc2a5bf7191"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#afe62939ce7648c1c4c4c7bc2a5bf7191">sfizz_get_preload_size</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
 <tr class="memdesc:afe62939ce7648c1c4c4c7bc2a5bf7191"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of the preloaded data.  <a href="sfizz_8h.html#afe62939ce7648c1c4c4c7bc2a5bf7191">More...</a><br /></td></tr>
 <tr class="separator:afe62939ce7648c1c4c4c7bc2a5bf7191"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a674c7e0a28e241c5e82e59d01246e373"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a674c7e0a28e241c5e82e59d01246e373">sfizz_set_preload_size</a> (sfizz_synth_t *synth, unsigned int preload_size)</td></tr>
-<tr class="memdesc:a674c7e0a28e241c5e82e59d01246e373"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the size of the preloaded data in number of floats (not bytes).  <a href="sfizz_8h.html#a674c7e0a28e241c5e82e59d01246e373">More...</a><br /></td></tr>
+<tr class="memitem:a674c7e0a28e241c5e82e59d01246e373"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a674c7e0a28e241c5e82e59d01246e373">sfizz_set_preload_size</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth, unsigned int preload_size)</td></tr>
+<tr class="memdesc:a674c7e0a28e241c5e82e59d01246e373"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the size of the preloaded data in number of floats (not bytes).  <a href="sfizz_8h.html#a674c7e0a28e241c5e82e59d01246e373">More...</a><br /></td></tr>
 <tr class="separator:a674c7e0a28e241c5e82e59d01246e373"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9edc40593d05de8b2ea95bcb63fce4e"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API sfizz_oversampling_factor_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#ad9edc40593d05de8b2ea95bcb63fce4e">sfizz_get_oversampling_factor</a> (sfizz_synth_t *synth)</td></tr>
+<tr class="memitem:ad9edc40593d05de8b2ea95bcb63fce4e"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API <a class="el" href="sfizz_8h.html#a20d60faa6a0073219370ec125cfb9c2b">sfizz_oversampling_factor_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#ad9edc40593d05de8b2ea95bcb63fce4e">sfizz_get_oversampling_factor</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
 <tr class="memdesc:ad9edc40593d05de8b2ea95bcb63fce4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the internal oversampling rate.  <a href="sfizz_8h.html#ad9edc40593d05de8b2ea95bcb63fce4e">More...</a><br /></td></tr>
 <tr class="separator:ad9edc40593d05de8b2ea95bcb63fce4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a0b832acb46c28bb9928275cf771d75"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a8a0b832acb46c28bb9928275cf771d75">sfizz_set_oversampling_factor</a> (sfizz_synth_t *synth, sfizz_oversampling_factor_t oversampling)</td></tr>
+<tr class="memitem:a8a0b832acb46c28bb9928275cf771d75"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a8a0b832acb46c28bb9928275cf771d75">sfizz_set_oversampling_factor</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth, <a class="el" href="sfizz_8h.html#a20d60faa6a0073219370ec125cfb9c2b">sfizz_oversampling_factor_t</a> oversampling)</td></tr>
 <tr class="memdesc:a8a0b832acb46c28bb9928275cf771d75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the internal oversampling rate.  <a href="sfizz_8h.html#a8a0b832acb46c28bb9928275cf771d75">More...</a><br /></td></tr>
 <tr class="separator:a8a0b832acb46c28bb9928275cf771d75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7efac24193ff27b80adcc4a5c5e96cb"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#ae7efac24193ff27b80adcc4a5c5e96cb">sfizz_set_volume</a> (sfizz_synth_t *synth, float volume)</td></tr>
+<tr class="memitem:ae7efac24193ff27b80adcc4a5c5e96cb"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#ae7efac24193ff27b80adcc4a5c5e96cb">sfizz_set_volume</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth, float volume)</td></tr>
 <tr class="memdesc:ae7efac24193ff27b80adcc4a5c5e96cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the global instrument volume.  <a href="sfizz_8h.html#ae7efac24193ff27b80adcc4a5c5e96cb">More...</a><br /></td></tr>
 <tr class="separator:ae7efac24193ff27b80adcc4a5c5e96cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8db0c89467abc4de0ff0b214b3fbadb"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#ad8db0c89467abc4de0ff0b214b3fbadb">sfizz_get_volume</a> (sfizz_synth_t *synth)</td></tr>
-<tr class="memdesc:ad8db0c89467abc4de0ff0b214b3fbadb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the global instrument volume.  <a href="sfizz_8h.html#ad8db0c89467abc4de0ff0b214b3fbadb">More...</a><br /></td></tr>
+<tr class="memitem:ad8db0c89467abc4de0ff0b214b3fbadb"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#ad8db0c89467abc4de0ff0b214b3fbadb">sfizz_get_volume</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
+<tr class="memdesc:ad8db0c89467abc4de0ff0b214b3fbadb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the global instrument volume.  <a href="sfizz_8h.html#ad8db0c89467abc4de0ff0b214b3fbadb">More...</a><br /></td></tr>
 <tr class="separator:ad8db0c89467abc4de0ff0b214b3fbadb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77ab0c8b6eaf0b2256823a2b6502585d"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a77ab0c8b6eaf0b2256823a2b6502585d">sfizz_set_num_voices</a> (sfizz_synth_t *synth, int num_voices)</td></tr>
-<tr class="memdesc:a77ab0c8b6eaf0b2256823a2b6502585d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of voices used by the synth.  <a href="sfizz_8h.html#a77ab0c8b6eaf0b2256823a2b6502585d">More...</a><br /></td></tr>
+<tr class="memitem:a77ab0c8b6eaf0b2256823a2b6502585d"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a77ab0c8b6eaf0b2256823a2b6502585d">sfizz_set_num_voices</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth, int num_voices)</td></tr>
+<tr class="memdesc:a77ab0c8b6eaf0b2256823a2b6502585d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the number of voices used by the synth.  <a href="sfizz_8h.html#a77ab0c8b6eaf0b2256823a2b6502585d">More...</a><br /></td></tr>
 <tr class="separator:a77ab0c8b6eaf0b2256823a2b6502585d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afeed08b80c4c2d5a0913dab88a22a153"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#afeed08b80c4c2d5a0913dab88a22a153">sfizz_get_num_voices</a> (sfizz_synth_t *synth)</td></tr>
-<tr class="memdesc:afeed08b80c4c2d5a0913dab88a22a153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of voices.  <a href="sfizz_8h.html#afeed08b80c4c2d5a0913dab88a22a153">More...</a><br /></td></tr>
+<tr class="memitem:afeed08b80c4c2d5a0913dab88a22a153"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#afeed08b80c4c2d5a0913dab88a22a153">sfizz_get_num_voices</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
+<tr class="memdesc:afeed08b80c4c2d5a0913dab88a22a153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of voices.  <a href="sfizz_8h.html#afeed08b80c4c2d5a0913dab88a22a153">More...</a><br /></td></tr>
 <tr class="separator:afeed08b80c4c2d5a0913dab88a22a153"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4c60d91e0414eb3516828b7226ea99a"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#aa4c60d91e0414eb3516828b7226ea99a">sfizz_get_num_buffers</a> (sfizz_synth_t *synth)</td></tr>
-<tr class="memdesc:aa4c60d91e0414eb3516828b7226ea99a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of allocated buffers from the synth.  <a href="sfizz_8h.html#aa4c60d91e0414eb3516828b7226ea99a">More...</a><br /></td></tr>
+<tr class="memitem:aa4c60d91e0414eb3516828b7226ea99a"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#aa4c60d91e0414eb3516828b7226ea99a">sfizz_get_num_buffers</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
+<tr class="memdesc:aa4c60d91e0414eb3516828b7226ea99a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of allocated buffers from the synth.  <a href="sfizz_8h.html#aa4c60d91e0414eb3516828b7226ea99a">More...</a><br /></td></tr>
 <tr class="separator:aa4c60d91e0414eb3516828b7226ea99a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c594195d40428a5d79f02cb274afc5a"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a3c594195d40428a5d79f02cb274afc5a">sfizz_get_num_bytes</a> (sfizz_synth_t *synth)</td></tr>
+<tr class="memitem:a3c594195d40428a5d79f02cb274afc5a"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a3c594195d40428a5d79f02cb274afc5a">sfizz_get_num_bytes</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
 <tr class="memdesc:a3c594195d40428a5d79f02cb274afc5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of bytes allocated from the synth.  <a href="sfizz_8h.html#a3c594195d40428a5d79f02cb274afc5a">More...</a><br /></td></tr>
 <tr class="separator:a3c594195d40428a5d79f02cb274afc5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d18eaf0d9b17546655633483d5c534a"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a9d18eaf0d9b17546655633483d5c534a">sfizz_enable_freewheeling</a> (sfizz_synth_t *synth)</td></tr>
-<tr class="memdesc:a9d18eaf0d9b17546655633483d5c534a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables freewheeling on the synth.  <a href="sfizz_8h.html#a9d18eaf0d9b17546655633483d5c534a">More...</a><br /></td></tr>
+<tr class="memitem:a9d18eaf0d9b17546655633483d5c534a"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a9d18eaf0d9b17546655633483d5c534a">sfizz_enable_freewheeling</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
+<tr class="memdesc:a9d18eaf0d9b17546655633483d5c534a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable freewheeling on the synth.  <a href="sfizz_8h.html#a9d18eaf0d9b17546655633483d5c534a">More...</a><br /></td></tr>
 <tr class="separator:a9d18eaf0d9b17546655633483d5c534a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0236d41298634d5715f0bd15367db22"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#af0236d41298634d5715f0bd15367db22">sfizz_disable_freewheeling</a> (sfizz_synth_t *synth)</td></tr>
-<tr class="memdesc:af0236d41298634d5715f0bd15367db22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables freewheeling on the synth.  <a href="sfizz_8h.html#af0236d41298634d5715f0bd15367db22">More...</a><br /></td></tr>
+<tr class="memitem:af0236d41298634d5715f0bd15367db22"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#af0236d41298634d5715f0bd15367db22">sfizz_disable_freewheeling</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
+<tr class="memdesc:af0236d41298634d5715f0bd15367db22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable freewheeling on the synth.  <a href="sfizz_8h.html#af0236d41298634d5715f0bd15367db22">More...</a><br /></td></tr>
 <tr class="separator:af0236d41298634d5715f0bd15367db22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fc5960d946b347d8c6b314e9ce68691"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a5fc5960d946b347d8c6b314e9ce68691">sfizz_get_unknown_opcodes</a> (sfizz_synth_t *synth)</td></tr>
-<tr class="memdesc:a5fc5960d946b347d8c6b314e9ce68691"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a comma separated list of unknown opcodes.  <a href="sfizz_8h.html#a5fc5960d946b347d8c6b314e9ce68691">More...</a><br /></td></tr>
+<tr class="memitem:a5fc5960d946b347d8c6b314e9ce68691"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a5fc5960d946b347d8c6b314e9ce68691">sfizz_get_unknown_opcodes</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
+<tr class="memdesc:a5fc5960d946b347d8c6b314e9ce68691"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a comma separated list of unknown opcodes.  <a href="sfizz_8h.html#a5fc5960d946b347d8c6b314e9ce68691">More...</a><br /></td></tr>
 <tr class="separator:a5fc5960d946b347d8c6b314e9ce68691"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5361eee6fe64da7e0f0cf200a900620b"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a5361eee6fe64da7e0f0cf200a900620b">sfizz_should_reload_file</a> (sfizz_synth_t *synth)</td></tr>
+<tr class="memitem:a5361eee6fe64da7e0f0cf200a900620b"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a5361eee6fe64da7e0f0cf200a900620b">sfizz_should_reload_file</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
 <tr class="memdesc:a5361eee6fe64da7e0f0cf200a900620b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the SFZ should be reloaded.  <a href="sfizz_8h.html#a5361eee6fe64da7e0f0cf200a900620b">More...</a><br /></td></tr>
 <tr class="separator:a5361eee6fe64da7e0f0cf200a900620b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6111086af779304b5653d3bd39d6fea"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#ab6111086af779304b5653d3bd39d6fea">sfizz_enable_logging</a> (sfizz_synth_t *synth)</td></tr>
+<tr class="memitem:ab6111086af779304b5653d3bd39d6fea"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#ab6111086af779304b5653d3bd39d6fea">sfizz_enable_logging</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
 <tr class="memdesc:ab6111086af779304b5653d3bd39d6fea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable logging of timings to sidecar CSV files.  <a href="sfizz_8h.html#ab6111086af779304b5653d3bd39d6fea">More...</a><br /></td></tr>
 <tr class="separator:ab6111086af779304b5653d3bd39d6fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad92ca48e4b74dee5733098395103fe95"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#ad92ca48e4b74dee5733098395103fe95">sfizz_disable_logging</a> (sfizz_synth_t *synth)</td></tr>
+<tr class="memitem:ad92ca48e4b74dee5733098395103fe95"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#ad92ca48e4b74dee5733098395103fe95">sfizz_disable_logging</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
 <tr class="memdesc:ad92ca48e4b74dee5733098395103fe95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable logging.  <a href="sfizz_8h.html#ad92ca48e4b74dee5733098395103fe95">More...</a><br /></td></tr>
 <tr class="separator:ad92ca48e4b74dee5733098395103fe95"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9806934bf0e8656354b6715540a0f8eb"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a9806934bf0e8656354b6715540a0f8eb">sfizz_set_logging_prefix</a> (sfizz_synth_t *synth, const char *prefix)</td></tr>
+<tr class="memitem:a9806934bf0e8656354b6715540a0f8eb"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a9806934bf0e8656354b6715540a0f8eb">sfizz_set_logging_prefix</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth, const char *prefix)</td></tr>
 <tr class="memdesc:a9806934bf0e8656354b6715540a0f8eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable logging of timings to sidecar CSV files.  <a href="sfizz_8h.html#a9806934bf0e8656354b6715540a0f8eb">More...</a><br /></td></tr>
 <tr class="separator:a9806934bf0e8656354b6715540a0f8eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fdac76fc04b724935d0554c44166f92"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a2fdac76fc04b724935d0554c44166f92">sfizz_all_sound_off</a> (sfizz_synth_t *synth)</td></tr>
+<tr class="memitem:a2fdac76fc04b724935d0554c44166f92"><td class="memItemLeft" align="right" valign="top">SFIZZ_EXPORTED_API void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sfizz_8h.html#a2fdac76fc04b724935d0554c44166f92">sfizz_all_sound_off</a> (<a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *synth)</td></tr>
 <tr class="memdesc:a2fdac76fc04b724935d0554c44166f92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shuts down the current processing, clear buffers and reset the voices.  <a href="sfizz_8h.html#a2fdac76fc04b724935d0554c44166f92">More...</a><br /></td></tr>
 <tr class="separator:a2fdac76fc04b724935d0554c44166f92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>sfizz public C API </p>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Typedef Documentation</h2>
+<a id="a6d35a836f13fc29f389cc5238cda6bf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d35a836f13fc29f389cc5238cda6bf5">&#9670;&nbsp;</a></span>sfizz_synth_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> <a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Synth handle. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a20d60faa6a0073219370ec125cfb9c2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20d60faa6a0073219370ec125cfb9c2b">&#9670;&nbsp;</a></span>sfizz_oversampling_factor_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="sfizz_8h.html#a20d60faa6a0073219370ec125cfb9c2b">sfizz_oversampling_factor_t</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Oversampling factor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="a2fdac76fc04b724935d0554c44166f92"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2fdac76fc04b724935d0554c44166f92">&#9670;&nbsp;</a></span>sfizz_all_sound_off()</h2>
 
@@ -244,7 +297,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_all_sound_off </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
@@ -254,7 +307,7 @@ Functions</h2></td></tr>
 <p>Shuts down the current processing, clear buffers and reset the voices. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td></td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
@@ -268,7 +321,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">SFIZZ_EXPORTED_API sfizz_synth_t* sfizz_create_synth </td>
+          <td class="memname">SFIZZ_EXPORTED_API <a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a>* sfizz_create_synth </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -277,8 +330,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates a sfizz synth. </p>
-<p>This object has to be freed by the caller using <a class="el" href="sfizz_8h.html#a47fbf4b15adb59175fcaa234c24d99c0" title="Frees an existing sfizz synth.">sfizz_free()</a>. The synth by default is set at 48 kHz and a maximum block size of 1024. You should change these values if they are not correct for your application.</p>
-<dl class="section return"><dt>Returns</dt><dd>sfizz_synth_t* </dd></dl>
+<p>This object has to be freed by the caller using <a class="el" href="sfizz_8h.html#a47fbf4b15adb59175fcaa234c24d99c0" title="Frees an existing sfizz synth.">sfizz_free()</a>. The synth by default is set at 48 kHz and a maximum block size of 1024. You should change these values if they are not correct for your application. </p>
 
 </div>
 </div>
@@ -291,17 +343,17 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_disable_freewheeling </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Disables freewheeling on the synth. </p>
+<p>Disable freewheeling on the synth. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td></td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
@@ -317,7 +369,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_disable_logging </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
@@ -327,7 +379,7 @@ Functions</h2></td></tr>
 <p>Disable logging. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td></td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
@@ -343,17 +395,17 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_enable_freewheeling </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Enables freewheeling on the synth. </p>
+<p>Enable freewheeling on the synth. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td></td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
@@ -369,7 +421,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_enable_logging </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
@@ -380,7 +432,7 @@ Functions</h2></td></tr>
 <p>This can produce many outputs so use with caution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td></td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
@@ -396,7 +448,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API char* sfizz_export_midnam </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em>, </td>
         </tr>
         <tr>
@@ -416,12 +468,12 @@ Functions</h2></td></tr>
 <p>Export a MIDI Name document describing the the currently loaded SFZ file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth </td></tr>
-    <tr><td class="paramname">model</td><td>the model name used if a non-empty string, otherwise generated</td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
+    <tr><td class="paramname">model</td><td>The model name used if a non-empty string, otherwise generated.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>char* a newly allocated XML string, which must be freed after use </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A newly allocated XML string, which must be freed after use. </dd></dl>
 
 </div>
 </div>
@@ -434,7 +486,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_free </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
@@ -444,7 +496,7 @@ Functions</h2></td></tr>
 <p>Frees an existing sfizz synth. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth to destroy </td></tr>
+    <tr><td class="paramname">synth</td><td>The synth to destroy. </td></tr>
   </table>
   </dd>
 </dl>
@@ -460,22 +512,21 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API int sfizz_get_num_active_voices </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the number of active voices. </p>
+<p>Return the number of active voices. </p>
 <p>Note that this function is a basic indicator and does not aim to be perfect. In particular, it runs on the calling thread so voices may well start or stop while the function is checking which voice is active.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth</td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>size_t the number of playing voices </dd></dl>
 
 </div>
 </div>
@@ -488,21 +539,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API int sfizz_get_num_buffers </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get the number of allocated buffers from the synth. </p>
+<p>Return the number of allocated buffers from the synth. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth</td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The number of buffers held by the synth </dd></dl>
 
 </div>
 </div>
@@ -515,7 +565,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API int sfizz_get_num_bytes </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
@@ -526,11 +576,10 @@ Functions</h2></td></tr>
 <p>Note that this value can be less than the actual memory usage since it only counts the buffer objects managed by sfizz.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth</td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The number of bytes held by the synth in buffers; </dd></dl>
 
 </div>
 </div>
@@ -543,21 +592,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API int sfizz_get_num_curves </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the number of curves in the currently loaded SFZ file. </p>
+<p>Return the number of curves in the currently loaded SFZ file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth</td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>int the number of curves </dd></dl>
 
 </div>
 </div>
@@ -570,21 +618,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API int sfizz_get_num_groups </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the number of groups in the currently loaded SFZ file. </p>
+<p>Return the number of groups in the currently loaded SFZ file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth</td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>int the number of groups </dd></dl>
 
 </div>
 </div>
@@ -597,21 +644,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API int sfizz_get_num_masters </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the number of masters in the currently loaded SFZ file. </p>
+<p>Return the number of masters in the currently loaded SFZ file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth</td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>int the number of masters </dd></dl>
 
 </div>
 </div>
@@ -624,21 +670,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API size_t sfizz_get_num_preloaded_samples </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the number of preloaded samples for the current SFZ file. </p>
+<p>Return the number of preloaded samples for the current SFZ file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth</td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>int the number of preloaded samples </dd></dl>
 
 </div>
 </div>
@@ -651,21 +696,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API int sfizz_get_num_regions </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the number of regions in the currently loaded SFZ file. </p>
+<p>Return the number of regions in the currently loaded SFZ file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth</td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>int the number of regions </dd></dl>
 
 </div>
 </div>
@@ -678,21 +722,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API int sfizz_get_num_voices </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the number of voices. </p>
+<p>Return the number of voices. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td></td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>num_voices </dd></dl>
 
 </div>
 </div>
@@ -703,9 +746,9 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">SFIZZ_EXPORTED_API sfizz_oversampling_factor_t sfizz_get_oversampling_factor </td>
+          <td class="memname">SFIZZ_EXPORTED_API <a class="el" href="sfizz_8h.html#a20d60faa6a0073219370ec125cfb9c2b">sfizz_oversampling_factor_t</a> sfizz_get_oversampling_factor </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
@@ -716,11 +759,10 @@ Functions</h2></td></tr>
 <p>This is the sampling rate of the engine, not the output or expected rate of the calling function. For the latter use the <code>get_sample_rate()</code> functions.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth</td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The internal sample rate of the engine </dd></dl>
 
 </div>
 </div>
@@ -733,7 +775,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API unsigned int sfizz_get_preload_size </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
@@ -744,11 +786,10 @@ Functions</h2></td></tr>
 <p>This returns the number of floats used in the preloading buffers.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth</td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>the preloaded data size in sizeof(floats) </dd></dl>
 
 </div>
 </div>
@@ -761,22 +802,21 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API char* sfizz_get_unknown_opcodes </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get a comma separated list of unknown opcodes. </p>
+<p>Return a comma separated list of unknown opcodes. </p>
 <p>The caller has to free() the string returned. This function allocates memory, do not call on the audio thread.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td></td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>char* </dd></dl>
 
 </div>
 </div>
@@ -789,21 +829,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API float sfizz_get_volume </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get the global instrument volume. </p>
+<p>Return the global instrument volume. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth</td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>float the instrument volume </dd></dl>
 
 </div>
 </div>
@@ -816,7 +855,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API bool sfizz_load_file </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em>, </td>
         </tr>
         <tr>
@@ -842,9 +881,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true when file loading went OK. </dd>
-<dd>
-false if some error occured while loading. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b style="color:blue">true</b> when file loading went OK, <b style="color:blue">false</b> if some error occured while loading. </dd></dl>
 
 </div>
 </div>
@@ -857,7 +894,7 @@ false if some error occured while loading. </dd></dl>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_render_block </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em>, </td>
         </tr>
         <tr>
@@ -890,10 +927,10 @@ false if some error occured while loading. </dd></dl>
 <p>No other channel configuration is supported. The synth will gracefully ignore your request if you provide a value. You should pass all the relevant events for the block (midi notes, CCs, ...) before rendering each block. The synth will memorize the inputs and render sample accurates envelopes depending on the input events passed to it.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth </td></tr>
-    <tr><td class="paramname">channels</td><td>pointers to the left and right channel of the output </td></tr>
-    <tr><td class="paramname">num_channels</td><td>should be equal to 2 for the time being. </td></tr>
-    <tr><td class="paramname">num_frames</td><td>number of frames to fill. This should be less than or equal to the expected samples_per_block. </td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
+    <tr><td class="paramname">channels</td><td>Pointers to the left and right channel of the output. </td></tr>
+    <tr><td class="paramname">num_channels</td><td>Should be equal to 2 for the time being. </td></tr>
+    <tr><td class="paramname">num_frames</td><td>Number of frames to fill. This should be less than or equal to the expected samples_per_block. </td></tr>
   </table>
   </dd>
 </dl>
@@ -909,7 +946,7 @@ false if some error occured while loading. </dd></dl>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_send_aftertouch </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em>, </td>
         </tr>
         <tr>
@@ -954,7 +991,7 @@ false if some error occured while loading. </dd></dl>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_send_cc </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em>, </td>
         </tr>
         <tr>
@@ -987,10 +1024,10 @@ false if some error occured while loading. </dd></dl>
 <p>As with all MIDI events, this needs to happen before the call to sfizz_render_block in each block and should appear in order of the delays.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth </td></tr>
-    <tr><td class="paramname">delay</td><td>the delay of the event in the block, in samples. </td></tr>
-    <tr><td class="paramname">cc_number</td><td>the MIDI CC number </td></tr>
-    <tr><td class="paramname">cc_value</td><td>the MIDI CC value </td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
+    <tr><td class="paramname">delay</td><td>The delay of the event in the block, in samples. </td></tr>
+    <tr><td class="paramname">cc_number</td><td>The MIDI CC number. </td></tr>
+    <tr><td class="paramname">cc_value</td><td>The MIDI CC value. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1006,7 +1043,7 @@ false if some error occured while loading. </dd></dl>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_send_note_off </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em>, </td>
         </tr>
         <tr>
@@ -1039,10 +1076,10 @@ false if some error occured while loading. </dd></dl>
 <p>As with all MIDI events, this needs to happen before the call to sfizz_render_block in each block and should appear in order of the delays. As per the SFZ spec the velocity of note-off events is usually replaced by the note-on velocity.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth </td></tr>
-    <tr><td class="paramname">delay</td><td>the delay of the event in the block, in samples. </td></tr>
-    <tr><td class="paramname">note_number</td><td>the MIDI note number </td></tr>
-    <tr><td class="paramname">velocity</td><td>the MIDI velocity </td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
+    <tr><td class="paramname">delay</td><td>The delay of the event in the block, in samples. </td></tr>
+    <tr><td class="paramname">note_number</td><td>The MIDI note number. </td></tr>
+    <tr><td class="paramname">velocity</td><td>The MIDI velocity. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1058,7 +1095,7 @@ false if some error occured while loading. </dd></dl>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_send_note_on </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em>, </td>
         </tr>
         <tr>
@@ -1091,10 +1128,10 @@ false if some error occured while loading. </dd></dl>
 <p>As with all MIDI events, this needs to happen before the call to sfizz_render_block in each block and should appear in order of the delays.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth </td></tr>
-    <tr><td class="paramname">delay</td><td>the delay of the event in the block, in samples. </td></tr>
-    <tr><td class="paramname">note_number</td><td>the MIDI note number </td></tr>
-    <tr><td class="paramname">velocity</td><td>the MIDI velocity </td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
+    <tr><td class="paramname">delay</td><td>The delay of the event in the block, in samples. </td></tr>
+    <tr><td class="paramname">note_number</td><td>The MIDI note number. </td></tr>
+    <tr><td class="paramname">velocity</td><td>The MIDI velocity. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1110,7 +1147,7 @@ false if some error occured while loading. </dd></dl>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_send_pitch_wheel </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em>, </td>
         </tr>
         <tr>
@@ -1137,9 +1174,9 @@ false if some error occured while loading. </dd></dl>
 <p>As with all MIDI events, this needs to happen before the call to sfizz_render_block in each block and should appear in order of the delays.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth </td></tr>
-    <tr><td class="paramname">delay</td><td>The delay </td></tr>
-    <tr><td class="paramname">pitch</td><td>The pitch </td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
+    <tr><td class="paramname">delay</td><td>The delay. </td></tr>
+    <tr><td class="paramname">pitch</td><td>The pitch. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1155,7 +1192,7 @@ false if some error occured while loading. </dd></dl>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_send_tempo </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em>, </td>
         </tr>
         <tr>
@@ -1182,9 +1219,9 @@ false if some error occured while loading. </dd></dl>
 <p>(CURRENTLY UNIMPLEMENTED)</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth </td></tr>
-    <tr><td class="paramname">delay</td><td>The delay </td></tr>
-    <tr><td class="paramname">seconds_per_quarter</td><td>The seconds per quarter </td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
+    <tr><td class="paramname">delay</td><td>The delay. </td></tr>
+    <tr><td class="paramname">seconds_per_quarter</td><td>The seconds per quarter. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1200,7 +1237,7 @@ false if some error occured while loading. </dd></dl>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_set_logging_prefix </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em>, </td>
         </tr>
         <tr>
@@ -1221,7 +1258,8 @@ false if some error occured while loading. </dd></dl>
 <p>This can produce many outputs so use with caution.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td></td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
+    <tr><td class="paramname">prefix</td><td>The prefix. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1237,7 +1275,7 @@ false if some error occured while loading. </dd></dl>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_set_num_voices </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em>, </td>
         </tr>
         <tr>
@@ -1254,11 +1292,11 @@ false if some error occured while loading. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the number of voices used by the synth. </p>
+<p>Set the number of voices used by the synth. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth </td></tr>
-    <tr><td class="paramname">num_voices</td><td>The number voices </td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
+    <tr><td class="paramname">num_voices</td><td>The number of voices. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1274,13 +1312,13 @@ false if some error occured while loading. </dd></dl>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API bool sfizz_set_oversampling_factor </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">sfizz_oversampling_factor_t&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a20d60faa6a0073219370ec125cfb9c2b">sfizz_oversampling_factor_t</a>&#160;</td>
           <td class="paramname"><em>oversampling</em>&#160;</td>
         </tr>
         <tr>
@@ -1296,12 +1334,12 @@ false if some error occured while loading. </dd></dl>
 <p>Increasing this value (up to x8 oversampling) improves the quality of the output at the expense of memory consumption and background loading speed. The main render path still uses the same linear interpolation algorithm and should not see its performance decrease, but the files are oversampled upon loading which increases the stress on the background loader and reduce the loading speed. You can tweak the size of the preloaded data to compensate for the memory increase, but the full loading will need to take place anyway.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">synth</td><td>The synth </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">preload_size</td><td>The preload size</td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">synth</td><td>The synth. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">oversampling</td><td>The oversampling factor.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the oversampling factor was correct </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b style="color:blue">true</b> if the oversampling factor was correct, <b style="color:blue">false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -1314,7 +1352,7 @@ false if some error occured while loading. </dd></dl>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_set_preload_size </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em>, </td>
         </tr>
         <tr>
@@ -1331,12 +1369,12 @@ false if some error occured while loading. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the size of the preloaded data in number of floats (not bytes). </p>
+<p>Set the size of the preloaded data in number of floats (not bytes). </p>
 <p>This will disable the callbacks for the duration of the load.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">synth</td><td>The synth </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">preload_size</td><td>The preload size </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">synth</td><td>The synth. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">preload_size</td><td>The preload size. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1352,7 +1390,7 @@ false if some error occured while loading. </dd></dl>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_set_sample_rate </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em>, </td>
         </tr>
         <tr>
@@ -1369,12 +1407,12 @@ false if some error occured while loading. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the sample rate for the synth. </p>
+<p>Set the sample rate for the synth. </p>
 <p>This is the output sample rate. This setting does not affect the internal processing.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">synth</td><td>The synth </td></tr>
-    <tr><td class="paramname">sample_rate</td><td>the sample rate </td></tr>
+    <tr><td class="paramname">sample_rate</td><td>The sample rate. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1390,7 +1428,7 @@ false if some error occured while loading. </dd></dl>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_set_samples_per_block </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em>, </td>
         </tr>
         <tr>
@@ -1407,12 +1445,12 @@ false if some error occured while loading. </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the expected number of samples per block. </p>
+<p>Set the expected number of samples per block. </p>
 <p>If unsure, give an upper bound since right now ugly things may happen if you go over this number.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth </td></tr>
-    <tr><td class="paramname">samples_per_block</td><td>the number of samples per block </td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
+    <tr><td class="paramname">samples_per_block</td><td>The number of samples per block. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1428,7 +1466,7 @@ false if some error occured while loading. </dd></dl>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API void sfizz_set_volume </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em>, </td>
         </tr>
         <tr>
@@ -1448,8 +1486,8 @@ false if some error occured while loading. </dd></dl>
 <p>Set the global instrument volume. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td>The synth </td></tr>
-    <tr><td class="paramname">volume</td><td>the new volume </td></tr>
+    <tr><td class="paramname">synth</td><td>The synth. </td></tr>
+    <tr><td class="paramname">volume</td><td>The new volume. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1465,7 +1503,7 @@ false if some error occured while loading. </dd></dl>
         <tr>
           <td class="memname">SFIZZ_EXPORTED_API bool sfizz_should_reload_file </td>
           <td>(</td>
-          <td class="paramtype">sfizz_synth_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="sfizz_8h.html#a6d35a836f13fc29f389cc5238cda6bf5">sfizz_synth_t</a> *&#160;</td>
           <td class="paramname"><em>synth</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1476,13 +1514,11 @@ false if some error occured while loading. </dd></dl>
 <p>Depending on the platform this can create file descriptors.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">synth</td><td></td></tr>
+    <tr><td class="paramname">synth</td><td>The synth.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if any included files (including the root file) have been modified since the sfz file was loaded. </dd>
-<dd>
-false </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b style="color:blue">true</b> if any included files (including the root file) have been modified since the sfz file was loaded, <b style="color:blue">false</b> otherwise. </dd></dl>
 
 </div>
 </div>

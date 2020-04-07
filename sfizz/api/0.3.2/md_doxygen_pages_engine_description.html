@@ -156,28 +156,28 @@ $(function() {
 <div class="line">&lt;region&gt; key=36 sample=kick.wav</div>
 </div><!-- fragment --><p>Here we have 3 headers (<code>global</code>, <code>control</code> and <code>region</code>) and each header holds some opcodes. All of these opcodes have a value&mdash;for example the volume is equal to 6 in the <code>global</code> header. Some opcodes also have parameters. The <code>control</code> header holds an opcode <code>set_cc</code> with the parameter <code>4</code> and value <code>5</code>. The parameter here is the CC to set, and the value at which to set it is 5.</p>
 <p>The parsing logic of sfizz is handled through a base class called Parser&mdash;a very original choice. This parser has a virtual callback that gets called whenever a header description is "complete", along with a list of opcodes that apply to the header. Subclassing the Parser then allows to build different SFZ handlers, from full-blown synths as with sfizz to simpler things such as printers (see in particular <a href="https://github.com/sfztools/sfz-flat/">https://github.com/sfztools/sfz-flat/</a>). If we look at the core of the latter example, it will look something like the following</p>
-<div class="fragment"><div class="line"><span class="keyword">class </span>PrintingParser: <span class="keyword">public</span> <a class="code" href="classsfz_1_1_parser.html">sfz::Parser</a></div>
+<div class="fragment"><div class="line"><span class="keyword">class </span>PrintingParser: <span class="keyword">public</span> sfz::Parser</div>
 <div class="line">{</div>
 <div class="line"><span class="keyword">protected</span>:</div>
 <div class="line">    <span class="keywordtype">void</span> callback(absl::string_view header, <span class="keyword">const</span> std::vector&lt;sfz::Opcode&gt;&amp; members) <span class="keyword">final</span></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keywordflow">switch</span> (<a class="code" href="_string_view_helpers_8h.html#a0d70224bb798d5b61584ca93597224a6">hash</a>(header)) <span class="comment">// The hash(...) function transforms strings to large integers</span></div>
+<div class="line">        <span class="keywordflow">switch</span> (hash(header)) <span class="comment">// The hash(...) function transforms strings to large integers</span></div>
 <div class="line">        {</div>
-<div class="line">        <span class="keywordflow">case</span> <a class="code" href="_string_view_helpers_8h.html#a0d70224bb798d5b61584ca93597224a6">hash</a>(<span class="stringliteral">&quot;global&quot;</span>): <span class="comment">// It is also compile-time defined, which allows to do switch-case</span></div>
+<div class="line">        <span class="keywordflow">case</span> hash(<span class="stringliteral">&quot;global&quot;</span>): <span class="comment">// It is also compile-time defined, which allows to do switch-case</span></div>
 <div class="line">                             <span class="comment">// statements on strings, something that is usually not possible</span></div>
 <div class="line">            globalMembers = members; <span class="comment">// We save the global headers since they apply to the next</span></div>
 <div class="line">                                     <span class="comment">// region (and groups and masters)</span></div>
 <div class="line">            masterMembers.clear();</div>
 <div class="line">            groupMembers.clear();</div>
 <div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> <a class="code" href="_string_view_helpers_8h.html#a0d70224bb798d5b61584ca93597224a6">hash</a>(<span class="stringliteral">&quot;master&quot;</span>):</div>
+<div class="line">        <span class="keywordflow">case</span> hash(<span class="stringliteral">&quot;master&quot;</span>):</div>
 <div class="line">            masterMembers = members; <span class="comment">// So on</span></div>
 <div class="line">            groupMembers.clear();</div>
 <div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> <a class="code" href="_string_view_helpers_8h.html#a0d70224bb798d5b61584ca93597224a6">hash</a>(<span class="stringliteral">&quot;group&quot;</span>):</div>
+<div class="line">        <span class="keywordflow">case</span> hash(<span class="stringliteral">&quot;group&quot;</span>):</div>
 <div class="line">            groupMembers = members; <span class="comment">// .. and so forth</span></div>
 <div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> <a class="code" href="_string_view_helpers_8h.html#a0d70224bb798d5b61584ca93597224a6">hash</a>(<span class="stringliteral">&quot;region&quot;</span>):</div>
+<div class="line">        <span class="keywordflow">case</span> hash(<span class="stringliteral">&quot;region&quot;</span>):</div>
 <div class="line">            std::cout &lt;&lt; <span class="stringliteral">&quot;&lt;&quot;</span> &lt;&lt; header &lt;&lt; <span class="stringliteral">&quot;&gt;&quot;</span> &lt;&lt; <span class="stringliteral">&#39; &#39;</span>; <span class="comment">// Now we print the region along with all the opcodes</span></div>
 <div class="line">                                                      <span class="comment">// we memorized from earlier headers.</span></div>
 <div class="line">            printMembers(globalMembers);</div>
@@ -217,8 +217,6 @@ $(function() {
 <p>The callback method from sfizz is actually quite similar to the one shown above, except that instead of printing the region we actually fill a big structure from it. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
-<div class="ttc" id="aclasssfz_1_1_parser_html"><div class="ttname"><a href="classsfz_1_1_parser.html">sfz::Parser</a></div><div class="ttdoc">Context-dependent parser for SFZ files.</div><div class="ttdef"><b>Definition:</b> Parser.h:25</div></div>
-<div class="ttc" id="a_string_view_helpers_8h_html_a0d70224bb798d5b61584ca93597224a6"><div class="ttname"><a href="_string_view_helpers_8h.html#a0d70224bb798d5b61584ca93597224a6">hash</a></div><div class="ttdeci">constexpr uint64_t hash(absl::string_view s, uint64_t h=Fnv1aBasis)</div><div class="ttdoc">Compile-time hashing function to be used mostly with switch/case statements.</div><div class="ttdef"><b>Definition:</b> StringViewHelpers.h:57</div></div>
 			<hr>
 			<footer>
 				<p style="text-align:left">Copyright &copy; 2019-2020 Paul Ferrand
