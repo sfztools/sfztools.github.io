@@ -1,12 +1,12 @@
 
-<h2>Supported Operating Systems</h2>
+<h2 id="supported-operating-systems">Supported Operating Systems</h2>
 <ul>
 {%-for os in site.data.sfz.support.os-%}
 	<li>{{ os.name }}</li>
 {%-endfor-%}
 </ul>
 
-<h2>Supported Headers</h2>
+<h2 id="supported-headers">Supported Headers</h2>
 <table class="table table-sm table-hover table-striped table-responsive-xl"
 	style="table-layout:fixed">
 	<thead class="thead-dark">
@@ -37,10 +37,11 @@
 {%-endfor-%}
 	</tbody>
 </table>
-<h2>Supported Opcodes</h2>
+<h2 id="supported-opcodes">Supported Opcodes</h2>
 
 {%-for category in site.data.sfz.support.categories-%}
-	<h3>{{ category.name }}</h3>
+	<h3 id="{{ category.name | downcase | replace: ":", '' | replace: " ", '-' }}">
+		{{ category.name }}</h3>
 <table class="table table-sm table-hover table-striped table-responsive-xl"
 	style="table-layout:fixed">
 	<thead class="thead-dark">
