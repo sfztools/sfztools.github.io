@@ -41,11 +41,11 @@ sounds which are no longer used. This keeps the RAM memory requirement at minimu
 
 ## Watch demo
 
-- [sfizz 0.2.0 live showcase] by unfa
+- [sfizz 0.2.0 live session] by unfa
 
 [JACK]:                     https://jackaudio.org/
 [LV2]:                      https://lv2plug.in/
 [VST3i]:                    https://www.steinberg.net/en/company/technologies/vst3.html
 [SFZ instrument format]:    https://sfzformat.com/
 [Download]:                 downloads
-[sfizz 0.2.0 live showcase]: https://www.youtube.com/watch?v=xvowEZqgflw
+[sfizz 0.2.0 live session]: https://www.youtube.com/watch?v=xvowEZqgflw
