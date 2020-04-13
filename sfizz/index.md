@@ -39,7 +39,10 @@ manually.
 The streaming system loads the sounds on demand, and dynamically reclaims the memory of
 sounds which are no longer used. This keeps the RAM memory requirement at minimum.
 
-## Watch demo
+## See in action
+
+Some artists have demonstrated music creation using sfizz, independently of this project.
+You are welcome to watch the media and support their work.
 
 - [How to use Virtual Playing Orchestra in Ardour] by unfa
 
