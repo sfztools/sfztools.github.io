@@ -366,7 +366,6 @@ categories:
   - name: "fil_gain_onccN"
     version: "ARIA"
     support: "v"
-    undocumented: true
   - name: "resonance"
     version: "SFZ v1"
     support: "v"
@@ -415,7 +414,6 @@ categories:
   - name: "fil2_gain_onccN"
     version: "ARIA"
     support: "v"
-    undocumented: true
   - name: "resonance2"
     version: "SFZ v2"
     support: "v"
