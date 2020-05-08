@@ -363,8 +363,8 @@ categories:
   - name: "fil_gain"
     version: "ARIA"
     support: "v"
-  - name: "fil_gainccN"
-    version: "sfizz"
+  - name: "fil_gain_onccN"
+    version: "ARIA"
     support: "v"
     undocumented: true
   - name: "resonance"
@@ -412,8 +412,8 @@ categories:
   - name: "fil2_gain"
     version: "ARIA"
     support: "v"
-  - name: "fil2_gainccN"
-    version: "sfizz"
+  - name: "fil2_gain_onccN"
+    version: "ARIA"
     support: "v"
     undocumented: true
   - name: "resonance2"
