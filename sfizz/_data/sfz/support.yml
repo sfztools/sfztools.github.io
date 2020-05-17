@@ -72,6 +72,24 @@ categories:
     version: "SFZ v2"
     support: "v"
 
+- name: "Loading"
+  opcodes:
+  - name: "load_mode"
+    version: "Cakewalk SFZ v2"
+    support: "x"
+  - name: "load_start"
+    version: "Cakewalk SFZ v2"
+    support: "x"
+  - name: "load_end"
+    version: "Cakewalk SFZ v2"
+    support: "x"
+  - name: "sample_quality"
+    version: "Cakewalk SFZ v2"
+    support: "wip"
+  - name: "image"
+    version: "Cakewalk SFZ v2"
+    support: "x"
+
 - name: "Wavetable Oscillator"
   opcodes:
   - name: "oscillator"
