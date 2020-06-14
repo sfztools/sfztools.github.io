@@ -1,16 +1,14 @@
-
-
 <script src="/assets/js/lunr.min.js"></script>
 <script>
 {% assign counter = 0 %}
 var documents = [
 {%-for page in site.pages-%}
-	{%-if page.url contains '.xml' or page.url contains 'assets' or page.name == "404.md"-%}
-	{%-else-%}
-		{%-assign page_title = page.title-%}
-		{%-if page.title == nil-%}
-			{%-assign page_title = page.name | replace: ".md", ''-%}
-		{%-endif-%}
+  {%-if page.url contains '.xml' or page.url contains 'assets' or page.name == "404.md"-%}
+  {%-else-%}
+    {%-assign page_title = page.title-%}
+    {%-if page.title == nil-%}
+      {%-assign page_title = page.name | replace: ".md", ''-%}
+    {%-endif-%}
     {
     "id": {{ counter }},
     "url": "{{ site.url }}{{ page.url }}",
@@ -62,17 +60,17 @@ function lunr_search(term) {
 }
 </script>
 <style>
-	#lunrsearchresults {padding-top: 0.2rem;}
-	.lunrsearchresult {padding-bottom: 1rem;}
-	.lunrsearchresult .title {color: #337ab7;}
-	.lunrsearchresult .url {color: #222;}
-	.lunrsearchresult a {display: block; color: #777;}
-	.lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
-	.lunrsearchresult a:hover .title {text-decoration: underline;}
+  #lunrsearchresults {padding-top: 0.2rem;}
+  .lunrsearchresult {padding-bottom: 1rem;}
+  .lunrsearchresult .title {color: #337ab7;}
+  .lunrsearchresult .url {color: #222;}
+  .lunrsearchresult a {display: block; color: #777;}
+  .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
+  .lunrsearchresult a:hover .title {text-decoration: underline;}
 </style>
 <form onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
     <input type="text" class="form-control" id="lunrsearch" name="q"
-		maxlength="255" value=""/>
+    maxlength="255" value=""/>
 </form>
 <div id="lunrsearchresults">
     <ul></ul>

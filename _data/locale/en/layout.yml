@@ -1,19 +1,64 @@
 navigation:
-- label: "Projects"
+- label: "sfizz"
+  type: "dropdown"
+  icon_type: "play-circle"
+  icon_category: "fas"
+  pages:
+  - label: "Home"
+    icon_type: "home"
+    icon_category: "fas"
+    url: "/sfizz/"
+  -
+  - label: "API"
+    icon_type: "code"
+    icon_category: "fas"
+    url: "/sfizz/api"
+
+  - label: "Build"
+    icon_type: "code"
+    icon_category: "fas"
+    url: "/sfizz/development/build"
+  -
+  - label: "Opcodes"
+    icon_type: "tasks"
+    icon_category: "fas"
+    url: "/sfizz/development/status"
+  -
+  - label: "Downloads"
+    icon_type: "download"
+    icon_category: "fas"
+    url: "/sfizz/downloads"
+  -
+  - label: "GitHub Repository"
+    url: "https://github.com/sfztools/sfizz/"
+    icon_type: "github"
+    icon_category: "fab"
+
+- label: "BeatBox"
+  type: "dropdown"
+  icon_type: "drum"
+  icon_category: "fas"
+  pages:
+  - label: "Home"
+    icon_type: "home"
+    icon_category: "fas"
+    url: "/beatbox/"
+#  -
+#  - label: "Downloads"
+#    icon_type: "download"
+#    icon_category: "fas"
+#    url: "/beatbox/downloads"
+#  -
+#  - label: "GitHub Repository"
+#    url: "https://github.com/sfztools/beatbox/"
+#    icon_type: "github"
+#    icon_category: "fab"
+
+- label: "Other"
   type: "dropdown"
   icon_type: "hammer"
   icon_category: "fas"
   pages:
-  - label: "BeatBox"
-    url: "https://sfztools.github.io/beatbox/"
-    icon_type: "drum"
-    icon_category: "fas"
-
-  - label: "sfizz"
-    url: "https://sfztools.github.io/sfizz/"
-    icon_type: "play-circle"
-    icon_category: "fas"
-  -
   - label: "sfizz-render"
     url: "https://github.com/sfztools/sfizz-render/"
 

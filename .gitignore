@@ -13,3 +13,12 @@ package-lock.json
 yarn.lock
 *.code-workspace
 *.log
+!/development/build/*
+
+# Unstaged files in other branches
+/.DS_Store/
+/external/
+/vst/
+/build*
+/Doxyfile
+*.txt.user*
