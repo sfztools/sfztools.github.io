@@ -19,6 +19,7 @@ pre {
 	border: 2px solid rgba($black, .2);
 	border-radius: 0.50rem;
 }
+/* Mimic Bootstrap tables style in markdown */
 table {
 	width:100%;
 	border-collapse: collapse;
@@ -27,11 +28,11 @@ table {
 th, td {
 	text-align: left;
 	padding: 5px 10px;
-	border: 1px solid #e5e5e5;
+	border: 1px solid #dee2e6;
 }
 th {
-	color: #f8f9fA;
-	background-color: #222;
+	color: #ffffff;
+	background-color: #343A40;
 }
 tr:nth-child(even) {
 	background-color: #f2f2f2;
