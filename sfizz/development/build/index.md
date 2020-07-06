@@ -24,18 +24,24 @@ Current configuration switches for CMake are:
 ```
 ENABLE_LTO              Enable Link Time Optimization          [default: ON]
 SFIZZ_JACK              Enable JACK stand-alone build          [default: ON]
+SFIZZ_RENDER            Enable renderer of SMF files 					 [default: ON]
 SFIZZ_LV2               Enable LV2 plug-in build               [default: ON]
 SFIZZ_VST               Enable VST plug-in build               [default: OFF]
+SFIZZ_AU                Enable AU plug-in build                [default: OFF]
 SFIZZ_BENCHMARKS        Enable benchmarks build                [default: OFF]
+SFIZZ_DEVTOOLS          Enable developer tools build 					 [default: OFF]
 SFIZZ_TESTS             Enable tests build                     [default: OFF]
 SFIZZ_SHARED            Enable shared library build            [default: ON]
 SFIZZ_USE_VCPKG         Assume that sfizz is build using vcpkg [default: OFF]
 SFIZZ_STATIC_LIBSNDFILE Link libsndfile statically             [default: OFF]
+SFIZZ_RELEASE_ASSERTS   Forced assertions in release builds 	 [default: OFF]
 ```
 
 By default this builds and installs:
 - The shared library version of sfizz with both C and C++ interfaces
 - The JACK client
+- The offline rendering client
+- The LV2 plugin
 
 See the relates sections for building details for:
 - [Linux]
@@ -63,7 +69,7 @@ git submodule update --init --recursive
 All targets but the LV2 plugin can be disabled using:
 
 ```
-cmake -DCMAKE_BUILD_TYPE=Release -DSFIZZ_JACK=OFF -DSFIZZ_SHARED=OFF ..
+cmake -DSFIZZ_JACK=OFF -DSFIZZ_SHARED=OFF -DSFIZZ_RENDER=OFF ..
 ```
 
 and process as before.

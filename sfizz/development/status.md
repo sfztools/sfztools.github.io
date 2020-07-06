@@ -7,4 +7,4 @@ The classification follows the list over at <https://sfzformat.com/>.
 
 {%-include sfizz/opcodes_support_table_generator.html-%}
 
-{%-comment-%} Table data is in /_data/sfz/support.yml {%-endcomment-%}
+{%-comment-%} Table data is in /_data/sfizz/support.yml {%-endcomment-%}

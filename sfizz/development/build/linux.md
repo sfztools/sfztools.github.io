@@ -22,7 +22,7 @@ In the shell world, this means
 git clone --recursive https://github.com/sfztools/sfizz.git
 cd sfizz
 mkdir build && cd build
-cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake ..
 make
 sudo make install
 ```
