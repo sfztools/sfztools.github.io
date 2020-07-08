@@ -158,7 +158,7 @@ categories:
     support: "x"
   - name: "oscillator_quality"
     version: "SFZ v2"
-    support: "wip"
+    support: "v"
   - name: "oscillator_table_size"
     version: "SFZ v2"
     support: "x"
