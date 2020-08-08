@@ -969,7 +969,7 @@ categories:
   - name: "pitcheg_startccN"
     version: "SFZ v1"
     support: "x"
-  - name: "pitched_dynamic"
+  - name: "pitcheg_dynamic"
     version: "ARIA"
     support: "x"
 
