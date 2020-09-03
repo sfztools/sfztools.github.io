@@ -16,7 +16,7 @@
 				<div class="col-md-9">
 					<article>
 						{%-if page.no_title_header == nil-%}<h1>{{ page.title }}</h1>{%-endif-%}
-{% include anchor_headings.html html=content anchorClass="toc-anchor" anchorBody="#" %}
+{{ content }}
 					</article>
 				</div>
 				<div class="col-md-3">
