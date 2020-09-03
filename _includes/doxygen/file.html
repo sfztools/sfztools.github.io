@@ -1,0 +1,102 @@
+	{%-if api.language == "C++"-%}
+	<p><code>#include &lt;{{ api.include }}&gt;</code></p><hr/>
+	{%-endif-%}
+
+	{%-for def in api.definitions-%}
+		{%-if def.kind == "typedef"-%}
+			<h2 class="groupheader" id="typedefs">Typedefs</h2>
+			{%-for member in def.members-%}
+				{{ member.name }}
+				<p>{{ member.brief }}</p>
+			{%-endfor-%}
+			<hr/>
+		{%elsif def.kind == "enum"-%}
+			<h2 class="groupheader" id="enumerations">Enumerations</h2>
+			{%-for member in def.members-%}
+				<span class="type">enum</span>&nbsp;{{ member.name }}&nbsp;{<br/>
+				{%-for value in member.values-%}
+					<b class="tab">{{ value.name }}</b>
+						{{ value.initializer }}<br/>
+				{%-endfor-%}
+				}
+				<p>{{ member.brief }}</p>
+			{%-endfor-%}
+			<hr/>
+		{%elsif def.kind == "func" or def.kind == "public-func"-%}
+
+			<h2 class="groupheader" id="functions">{{ functions_title }}</h2>
+			{%-for function in def.members-%}
+				{%-assign function_brief = function.brief-%}
+
+				{%-comment-%}
+					Skip functions without description
+					TODO: Make this configurable by Doxyfile
+				{%-endcomment-%}
+				{%-if function_brief == nil-%}{%-continue-%}{%-endif-%}
+
+				{%-assign function_description = function.description-%}
+
+				<h3 class="memtitle" id="{{ function.name }}">{{ function.name }}</h3>
+				<div class="memitem">
+					<div class="memproto">
+						<table class="memname"><tbody>
+							<tr>
+								<td class="memname">
+									<span class="type">{{ function.type }}</span>
+									<span class="func">{{ function.name }}</span>
+								</td>
+								<td>(</td>
+								{%-for param in function.params-%}
+									{%-if api.language != "Python"-%}
+									<td class="paramtype">{{ param.type }}</td>
+									{%-endif-%}
+									<td class="paramname"><em>{{ param.name }}</em></td>
+									{%-unless forloop.last-%}<td>,</td>
+									{%-endunless-%}
+								{%-endfor-%}
+								<td>)</td>
+								<td></td>
+							</tr>
+						</tbody></table>
+					</div>
+					<div class="memdoc">
+						<p>{{ function_brief }}</p>
+						<p>{{ function_description }}</p>
+						{%-if function.params.size-%}
+							<dl class="params">
+								<dt>Parameters</dt>
+								<dd>
+									<table class="params"><tbody>
+										{%-for param in function.params-%}
+											<tr><td class="paramname">{{param.name}}</td>
+											<td>{{param.description}}</td></tr>
+										{%-endfor-%}
+									</tbody></table>
+								</dd>
+							</dl>
+						{%-endif-%}
+						{%-if function.return-%}
+							<dl class="section return">
+								<dt>Returns</dt>
+								<dd>{{ function.return }}</dd>
+							</dl>
+						{%-endif-%}
+						{%-if function.since-%}
+							<dl class="section since">
+								<dt>Since</dt>
+								<dd>{{ function.since }}</dd>
+							</dl>
+						{%-endif-%}
+						{%-if function.note-%}
+							<dl class="section note">
+								<dt>Note</dt>
+								<dd>{{ function.note }}</dd>
+							</dl>
+						{%-endif-%}
+					</div>
+				</div>
+				{%-assign function_brief       = nil-%}
+				{%-assign function_description = nil-%}
+			{%-endfor-%}
+		{%-endif-%}
+	{%-endfor-%}

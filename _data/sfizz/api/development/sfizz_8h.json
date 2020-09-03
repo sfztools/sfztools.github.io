@@ -1,0 +1,1110 @@
+{
+  "name": "sfizz.h",
+  "kind": "file",
+  "brief": "sfizz public C API",
+  "include": "stddef.h",
+  "language": "C++",
+  "doxygen_version": "1.8.18",
+  "definitions": [
+    {
+      "kind": "define",
+      "members": [
+        {
+          "name": "SFIZZ_OUT_OF_BOUNDS_LABEL_INDEX",
+          "initializer": "-1",
+          "brief": "Index out of bound error for the requested CC/key label.",
+          "since": "0.4.0"
+        }
+      ]
+    },
+    {
+      "kind": "enum",
+      "members": [
+        {
+          "name": "sfizz_oversampling_factor_t",
+          "brief": "Oversampling factor.",
+          "values": [
+            {
+              "name": "SFIZZ_OVERSAMPLING_X1",
+              "initializer": "= 1"
+            },
+            {
+              "name": "SFIZZ_OVERSAMPLING_X2",
+              "initializer": "= 2"
+            },
+            {
+              "name": "SFIZZ_OVERSAMPLING_X4",
+              "initializer": "= 4"
+            },
+            {
+              "name": "SFIZZ_OVERSAMPLING_X8",
+              "initializer": "= 8"
+            }
+          ]
+        },
+        {
+          "name": "sfizz_process_mode_t",
+          "brief": "Processing mode.",
+          "values": [
+            {
+              "name": "SFIZZ_PROCESS_LIVE"
+            },
+            {
+              "name": "SFIZZ_PROCESS_FREEWHEELING"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "typedef",
+      "members": [
+        {
+          "name": "sfizz_synth_t",
+          "type": "struct <a href='#sfizz_synth_t'>sfizz_synth_t</a>",
+          "brief": "Synth handle."
+        }
+      ]
+    },
+    {
+      "kind": "func",
+      "members": [
+        {
+          "name": "sfizz_create_synth",
+          "type": "SFIZZ_EXPORTED_API <a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+          "brief": "Creates a sfizz synth.",
+          "description": "This object has to be freed by the caller using <a href='#sfizz_free()'>sfizz_free()</a>. The synth by default is set at 48 kHz and a maximum block size of 1024. You should change these values if they are not correct for your application."
+        },
+        {
+          "name": "sfizz_free",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Frees an existing sfizz synth.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth to destroy."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_load_file",
+          "type": "SFIZZ_EXPORTED_API bool",
+          "brief": "Loads an SFZ file.",
+          "description": "The file path can be absolute or relative. All file operations for this SFZ file will be relative to the parent directory of the SFZ file.",
+          "return": "<b style=\"color:blue\">true</b> when file loading went OK, <b style=\"color:blue\">false</b> if some error occured while loading.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The sfizz synth."
+            },
+            {
+              "name": "path",
+              "type": "const char *",
+              "description": "A null-terminated string representing a path to an SFZ file."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_load_string",
+          "type": "SFIZZ_EXPORTED_API bool",
+          "brief": "Loads an SFZ file from textual data.",
+          "description": "This accepts a virtual path name for the imaginary sfz file, which is not required to exist on disk. The purpose of the virtual path is to locate samples with relative paths.",
+          "return": "<b style=\"color:blue\">true</b> when file loading went OK, <b style=\"color:blue\">false</b> if some error occured while loading.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The sfizz synth."
+            },
+            {
+              "name": "path",
+              "type": "const char *",
+              "description": "The virtual path of the SFZ file."
+            },
+            {
+              "name": "text",
+              "type": "const char *",
+              "description": "The contents of the virtual SFZ file."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_load_scala_file",
+          "type": "SFIZZ_EXPORTED_API bool",
+          "brief": "Sets the tuning from a Scala file loaded from the file system.",
+          "return": "<b style=\"color:blue\">true</b> when tuning scale loaded OK, <b style=\"color:blue\">false</b> if some error occurred.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The sfizz synth."
+            },
+            {
+              "name": "path",
+              "type": "const char *",
+              "description": "The path to the file in Scala format."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_load_scala_string",
+          "type": "SFIZZ_EXPORTED_API bool",
+          "brief": "Sets the tuning from a Scala file loaded from memory.",
+          "return": "<b style=\"color:blue\">true</b> when tuning scale loaded OK, <b style=\"color:blue\">false</b> if some error occurred.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The sfizz synth."
+            },
+            {
+              "name": "text",
+              "type": "const char *",
+              "description": "The contents of the file in Scala format."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_set_scala_root_key",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Sets the scala root key.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The sfizz synth."
+            },
+            {
+              "name": "root_key",
+              "type": "int",
+              "description": "The MIDI number of the Scala root key (default 60 for C4)."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_scala_root_key",
+          "type": "SFIZZ_EXPORTED_API int",
+          "brief": "Gets the scala root key.",
+          "return": "The MIDI number of the Scala root key (default 60 for C4).",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The sfizz synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_set_tuning_frequency",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Sets the reference tuning frequency.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The sfizz synth."
+            },
+            {
+              "name": "frequency",
+              "type": "float",
+              "description": "The frequency which indicates where standard tuning A4 is (default 440 Hz)."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_tuning_frequency",
+          "type": "SFIZZ_EXPORTED_API float",
+          "brief": "Gets the reference tuning frequency.",
+          "return": "The frequency which indicates where standard tuning A4 is (default 440 Hz).",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The sfizz synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_load_stretch_tuning_by_ratio",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Configure stretch tuning using a predefined parametric Railsback curve.",
+          "description": "A ratio 1/2 is supposed to match the average piano; 0 disables (the default).",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The sfizz synth."
+            },
+            {
+              "name": "ratio",
+              "type": "float",
+              "description": "The parameter in domain 0-1."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_num_regions",
+          "type": "SFIZZ_EXPORTED_API int",
+          "brief": "Return the number of regions in the currently loaded SFZ file.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_num_groups",
+          "type": "SFIZZ_EXPORTED_API int",
+          "brief": "Return the number of groups in the currently loaded SFZ file.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_num_masters",
+          "type": "SFIZZ_EXPORTED_API int",
+          "brief": "Return the number of masters in the currently loaded SFZ file.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_num_curves",
+          "type": "SFIZZ_EXPORTED_API int",
+          "brief": "Return the number of curves in the currently loaded SFZ file.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_export_midnam",
+          "type": "SFIZZ_EXPORTED_API char *",
+          "brief": "Export a MIDI Name document describing the currently loaded SFZ file.",
+          "return": "A newly allocated XML string, which must be freed after use.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "model",
+              "type": "const char *",
+              "description": "The model name used if a non-empty string, otherwise generated."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_num_preloaded_samples",
+          "type": "SFIZZ_EXPORTED_API size_t",
+          "brief": "Return the number of preloaded samples for the current SFZ file.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_num_active_voices",
+          "type": "SFIZZ_EXPORTED_API int",
+          "brief": "Return the number of active voices.",
+          "description": "Note that this function is a basic indicator and does not aim to be perfect. In particular, it runs on the calling thread so voices may well start or stop while the function is checking which voice is active.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_set_samples_per_block",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Set the expected number of samples per block.",
+          "description": "If unsure, give an upper bound since right now ugly things may happen if you go over this number.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "samples_per_block",
+              "type": "int",
+              "description": "The number of samples per block."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_set_sample_rate",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Set the sample rate for the synth.",
+          "description": "This is the output sample rate. This setting does not affect the internal processing.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth"
+            },
+            {
+              "name": "sample_rate",
+              "type": "float",
+              "description": "The sample rate."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_send_note_on",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Send a note on event to the synth.",
+          "description": "As with all MIDI events, this needs to happen before the call to <a href='#sfizz_render_block()'>sfizz_render_block()</a> in each block and should appear in order of the delays.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "The delay of the event in the block, in samples."
+            },
+            {
+              "name": "note_number",
+              "type": "int",
+              "description": "The MIDI note number."
+            },
+            {
+              "name": "velocity",
+              "type": "char",
+              "description": "The MIDI velocity."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_send_note_off",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Send a note off event to the synth.",
+          "description": "As with all MIDI events, this needs to happen before the call to <a href='#sfizz_render_block()'>sfizz_render_block()</a> in each block and should appear in order of the delays. As per the SFZ spec the velocity of note-off events is usually replaced by the note-on velocity.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "The delay of the event in the block, in samples."
+            },
+            {
+              "name": "note_number",
+              "type": "int",
+              "description": "The MIDI note number."
+            },
+            {
+              "name": "velocity",
+              "type": "char",
+              "description": "The MIDI velocity."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_send_cc",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Send a CC event to the synth.",
+          "description": "As with all MIDI events, this needs to happen before the call to <a href='#sfizz_render_block()'>sfizz_render_block()</a> in each block and should appear in order of the delays.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "The delay of the event in the block, in samples."
+            },
+            {
+              "name": "cc_number",
+              "type": "int",
+              "description": "The MIDI CC number."
+            },
+            {
+              "name": "cc_value",
+              "type": "char",
+              "description": "The MIDI CC value."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_send_hdcc",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Send a high precision CC event to the synth.",
+          "description": "As with all MIDI events, this needs to happen before the call to <a href='#sfizz_render_block()'>sfizz_render_block()</a> in each block and should appear in order of the delays.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "The delay of the event in the block, in samples."
+            },
+            {
+              "name": "cc_number",
+              "type": "int",
+              "description": "The MIDI CC number."
+            },
+            {
+              "name": "norm_value",
+              "type": "float",
+              "description": "The normalized CC value, in domain 0 to 1."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_send_pitch_wheel",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Send a pitch wheel event.",
+          "description": "As with all MIDI events, this needs to happen before the call to <a href='#sfizz_render_block()'>sfizz_render_block()</a> in each block and should appear in order of the delays.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "The delay."
+            },
+            {
+              "name": "pitch",
+              "type": "int",
+              "description": "The pitch."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_send_aftertouch",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Send an aftertouch event.",
+          "description": "(CURRENTLY UNIMPLEMENTED)",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": ""
+            },
+            {
+              "name": "delay",
+              "type": "int",
+              "description": ""
+            },
+            {
+              "name": "aftertouch",
+              "type": "char",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "sfizz_send_tempo",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Send a tempo event.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "The delay."
+            },
+            {
+              "name": "seconds_per_beat",
+              "type": "float",
+              "description": "The seconds per beat."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_send_time_signature",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Send the time signature.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "The delay."
+            },
+            {
+              "name": "beats_per_bar",
+              "type": "int",
+              "description": "The number of beats per bar, or time signature numerator."
+            },
+            {
+              "name": "beat_unit",
+              "type": "int",
+              "description": "The note corresponding to one beat, or time signature denominator."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_send_time_position",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Send the time position.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "The delay."
+            },
+            {
+              "name": "bar",
+              "type": "int",
+              "description": "The current bar."
+            },
+            {
+              "name": "bar_beat",
+              "type": "float",
+              "description": "The fractional position of the current beat within the bar."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_send_playback_state",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Send the playback state.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "The delay."
+            },
+            {
+              "name": "playback_state",
+              "type": "int",
+              "description": "The playback state, 1 if playing, 0 if stopped."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_render_block",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Render a block audio data into a stereo channel.",
+          "description": "No other channel configuration is supported. The synth will gracefully ignore your request if you provide a value. You should pass all the relevant events for the block (midi notes, CCs, ...) before rendering each block. The synth will memorize the inputs and render sample accurates envelopes depending on the input events passed to it.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "channels",
+              "type": "float **",
+              "description": "Pointers to the left and right channel of the output."
+            },
+            {
+              "name": "num_channels",
+              "type": "int",
+              "description": "Should be equal to 2 for the time being."
+            },
+            {
+              "name": "num_frames",
+              "type": "int",
+              "description": "Number of frames to fill. This should be less than or equal to the expected samples_per_block."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_preload_size",
+          "type": "SFIZZ_EXPORTED_API unsigned int",
+          "brief": "Get the size of the preloaded data.",
+          "description": "This returns the number of floats used in the preloading buffers.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_set_preload_size",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Set the size of the preloaded data in number of floats (not bytes).",
+          "description": "This will disable the callbacks for the duration of the load. This function takes a lock ; prefer calling it out of the RT thread. It can also take a long time to return. If the new preload size is the same as the current one, it will release the lock immediately and exit.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "preload_size",
+              "type": "unsigned int",
+              "description": "The preload size."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_oversampling_factor",
+          "type": "SFIZZ_EXPORTED_API <a href='#sfizz_oversampling_factor_t'>sfizz_oversampling_factor_t</a>",
+          "brief": "Get the internal oversampling rate.",
+          "description": "This is the sampling rate of the engine, not the output or expected rate of the calling function. For the latter use the sfizz_get_sample_rate() function.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_set_oversampling_factor",
+          "type": "SFIZZ_EXPORTED_API bool",
+          "brief": "Set the internal oversampling rate.",
+          "description": "This is the sampling rate of the engine, not the output or expected rate of the calling function. For the latter use the <a href='#sfizz_set_sample_rate()'>sfizz_set_sample_rate()</a> function. Increasing this value (up to x8 oversampling) improves the quality of the output at the expense of memory consumption and background loading speed. The main render path still uses the same linear interpolation algorithm and should not see its performance decrease, but the files are oversampled upon loading which increases the stress on the background loader and reduce the loading speed. You can tweak the size of the preloaded data to compensate for the memory increase, but the full loading will need to take place anyway. This function takes a lock and disables the callback; prefer calling it out of the RT thread. It can also take a long time to return. If the new oversampling factor is the same as the current one, it will release the lock immediately and exit.",
+          "return": "<b style=\"color:blue\">true</b> if the oversampling factor was correct, <b style=\"color:blue\">false</b> otherwise.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "oversampling",
+              "type": "<a href='#sfizz_oversampling_factor_t'>sfizz_oversampling_factor_t</a>",
+              "description": "The oversampling factor."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_sample_quality",
+          "type": "SFIZZ_EXPORTED_API int",
+          "brief": "Get the default resampling quality.",
+          "description": "This is the quality setting which the engine uses when the instrument does not use the opcode <code>sample_quality</code>. The engine uses distinct default quality settings for live mode and freewheeling mode, which both can be accessed by the means of this function.",
+          "return": "The sample quality for the given mode, in the range 1 to 10.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "mode",
+              "type": "<a href='#sfizz_process_mode_t'>sfizz_process_mode_t</a>",
+              "description": "The processing mode."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_set_sample_quality",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Set the default resampling quality.",
+          "description": "This is the quality setting which the engine uses when the instrument does not use the opcode <code>sample_quality</code>. The engine uses distinct default quality settings for live mode and freewheeling mode, which both can be accessed by the means of this function.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "mode",
+              "type": "<a href='#sfizz_process_mode_t'>sfizz_process_mode_t</a>",
+              "description": "The processing mode."
+            },
+            {
+              "name": "quality",
+              "type": "int",
+              "description": "The desired sample quality, in the range 1 to 10."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_set_volume",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Set the global instrument volume.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "volume",
+              "type": "float",
+              "description": "The new volume."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_volume",
+          "type": "SFIZZ_EXPORTED_API float",
+          "brief": "Return the global instrument volume.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_set_num_voices",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Set the number of voices used by the synth.",
+          "description": "This function takes a lock and disables the callback; prefer calling it out of the RT thread. It can also take a long time to return. If the new number of voices is the same as the current one, it will release the lock immediately and exit.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "num_voices",
+              "type": "int",
+              "description": "The number of voices."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_num_voices",
+          "type": "SFIZZ_EXPORTED_API int",
+          "brief": "Return the number of voices.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_num_buffers",
+          "type": "SFIZZ_EXPORTED_API int",
+          "brief": "Return the number of allocated buffers from the synth.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_num_bytes",
+          "type": "SFIZZ_EXPORTED_API int",
+          "brief": "Get the number of bytes allocated from the synth.",
+          "description": "Note that this value can be less than the actual memory usage since it only counts the buffer objects managed by sfizz.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_enable_freewheeling",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Enable freewheeling on the synth.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_disable_freewheeling",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Disable freewheeling on the synth.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_unknown_opcodes",
+          "type": "SFIZZ_EXPORTED_API char *",
+          "brief": "Return a comma separated list of unknown opcodes.",
+          "description": "The caller has to free() the string returned. This function allocates memory, do not call on the audio thread.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_should_reload_file",
+          "type": "SFIZZ_EXPORTED_API bool",
+          "brief": "Check if the SFZ should be reloaded.",
+          "description": "Depending on the platform this can create file descriptors.",
+          "return": "<b style=\"color:blue\">true</b> if any included files (including the root file) have been modified since the sfz file was loaded, <b style=\"color:blue\">false</b> otherwise.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_should_reload_scala",
+          "type": "SFIZZ_EXPORTED_API bool",
+          "brief": "Check if the scala file should be reloaded.",
+          "description": "Depending on the platform this can create file descriptors.",
+          "return": "<b style=\"color:blue\">true</b> if the scala file has been modified since loading.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_enable_logging",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Enable logging of timings to sidecar CSV files.",
+          "note": "This can produce many outputs so use with caution.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_disable_logging",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Disable logging.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_set_logging_prefix",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Enable logging of timings to sidecar CSV files.",
+          "note": "This can produce many outputs so use with caution.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "prefix",
+              "type": "const char *",
+              "description": "The prefix."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_all_sound_off",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Shuts down the current processing, clear buffers and reset the voices.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_add_external_definitions",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Add external definitions prior to loading.",
+          "since": "0.4.0",
+          "note": "These do not get reset by loading or resetting the synth. You need to call <a href='#sfizz_clear_external_definitions()'>sfizz_clear_external_definitions()</a> to erase them.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            },
+            {
+              "name": "id",
+              "type": "const char *",
+              "description": ""
+            },
+            {
+              "name": "value",
+              "type": "const char *",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "sfizz_clear_external_definitions",
+          "type": "SFIZZ_EXPORTED_API void",
+          "brief": "Clears external definitions for the next file loading.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_num_key_labels",
+          "type": "SFIZZ_EXPORTED_API unsigned int",
+          "brief": "Get the number of key labels registered in the current sfz file.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *"
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_key_label_number",
+          "type": "SFIZZ_EXPORTED_API int",
+          "brief": "Get the key number for the label registered at index label_index.",
+          "return": "the number or SFIZZ_OUT_OF_BOUNDS_LABEL_INDEX if the index is out of bounds.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *"
+            },
+            {
+              "name": "label_index",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_key_label_text",
+          "type": "SFIZZ_EXPORTED_API const char *",
+          "brief": "Get the key text for the label registered at index label_index.",
+          "return": "the label or NULL if the index is out of bounds.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *"
+            },
+            {
+              "name": "label_index",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_num_cc_labels",
+          "type": "SFIZZ_EXPORTED_API unsigned int",
+          "brief": "Get the number of CC labels registered in the current sfz file.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *"
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_cc_label_number",
+          "type": "SFIZZ_EXPORTED_API int",
+          "brief": "Get the CC number for the label registered at index label_index.",
+          "return": "the number or SFIZZ_OUT_OF_BOUNDS_LABEL_INDEX if the index is out of bounds.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *"
+            },
+            {
+              "name": "label_index",
+              "type": "int"
+            }
+          ]
+        },
+        {
+          "name": "sfizz_get_cc_label_text",
+          "type": "SFIZZ_EXPORTED_API const char *",
+          "brief": "Get the CC text for the label registered at index label_index.",
+          "return": "the label or <b>NULL</b> if the index is out of bounds.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *"
+            },
+            {
+              "name": "label_index",
+              "type": "int"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+---
+layout: "default"
+---
+{{ content }}
+
+<link type="text/css" href="{{ "/assets/css/doxygen.css" | relative_url }}" rel="stylesheet">
+
+{%-assign project_name    = page.dir | remove_first: '/' | split: '/' | first-%}
+{%-assign repo_url        = site.project.repository.url-%}
+{%-assign page_name       = page.name | replace: ".md", ''-%}
+{%-assign functions_title = "Functions"-%}
+{%-assign api             = site.data[project_name].api.development[page_name]-%}
+{%-assign repo_tag        = page.dir | split: '/' | last-%}
+{%-assign file_url        = repo_url | append: "/blob/" | append: site.project.docs_path| append: '/' | append: api.location.file-%}
+
+{%-if api.kind == "page"-%}
+	{%-assign title = api.title-%}
+{%-else-%}
+	{%-if api.kind == "file"-%}
+		{%-assign title_suffix = "File"-%}
+	{%-elsif api.kind == "namespace"-%}
+		{%-assign title_suffix = "Namespace"-%}
+	{%-elsif api.kind == "class"-%}
+		{%-assign title_suffix = "Class"-%}
+		{%-assign functions_title = "Public Member Functions"-%}
+	{%-endif-%}
+	{%-capture title-%}
+	<a href="{{ file_url }}">{{ api.name }}</a> {{ title_suffix }} Reference
+	{%-endcapture-%}
+{%-endif-%}
+
+<h1>{{ title }}</h1><hr/>
+
+{%-if api.kind == "file" or api.kind == "class" or api.kind == "namespace"-%}
+	{%-include doxygen/file.html-%}
+{%-endif-%}
