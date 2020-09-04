@@ -7,12 +7,12 @@ name:   "doxygen"
 <link type="text/css" href="{{ "/assets/css/doxygen.css" | relative_url }}" rel="stylesheet">
 
 {%-assign project_name    = page.dir | remove_first: '/' | split: '/' | first-%}
-{%-assign repo_url        = site.project.repository.url-%}
+{%-assign repo_url        = site.repository.owner_url | append: '/' | append: project_name-%}
 {%-assign page_name       = page.name | replace: ".md", ''-%}
-{%-assign functions_title = "Functions"-%}
 {%-assign api             = site.data[project_name].api.development[page_name]-%}
 {%-assign repo_tag        = page.dir | split: '/' | last-%}
-{%-assign file_url        = repo_url | append: "/blob/" | append: site.project.docs_path| append: '/' | append: api.location.file-%}
+{%-assign file_url        = repo_url | append: "/blob/" | append: site.repository.branch | append: '/' | append: api.location-%}
+{%-assign functions_title = "Functions"-%}
 
 {%-if api.kind == "page"-%}{%-assign title = api.title-%}
 {%-else-%}

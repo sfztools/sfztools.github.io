@@ -46,8 +46,9 @@ name: "SFZTools"
 url: "https://sfztools.github.io"
 
 repository:
-  branch: "master"
-  url: "https://github.com/sfztools/sfztools.github.io"
+  owner_url: "https://github.com/sfztools"
+  name:      "sfztools.github.io"
+  branch:    "master"
 
 locale:
   default: "en"

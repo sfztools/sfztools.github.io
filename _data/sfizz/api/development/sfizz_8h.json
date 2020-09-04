@@ -3,6 +3,7 @@
   "kind": "file",
   "brief": "sfizz public C API",
   "include": "stddef.h",
+  "location": "src/sfizz.h",
   "language": "C++",
   "doxygen_version": "1.8.18",
   "definitions": [

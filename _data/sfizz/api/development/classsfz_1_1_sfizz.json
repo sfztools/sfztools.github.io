@@ -3,6 +3,7 @@
   "kind": "class",
   "brief": "Main class.",
   "include": "sfizz.hpp",
+  "location": "src/sfizz.hpp",
   "language": "C++",
   "doxygen_version": "1.8.18",
   "definitions": [

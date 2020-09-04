@@ -10,7 +10,7 @@
 						{{ site.data[project_name].api.development[page_name].doxygen_version }}
 						{%-else-%}
 						This site is open source.
-						<a href="{{site.repository.url}}/edit/{{site.repository.branch}}/{{page.path}}">
+						<a href="{{site.repository.owner_url}}/{{site.repository.name}}/edit/{{site.repository.branch}}/{{page.path}}">
 						Improve this page</a>
 						{%-endif-%}
 					</span>
