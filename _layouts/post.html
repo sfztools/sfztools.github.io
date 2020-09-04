@@ -21,7 +21,7 @@
 								{{ page.date | date: page.date_fmt }}</time>
 {% if page.author %}by {{ page.author }}{% endif %}
 							</p>
-{% include anchor_headings.html html=content anchorClass="toc-anchor" anchorBody="#" %}
+{{ content }}
 {% if page.comments and site.disqus_shortname %}
 						<h2>Comments</h2>
 						<div id="disqus_thread"></div>

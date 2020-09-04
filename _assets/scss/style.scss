@@ -1,43 +1,68 @@
-$blue: #337ab7;
-$navbar-dark-color: rgba(#fff, .75);
-$navbar-dark-hover-color: #fff;
-
+@import "variables";
 @import "../../node_modules/bootstrap/scss/bootstrap";
 @import "syntax-highlight";
 
-.navbar, .card-header {
+.navbar, .card-header
+{
 	background-color: #222;
 }
-aside .card-body {
-	padding: 0.5rem;
+aside
+{
+	.card-body {padding: 0.5rem;}
+	.nav-link  {padding: 0.35rem 0.25rem;}
 }
-aside .nav-link {
-	padding: 0.35rem 0.25rem;
-}
-pre {
+pre
+{
 	padding: 0.5rem 0.75rem;
 	border: 2px solid rgba($black, .2);
 	border-radius: 0.50rem;
 }
-/* Mimic Bootstrap tables style in markdown */
-table {
-	width:100%;
-	border-collapse: collapse;
-	margin-bottom: 1em;
+/* Mimic Bootstrap tables for markdown tables only
+   from bootstrap/scss/_variables:
+
+$white:    #fff !default;
+$gray-300: #dee2e6 !default;
+$gray-600: #6c757d !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+
+$body-bg:                     $white !default;
+$body-color:                  $gray-900 !default;
+
+$border-color:                $gray-300 !default;
+$border-width:                1px !default;
+
+$table-accent-bg:             rgba($black, .05) !default;
+$table-dark-bg:               $gray-800 !default;
+$table-striped-order:         odd !default;
+*/
+article
+{
+	> table
+	{
+		width:100%;
+		border-collapse: collapse;
+		margin-bottom: 1em;
+
+		th, td
+		{
+			text-align: left;
+			padding: 5px 10px;
+			border: $border-width solid $border-color;
+		}
+		th
+		{
+			color: $white;
+			background-color: $table-dark-bg;
+		}
+		tr:nth-child(#{$table-striped-order})
+		{
+			background-color: $table-accent-bg;
+		}
+	}
 }
-th, td {
-	text-align: left;
-	padding: 5px 10px;
-	border: 1px solid #dee2e6;
-}
-th {
-	color: #ffffff;
-	background-color: #343A40;
-}
-tr:nth-child(even) {
-	background-color: #f2f2f2;
-}
-#scrollButton {
+#scrollButton
+{
 	display: none;
 	position: fixed;
 	bottom: 20px;
@@ -46,12 +71,13 @@ tr:nth-child(even) {
 	font-size: 18px;
 	border: none;
 	outline: none;
-	background-color: rgba(255, 255, 255, 0.5);
-	color: rgba(0, 0, 0, 0.5);
+	background-color: $scrollbutton-bg;
+	color: $scrollbutton-color;
 	cursor: pointer;
 	padding: 6px;
 	border-radius: 50%;
 }
-#scrollButton:hover {
-	background-color: rgba(255, 255, 255, 0.8);
+#scrollButton:hover
+{
+	background-color: $scrollbutton-bg-hover;
 }
