@@ -53,7 +53,7 @@
           "name": "loadSfzString",
           "type": "bool",
           "brief": "Empties the current regions and load a new SFZ document from memory.",
-          "description": "This is similar to <a href='#loadSfzFile()'>loadSfzFile()</a> in functionality. This accepts a virtual path name for the imaginary sfz file, which is not required to exist on disk. The purpose of the virtual path is to locate samples with relative paths.",
+          "description": "This is similar to <a href='#loadSfzFile'>loadSfzFile()</a> in functionality. This accepts a virtual path name for the imaginary sfz file, which is not required to exist on disk. The purpose of the virtual path is to locate samples with relative paths.",
           "return": "<b style=\"color:blue\">false</b> if no regions were loaded, <b style=\"color:blue\">true</b> otherwise.",
           "since": "0.4.0",
           "params": [
@@ -198,7 +198,7 @@
           "name": "setSampleRate",
           "type": "void",
           "brief": "Set the sample rate.",
-          "description": "If you do not call it it is initialized to sfz::config::defaultSampleRate.",
+          "description": "If you do not call it it is initialized to <code>sfz::config::defaultSampleRate</code>.",
           "params": [
             {
               "name": "sampleRate",
@@ -211,7 +211,7 @@
           "name": "getSampleQuality",
           "type": "int",
           "brief": "Get the default resampling quality.",
-          "description": "This is the quality setting which the engine uses when the instrument does not use the opcode sample_quality. The engine uses distinct default quality settings for live mode and freewheeling mode, which both can be accessed by the means of this function.",
+          "description": "This is the quality setting which the engine uses when the instrument does not use the opcode <code>sample_quality</code>. The engine uses distinct default quality settings for live mode and freewheeling mode, which both can be accessed by the means of this function.",
           "return": "The sample quality for the given mode, in the range 1 to 10.",
           "since": "0.4.0",
           "params": [
@@ -226,7 +226,7 @@
           "name": "setSampleQuality",
           "type": "void",
           "brief": "Set the default resampling quality.",
-          "description": "This is the quality setting which the engine uses when the instrument does not use the opcode sample_quality. The engine uses distinct default quality settings for live mode and freewheeling mode, which both can be accessed by the means of this function.",
+          "description": "This is the quality setting which the engine uses when the instrument does not use the opcode <code>sample_quality</code>. The engine uses distinct default quality settings for live mode and freewheeling mode, which both can be accessed by the means of this function.",
           "since": "0.4.0",
           "params": [
             {
@@ -250,7 +250,7 @@
           "name": "setVolume",
           "type": "void",
           "brief": "Set the value for the volume.",
-          "description": "This value will be clamped within sfz::default::volumeRange.",
+          "description": "This value will be clamped within <code>sfz::default::volumeRange</code>.",
           "params": [
             {
               "name": "volume",
@@ -267,7 +267,7 @@
             {
               "name": "delay",
               "type": "int",
-              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock()'>renderBlock()</a>."
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
             },
             {
               "name": "noteNumber",
@@ -289,7 +289,7 @@
             {
               "name": "delay",
               "type": "int",
-              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock()'>renderBlock()</a>."
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
             },
             {
               "name": "noteNumber",
@@ -311,7 +311,7 @@
             {
               "name": "delay",
               "type": "int",
-              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock()'>renderBlock()</a>."
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
             },
             {
               "name": "ccNumber",
@@ -334,7 +334,7 @@
             {
               "name": "delay",
               "type": "int",
-              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock()'>renderBlock()</a>."
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
             },
             {
               "name": "ccNumber",
@@ -356,7 +356,7 @@
             {
               "name": "delay",
               "type": "int",
-              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock()'>renderBlock()</a>."
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
             },
             {
               "name": "pitch",
@@ -374,7 +374,7 @@
             {
               "name": "delay",
               "type": "int",
-              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock()'>renderBlock()</a>."
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
             },
             {
               "name": "aftertouch",
@@ -391,7 +391,7 @@
             {
               "name": "delay",
               "type": "int",
-              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock()'>renderBlock()</a>."
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
             },
             {
               "name": "secondsPerBeat",

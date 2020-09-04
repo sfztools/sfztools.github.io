@@ -73,7 +73,7 @@
           "name": "sfizz_create_synth",
           "type": "SFIZZ_EXPORTED_API <a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
           "brief": "Creates a sfizz synth.",
-          "description": "This object has to be freed by the caller using <a href='#sfizz_free()'>sfizz_free()</a>. The synth by default is set at 48 kHz and a maximum block size of 1024. You should change these values if they are not correct for your application."
+          "description": "This object has to be freed by the caller using <a href='#sfizz_free'>sfizz_free()</a>. The synth by default is set at 48 kHz and a maximum block size of 1024. You should change these values if they are not correct for your application."
         },
         {
           "name": "sfizz_free",
@@ -97,7 +97,7 @@
             {
               "name": "synth",
               "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
-              "description": "The sfizz synth."
+              "description": "The synth."
             },
             {
               "name": "path",
@@ -117,7 +117,7 @@
             {
               "name": "synth",
               "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
-              "description": "The sfizz synth."
+              "description": "The synth."
             },
             {
               "name": "path",
@@ -141,7 +141,7 @@
             {
               "name": "synth",
               "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
-              "description": "The sfizz synth."
+              "description": "The synth."
             },
             {
               "name": "path",
@@ -160,7 +160,7 @@
             {
               "name": "synth",
               "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
-              "description": "The sfizz synth."
+              "description": "The synth."
             },
             {
               "name": "text",
@@ -178,7 +178,7 @@
             {
               "name": "synth",
               "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
-              "description": "The sfizz synth."
+              "description": "The synth."
             },
             {
               "name": "root_key",
@@ -197,7 +197,7 @@
             {
               "name": "synth",
               "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
-              "description": "The sfizz synth."
+              "description": "The synth."
             }
           ]
         },
@@ -210,7 +210,7 @@
             {
               "name": "synth",
               "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
-              "description": "The sfizz synth."
+              "description": "The synth."
             },
             {
               "name": "frequency",
@@ -229,7 +229,7 @@
             {
               "name": "synth",
               "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
-              "description": "The sfizz synth."
+              "description": "The synth."
             }
           ]
         },
@@ -243,7 +243,7 @@
             {
               "name": "synth",
               "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
-              "description": "The sfizz synth."
+              "description": "The synth."
             },
             {
               "name": "ratio",
@@ -383,7 +383,7 @@
           "name": "sfizz_send_note_on",
           "type": "SFIZZ_EXPORTED_API void",
           "brief": "Send a note on event to the synth.",
-          "description": "As with all MIDI events, this needs to happen before the call to <a href='#sfizz_render_block()'>sfizz_render_block()</a> in each block and should appear in order of the delays.",
+          "description": "As with all MIDI events, this needs to happen before the call to <a href='#sfizz_render_block'>sfizz_render_block()</a> in each block and should appear in order of the delays.",
           "params": [
             {
               "name": "synth",
@@ -411,7 +411,7 @@
           "name": "sfizz_send_note_off",
           "type": "SFIZZ_EXPORTED_API void",
           "brief": "Send a note off event to the synth.",
-          "description": "As with all MIDI events, this needs to happen before the call to <a href='#sfizz_render_block()'>sfizz_render_block()</a> in each block and should appear in order of the delays. As per the SFZ spec the velocity of note-off events is usually replaced by the note-on velocity.",
+          "description": "As with all MIDI events, this needs to happen before the call to <a href='#sfizz_render_block'>sfizz_render_block()</a> in each block and should appear in order of the delays. As per the SFZ spec the velocity of note-off events is usually replaced by the note-on velocity.",
           "params": [
             {
               "name": "synth",
@@ -439,7 +439,7 @@
           "name": "sfizz_send_cc",
           "type": "SFIZZ_EXPORTED_API void",
           "brief": "Send a CC event to the synth.",
-          "description": "As with all MIDI events, this needs to happen before the call to <a href='#sfizz_render_block()'>sfizz_render_block()</a> in each block and should appear in order of the delays.",
+          "description": "As with all MIDI events, this needs to happen before the call to <a href='#sfizz_render_block'>sfizz_render_block()</a> in each block and should appear in order of the delays.",
           "params": [
             {
               "name": "synth",
@@ -467,7 +467,7 @@
           "name": "sfizz_send_hdcc",
           "type": "SFIZZ_EXPORTED_API void",
           "brief": "Send a high precision CC event to the synth.",
-          "description": "As with all MIDI events, this needs to happen before the call to <a href='#sfizz_render_block()'>sfizz_render_block()</a> in each block and should appear in order of the delays.",
+          "description": "As with all MIDI events, this needs to happen before the call to <a href='#sfizz_render_block'>sfizz_render_block()</a> in each block and should appear in order of the delays.",
           "params": [
             {
               "name": "synth",
@@ -495,7 +495,7 @@
           "name": "sfizz_send_pitch_wheel",
           "type": "SFIZZ_EXPORTED_API void",
           "brief": "Send a pitch wheel event.",
-          "description": "As with all MIDI events, this needs to happen before the call to <a href='#sfizz_render_block()'>sfizz_render_block()</a> in each block and should appear in order of the delays.",
+          "description": "As with all MIDI events, this needs to happen before the call to <a href='#sfizz_render_block'>sfizz_render_block()</a> in each block and should appear in order of the delays.",
           "since": "0.4.0",
           "params": [
             {
@@ -712,7 +712,7 @@
           "name": "sfizz_set_oversampling_factor",
           "type": "SFIZZ_EXPORTED_API bool",
           "brief": "Set the internal oversampling rate.",
-          "description": "This is the sampling rate of the engine, not the output or expected rate of the calling function. For the latter use the <a href='#sfizz_set_sample_rate()'>sfizz_set_sample_rate()</a> function. Increasing this value (up to x8 oversampling) improves the quality of the output at the expense of memory consumption and background loading speed. The main render path still uses the same linear interpolation algorithm and should not see its performance decrease, but the files are oversampled upon loading which increases the stress on the background loader and reduce the loading speed. You can tweak the size of the preloaded data to compensate for the memory increase, but the full loading will need to take place anyway. This function takes a lock and disables the callback; prefer calling it out of the RT thread. It can also take a long time to return. If the new oversampling factor is the same as the current one, it will release the lock immediately and exit.",
+          "description": "This is the sampling rate of the engine, not the output or expected rate of the calling function. For the latter use the <a href='#sfizz_set_sample_rate'>sfizz_set_sample_rate()</a> function. Increasing this value (up to x8 oversampling) improves the quality of the output at the expense of memory consumption and background loading speed. The main render path still uses the same linear interpolation algorithm and should not see its performance decrease, but the files are oversampled upon loading which increases the stress on the background loader and reduce the loading speed. You can tweak the size of the preloaded data to compensate for the memory increase, but the full loading will need to take place anyway. This function takes a lock and disables the callback; prefer calling it out of the RT thread. It can also take a long time to return. If the new oversampling factor is the same as the current one, it will release the lock immediately and exit.",
           "return": "<b style=\"color:blue\">true</b> if the oversampling factor was correct, <b style=\"color:blue\">false</b> otherwise.",
           "params": [
             {
@@ -980,7 +980,7 @@
           "type": "SFIZZ_EXPORTED_API void",
           "brief": "Add external definitions prior to loading.",
           "since": "0.4.0",
-          "note": "These do not get reset by loading or resetting the synth. You need to call <a href='#sfizz_clear_external_definitions()'>sfizz_clear_external_definitions()</a> to erase them.",
+          "note": "These do not get reset by loading or resetting the synth. You need to call <a href='#sfizz_clear_external_definitions'>sfizz_clear_external_definitions()</a> to erase them.",
           "params": [
             {
               "name": "synth",
@@ -990,12 +990,12 @@
             {
               "name": "id",
               "type": "const char *",
-              "description": ""
+              "description": "The definition variable name."
             },
             {
               "name": "value",
               "type": "const char *",
-              "description": ""
+              "description": "The definition value."
             }
           ]
         },
@@ -1020,7 +1020,8 @@
           "params": [
             {
               "name": "synth",
-              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *"
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
             }
           ]
         },
@@ -1033,11 +1034,13 @@
           "params": [
             {
               "name": "synth",
-              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *"
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
             },
             {
               "name": "label_index",
-              "type": "int"
+              "type": "int",
+              "description": "The label index."
             }
           ]
         },
@@ -1045,16 +1048,18 @@
           "name": "sfizz_get_key_label_text",
           "type": "SFIZZ_EXPORTED_API const char *",
           "brief": "Get the key text for the label registered at index label_index.",
-          "return": "the label or NULL if the index is out of bounds.",
+          "return": "the label or <b>NULL</b> if the index is out of bounds.",
           "since": "0.4.0",
           "params": [
             {
               "name": "synth",
-              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *"
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
             },
             {
               "name": "label_index",
-              "type": "int"
+              "type": "int",
+              "description": "The label index."
             }
           ]
         },
@@ -1066,7 +1071,8 @@
           "params": [
             {
               "name": "synth",
-              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *"
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
             }
           ]
         },
@@ -1079,11 +1085,13 @@
           "params": [
             {
               "name": "synth",
-              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *"
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
             },
             {
               "name": "label_index",
-              "type": "int"
+              "type": "int",
+              "description": "The label index."
             }
           ]
         },
@@ -1096,11 +1104,13 @@
           "params": [
             {
               "name": "synth",
-              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *"
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+              "description": "The synth."
             },
             {
               "name": "label_index",
-              "type": "int"
+              "type": "int",
+              "description": "The label index."
             }
           ]
         }
