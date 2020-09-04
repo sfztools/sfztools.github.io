@@ -1,5 +1,6 @@
 ---
 layout: "default"
+name:   "doxygen"
 ---
 {{ content }}
 
@@ -13,16 +14,12 @@ layout: "default"
 {%-assign repo_tag        = page.dir | split: '/' | last-%}
 {%-assign file_url        = repo_url | append: "/blob/" | append: site.project.docs_path| append: '/' | append: api.location.file-%}
 
-{%-if api.kind == "page"-%}
-	{%-assign title = api.title-%}
+{%-if api.kind == "page"-%}{%-assign title = api.title-%}
 {%-else-%}
-	{%-if api.kind == "file"-%}
-		{%-assign title_suffix = "File"-%}
-	{%-elsif api.kind == "namespace"-%}
-		{%-assign title_suffix = "Namespace"-%}
-	{%-elsif api.kind == "class"-%}
-		{%-assign title_suffix = "Class"-%}
-		{%-assign functions_title = "Public Member Functions"-%}
+	{%-if    api.kind == "file"-%}     {%-assign title_suffix = "File"-%}
+	{%-elsif api.kind == "namespace"-%}{%-assign title_suffix = "Namespace"-%}
+	{%-elsif api.kind == "class"-%}    {%-assign title_suffix = "Class"-%}
+	                                   {%-assign functions_title = "Public Member Functions"-%}
 	{%-endif-%}
 	{%-capture title-%}
 	<a href="{{ file_url }}">{{ api.name }}</a> {{ title_suffix }} Reference
@@ -31,6 +28,140 @@ layout: "default"
 
 <h1>{{ title }}</h1><hr/>
 
-{%-if api.kind == "file" or api.kind == "class" or api.kind == "namespace"-%}
-	{%-include doxygen/file.html-%}
-{%-endif-%}
+	{%-if api.language == "C++"-%}
+	<p><code>#include &lt;{{ api.include }}&gt;</code></p><hr/>
+	{%-endif-%}
+
+	{%-for def in api.definitions-%}
+		{%if def.kind == "enum"-%}
+			<h2 class="groupheader">Enumerations</h2>
+			{%-for member in def.members-%}
+			<h3 class="memtitle">{{ member.name }}</h3>
+			<div class="memitem">
+				<div class="memdoc">
+					<span class="type">enum</span>&nbsp;{{ member.name }}&nbsp;{<br/>
+					{%-for value in member.values-%}
+						<b class="tab">{{ value.name }}</b>
+							{{ value.initializer }}<br/>
+					{%-endfor-%}
+					}
+					<p>{{ member.brief }}</p>
+				</div>
+			</div>
+			{%-endfor-%}
+			<hr/>
+		{%elsif def.kind == "func" or def.kind == "public-func"-%}
+
+			<h2 class="groupheader" id="functions">{{ functions_title }}</h2>
+			{%-for function in def.members-%}
+				{%-assign function_brief = function.brief-%}
+
+				{%-comment-%}
+					Skip functions without description
+					TODO: Make this configurable by Doxyfile
+				{%-endcomment-%}
+				{%-if function_brief == nil-%}{%-continue-%}{%-endif-%}
+
+				{%-assign function_description = function.description-%}
+
+				<h3 class="memtitle" id="{{ function.name }}">{{ function.name }}</h3>
+				<div class="memitem">
+					<div class="memproto">
+						<table class="memname"><tbody>
+							<tr>
+								<td class="memname">
+									<span class="type">{{ function.type }}</span>
+									<span class="func">{{ function.name }}</span>
+								</td>
+								<td>(</td>
+								{%-for param in function.params-%}
+									{%-if api.language != "Python"-%}
+									<td class="paramtype">{{ param.type }}</td>
+									{%-endif-%}
+									<td class="paramname"><em>{{ param.name }}</em></td>
+									{%-unless forloop.last-%}<td>,</td>
+									{%-endunless-%}
+								{%-endfor-%}
+								<td>)</td>
+								<td></td>
+							</tr>
+						</tbody></table>
+					</div>
+					<div class="memdoc">
+						<p>{{ function_brief }}</p>
+						<p>{{ function_description }}</p>
+						{%-if function.params.size-%}
+							<dl class="params">
+								<dt>Parameters</dt>
+								<dd>
+									<table class="params"><tbody>
+										{%-for param in function.params-%}
+											<tr><td class="paramname">{{param.name}}</td>
+											<td>{{param.description}}</td></tr>
+										{%-endfor-%}
+									</tbody></table>
+								</dd>
+							</dl>
+						{%-endif-%}
+						{%-if function.return-%}
+							<dl class="section return">
+								<dt>Returns</dt>
+								<dd>{{ function.return }}</dd>
+							</dl>
+						{%-endif-%}
+						{%-if function.since-%}
+							<dl class="section since">
+								<dt>Since</dt>
+								<dd>{{ function.since }}</dd>
+							</dl>
+						{%-endif-%}
+						{%-if function.note-%}
+							<dl class="section note">
+								<dt>Note</dt>
+								<dd>{{ function.note }}</dd>
+							</dl>
+						{%-endif-%}
+					</div>
+				</div>
+				{%-assign function_brief       = nil-%}
+				{%-assign function_description = nil-%}
+			{%-endfor-%}
+		{%-else-%}
+			{%-if    def.kind == "define"-%} {%-assign group_title = "Macros"-%}
+			{%-elsif def.kind == "typedef"-%}{%-assign group_title = "Typedefs"-%}
+			{%-endif-%}
+			<h2 class="groupheader">{{ group_title }}</h2>
+			{%-for member in def.members-%}
+				{%-if def.kind == "define"-%}
+					{%-assign memname = "<span class='type'>#define</span> <b>"
+						| append: member.name | append: " " | append: member.initializer
+						| append: "</b>"-%}
+				{%-elsif def.kind == "typedef"-%}
+					{%-assign memname = "<span class='type'>typedef " | append: member.type
+						| append: "</span> <b>" | append: member.name | append: "</b>"-%}
+				{%-endif-%}
+			<h3 class="memtitle">{{ member.name }}</h3>
+			<div class="memitem">
+				<div class="memproto">
+					<table class="memname">
+						<tr>
+							<td class="memname">
+								{{ memname }}
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="memdoc">
+					<p>{{ member.brief }}</p>
+					{%-if member.since-%}
+					<dl class="section since">
+						<dt>Since</dt>
+						<dd>{{ member.since }}</dd>
+					</dl>
+					{%-endif-%}
+				</div>
+			</div>
+			{%-endfor-%}
+			<hr/>
+		{%-endif-%}
+	{%-endfor-%}
