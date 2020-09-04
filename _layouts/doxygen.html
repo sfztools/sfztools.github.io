@@ -2,8 +2,6 @@
 layout: "default"
 name:   "doxygen"
 ---
-{{ content }}
-
 <link type="text/css" href="{{ "/assets/css/doxygen.css" | relative_url }}" rel="stylesheet">
 
 {%-assign project_name    = page.dir | remove_first: '/' | split: '/' | first-%}
@@ -13,6 +11,7 @@ name:   "doxygen"
 {%-assign repo_tag        = page.dir | split: '/' | last-%}
 {%-assign file_url        = repo_url | append: "/blob/" | append: site.repository.branch | append: '/' | append: api.location-%}
 {%-assign functions_title = "Functions"-%}
+{%-assign typedefs_title  = "Enumerations"-%}
 
 {%-if api.kind == "page"-%}{%-assign title = api.title-%}
 {%-else-%}
@@ -20,6 +19,7 @@ name:   "doxygen"
 	{%-elsif api.kind == "namespace"-%}{%-assign title_suffix = "Namespace"-%}
 	{%-elsif api.kind == "class"-%}    {%-assign title_suffix = "Class"-%}
 	                                   {%-assign functions_title = "Public Member Functions"-%}
+	                                   {%-assign typedefs_title  = "Public Types"-%}
 	{%-endif-%}
 	{%-capture title-%}
 	<a href="{{ file_url }}">{{ api.name }}</a> {{ title_suffix }} Reference
@@ -28,13 +28,18 @@ name:   "doxygen"
 
 <h1>{{ title }}</h1><hr/>
 
-	{%-if api.language == "C++"-%}
+	{%-if api.language == "C++" and api.kind == "class"-%}
 	<p><code>#include &lt;{{ api.include }}&gt;</code></p><hr/>
 	{%-endif-%}
 
+{{ api.brief }}<hr/>
+
+{{ content }}
+
 	{%-for def in api.definitions-%}
-		{%if def.kind == "enum"-%}
-			<h2 class="groupheader">Enumerations</h2>
+		{%-if def.kind contains "private"-%}{%-continue-%}{%-endif-%}
+		{%-if def.kind == "enum" or def.kind == "public-type"-%}
+			<h2 class="groupheader">{{ typedefs_title }}</h2>
 			{%-for member in def.members-%}
 			<h3 class="memtitle">{{ member.name }}</h3>
 			<div class="memitem">

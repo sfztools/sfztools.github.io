@@ -12,7 +12,15 @@
       "members": [
         {
           "name": "ProcessMode",
-          "brief": "Processing mode."
+          "brief": "Processing mode.",
+          "values": [
+            {
+              "name": "ProcessLive"
+            },
+            {
+              "name": "ProcessFreewheeling"
+            }
+          ]
         }
       ]
     },
