@@ -51,6 +51,12 @@ name:   "doxygen"
 					{%-endfor-%}
 					}
 					<p>{{ member.brief }}</p>
+					{%-if member.since-%}
+						<dl class="section since">
+							<dt>Since</dt>
+							<dd>{{ member.since }}</dd>
+						</dl>
+					{%-endif-%}
 				</div>
 			</div>
 			{%-endfor-%}
@@ -94,7 +100,7 @@ name:   "doxygen"
 					</div>
 					<div class="memdoc">
 						<p>{{ function_brief }}</p>
-						<p>{{ function_description }}</p>
+						{{ function_description }}
 						{%-if function.params.size-%}
 							<dl class="params">
 								<dt>Parameters</dt>
