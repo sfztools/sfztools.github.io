@@ -7,7 +7,7 @@ name:   "doxygen"
 {%-assign project_name    = page.dir | remove_first: '/' | split: '/' | first-%}
 {%-assign repo_url        = site.repository.owner_url | append: '/' | append: project_name-%}
 {%-assign page_name       = page.name | replace: ".md", ''-%}
-{%-assign api             = site.data[project_name].api.development[page_name]-%}
+{%-assign api             = site.data[project_name].api[page_name]-%}
 {%-assign repo_tag        = page.dir | split: '/' | last-%}
 {%-assign file_url        = repo_url | append: "/blob/" | append: site.repository.branch | append: '/' | append: api.location-%}
 {%-assign functions_title = "Functions"-%}

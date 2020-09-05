@@ -1,9 +1,5 @@
 ---
 title: "API"
 ---
-- [0.2.0](0.2.0)
-- [0.3.0](0.3.0)
-- [0.3.1](0.3.1)
-- [0.3.2](0.3.2)
-- [0.4.0](0.4.0)
-- [development](development)
+- [public C API](sfizz_8h)
+- [public C++ API](classsfz_1_1_sfizz)
