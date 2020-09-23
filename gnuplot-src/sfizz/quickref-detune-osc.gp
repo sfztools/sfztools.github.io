@@ -4,6 +4,7 @@ semi2ratio(semi) = 2.0 ** (semi / 12.0)
 cents2ratio(cents) = semi2ratio(cents / 100.0)
 
 periodicity_(x, f) = fmod(x, 1.0/f)/(1.0/f)
+periodicity(x, f) = (periodicity_(x, f) < 0.) ? (periodicity_(x, f) + 1.0) : periodicity_(x, f)
 wave_saw(x, f) = 2.0*(1.0-periodicity(x, f))-1.0
 
 f1=1.0
