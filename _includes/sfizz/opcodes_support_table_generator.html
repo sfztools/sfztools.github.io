@@ -7,8 +7,7 @@
 </ul>
 
 <h2 id="supported-headers">Supported Headers</h2>
-<table class="table table-sm table-hover table-striped table-responsive-xl"
-	style="table-layout:fixed" data-toggle="table">
+<table data-toggle="table" data-classes="table table-bordered table-hover table-sm table-striped">
 	<thead class="thead-dark">
 		<tr>
 			<th data-field="header" data-sortable="true">Header</th>
@@ -42,8 +41,7 @@
 {%-for category in site.data.sfizz.support.categories-%}
 	<h3 id="{{ category.name | downcase | replace: ":", '' | replace: " ", '-' }}">
 		{{ category.name }}</h3>
-<table class="table table-sm table-hover table-striped table-responsive-xl"
-	style="table-layout:fixed" data-toggle="table">
+<table data-toggle="table" data-classes="table table-bordered table-hover table-sm table-striped">
 	<thead class="thead-dark">
 		<tr>
 			<th data-field="opcode" data-sortable="true">Opcode</th>
