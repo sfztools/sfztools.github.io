@@ -65,6 +65,23 @@ oscillator=on
 
 ![quickref-wavetable-osc](/assets/img/sfizz/quickref-wavetable-osc.svg)
 
+#### Unison oscillator
+
+This creates an array of oscillators which are spread out in gain and frequency
+relative to the fundamental, and arranged in opposite fashion in left and right
+channels to create a stereo effect.
+
+The example creates an array of 5 sawtooth waves, spread using a detuning interval
+set to 50 cents. (a "supersaw")
+
+```
+<region>
+sample=*saw
+oscillator=on
+oscillator_multi=5
+oscillator_detune=50
+```
+
 ### Filters
 
 ### Modulation
