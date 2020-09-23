@@ -71,6 +71,9 @@ This creates an array of oscillators which are spread out in gain and frequency
 relative to the fundamental, and arranged in opposite fashion in left and right
 channels to create a stereo effect.
 
+The unison mode is enabled when `oscillator_multi` is 3 or more, and
+`oscillator_mode` is default or 0.
+
 The example creates an array of 5 sawtooth waves, spread using a detuning interval
 set to 50 cents. (a "supersaw")
 
@@ -80,6 +83,55 @@ sample=*saw
 oscillator=on
 oscillator_multi=5
 oscillator_detune=50
+```
+
+#### Experimental
+
+##### Ring modulation oscillator
+
+When the opcodes are set to `oscillator_mode=0` and `oscillator_multi=2`,
+this configures a pair of oscillators for ring modulation.
+
+The modulator, whose frequency is determined by `oscillator_detune` in cents,
+modulates the amplitude of the carrier oscillator, with a depth determined by
+`oscillator_mod_depth` expressed as a percentage.
+
+```
+<control>
+set_hdcc21=0.5
+
+<region>
+sample=*saw
+oscillator=on
+oscillator_mode=0
+oscillator_multi=2
+oscillator_detune=25
+oscillator_mod_depth=100
+oscillator_mod_depth_oncc21=100
+```
+
+##### FM oscillator
+
+A 2-operator FM arrangement can be constructed by setting `oscillator_mode=2`.
+
+The frequency of the modulator is determined by `oscillator_detune` in cents,
+and the FM index by `oscillator_mod_depth`. The depth is expressed as a
+percentage, which means that the value `100` represents the FM index `1.0`.
+
+```
+<control>
+set_cc21=100
+
+<global>
+volume=-3.0
+
+<region>
+sample=*sine
+oscillator=on
+oscillator_mode=2
+oscillator_detune=5
+oscillator_mod_depth=100
+oscillator_mod_depth_oncc21=1000
 ```
 
 ### Filters
