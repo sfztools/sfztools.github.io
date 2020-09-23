@@ -1,1 +1,8 @@
-{%comment%}Don't delete this file, just replace this line if needed.{%endcomment%}
+		<script type="text/javascript" src="{{ '/assets/js/prettify/prettify.min.js' | relative_url }}"></script>
+		<script type="text/javascript" src="{{ '/assets/js/prettify/lang-sfz.js' | relative_url }}"></script>
+		<script>
+			$(document).ready(function(){
+			$('pre').addClass('prettyprint lang-sfz');
+			prettyPrint();
+			});
+		</script>

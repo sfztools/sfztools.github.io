@@ -2,6 +2,7 @@
 {%-for script in page.scripts-%}
 		<script src="{{ '/assets/js/' | append: script | append: '.js' | relative_url }}"></script>
 {%-endfor-%}
+{% include custom-scripts.html %}
 		<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
 		<script>
 			anchors.options.placement = 'left';
