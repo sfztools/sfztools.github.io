@@ -8,6 +8,11 @@ navigation:
     icon_type: "home"
     icon_category: "fas"
     url: "/sfizz/"
+# -
+# - label: "Quick Reference"
+#   icon_type: "book"
+#   icon_category: "fas"
+#   url: "/sfizz/quick_reference"
   -
   - label: "API"
     icon_type: "code"
