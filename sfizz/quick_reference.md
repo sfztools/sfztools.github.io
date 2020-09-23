@@ -37,6 +37,8 @@ sample=*saw
 pitch=50
 ```
 
+![quickref-detune-osc](/assets/img/sfizz/quickref-detune-osc.svg){:class="img-responsive"}
+
 ### Filters
 
 ### Modulation
