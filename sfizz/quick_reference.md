@@ -85,9 +85,7 @@ oscillator_multi=5
 oscillator_detune=50
 ```
 
-#### Experimental
-
-##### Ring modulation oscillator
+#### Ring modulation oscillator (experimental)
 
 When the opcodes are set to `oscillator_mode=0` and `oscillator_multi=2`,
 this configures a pair of oscillators for ring modulation.
@@ -110,7 +108,7 @@ oscillator_mod_depth=100
 oscillator_mod_depth_oncc21=100
 ```
 
-##### FM oscillator
+#### FM oscillator (experimental)
 
 A 2-operator FM arrangement can be constructed by setting `oscillator_mode=2`.
 
