@@ -47,7 +47,7 @@ sample rate is disregarded.
 
 One way to create wavetables is to use the `WCreate` utility.
 - Documentation, and Windows software: [futur3soundz](https://www.futur3soundz.com/wavetable-synthesis)
-- macOS and Linux software: [WaveTableTools](https://github.com/jpcima/WaveTableTools)
+- macOS and Linux software: [WaveTableTools](https://github.com/sfztools/WaveTableTools)
 
 The example refers to a wave composed of the 6 first harmonics:
 `WCreate 1024 "x<6" sine_hrm_06.wav`
