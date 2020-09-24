@@ -84,28 +84,21 @@ article
 }
 h1, h2, h3, h4, h5, h6
 {
-	color: #000;
 	margin: 0;
 	padding-top: 0.5em;
 	padding-bottom: 0.17em;
 	overflow: hidden;
 }
-h1, h2
+h1, h2, h3
 {
+	color: #003296;
 	margin-bottom: 0.6em;
-	border-bottom: 1px solid #a2a9b1;
+	border-bottom: 1px solid $gray-400;
 }
+h4, h5, h6 {font-weight: bold;}
 h3, h4, h5 {margin-bottom: 0.3em;}
-h1
-{
-	font-size: 188%;
-	font-weight: normal;
-}
-h2
-{
-	font-size: 150%;
-	font-weight: normal;
-}
+h1 {font-size: 188%;}
+h2 {font-size: 150%;}
 h3 {font-size: 128%;}
 h4 {font-size: 116%;}
 h5 {font-size: 108%;}
@@ -113,5 +106,5 @@ h6 {font-size: 100%;}
 img
 {
 	max-width: 100%;
-	height: auto
+	height: auto;
 }
