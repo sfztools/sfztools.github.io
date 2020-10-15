@@ -431,7 +431,7 @@
           "name": "timeSignature",
           "type": "void",
           "brief": "Send the time signature.",
-          "since": "0.4.1",
+          "since": "0.5.0",
           "params": [
             {
               "name": "delay",
@@ -454,7 +454,7 @@
           "name": "timePosition",
           "type": "void",
           "brief": "Send the time position.",
-          "since": "0.4.1",
+          "since": "0.5.0",
           "params": [
             {
               "name": "delay",
@@ -477,7 +477,7 @@
           "name": "playbackState",
           "type": "void",
           "brief": "Send the playback state.",
-          "since": "0.4.1",
+          "since": "0.5.0",
           "params": [
             {
               "name": "delay",

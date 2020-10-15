@@ -47,7 +47,7 @@
         {
           "name": "sfizz_process_mode_t",
           "brief": "Processing mode.",
-          "since": "0.4.1",
+          "since": "0.5.0",
           "values": [
             {
               "name": "SFIZZ_PROCESS_LIVE"
@@ -586,7 +586,7 @@
           "name": "sfizz_send_time_signature",
           "type": "SFIZZ_EXPORTED_API void",
           "brief": "Send the time signature.",
-          "since": "0.4.1",
+          "since": "0.5.0",
           "params": [
             {
               "name": "synth",
@@ -614,7 +614,7 @@
           "name": "sfizz_send_time_position",
           "type": "SFIZZ_EXPORTED_API void",
           "brief": "Send the time position.",
-          "since": "0.4.1",
+          "since": "0.5.0",
           "params": [
             {
               "name": "synth",
@@ -642,7 +642,7 @@
           "name": "sfizz_send_playback_state",
           "type": "SFIZZ_EXPORTED_API void",
           "brief": "Send the playback state.",
-          "since": "0.4.1",
+          "since": "0.5.0",
           "params": [
             {
               "name": "synth",
