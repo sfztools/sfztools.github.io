@@ -757,6 +757,7 @@ categories:
   - name: "tune"
     version: "SFZ v1"
     support: "v"
+    comment: "Alias: pitch"
   - name: "pitch_onccN"
     version: "SFZ v2"
     support: "v"
@@ -790,10 +791,6 @@ categories:
   - name: "bend_stepdown"
     version: "SFZ v2"
     support: "x"
-  - name: "pitch"
-    version: "ARIA"
-    support: "v"
-    comment: "Alias: tune"
 
 - name: "Modulation: Envelope Generators"
   opcodes:
