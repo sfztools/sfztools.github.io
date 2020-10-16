@@ -14,7 +14,7 @@ install also the [JACK] Audio Connection Kit library.
 The benchmarks depend on the [benchmark] library.
 If you wish to build the benchmarks you should either build it from source and
 install the static library, or use the library from your distribution.
-Ubuntu proposes a `libbenchmark-dev` package that does this.
+Debian and Ubuntu provide a `libbenchmark-dev` package that does this.
 
 ## Build System
 

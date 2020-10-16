@@ -8,7 +8,7 @@ follow:
 sudo apt install libjack-jackd2-dev libsndfile1-dev libcairo2-dev libfontconfig1-dev libx11-xcb-dev libxcb-util-dev libxcb-cursor-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev libxcb-keysyms1-dev libglib2.0-dev
 ```
 
-For benchmarks, Ubuntu proposes a `libbenchmark-dev` package that does this.
+For benchmarks, Debian and Ubuntu provide a `libbenchmark-dev` package that does this.
 
 The process is as follows:
 1. Clone the repository with all the submodules
