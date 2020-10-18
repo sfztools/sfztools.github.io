@@ -68,7 +68,7 @@ categories:
   - name: "loop_mode"
     version: "SFZ v1"
     support: "v"
-    comment: "Alias: loopmode"
+    comment: "Alias: loopmode<br/><code>loop_sustain</code> not supported"
   - name: "loop_start"
     version: "SFZ v1"
     support: "v"
