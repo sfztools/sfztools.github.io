@@ -68,7 +68,10 @@ categories:
   - name: "loop_mode"
     version: "SFZ v1"
     support: "v"
-    comment: "Alias: loopmode<br/><code>loop_sustain</code> not supported"
+    comment:
+      "Alias: loopmode<br/>
+      <code>loop_sustain</code> not supported<br/>
+      (yet, implemented as loop_continuous)"
   - name: "loop_start"
     version: "SFZ v1"
     support: "v"
@@ -249,7 +252,7 @@ categories:
     support: "v"
   - name: "rt_dead"
     version: "SFZ v2"
-    support: "x"
+    support: "v"
 
 - name: "Region Logic: Key Mapping"
   opcodes:
