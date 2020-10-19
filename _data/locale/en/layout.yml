@@ -13,6 +13,11 @@ navigation:
     icon_type: "book"
     icon_category: "fas"
     url: "/sfizz/quick_reference"
+
+  - label: "FAQ"
+    icon_type: "question-circle"
+    icon_category: "fas"
+    url: "/sfizz/faq"
   -
   - label: "API"
     icon_type: "code"
