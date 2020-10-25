@@ -5,8 +5,7 @@ all static assets including the [Bootstrap] library and built on
 along with the [SASS] stylesheets. Most of the content on the website is
 written using [Markdown], making it extremely easy to write and maintain.
 Icons are provided by [Font Awesome], favicons by [Favicon Generator].
-Anchors headings are provided by [jekyll-anchor-headings] by [Alleyo],
-licensed under the MIT license.
+Anchors headings are provided by [AnchorJS], licensed under the MIT license.
 
 ## Local Build Quick-start Guide
 
@@ -27,12 +26,11 @@ $ bundle exec jekyll serve --watch --host 0.0.0.0
 
 The local website should be available at <http://localhost:4000/>
 
-[Alleyo]:                 https://pure-liquid.allejo.org/
+[AnchorJS]:               https://www.bryanbraun.com/anchorjs/
 [Bootstrap]:              http://getbootstrap.com/
 [Favicon Generator]:      https://realfavicongenerator.net/
 [Font Awesome]:           http://fontawesome.io/
 [Jekyll]:                 http://jekyllrb.com/
-[jekyll-anchor-headings]: https://github.com/allejo/jekyll-anchor-headings/
 [Markdown]:               https://daringfireball.net/projects/markdown/
 [Node.js]:                http://nodejs.org/
 [rvm]:                    https://redtide.github.io/dev-docs/en/jekyll/rvm
