@@ -1,8 +1,7 @@
 name: "sfizz"
 license: "BSD-2-Clause"
 url: "https://sfztools.github.io/sfizz/"
-documented: true
-visible: true
+versions: ["ARIA", "Cakewalk", "sfizz", "SFZ v1", "SFZ v2"]
 
 os:
 - name: "Linux"
@@ -36,7 +35,8 @@ headers:
   support: "x"
 
 categories:
-- name: "Sound Source: Sample Playback"
+- name: "Sample Playback"
+  id: "spl"
   opcodes:
   - name: "count"
     version: "SFZ v1"
@@ -118,6 +118,7 @@ categories:
     support: "x"
 
 - name: "Loading"
+  id: "ldg"
   opcodes:
   - name: "load_mode"
     version: "Cakewalk SFZ v2"
@@ -136,6 +137,7 @@ categories:
     support: "x"
 
 - name: "Wavetable Oscillator"
+  id: "wos"
   opcodes:
   - name: "oscillator"
     version: "SFZ v2"
@@ -170,6 +172,7 @@ categories:
     support: "wip"
 
 - name: "Instrument Settings"
+  id: "ins"
   opcodes:
   - name: "#define"
     version: "SFZ v2"
@@ -221,7 +224,8 @@ categories:
     support: "v"
     undocumented: true
 
-- name: "Instrument Settings: Voice Lifecycle"
+- name: "Voice Lifecycle"
+  id: "vlc"
   opcodes:
   - name: "group"
     version: "SFZ v1"
@@ -254,7 +258,8 @@ categories:
     version: "SFZ v2"
     support: "v"
 
-- name: "Region Logic: Key Mapping"
+- name: "Key Mapping"
+  id: "map"
   opcodes:
   - name: "key"
     version: "SFZ v1"
@@ -272,7 +277,8 @@ categories:
     version: "SFZ v1"
     support: "v"
 
-- name: "Region Logic: MIDI Conditions"
+- name: "MIDI Conditions"
+  id: "mid"
   opcodes:
   - name: "loccN"
     version: "SFZ v1"
@@ -359,7 +365,8 @@ categories:
     support: "x"
     comment: "Not supported by design"
 
-- name: "Region Logic: Internal Conditions"
+- name: "Internal Conditions"
+  id: "int"
   opcodes:
   - name: "lorand"
     version: "SFZ v1"
@@ -386,7 +393,8 @@ categories:
     version: "SFZ v1"
     support: "x"
 
-- name: "Region Logic: Triggers"
+- name: "Triggers"
+  id: "trg"
   opcodes:
   - name: "trigger"
     version: "SFZ v1"
@@ -426,7 +434,8 @@ categories:
     version: "ARIA"
     support: "x"
 
-- name: "Performance Parameters: Amplifier"
+- name: "Amplifier"
+  id: "amp"
   opcodes:
   - name: "pan"
     version: "SFZ v1"
@@ -598,7 +607,8 @@ categories:
     version: "ARIA"
     support: "wip"
 
-- name: "Performance Parameters: Filter"
+- name: "Filter"
+  id: "flt"
   opcodes:
   - name: "eqN_bw"
     version: "SFZ v1"
@@ -739,7 +749,8 @@ categories:
     version: "SFZ v2"
     support: "x"
 
-- name: "Performance Parameters: Pitch"
+- name: "Pitch"
+  id: "ptc"
   opcodes:
   - name: "pitch_keycenter"
     version: "SFZ v1"
@@ -795,7 +806,8 @@ categories:
     version: "SFZ v2"
     support: "x"
 
-- name: "Modulation: Envelope Generators"
+- name: "Envelope Generators"
+  id: "eg"
   opcodes:
   - name: "ampeg_attack"
     version: "SFZ v1"
@@ -991,6 +1003,7 @@ categories:
     support: "v"
 
 - name: "Curves"
+  id: "crv"
   opcodes:
   - name: "curve_index"
     version: "ARIA"
@@ -1000,6 +1013,7 @@ categories:
     support: "v"
 
 - name: "Effects"
+  id: "efx"
   opcodes:
   - name: "effect1"
     version: "SFZ v1"
@@ -1030,6 +1044,7 @@ categories:
     support: "x"
 
 - name: "Effect: Autopan"
+  id: "apn"
   opcodes:
   - name: "apan_dry"
     version: "SFZ v2"
@@ -1066,6 +1081,7 @@ categories:
     support: "v"
 
 - name: "Effect: Lofi"
+  id: "lfi"
   opcodes:
   - name: "bitred"
     version: "SFZ v2"
@@ -1099,6 +1115,7 @@ categories:
     support: "x"
 
 - name: "Effect: Filter"
+  id: "fxf"
   opcodes:
   - name: "filter_cutoff"
     version: "SFZ v2"
@@ -1125,6 +1142,7 @@ categories:
     undocumented: true
 
 - name: "Effect: EQ"
+  id: "feq"
   opcodes:
   - name: "eq_bw"
     version: "SFZ v2"
@@ -1146,6 +1164,7 @@ categories:
     support: "v"
 
 - name: "Effect: Strings"
+  id: "fst"
   opcodes:
   - name: "strings_number"
     version: "SFZ v2"
@@ -1160,6 +1179,7 @@ categories:
     support: "x"
 
 - name: "Effect: Rectify"
+  id: "rfy"
   opcodes:
   - name: "rectify_mode"
     version: "sfizz"
@@ -1175,6 +1195,7 @@ categories:
     undocumented: true
 
 - name: "Effect: Gain"
+  id: "fgn"
   opcodes:
   - name: "gain"
     version: "sfizz"
@@ -1188,6 +1209,7 @@ categories:
     comment: "Disambiguation needed"
 
 - name: "Effect: Width"
+  id: "wdt"
   opcodes:
   - name: "width"
     version: "sfizz"
@@ -1201,6 +1223,7 @@ categories:
     comment: "Disambiguation needed"
 
 - name: "Effect: Reverb"
+  id: "rvb"
   opcodes:
   - name: "reverb_dry"
     version: "SFZ v2"
@@ -1249,6 +1272,7 @@ categories:
     support: "x"
 
 - name: "Effect: Phaser"
+  id: "psr"
   opcodes:
   - name: "phaser_wet"
     version: "SFZ v2"
@@ -1285,6 +1309,7 @@ categories:
     support: "x"
 
 - name: "Effect: Compressor"
+  id: "cpr"
   opcodes:
   - name: "comp_gain"
     version: "SFZ v2"
@@ -1306,6 +1331,7 @@ categories:
     support: "wip"
 
 - name: "Effect: Gate"
+  id: "fgt"
   opcodes:
   - name: "gate_attack"
     version: "SFZ v2"

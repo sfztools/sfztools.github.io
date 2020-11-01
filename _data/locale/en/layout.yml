@@ -29,7 +29,7 @@ navigation:
     icon_category: "fas"
     url: "/sfizz/development/build"
   -
-  - label: "Opcodes"
+  - label: "Status"
     icon_type: "tasks"
     icon_category: "fas"
     url: "/sfizz/development/status"
