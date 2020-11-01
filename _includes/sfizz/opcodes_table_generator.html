@@ -65,7 +65,9 @@ div.checkbox-filter {
 		{%-endif-%}
 {%-endcomment-%}
 		<tr>
-			<td class="{{ category.id }}"><span style="display:none">{{ category.name }}</span></td>
+			<td title="{{ category.name }}" class="{{ category.id }}">
+				<span style="display:none">{{ category.name }}</span>
+			</td>
 			<td>{{ opcode_url }}</td>
 			<td style="text-align:center">{{ opcode.version }}</td>
 			<td style="text-align:center">{{ opcode_support }}</td>
