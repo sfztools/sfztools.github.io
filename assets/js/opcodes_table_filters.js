@@ -4,16 +4,20 @@ var $opcodeTable = $('#table-opcodes');
 var $opcodeSearch = $('#search-opcodes');
 var $versionFilters = $('.versions-checkbox');
 var $categoryFilters = $('.categories-checkbox');
+var $supportFilters = $('.support-checkbox');
 
 var categoryColumnNumber = 0;
 var opcodeColumnNumber = 1;
 var versionColumnNumber = 2;
+var supportColumnNumber = 3;
 
 var updateTable = function() {
 	var searchText = $opcodeSearch.val();
 	var activeVersionFilters = $versionFilters.filter(':checked')
 			.map(function() { return $(this).val(); }).toArray();
 	var activeCategoryFilters = $categoryFilters.filter(':checked')
+			.map(function() { return $(this).val(); }).toArray();
+	var activeSupportFilters = $supportFilters.filter(':checked')
 			.map(function() { return $(this).val(); }).toArray();
 
 	var acceptRow = function($row) {
@@ -35,6 +39,12 @@ var updateTable = function() {
 				return false;
 		}
 
+		if (activeSupportFilters.length > 0) {
+			var text = $row.find('img').attr("title");
+			if (!activeSupportFilters.includes(text))
+				return false;
+		}
+
 		return true;
 	};
 
@@ -52,6 +62,7 @@ var updateTable = function() {
 $opcodeSearch.on('input', null, updateTable);
 $versionFilters.on('change', null, updateTable);
 $categoryFilters.on('change', null, updateTable);
+$supportFilters.on('change', null, updateTable);
 
 // update after the table was sorted
 $opcodeTable.on('reset-view.bs.table', updateTable);

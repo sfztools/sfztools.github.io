@@ -19,6 +19,28 @@
 										{{ version }}
 								</div>
 {% endfor %}
+								<div><b>Support</b></div>
+								<div>
+									<input
+										type="checkbox"
+										class="support-checkbox"
+										value=":heavy_check_mark:">
+										Supported
+								</div>
+								<div>
+									<input
+										type="checkbox"
+										class="support-checkbox"
+										value=":x:">
+										Unsupported
+								</div>
+								<div>
+									<input
+										type="checkbox"
+										class="support-checkbox"
+										value=":construction:">
+										WIP
+								</div>
 								<div><b>Categories</b></div>
 {% for category in site.data.sfizz.support.categories %}
 	{%assign hue = 10%}
