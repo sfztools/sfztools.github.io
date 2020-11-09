@@ -1,11 +1,18 @@
 ---
 title: "SFZ Support Status"
 ---
-Here is the list of currently supported SFZ headers, the opcode list
-was moved [here](opcodes).\
-The classification follows the list over at <https://sfzformat.com/>.
+Following the progress status of the opcode support,
+the detailed opcode list table is [here](opcodes).
 
-<div markdown="0">
-{% include sfizz/sfz_support.html %}
-{%-comment-%} Table data is in /_data/sfizz/support.yml {%-endcomment-%}
-</div>
+{% include sfizz/sfz_support.liquid %}
+
+## Supported Headers
+
+All headers except <[sample](https://sfzformat.com/headers/sample)>
+are currently supported.
+
+## Supported Operating Systems
+
+{% for os in site.data.sfizz.support.os %}
+- {{ os.name }}{%-comment-%} no paragraph {%-endcomment-%}
+{% endfor %}

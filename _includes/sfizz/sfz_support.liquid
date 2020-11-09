@@ -1,0 +1,100 @@
+{%-assign ariaTotal = 0-%}
+{%-assign cakeTotal = 0-%}
+{%-assign sfz1Total = 0-%}
+{%-assign sfz2Total = 0-%}
+{%-assign ariaDone = 0-%}
+{%-assign cakeDone = 0-%}
+{%-assign sfz1Done = 0-%}
+{%-assign sfz2Done = 0-%}
+{%-assign ariaWip = 0-%}
+{%-assign cakeWip = 0-%}
+{%-assign sfz1Wip = 0-%}
+{%-assign sfz2Wip = 0-%}
+{%-for category in site.data.sfizz.support.categories-%}
+	{%-for opcode in category.opcodes-%}
+		{%-if opcode.version == "ARIA"-%}
+			{%-assign ariaTotal = ariaTotal | plus: 1-%}
+			{%-if opcode.support == 'v'-%}
+				{%-assign ariaDone = ariaDone | plus: 1-%}
+			{%-elsif opcode.support == "wip"-%}
+				{%-assign ariaWip = ariaWip | plus: 1-%}
+			{%-endif-%}
+		{%-elsif opcode.version == "SFZ v1"-%}
+			{%-assign sfz1Total = sfz1Total | plus: 1-%}
+			{%-if opcode.support == 'v'-%}
+				{%-assign sfz1Done = sfz1Done | plus: 1-%}
+			{%-elsif opcode.support == "wip"-%}
+				{%-assign sfz1Wip = sfz1Wip | plus: 1-%}
+			{%-endif-%}
+		{%-elsif opcode.version == "SFZ v2"-%}
+			{%-assign sfz2Total = sfz2Total | plus: 1-%}
+			{%-if opcode.support == 'v'-%}
+				{%-assign sfz2Done = sfz2Done | plus: 1-%}
+			{%-elsif opcode.support == "wip"-%}
+				{%-assign sfz2Wip = sfz2Wip | plus: 1-%}
+			{%-endif-%}
+		{%-else-%}
+			{%-assign cakeTotal = cakeTotal | plus: 1-%}
+			{%-if opcode.support == 'v'-%}
+				{%-assign cakeDone = cakeDone | plus: 1-%}
+			{%-elsif opcode.support == "wip"-%}
+				{%-assign cakeWip = cakeWip | plus: 1-%}
+			{%-endif-%}
+		{%-endif-%}
+	{%-endfor-%}
+{%-endfor-%}
+{%-assign ariaDone = ariaDone | times: 100 | divided_by: ariaTotal-%}
+{%-assign cakeDone = cakeDone | times: 100 | divided_by: cakeTotal-%}
+{%-assign sfz1Done = sfz1Done | times: 100 | divided_by: sfz1Total-%}
+{%-assign sfz2Done = sfz2Done | times: 100 | divided_by: sfz2Total-%}
+{%-assign ariaWip  = ariaWip  | times: 100 | divided_by: ariaTotal-%}
+{%-assign cakeWip  = cakeWip  | times: 100 | divided_by: cakeTotal-%}
+{%-assign sfz1Wip  = sfz1Wip  | times: 100 | divided_by: sfz1Total-%}
+{%-assign sfz2Wip  = sfz2Wip  | times: 100 | divided_by: sfz2Total-%}
+
+<table data-toggle="table" data-classes="table table-sm">
+	<thead class="thead-dark">
+		<tr>
+			<th>Version</th>
+			<th>Status</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>SFZ v1</td>
+			<td>
+				<div class="progress">
+					<div class="progress-bar bg-success" role="progressbar" style="width: {{ sfz1Done }}%;" aria-valuenow="{{ sfz1Done }}" aria-valuemin="0" aria-valuemax="100">{{ sfz1Done }}%</div>
+					<div class="progress-bar bg-warning" role="progressbar" style="width: {{ sfz1Wip }}%;" aria-valuenow="{{ sfz1Wip }}" aria-valuemin="0" aria-valuemax="100">{{ sfz1Wip }}%</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>SFZ v2</td>
+			<td>
+				<div class="progress">
+					<div class="progress-bar bg-success" role="progressbar" style="width: {{ sfz2Done }}%;" aria-valuenow="{{ sfz2Done }}" aria-valuemin="0" aria-valuemax="100">{{ sfz2Done }}%</div>
+					<div class="progress-bar bg-warning" role="progressbar" style="width: {{ sfz2Wip }}%;" aria-valuenow="{{ sfz2Wip }}" aria-valuemin="0" aria-valuemax="100">{{ sfz2Wip }}%</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>Cakewalk</td>
+			<td>
+				<div class="progress">
+					<div class="progress-bar bg-success" role="progressbar" style="width: {{ cakeDone }}%;" aria-valuenow="{{ cakeDone }}" aria-valuemin="0" aria-valuemax="100">{{ cakeDone }}%</div>
+					<div class="progress-bar bg-warning" role="progressbar" style="width: {{ cakeWip }}%;" aria-valuenow="{{ cakeWip }}" aria-valuemin="0" aria-valuemax="100">{{ cakeWip }}%</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>ARIA</td>
+			<td>
+				<div class="progress">
+					<div class="progress-bar bg-success" role="progressbar" style="width: {{ ariaDone }}%;" aria-valuenow="{{ ariaDone }}" aria-valuemin="0" aria-valuemax="100">{{ ariaDone }}%</div>
+					<div class="progress-bar bg-warning" role="progressbar" style="width: {{ ariaWip }}%;" aria-valuenow="{{ ariaWip }}" aria-valuemin="0" aria-valuemax="100">{{ ariaWip }}%</div>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
