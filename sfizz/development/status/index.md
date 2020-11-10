@@ -6,6 +6,11 @@ the detailed opcode list table is [here](opcodes).
 
 {% include sfizz/sfz_support.liquid %}
 
+<p class="text-center">
+	<span class="badge badge-success">Complete</span>
+	<span class="badge badge-warning">Work In Progress</span>
+</p>
+
 ## Supported Headers
 
 All headers except <[sample](https://sfzformat.com/headers/sample)>
