@@ -1,0 +1,82 @@
+{%-for category in site.data.sfizz.support.categories-%}
+	{%-assign categories = categories | append: ',' | append: category.name-%}
+	{%-assign category_ids = category_ids | append: ',' | append: category.id-%}
+{%-endfor-%}
+{%-assign categories = categories | remove_first: ',' | split: ','-%}
+{%-assign category_ids = category_ids | remove_first: ',' | split: ','-%}
+
+<style>
+div.checkbox-filter {
+	border-left: 10px solid;
+	padding-left: 5px;
+	margin: 1px 0 1px 0
+}
+{%-assign i = 0-%}
+{%-assign j = 1-%}
+{%-for category in categories-%}
+	{%-assign id = category_ids[i]-%}
+	{%-assign n = 360 | times: j | divided_by: categories.size-%}
+	div.{{ id }} {border-color:hsl({{n}},100%,50%)} td.{{ id }} {background-color:hsl({{n}},100%,50%)}
+	{%-assign i = i | plus: 1-%}
+	{%-assign j = j | plus: 1-%}
+{%-endfor-%}
+</style>
+<table
+	data-classes="table table-bordered table-hover table-sm table-striped"
+	data-toggle="table">
+	<thead class="thead-dark">
+		<tr>
+			<th data-field="category"></th>
+			<th data-field="opcode" data-sortable="true">Opcode</th>
+			<th data-field="version" data-sortable="true">Version</th>
+			<th data-field="supported" data-sortable="true">Supported</th>
+			<th data-field="comment" data-sortable="true">Comment</th>
+{%-comment-%}
+			<th scope="col" style="text-align:center">Tested</th>
+{%-endcomment-%}
+		</tr>
+	</thead>
+	<tbody>
+{%-for category in site.data.sfizz.support.categories-%}
+	{%-for opcode in category.opcodes-%}
+		{%-assign opcode_name = opcode.name | replace: '#', ''-%}
+		{%-unless opcode.undocumented-%}
+			{%-assign opcode_url = "<a href='https://sfzformat.com/opcodes/" |
+				append: opcode_name | append: "'>" | append: opcode.name | append: "</a>" -%}
+		{%-else-%}
+			{%-assign opcode_url = opcode_name-%}
+		{%-endunless-%}
+		{%-if opcode.support == nil or opcode.support == 'x'-%}
+			{%-assign opcode_support = ":x:"-%}
+		{%-elsif opcode.support == 'v'-%}
+			{%-assign opcode_support = ":heavy_check_mark:"-%}
+		{%-elsif opcode.support == "wip"-%}
+			{%-assign opcode_support = ":construction:"-%}
+		{%-else-%}
+			{%-assign opcode_support = opcode.support-%}
+		{%-endif-%}
+{%-comment-%}
+		{%-if opcode.tested == nil or opcode.tested == 'x'-%}
+			{%-assign opcode_tested = ":x:"-%}
+		{%-elsif opcode.tested == 'v'-%}
+			{%-assign opcode_tested = ":heavy_check_mark:"-%}
+		{%-else-%}
+			{%-assign opcode_tested = opcode.tested-%}
+		{%-endif-%}
+{%-endcomment-%}
+		<tr>
+			<td title="{{ category.name }}" class="{{ category.id }}">
+				<span style="display:none">{{ category.name }}</span>
+			</td>
+			<td>{{ opcode_url }}</td>
+			<td style="text-align:center">{{ opcode.version }}</td>
+			<td style="text-align:center">{{ opcode_support }}</td>
+			<td style="text-align:center">{{ opcode.comment }}</td>
+{%-comment-%}
+			<td style="text-align:center">{{ opcode_tested }}</td>
+{%-endcomment-%}
+		</tr>
+	{%-endfor-%}
+{%-endfor-%}
+	</tbody>
+</table>

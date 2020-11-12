@@ -42,8 +42,7 @@
 										WIP
 								</div>
 								<div><b>Categories</b></div>
-{% for category in site.data.sfizz.support.categories %}
-	{%assign hue = 10%}
+{% for category in site.data.sfz.syntax.categories %}
 	{% if category.opcodes.size > 0 %}
 								<div class="checkbox-filter {{ category.id }}">
 									<input

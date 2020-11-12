@@ -1,0 +1,58 @@
+		<tr>
+{%comment%} Category {%endcomment%}
+			<td class="{{ include.category.id }}"><span style="display:none">{{ include.category.name }}</span></td>
+{%comment%} Opcode {%endcomment%}
+			<td>{%-include sfz/functions/getOpcodeUrlAsHtml.liquid opcode=include.opcode-%}</td>
+{%comment%} Version {%endcomment%}
+		{%-if include.opcode.version-%}
+			{%-assign opcode_version = include.opcode.version-%}
+		{%-elsif include.parent.version-%}
+			{%-assign opcode_version = include.parent.version-%}
+		{%-else-%}
+			{%-assign opcode_version = toplevel_opcode.version-%}
+		{%-endif-%}
+		<td style="text-align:center">{{ opcode_version }}</td>
+{%comment%} Supported {%endcomment%}
+		{%-assign sfizz_opcode = site.data.sfizz.support.opcodes
+			| where: "name", include.opcode.name | first-%}
+		{%-if sfizz_opcode == nil or sfizz_opcode.support == 'x'-%}
+			{%-assign opcode_support = ":x:"-%}
+		{%-elsif sfizz_opcode.support == "wip"-%}
+			{%-assign opcode_support = ":construction:"-%}
+		{%-else-%}
+			{%-assign opcode_support = ":heavy_check_mark:"-%}
+		{%-endif-%}
+			<td style="text-align:center">{{ opcode_support }}</td>
+{%comment%} Comment {%endcomment%}
+		{%-if sfizz_opcode.comment-%}
+			{%-assign opcode_comment = sfizz_opcode.comment-%}
+		{%-elsif include.type == "alias"-%}
+			{%capture opcode_comment%}
+				{% include sfz/functions/getOpcodeUrlAsHtml.liquid opcode=include.parent %} alias.
+			{%-endcapture-%}
+		{%-else-%}
+			{%-assign opcode_comment = ''-%}
+		{%-endif-%}
+			<td style="text-align:center">{{ opcode_comment }}</td>
+		</tr>
+{%comment%} Rescan recursively {%endcomment%}
+		{%-for alias in include.opcode.alias-%}
+			{% include sfz/functions/addOpcodeToTable.liquid
+				category = include.category
+				parent   = include.opcode
+				opcode   = alias
+				type     = "alias" %}
+		{%-endfor-%}
+		{%-for midi_cc in include.opcode.modulation.midi_cc-%}
+			{% include sfz/functions/addOpcodeToTable.liquid
+				category = include.category
+				parent   = include.opcode
+				opcode   = midi_cc
+				type     = "midi_cc" %}
+		{%-endfor-%}
+		{%-for velocity_cc in include.opcode.modulation.velocity-%}
+			{% include sfz/functions/addOpcodeToTable.liquid
+				category = include.category
+				parent   = include.opcode
+				opcode   = velocity_cc %}
+		{%-endfor-%}
