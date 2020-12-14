@@ -96,6 +96,10 @@ navigation:
   - label: "VSCode Syntax Highlight"
     url: "https://github.com/sfztools/syntax-highlighting-vscode/"
 
+- label: "FAQ"
+  type: "normal"
+  url: "/faq"
+
 - label: "News"
   type: "normal"
   url: "/news"
