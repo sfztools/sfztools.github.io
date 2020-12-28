@@ -1,10 +1,6 @@
 ---
 title: "macOS Build"
 ---
-
-Currently we don't use / own a macOS machine, so all we can do is to build our
-code with Travis, so any Apple user's contribution is welcome.
-
 ## Configuration
 
 Update [Homebrew], install [CMake] and [libsndfile] if missing.

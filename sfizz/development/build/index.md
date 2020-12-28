@@ -1,54 +1,58 @@
 ---
 title: "Build"
 ---
+We use [CMake] as build system, the available build options are listed
+in the main [CMakeLists.txt] configuration file.\
 
-[![Travis CI Build Status]](https://travis-ci.com/sfztools/sfizz)
-[![AppVeyor Build Status]](https://ci.appveyor.com/project/sfztools/sfizz)
+The process is as follows:
+1. Clone the repository with all the submodules
+2. Create a build directory for CMake and `cd` into it
+3. Build as release
+4. Enjoy :)
+
+In the shell world, this means:
+
+```
+git clone --recursive https://github.com/sfztools/sfizz.git
+cd sfizz
+mkdir build && cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake --build . --target all
+```
+
+By default this builds:
+- The shared library version of sfizz with both C and C++ interfaces
+- The JACK client
+- The offline rendering client
+- The LV2 plugin
+
+See the related sections for building details for:
+- [Linux]
+- [macOS]
+- [Windows]
+
+You can build with `clang`, although in that case the CMakeFile
+defaults to using `libc++` instead of `libstdc++`.
+
+On UNIX based systems is it possible to use `make` for the build step.\
+`sudo make install` to install system wide or\
+`cmake --build . --target install` as platform independent command.
 
 ## Dependencies
 
-`sfizz` depends mainly on the [libsndfile] library.
-In order to build also the standalone client and other demos, you need to
-install also the [JACK] Audio Connection Kit library.
+By default `sfizz` is built against and dynamically linked to the
+[libsndfile] library, though it's possible to replace it with the built in
+[dr_libs] alternative.
 
 The benchmarks depend on the [benchmark] library.
 If you wish to build the benchmarks you should either build it from source and
 install the static library, or use the library from your distribution.
 Debian and Ubuntu provide a `libbenchmark-dev` package that does this.
 
-## Build System
-
-We use [CMake] as build system.
-Current configuration switches for CMake are:
-
-```
-ENABLE_LTO              Enable Link Time Optimization          [default: ON]
-SFIZZ_JACK              Enable JACK stand-alone build          [default: ON]
-SFIZZ_RENDER            Enable renderer of SMF files           [default: ON]
-SFIZZ_LV2               Enable LV2 plug-in build               [default: ON]
-SFIZZ_VST               Enable VST plug-in build               [default: OFF]
-SFIZZ_AU                Enable AU plug-in build                [default: OFF]
-SFIZZ_BENCHMARKS        Enable benchmarks build                [default: OFF]
-SFIZZ_DEVTOOLS          Enable developer tools build           [default: OFF]
-SFIZZ_TESTS             Enable tests build                     [default: OFF]
-SFIZZ_SHARED            Enable shared library build            [default: ON]
-SFIZZ_USE_VCPKG         Assume that sfizz is build using vcpkg [default: OFF]
-SFIZZ_STATIC_LIBSNDFILE Link libsndfile statically             [default: OFF]
-SFIZZ_RELEASE_ASSERTS   Forced assertions in release builds    [default: OFF]
-```
-
-By default this builds and installs:
-- The shared library version of sfizz with both C and C++ interfaces
-- The JACK client
-- The offline rendering client
-- The LV2 plugin
-
-See the relates sections for building details for:
-- [Linux]
-- [macOS]
-- [Windows]
-
 ## JACK
+
+In order to build the standalone client and other demos, you need to
+install also the [JACK] Audio Connection Kit library.
 
 You can then find the JACK client in `clients/sfizz_jack`.
 Just specify an `.sfz` file as a parameter and you are good to go.
@@ -60,7 +64,7 @@ If no JACK server is already started it will start one with basic options.
 ## Notes
 
 If you already cloned the repository without the `--recursive` option,
-update the submodules manually with
+update the submodules manually with:
 
 ```
 git submodule update --init --recursive
@@ -79,11 +83,11 @@ You can build with `clang`, although in that case the CMakeFile
 defaults to using `libc++` instead of `libstdc++`.
 
 [libsndfile]:             http://mega-nerd.com/libsndfile/
+[dr_libs]:                https://github.com/mackron/dr_libs
 [JACK]:                   https://jackaudio.org
 [benchmark]:              https://github.com/google/benchmark/
 [CMake]:                  https://cmake.org/
+[CMakeLists.txt]:         https://github.com/sfztools/sfizz/blob/develop/CMakeLists.txt#L21
 [Linux]:                  linux
 [macOS]:                  macos
 [Windows]:                windows
-[Travis CI Build Status]: https://img.shields.io/travis/com/sfztools/sfizz.svg?label=Linux-macOS&style=popout&logo=travis
-[AppVeyor Build Status]:  https://img.shields.io/appveyor/ci/sfztools/sfizz.svg?label=Windows&style=popout&logo=appveyor
