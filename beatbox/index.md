@@ -2,4 +2,4 @@
 title: "Home"
 layout: "home"
 ---
-<p style="font-size:30px">:construction: Under construction :construction:</p>
+![Under Construction]({{ "assets/img/construction.png" | relative_url }})
