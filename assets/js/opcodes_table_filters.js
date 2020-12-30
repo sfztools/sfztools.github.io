@@ -1,5 +1,12 @@
 $(function() {
 
+// read a search parameter from URL if any, e.g.:
+// https://sfz.tools/sfizz/development/status/opcodes/?q=ampeg_decay
+const urlParams = new URLSearchParams(window.location.search);
+const query     = urlParams.get('q');
+
+if (!$.isEmptyObject(query)) $('#search-opcodes').val(query);
+
 var $opcodeTable = $('#table-opcodes');
 var $opcodeSearch = $('#search-opcodes');
 var $versionFilters = $('.versions-checkbox');
@@ -9,7 +16,6 @@ var $supportFilters = $('.support-checkbox');
 var categoryColumnNumber = 0;
 var opcodeColumnNumber = 1;
 var versionColumnNumber = 2;
-var supportColumnNumber = 3;
 
 var updateTable = function() {
 	var searchText = $opcodeSearch.val();
@@ -67,4 +73,5 @@ $supportFilters.on('change', null, updateTable);
 // update after the table was sorted
 $opcodeTable.on('reset-view.bs.table', updateTable);
 
+if (!$.isEmptyObject(query)) updateTable();
 });
