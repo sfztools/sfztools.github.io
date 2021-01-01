@@ -1,12 +1,31 @@
 $(function() {
+/*
+	Reads a search parameter from URL if any, e.g.:
+	https://sfz.tools/sfizz/development/status/opcodes/?q=ampeg_decay
 
-// read a search parameter from URL if any, e.g.:
-// https://sfz.tools/sfizz/development/status/opcodes/?q=ampeg_decay
+	c (category):  see _data/sfz/syntax.yml categories ids
+	q (query):     any string contained in the opcode name
+	s (supported): y, n , w (yes/no/wip)
+	v (version):   1, 2, aria, cakewalk, linuxsampler
+*/
 const urlParams = new URLSearchParams(window.location.search);
-const query     = urlParams.get('q');
+var   hasParams = false;
 
-if (!$.isEmptyObject(query)) $('#search-opcodes').val(query);
-
+urlParams.forEach(function(value, key) {
+	if (key === 'q') {
+		if (value === '') return;
+		hasParams = true;
+		$('#search-opcodes').val(value);
+	}
+	else if (key === 'c' || key === 's' || key === 'v') {
+		if (value === '') return;
+		hasParams = true;
+		var values = value.split(',');
+		$.each(values, function(_, v) {
+			$(`#chk-${v}`).prop('checked', true);
+		});
+	}
+});
 var $opcodeTable = $('#table-opcodes');
 var $opcodeSearch = $('#search-opcodes');
 var $versionFilters = $('.versions-checkbox');
@@ -73,5 +92,5 @@ $supportFilters.on('change', null, updateTable);
 // update after the table was sorted
 $opcodeTable.on('reset-view.bs.table', updateTable);
 
-if (!$.isEmptyObject(query)) updateTable();
+if (hasParams) updateTable();
 });
