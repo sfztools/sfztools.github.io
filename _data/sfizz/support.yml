@@ -8,12 +8,11 @@ os:
 - name: "macOS X"
 - name: "Windows"
 
-# sfizz extensions: remove opcodes from this section if on sfzformat
+# sfizz extensions: move opcodes below from this section if on sfzformat
 categories:
 - name: "Instrument Settings"
   id: "ins"
   opcodes:
-  - name: "label_keyN"
   - name: "hint_stealing"
     comment: "Values: <code>oldest</code> (default), <code>first</code>, <code>envelope_and_age</code>"
   - name: "hint_ram_loading"
@@ -56,6 +55,7 @@ opcodes:
 - name: "delay_random"
 - name: "direction"
 - name: "end"
+- name: "label_keyN"
 - name: "loop_mode"
   comment: "<code>loop_sustain</code> not supported<br/> (yet, implemented as loop_continuous)"
 - name: "loopmode"

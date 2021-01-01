@@ -441,11 +441,11 @@ categories:
     value:
       type_name: "string"
 
-# - name: "label_keyN"
-#   short_description: "Creates a label for a key."
-#   version: "sfizz"
-#   value:
-#     type_name: "string"
+  - name: "label_keyN"
+    short_description: "Creates a label for a key."
+    version: "sfizz"
+    value:
+      type_name: "string"
 
   - name: "set_ccN"
     short_description:
@@ -2147,6 +2147,8 @@ categories:
           - name: "cutoff2_curveccN"
           - name: "cutoff2_smoothccN"
           - name: "cutoff2_stepccN"
+          - name: "cutoff2_chanaft"
+          - name: "cutoff2_polyaft"
 
     - name: "fil_gain"
       short_description: "Gain for lsh, hsh and peq filter types."
@@ -2716,6 +2718,10 @@ categories:
     url: "/modulations/envelope_generators"
     opcodes:
     - name: "ampeg_attack"
+      alias:
+      - name: "amp_attack"
+        version: "Cakewalk"
+        deprecated: true
       short_description: "EG attack time."
       version: "SFZ v1"
       value:
@@ -2739,6 +2745,10 @@ categories:
         velocity:
         - name: "ampeg_vel2attack"
           short_description: "Velocity effect on EG attack time."
+          alias:
+          - name: "amp_vel2attack"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -2749,6 +2759,10 @@ categories:
     - name: "ampeg_decay"
       short_description: "EG decay time."
       version: "SFZ v1"
+      alias:
+      - name: "amp_decay"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 0
@@ -2775,6 +2789,10 @@ categories:
         velocity:
         - name: "ampeg_vel2decay"
           short_description: "Velocity effect on pitch EG decay time."
+          alias:
+          - name: "amp_vel2decay"
+            deprecated: true
+            version: "Cakewalk"
           value:
             type_name: "float"
             default: 0
@@ -2785,6 +2803,10 @@ categories:
     - name: "ampeg_delay"
       short_description: "EG delay time."
       version: "SFZ v1"
+      alias:
+      - name: "amp_delay"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 0
@@ -2806,6 +2828,10 @@ categories:
         velocity:
         - name: "ampeg_vel2delay"
           short_description: "Velocity effect on EG delay time."
+          alias:
+          - name: "amp_vel2delay"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -2816,6 +2842,10 @@ categories:
     - name: "ampeg_hold"
       version: "SFZ v1"
       short_description: "EG hold time."
+      alias:
+      - name: "amp_hold"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 0
@@ -2843,6 +2873,10 @@ categories:
         velocity:
         - name: "ampeg_vel2hold"
           short_description: "Velocity effect on EG hold time."
+          alias:
+          - name: "amp_vel2hold"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -2853,6 +2887,10 @@ categories:
     - name: "ampeg_release"
       short_description: "EG release time (after note release)."
       version: "SFZ v1"
+      alias:
+      - name: "amp_release"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 0.001
@@ -2874,6 +2912,10 @@ categories:
         velocity:
         - name: "ampeg_vel2release"
           short_description: "Velocity effect on EG release time."
+          alias:
+          - name: "amp_vel2release"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -2884,6 +2926,10 @@ categories:
     - name: "ampeg_sustain"
       short_description: "EG sustain level, in percentage."
       version: "SFZ v1"
+      alias:
+      - name: "amp_sustain"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 100
@@ -2911,6 +2957,10 @@ categories:
         velocity:
         - name: "ampeg_vel2sustain"
           short_description: "Velocity effect on EG sustain level, in percentage."
+          alias:
+          - name: "amp_vel2sustain"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -3088,6 +3138,10 @@ categories:
     - name: "fileg_attack"
       short_description: "EG attack time."
       version: "SFZ v1"
+      alias:
+      - name: "fil_attack"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 0
@@ -3109,6 +3163,10 @@ categories:
         velocity:
         - name: "fileg_vel2attack"
           short_description: "Velocity effect on EG attack time."
+          alias:
+          - name: "fil_vel2attack"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -3119,6 +3177,10 @@ categories:
     - name: "fileg_decay"
       short_description: "EG decay time."
       version: "SFZ v1"
+      alias:
+      - name: "fil_decay"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 0
@@ -3139,6 +3201,10 @@ categories:
         velocity:
         - name: "fileg_vel2decay"
           short_description: "Velocity effect on filter EG decay time."
+          alias:
+          - name: "fil_vel2decay"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -3149,6 +3215,10 @@ categories:
     - name: "fileg_delay"
       short_description: "EG delay time."
       version: "SFZ v1"
+      alias:
+      - name: "fil_delay"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 0
@@ -3170,6 +3240,10 @@ categories:
         velocity:
         - name: "fileg_vel2delay"
           short_description: "Velocity effect on filter EG delay time."
+          alias:
+          - name: "fil_vel2delay"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -3180,6 +3254,10 @@ categories:
     - name: "fileg_depth"
       short_description: "Envelope depth."
       version: "SFZ v1"
+      alias:
+      - name: "fil_depth"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "integer"
         default: 0
@@ -3201,6 +3279,10 @@ categories:
         - name: "fileg_vel2depth"
           short_description:
             "Velocity effect on EG depth, in cents for pitch or filter cutoff."
+          alias:
+          - name: "fil_vel2depth"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "integer"
             default: 0
@@ -3211,6 +3293,10 @@ categories:
     - name: "fileg_hold"
       short_description: "EG hold time."
       version: "SFZ v1"
+      alias:
+      - name: "fil_hold"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 0
@@ -3232,6 +3318,10 @@ categories:
         velocity:
         - name: "fileg_vel2hold"
           short_description: "Velocity effect on EG hold time."
+          alias:
+          - name: "fil_vel2hold"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -3242,6 +3332,10 @@ categories:
     - name: "fileg_release"
       short_description: "EG release time (after note release)."
       version: "SFZ v1"
+      alias:
+      - name: "fil_release"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 0
@@ -3263,6 +3357,10 @@ categories:
         velocity:
         - name: "fileg_vel2release"
           short_description: "Velocity effect on EG release time."
+          alias:
+          - name: "fil_vel2release"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -3296,6 +3394,10 @@ categories:
     - name: "fileg_sustain"
       short_description: "EG sustain level, in percentage."
       version: "SFZ v1"
+      alias:
+      - name: "fil_sustain"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 0
@@ -3317,6 +3419,10 @@ categories:
         velocity:
         - name: "fileg_vel2sustain"
           short_description: "Velocity effect on EG sustain level, in percentage."
+          alias:
+          - name: "fil_vel2sustain"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -3327,6 +3433,10 @@ categories:
     - name: "pitcheg_attack"
       short_description: "EG attack time."
       version: "SFZ v1"
+      alias:
+      - name: "pitch_attack"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 0
@@ -3340,6 +3450,10 @@ categories:
         velocity:
         - name: "pitcheg_vel2attack"
           short_description: "Velocity effect on EG attack time."
+          alias:
+          - name: "pitch_vel2attack"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -3350,6 +3464,10 @@ categories:
     - name: "pitcheg_decay"
       short_description: "EG decay time."
       version: "SFZ v1"
+      alias:
+      - name: "pitch_decay"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 0
@@ -3368,6 +3486,10 @@ categories:
         velocity:
         - name: "pitcheg_vel2decay"
           short_description: "Velocity effect on pitch EG decay time."
+          alias:
+          - name: "pitch_vel2decay"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -3378,6 +3500,10 @@ categories:
     - name: "pitcheg_delay"
       short_description: "EG delay time."
       version: "SFZ v1"
+      alias:
+      - name: "pitch_delay"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 0
@@ -3397,6 +3523,10 @@ categories:
         velocity:
         - name: "pitcheg_vel2delay"
           short_description: "Velocity effect on pitch EG delay time."
+          alias:
+          - name: "pitch_vel2delay"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -3407,6 +3537,10 @@ categories:
     - name: "pitcheg_depth"
       short_description: "Envelope depth."
       version: "SFZ v1"
+      alias:
+      - name: "pitch_depth"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "integer"
         default: 0
@@ -3426,6 +3560,10 @@ categories:
         - name: "pitcheg_vel2depth"
           short_description:
             "Velocity effect on EG depth, in cents for pitch or filter cutoff."
+          alias:
+          - name: "pitch_vel2depth"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "integer"
             default: 0
@@ -3436,6 +3574,10 @@ categories:
     - name: "pitcheg_hold"
       short_description: "EG hold time."
       version: "SFZ v1"
+      alias:
+      - name: "pitch_hold"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 0
@@ -3455,6 +3597,10 @@ categories:
         velocity:
         - name: "pitcheg_vel2hold"
           short_description: "Velocity effect on EG hold time."
+          alias:
+          - name: "pitch_vel2hold"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -3465,6 +3611,10 @@ categories:
     - name: "pitcheg_release"
       version: "SFZ v1"
       short_description: "EG release time (after note release)."
+      alias:
+      - name: "pitch_release"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 0
@@ -3484,6 +3634,10 @@ categories:
         velocity:
         - name: "pitcheg_vel2release"
           short_description: "Velocity effect on EG release time."
+          alias:
+          - name: "pitch_vel2release"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -3515,6 +3669,10 @@ categories:
     - name: "pitcheg_sustain"
       short_description: "EG sustain level, in percentage."
       version: "SFZ v1"
+      alias:
+      - name: "pitch_sustain"
+        version: "Cakewalk"
+        deprecated: true
       value:
         type_name: "float"
         default: 0
@@ -3534,6 +3692,10 @@ categories:
         velocity:
         - name: "pitcheg_vel2sustain"
           short_description: "Velocity effect on EG sustain level, in percentage."
+          alias:
+          - name: "pitch_vel2sustain"
+            version: "Cakewalk"
+            deprecated: true
           value:
             type_name: "float"
             default: 0
@@ -5370,7 +5532,7 @@ categories:
 
 - name: "Loading"
   id: "ldg"
-  url: "/extensions/cakewalk#loading"
+  url: "/opcodes/?v=cakewalk&c=ldg"
   opcodes:
   - name: "load_mode"
     short_description: ""
@@ -5408,7 +5570,7 @@ categories:
 
 - name: "Wavetable Oscillator"
   id: "wos"
-  url: "/extensions/cakewalk#wavetable-oscillator"
+  url: "opcodes/?v=cakewalk&c=wos"
   opcodes:
   - name: "oscillator"
     short_description: ""

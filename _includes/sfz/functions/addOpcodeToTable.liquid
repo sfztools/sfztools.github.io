@@ -1,3 +1,4 @@
+	{%-if include.opcode.deprecated == nil %}
 		<tr>
 {%comment%} Category {%endcomment%}
 			<td class="{{ include.category.id }}"><span style="display:none">{{ include.category.name }}</span></td>
@@ -56,3 +57,4 @@
 				parent   = include.opcode
 				opcode   = velocity_cc %}
 		{%-endfor-%}
+	{%-endif-%}
