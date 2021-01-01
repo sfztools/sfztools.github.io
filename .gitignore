@@ -1,13 +1,13 @@
 /_site/
 /.sass-cache/
 /.jekyll-cache/
-/.jekyll-metadata/
 /.bundle/
 /.vendor/
 /node_modules/
 /assets/css/*.map
 /assets/css/style.css
 /assets/js/*.map
+.jekyll-metadata
 Gemfile.lock
 package-lock.json
 yarn.lock
