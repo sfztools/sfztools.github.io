@@ -149,6 +149,11 @@ cards:
     icon_type: "download"
     icon_category: "fas"
 
+  - label: "FreePats Instruments"
+    url: "https://freepats.zenvoid.org/"
+    icon_type: "download"
+    icon_category: "fas"
+
   - label: "Linuxaudio.org"
     url: "https://linuxaudio.org/"
     icon_type: "music"
