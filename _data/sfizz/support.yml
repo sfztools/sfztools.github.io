@@ -258,6 +258,8 @@ opcodes:
 - name: "cutoff"
 - name: "cutoff_ccN"
 - name: "cutoff_onccN"
+- name: "cutoff_chanaft"
+  support: "wip"
 - name: "fil_keytrack"
 - name: "fil_keycenter"
 - name: "fil_random"
