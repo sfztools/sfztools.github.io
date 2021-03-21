@@ -131,7 +131,21 @@ opcodes:
 - name: "lohdccN"
 - name: "hihdccN"
 - name: "lobend"
+  comment: Is not sample-accurate
 - name: "hibend"
+  comment: Is not sample-accurate
+- name: "lobpm"
+  support: wip
+  comment: Is not sample-accurate
+- name: "hibpm"
+  support: wip
+  comment: Is not sample-accurate
+- name: "lochanaft"
+  support: wip
+  comment: Is not sample-accurate
+- name: "hichanaft"
+  support: wip
+  comment: Is not sample-accurate
 - name: "sustain_sw"
 - name: "sustain_cc"
 - name: "sustain_lo"
