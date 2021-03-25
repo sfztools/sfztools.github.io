@@ -146,6 +146,10 @@ opcodes:
 - name: "hichanaft"
   support: wip
   comment: Is not sample-accurate
+- name: "sostenuto_cc"
+  support: wip
+- name: "sostenuto_lo"
+  support: wip
 - name: "sustain_sw"
 - name: "sustain_cc"
 - name: "sustain_lo"
