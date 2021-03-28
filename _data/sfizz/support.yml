@@ -476,6 +476,7 @@ opcodes:
 - name: "egN_width"
 - name: "lfoN_amplitude"
 - name: "lfoN_cutoff"
+- name: "lfoN_cutoff2"
 - name: "lfoN_delay"
 - name: "lfoN_eqXbw"
 - name: "lfoN_eqXfreq"
