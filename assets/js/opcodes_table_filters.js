@@ -35,15 +35,16 @@ var $supportFilters = $('.support-checkbox');
 var categoryColumnNumber = 0;
 var opcodeColumnNumber = 1;
 var versionColumnNumber = 2;
+var filtersSeparator = ',';
 
 var updateTable = function() {
 	var searchText = $opcodeSearch.val();
 	var activeVersionFilters = $versionFilters.filter(':checked')
-			.map(function() { return $(this).val(); }).toArray();
+			.map(function() { return $(this).val().split(filtersSeparator); }).toArray();
 	var activeCategoryFilters = $categoryFilters.filter(':checked')
-			.map(function() { return $(this).val(); }).toArray();
+			.map(function() { return $(this).val().split(filtersSeparator); }).toArray();
 	var activeSupportFilters = $supportFilters.filter(':checked')
-			.map(function() { return $(this).val(); }).toArray();
+			.map(function() { return $(this).val().split(filtersSeparator); }).toArray();
 
 	var acceptRow = function($row) {
 		if (searchText !== "") {
