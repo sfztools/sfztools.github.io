@@ -22,7 +22,7 @@ some of the free ones are linked from here, like [sfzinstruments] and [freepats]
 It has also some [search filters]:
 - by query string
 - by version
-- by status (supported, unsupported and work in progress)
+- by status (supported, unsupported, new and work in progress)
 - by categories
 
 ## Plugins

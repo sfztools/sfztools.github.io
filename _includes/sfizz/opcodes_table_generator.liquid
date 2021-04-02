@@ -43,6 +43,8 @@ th
 			<td style="text-align:center">sfizz</td>
 		{%-if opcode.support == 'x'-%}
 			{%-assign opcode_support = ":x:"-%}
+		{%-elsif opcode.support == "new"-%}
+			{%-assign opcode_support = ":new:"-%}
 		{%-elsif opcode.support == "wip"-%}
 			{%-assign opcode_support = ":construction:"-%}
 		{%-else-%}

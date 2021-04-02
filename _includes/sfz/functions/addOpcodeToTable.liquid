@@ -18,6 +18,8 @@
 			| where: "name", include.opcode.name | first-%}
 		{%-if sfizz_opcode == nil or sfizz_opcode.support == 'x'-%}
 			{%-assign opcode_support = ":x:"-%}
+		{%-elsif sfizz_opcode.support == "new"-%}
+			{%-assign opcode_support = ":new:"-%}
 		{%-elsif sfizz_opcode.support == "wip"-%}
 			{%-assign opcode_support = ":construction:"-%}
 		{%-else-%}
