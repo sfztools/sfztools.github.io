@@ -157,9 +157,9 @@ opcodes:
 - name: "hichanaft"
   support: wip
 - name: "lopolyaft"
-  support: next
+  support: new
 - name: "hipolyaft"
-  support: next
+  support: new
 - name: "sostenuto_cc"
   support: wip
 - name: "sostenuto_lo"
