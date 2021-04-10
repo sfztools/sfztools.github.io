@@ -1,8 +1,11 @@
 ---
 title: "Opcodes Support Status"
 ---
-The detailed table of supported opcodes is [here]; its classification follows
-the list over at <https://sfzformat.com/>.
+The classification of opcodes follows the list over at <https://sfzformat.com/>.
+
+<p>
+	<a class="btn btn-link" href="/sfizz/development/status/opcodes">View detailed list</a>
+</p>
 
 {% include sfizz/sfz_support.liquid %}
 
