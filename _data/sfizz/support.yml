@@ -147,21 +147,19 @@ opcodes:
 - name: "lohdccN"
 - name: "hihdccN"
 - name: "lobend"
-  comment: Is not sample-accurate
 - name: "hibend"
-  comment: Is not sample-accurate
 - name: "lobpm"
   support: wip
-  comment: Is not sample-accurate
 - name: "hibpm"
   support: wip
-  comment: Is not sample-accurate
 - name: "lochanaft"
   support: wip
-  comment: Is not sample-accurate
 - name: "hichanaft"
   support: wip
-  comment: Is not sample-accurate
+- name: "lopolyaft"
+  support: next
+- name: "hipolyaft"
+  support: next
 - name: "sostenuto_cc"
   support: wip
 - name: "sostenuto_lo"
