@@ -1,0 +1,104 @@
+{
+  "name": "sfizz_message.h",
+  "kind": "file",
+  "include": "stdint.h",
+  "location": "src/sfizz_message.h",
+  "language": "C++",
+  "doxygen_version": "1.9.1",
+  "definitions": [
+    {
+      "kind": "typedef",
+      "members": [
+        {
+          "name": "sfizz_receive_t",
+          "type": "void()",
+          "brief": "Generic message receiving function.",
+          "since": "1.0.0"
+        }
+      ]
+    },
+    {
+      "kind": "func",
+      "members": [
+        {
+          "name": "sfizz_prepare_message",
+          "type": "SFIZZ_EXPORTED_API uint32_t",
+          "brief": "Convert the message to OSC using the provided output buffer.",
+          "return": "The size necessary to store the converted message in entirety, <= capacity if the written message is valid.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "buffer",
+              "type": "void *",
+              "description": "The output buffer"
+            },
+            {
+              "name": "capacity",
+              "type": "uint32_t",
+              "description": "The capacity of the buffer"
+            },
+            {
+              "name": "path",
+              "type": "const char *",
+              "description": "The path"
+            },
+            {
+              "name": "sig",
+              "type": "const char *",
+              "description": "The signature"
+            },
+            {
+              "name": "args",
+              "type": "const <a href='#sfizz_arg_t'>sfizz_arg_t</a> *",
+              "description": "The arguments"
+            }
+          ]
+        },
+        {
+          "name": "sfizz_extract_message",
+          "type": "SFIZZ_EXPORTED_API int32_t",
+          "brief": "Extract the contents of an OSC message.",
+          "return": "On success, this is the number of bytes read. On failure, it is 0 if the OSC message is invalid, -1 if there was not enough buffer for the arguments.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "srcBuffer",
+              "type": "const void *",
+              "description": "The data of the OSC message"
+            },
+            {
+              "name": "srcCapacity",
+              "type": "uint32_t",
+              "description": "The size of the OSC message"
+            },
+            {
+              "name": "argsBuffer",
+              "type": "void *",
+              "description": "A buffer where the function can allocate the arguments"
+            },
+            {
+              "name": "argsCapacity",
+              "type": "uint32_t",
+              "description": "The capacity of the argument buffer"
+            },
+            {
+              "name": "outPath",
+              "type": "const char **",
+              "description": "A pointer to the variable which receives the path"
+            },
+            {
+              "name": "outSig",
+              "type": "const char **",
+              "description": "A pointer to the variable which receives the signature"
+            },
+            {
+              "name": "outArgs",
+              "type": "const <a href='#sfizz_arg_t'>sfizz_arg_t</a> **",
+              "description": "A pointer to the variable which receives the arguments"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,9 @@
 ---
 title: "API"
 ---
-- [public C API](sfizz_8h)
-- [public C++ API](classsfz_1_1_sfizz)
+## C
+- [sfizz.h](sfizz_8h)
+- [sfizz_message.h](sfizz__message_8h)
+
+## C++
+- [sfizz.hpp](classsfz_1_1_sfizz)
