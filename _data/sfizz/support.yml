@@ -137,6 +137,7 @@ opcodes:
 - name: "sustain_lo"
 - name: "sw_lokey"
 - name: "sw_hikey"
+- name: "sw_label"
 - name: "sw_last"
 - name: "sw_lolast"
 - name: "sw_hilast"
