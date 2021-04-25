@@ -2,6 +2,8 @@
 title: "Downloads"
 ---
 
+<p class="h4 mb-3"><a href="/news/"><span class="badge bg-light">sfizz {{site.data.sfizz.config.version}}</span></a> — released on <em>{{site.data.sfizz.config.release_date}}</em></p>
+
 <div class="row">
 <div class="col-sm">
 <div class="card mb-1" style="width: 20rem;">
