@@ -22,9 +22,8 @@ and the quality improves with every release.
 
 - **Ready-to-use**
 
-The synthesizer is available as audio workstation plugins, in [LV2] format for Ardour
-and Linux-based hosts, and a [VST3i] (currently experimental) for the more traditional
-plugin hosts. The more advanced users may also use a standalone [JACK] client.
+The synthesizer is available as audio workstation plugins, in [VST3i], [Audio Unit]
+and [LV2] formats. The more advanced users may also use a standalone [JACK] client.
 
 - **For instrument makers**
 
@@ -47,6 +46,7 @@ You are welcome to watch the media and support their work.
 [JACK]:                     https://jackaudio.org/
 [LV2]:                      https://lv2plug.in/
 [VST3i]:                    https://www.steinberg.net/en/company/technologies/vst3.html
+[Audio Unit]:               https://support.apple.com/guide/logicpro/lgcp22a0dab0/mac
 [SFZ instrument format]:    https://sfzformat.com/
 [Download]:                 downloads
 [How to use Virtual Playing Orchestra in Ardour]: https://www.youtube.com/watch?v=xvowEZqgflw
