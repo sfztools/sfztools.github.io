@@ -10,9 +10,7 @@ existing instrument libraries, or create personal instruments with ease.
 Not only is `sfizz` ready-to-use as an instrument plugin of its own, the library allows
 developers to create instruments of their own, taking advantage of the abilities of SFZ.
 
-## Get sfizz
-
-The latest release of `sfizz` is available on the [Download] page.
+<p><a class="btn btn-success" role="button" href="downloads"><i class="fas fa-download pr-2" aria-hidden="true"></i>Get sfizz</a></p>
 
 ## Features
 
