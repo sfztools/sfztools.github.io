@@ -2,26 +2,49 @@
 title: "Downloads"
 ---
 
-## <i class="fab fa-linux fa-fw"/> Linux
+<div class="row">
+<div class="col-sm-5">
+<div class="card mb-3" style="width: 22rem;">
+  <div class="card-body">
+    <h2 class="card-title"><i class="fab fa-linux"> Linux</i></h2>
+    <p class="card-text">Packages for a wide variety of Linux distributions.</p>
+    <a class="btn btn-primary" href="https://software.opensuse.org/download.html?project=home%3Asfztools%3Asfizz&package=sfizz" role="button">64-bit Stable</a>
+    <a class="btn btn-warning" href="https://software.opensuse.org/download.html?project=home%3Asfztools%3Asfizz%3Adevelop&package=sfizz" role="button">64-bit Current</a>
+  </div>
+</div>
+</div>
+<div class="col-sm-5">
+<div class="card mb-3" style="width: 22rem;">
+  <div class="card-body">
+    <h2 class="card-title"><i class="fab fa-windows"> Windows</i></h2>
+    <p class="card-text">Installers for Microsoft Windows 7 and up, all 64-bit and 32-bit editions.</p>
+    <a class="btn btn-primary" href="https://github.com/sfztools/sfizz/releases/download/1.0.0/sfizz-1.0.0-win64.exe" role="button">64-bit Stable</a>
+    <a class="btn btn-primary" href="https://github.com/sfztools/sfizz/releases/download/1.0.0/sfizz-1.0.0-win32.exe" role="button">32-bit Stable</a>
+    <a class="btn btn-warning" href="https://nightly.link/sfztools/sfizz/workflows/build/develop/Win64%20installer.zip" role="button">64-bit Current</a>
+    <a class="btn btn-warning" href="https://nightly.link/sfztools/sfizz/workflows/build/develop/Win32%20installer.zip" role="button">32-bit Current</a>
+  </div>
+</div>
+</div>
+</div>
 
-Packages for various distributions are available on [Open Build Server].
-The Arch official package is available in the [Arch Linux Community] repository,
-the development version in the [Arch User Repository].
-
-## <i class="fab fa-apple fa-fw"/> macOS <i class="fab fa-windows fa-fw"/> Windows <i class="fab fa-github fa-fw"/> Source Code
-
-macOS and Windows binaries and source code are all available via [Github Releases].
-
-## Nightly Builds
-
-The artifacts of the most recent builds can be found respectively in
-[GitHub Actions] and [AppVeyor] (macOS only) pages.
-On sfizz GitHub Actions page click on the latest commit, the artifacts are listed
-below in the resulting page.
-
-[Open Build Server]:    https://software.opensuse.org//download.html?project=home%3Asfztools%3Asfizz&package=sfizz
-[Arch Linux Community]: https://www.archlinux.org/packages/community/x86_64/sfizz/
-[Arch User Repository]: https://aur.archlinux.org/packages/sfizz-git/
-[Github Releases]:      https://github.com/sfztools/sfizz/releases/latest/
-[GitHub Actions]:       https://github.com/sfztools/sfizz/actions/
-[AppVeyor]:             https://ci.appveyor.com/project/SFZTools/sfizz/build/artifacts/
+<div class="row">
+<div class="col-sm-5">
+<div class="card mb-3" style="width: 22rem;">
+  <div class="card-body">
+    <h2 class="card-title"><i class="fab fa-apple"> macOS</i></h2>
+    <p class="card-text">Universal macOS packages, for 64-bit Intel and Apple Silicon.</p>
+    <a class="btn btn-primary" href="https://github.com/sfztools/sfizz/releases/download/1.0.0/sfizz-1.0.0-macos.dmg" role="button">Universal Stable</a>
+    <a class="btn btn-warning" href="https://ci.appveyor.com/project/SFZTools/sfizz/build/artifacts?branch=develop" role="button">Universal Current</a>
+</div>
+</div>
+</div>
+<div class="col-sm-5">
+<div class="card mb-3" style="width: 22rem;">
+  <div class="card-body">
+    <h2 class="card-title"><i class="fab fa-github"> Source code</i></h2>
+    <p class="card-text">Archive of the source code, available under a free software license.</p>
+    <a class="btn btn-primary" href="https://github.com/sfztools/sfizz/releases/download/1.0.0/sfizz-1.0.0.tar.gz" role="button">Source archive</a>
+  </div>
+</div>
+</div>
+</div>
