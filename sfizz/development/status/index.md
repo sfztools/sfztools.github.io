@@ -7,7 +7,7 @@ The classification of opcodes follows the list over at <https://sfzformat.com/>.
 	<a class="btn btn-link" href="/sfizz/development/status/opcodes">View detailed list</a>
 </p>
 
-{% include sfizz/sfz_support.liquid %}
+{% include sfizz/sfz_support_table.liquid %}
 
 <p class="text-center">
 	<span class="badge badge-success">Complete</span>

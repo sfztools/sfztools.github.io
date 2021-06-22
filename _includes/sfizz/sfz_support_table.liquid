@@ -1,0 +1,56 @@
+{% include sfizz/sfz_support.liquid %}
+
+<table data-toggle="table" data-classes="table table-sm">
+	<thead class="thead-dark">
+		<tr>
+			<th>Version</th>
+			<th>Status</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="/sfizz/development/status/opcodes?v=1">SFZ v1</a></td>
+			<td>
+				<div class="progress">
+					<div class="progress-bar bg-success" role="progressbar" style="width: {{ sfz1Done }}%;" aria-valuenow="{{ sfz1Done }}" aria-valuemin="0" aria-valuemax="100">{{ sfz1Done }}%</div>
+{%-if sfz1Wip > 0-%}
+					<div class="progress-bar bg-warning" role="progressbar" style="width: {{ sfz1Wip }}%; color: black" aria-valuenow="{{ sfz1Wip }}" aria-valuemin="0" aria-valuemax="100">{{ sfz1Wip }}%</div>
+{%-endif-%}
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/sfizz/development/status/opcodes?v=2">SFZ v2</a></td>
+			<td>
+				<div class="progress">
+					<div class="progress-bar bg-success" role="progressbar" style="width: {{ sfz2Done }}%;" aria-valuenow="{{ sfz2Done }}" aria-valuemin="0" aria-valuemax="100">{{ sfz2Done }}%</div>
+{%-if sfz2Wip > 0-%}
+					<div class="progress-bar bg-warning" role="progressbar" style="width: {{ sfz2Wip }}%; color: black" aria-valuenow="{{ sfz2Wip }}" aria-valuemin="0" aria-valuemax="100">{{ sfz2Wip }}%</div>
+{%-endif-%}
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/sfizz/development/status/opcodes?v=cakewalk">Cakewalk</a></td>
+			<td>
+				<div class="progress">
+					<div class="progress-bar bg-success" role="progressbar" style="width: {{ cakeDone }}%;" aria-valuenow="{{ cakeDone }}" aria-valuemin="0" aria-valuemax="100">{{ cakeDone }}%</div>
+{%-if cakeWip > 0-%}
+					<div class="progress-bar bg-warning" role="progressbar" style="width: {{ cakeWip }}%; color: black" aria-valuenow="{{ cakeWip }}" aria-valuemin="0" aria-valuemax="100">{{ cakeWip }}%</div>
+{%-endif-%}
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td><a href="/sfizz/development/status/opcodes?v=aria">ARIA</a></td>
+			<td>
+				<div class="progress">
+					<div class="progress-bar bg-success" role="progressbar" style="width: {{ ariaDone }}%;" aria-valuenow="{{ ariaDone }}" aria-valuemin="0" aria-valuemax="100">{{ ariaDone }}%</div>
+{%-if ariaWip > 0-%}
+					<div class="progress-bar bg-warning" role="progressbar" style="width: {{ ariaWip }}%; color: black" aria-valuenow="{{ ariaWip }}" aria-valuemin="0" aria-valuemax="100">{{ ariaWip }}%</div>
+{%-endif-%}
+				</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
