@@ -1,0 +1,31 @@
+{%- assign progress_width = 60 -%}
+{%- assign title_width = include.title | size | times: 6 | plus: 10 -%}
+<svg width="{{ title_width | plus: progress_width }}" height="20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
+  <linearGradient id="a" x2="0" y2="100%">
+    <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+    <stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+  <rect rx="4" x="0" width="{{ title_width | plus: progress_width }}" height="20" fill="#428bca"/>
+  <rect rx="4" x="{{ title_width }}" width="{{ progress_width }}" height="20" fill="#555" />
+  <rect rx="4" x="{{ title_width }}" width="{{ include.done | times: progress_width | divided_by: 100 | round }}" height="20" fill="#5cb85c" />
+  <path fill="#5cb85c" d="M{{ title_width }} 0h4v20h-4z" />
+  <rect rx="4" width="{{ title_width | plus: progress_width }}" height="20" fill="url(#a)" />
+
+  <g fill="#fff" text-anchor="left" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
+    <text x="4" y="15" fill="#010101" fill-opacity=".3">
+      {{ include.title }}
+    </text>
+    <text x="4" y="14">
+      {{ include.title }}
+    </text>
+  </g>
+
+  <g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="11">
+    <text x="{{ progress_width | divided_by: 2 | round | plus: title_width }}" y="15" fill="#010101" fill-opacity=".3">
+      {{ include.done }}%
+    </text>
+    <text x="{{ progress_width | divided_by: 2 | round | plus: title_width }}" y="14">
+      {{ include.done }}%
+    </text>
+  </g>
+</svg>
