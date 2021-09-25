@@ -1,8 +1,4 @@
-		<script type="text/javascript" src="{{ '/assets/js/prettify/prettify.min.js' | relative_url }}"></script>
-		<script type="text/javascript" src="{{ '/assets/js/prettify/lang-sfz.js' | relative_url }}"></script>
-		<script>
-			$(document).ready(function(){
-			$('pre').addClass('prettyprint lang-sfz');
-			prettyPrint();
-			});
-		</script>
+		<script type="text/javascript" src="{{ '/assets/js/highlight.min.js' | relative_url }}"></script>
+		<script type="text/javascript" src="{{ '/assets/js/highlight/cpp.min.js' | relative_url }}"></script>
+		<script type="text/javascript" src="{{ '/assets/js/highlight/sfz.min.js' | relative_url }}"></script>
+		<script>hljs.highlightAll();</script>

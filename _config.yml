@@ -42,6 +42,8 @@ plugins:
 - jekyll-sitemap
 - jemoji
 
+highlighter: none
+
 name: "SFZTools"
 url: "https://sfztools.github.io"
 
