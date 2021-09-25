@@ -21,7 +21,7 @@ Debian and Ubuntu provide a `libbenchmark-dev` package that does this.
 We use [CMake] as build system.
 Current configuration switches for CMake are:
 
-```
+```null
 ENABLE_LTO              Enable Link Time Optimization          [default: ON]
 SFIZZ_JACK              Enable JACK stand-alone build          [default: ON]
 SFIZZ_RENDER            Enable renderer of SMF files           [default: ON]
@@ -62,13 +62,13 @@ If no JACK server is already started it will start one with basic options.
 If you already cloned the repository without the `--recursive` option,
 update the submodules manually with
 
-```
+```bash
 git submodule update --init --recursive
 ```
 
 All targets but the LV2 plugin can be disabled using:
 
-```
+```bash
 cmake -DSFIZZ_JACK=OFF -DSFIZZ_SHARED=OFF -DSFIZZ_RENDER=OFF ..
 ```
 

@@ -8,7 +8,7 @@ receives MIDI-type events and is able to render audio through successive calls
 to a callback function. This is in line with the way most audio applications and
 plugins are working. A high-level overview is presented in the following diagram.
 
-```
+```null
                                        C and C++ API entry point
 
                                                    |

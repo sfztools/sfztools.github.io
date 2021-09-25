@@ -33,13 +33,15 @@ defaults to using `libc++` instead of `libstdc++`.
 ## Building the LV2 plugin with static linkage to `libsndfile` on Linux
 
 Most people will probably want the LV2 plugin with `libsndfile` built-in statically.
-You can directly build it this way through Docker by calling these in an *empty* directory :
-```
+You can directly build it this way through Docker by calling these in an *empty* directory:
+
+```bash
 wget https://raw.githubusercontent.com/sfztools/sfizz/master/scripts/Dockerfile
 wget https://raw.githubusercontent.com/sfztools/sfizz/master/scripts/x64-linux-hidden.cmake
 docker build -t sfizz .
 docker cp $(docker create sfizz:latest):/tmp/sfizz/build/sfizz.lv2 .
 ```
+
 Note that the statically linked LV2 plugin is to be distributed under
 the LGPL license, as per the terms of the `libsndfile` library.
 

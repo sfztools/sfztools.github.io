@@ -14,6 +14,11 @@ navigation:
     icon_category: "fas"
     url: "/sfizz/quick_reference"
 
+  - label: "The Engine"
+    icon_type: "book"
+    icon_category: "fas"
+    url: "/sfizz/engine_description"
+
   - label: "FAQ"
     icon_type: "question-circle"
     icon_category: "fas"
