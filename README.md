@@ -28,13 +28,13 @@ $ bundle exec jekyll serve --watch --host 0.0.0.0
 The local website should be available at <http://localhost:4000/>
 
 [AnchorJS]:               https://www.bryanbraun.com/anchorjs/
-[Bootstrap]:              http://getbootstrap.com/
+[Bootstrap]:              https://getbootstrap.com/
 [Favicon Generator]:      https://realfavicongenerator.net/
-[Font Awesome]:           http://fontawesome.io/
-[Jekyll]:                 http://jekyllrb.com/
+[Font Awesome]:           https://fontawesome.io/
+[Jekyll]:                 https://jekyllrb.com/
 [Markdown]:               https://daringfireball.net/projects/markdown/
-[Node.js]:                http://nodejs.org/
-[rvm]:                    https://redtide.github.io/dev-docs/en/jekyll/rvm
+[Node.js]:                https://nodejs.org/
+[rvm]:                    https://redtide.github.io/notepad/en/jekyll/rvm
 [SASS]:                   https://sass-lang.com/
 [SFZ Tools]:              https://sfztools.github.io/
 [highlight.js]:           https://highlightjs.org/
