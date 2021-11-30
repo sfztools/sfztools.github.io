@@ -1,4 +1,5 @@
-	{%-if include.opcode.deprecated == nil %}
+	{%-if include.opcode.deprecated == nil and
+		include.opcode.name != "*_mod" and include.opcode.name != "hint_*" %}
 		<tr>
 {%comment%} Category {%endcomment%}
 			<td class="{{ include.category.id }}"><span style="display:none">{{ include.category.name }}</span></td>
