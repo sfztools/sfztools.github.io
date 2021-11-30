@@ -36,7 +36,7 @@
 		{%-else-%}
 			{%-assign opcode_comment = ''-%}
 		{%-endif-%}
-			<td style="text-align:center">{{ opcode_comment }}</td>
+			<td>{{ opcode_comment }}</td>
 		</tr>
 {%comment%} Rescan recursively {%endcomment%}
 		{%-for alias in include.opcode.alias-%}
