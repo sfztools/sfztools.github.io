@@ -37,4 +37,4 @@ missing in your system.
 [sfzformat]:      https://sfzformat.com/
 [sfzinstruments]: https://sfzinstruments.github.io/
 [here]:           development/status/opcodes/
-[search filters]: https://github.com/sfztools/sfztools.github.io/wiki/Opcode-support-table
+[search filters]: https://github.com/sfztools/sfztools.github.io/wiki/Opcode-Support-Table-Filters
