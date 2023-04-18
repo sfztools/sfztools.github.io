@@ -54,15 +54,15 @@ navigation:
     icon_type: "github"
     icon_category: "fab"
 
-- label: "BeatBox"
-  type: "dropdown"
-  icon_type: "drum"
-  icon_category: "fas"
-  pages:
-  - label: "Home"
-    icon_type: "home"
-    icon_category: "fas"
-    url: "/beatbox/"
+#- label: "BeatBox"
+#  type: "dropdown"
+#  icon_type: "drum"
+#  icon_category: "fas"
+#  pages:
+#  - label: "Home"
+#    icon_type: "home"
+#    icon_category: "fas"
+#    url: "/beatbox/"
 #  -
 #  - label: "Downloads"
 #    icon_type: "download"
@@ -74,7 +74,7 @@ navigation:
 #    icon_type: "github"
 #    icon_category: "fab"
 
-- label: "Other"
+- label: "Tools"
   type: "dropdown"
   icon_type: "hammer"
   icon_category: "fas"
@@ -87,23 +87,28 @@ navigation:
 
   - label: "sfz-opcode-checker"
     url: "https://github.com/sfztools/sfz-opcode-checker/"
-  -
-  - label: "Emacs Syntax Highlight"
+
+- label: "Syntax Highlight"
+  type: "dropdown"
+  icon_type: "hammer"
+  icon_category: "fas"
+  pages:
+  - label: "Emacs"
     url: "https://github.com/sfztools/emacs-sfz-mode/"
 
-  - label: "gedit Syntax Highlight"
+  - label: "gedit"
     url: "https://github.com/sfztools/syntax-highlighting-gedit/"
 
-  - label: "Geany Syntax Highlight"
+  - label: "Geany"
     url: "https://github.com/sfztools/syntax-highlighting-geany/"
 
-  - label: "Sublime Text Syntax Highlight"
+  - label: "Sublime Text"
     url: "https://github.com/sfztools/syntax-highlighting-sublime-text/"
 
-  - label: "Vim Syntax Highlight"
-    url: https://github.com/sfztools/sfz.vim
+  - label: "Vim"
+    url: "https://github.com/sfztools/sfz.vim"
 
-  - label: "VSCode Syntax Highlight"
+  - label: "VSCode"
     url: "https://github.com/sfztools/syntax-highlighting-vscode/"
 
 - label: "FAQ"
