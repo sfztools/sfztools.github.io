@@ -19,6 +19,11 @@ navigation:
     icon_category: "fas"
     url: "/sfizz/engine_description"
 
+  - label: "Wiki"
+    icon_type: "book"
+    icon_category: "fas"
+    url: "https://sfz.tools/sfizz-wiki"
+
   - label: "FAQ"
     icon_type: "question-circle"
     icon_category: "fas"
@@ -79,9 +84,6 @@ navigation:
   icon_type: "hammer"
   icon_category: "fas"
   pages:
-  - label: "sfizz-render"
-    url: "https://github.com/sfztools/sfizz-render/"
-
   - label: "sfz-flat"
     url: "https://github.com/sfztools/sfz-flat/"
 
