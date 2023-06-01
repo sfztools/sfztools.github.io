@@ -17,15 +17,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		{% if site.google.analytics_code %}{%-include google-analytics.html-%}{% endif %}
 		<!-- Atom Feeds -->
-		<link href="{{ "/atom.xml" | relative_url }}" rel="alternate" title="News"
+		<link href="{{ '/atom.xml' | relative_url }}" rel="alternate" title="News"
 			type="application/atom+xml" />
 
 		{% include favicons.html %}
 		<!-- Stylesheets -->
-		<link href="{{ "/assets/css/style.min.css" | relative_url }}"
+		<link href="{{ '/assets/css/style.min.css' | relative_url }}"
 			rel="stylesheet" media="screen">
-		{%-for stylesheet in page.stylesheets-%}
-		<link href="{{ "/assets/css/" | append: stylesheet | append: .css | relative_url }}"
+		{%-for style in page.styles-%}
+		<link href="{{ '/assets/css/' | append: style | append: .css | relative_url }}"
 			rel="stylesheet">
 		{% endfor %}
 		{%-include custom-styles.html %}
