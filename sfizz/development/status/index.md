@@ -10,8 +10,8 @@ The classification of opcodes follows the list over at <https://sfzformat.com/>.
 {% include sfizz/sfz_support_table.liquid %}
 
 <p class="text-center">
-	<span class="badge badge-success">Complete</span>
-	<span class="badge badge-warning">Work In Progress</span>
+	<span class="badge text-bg-success">Complete</span>
+	<span class="badge text-bg-warning">Work In Progress</span>
 </p>
 
 ## Supported Headers
@@ -23,6 +23,7 @@ All headers except <[sample]> are currently supported.
 {% for os in site.data.sfizz.support.os %}
 - {{ os.name }}{%-comment-%} no paragraph {%-endcomment-%}
 {% endfor %}
+
 
 [here]:   opcodes
 [sample]: https://sfzformat.com/headers/sample

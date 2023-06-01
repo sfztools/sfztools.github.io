@@ -4,8 +4,10 @@ lang: "en"
 layout: "home"
 date_fmt: "%B %d, %Y"
 ---
-<div markdown="1" class="jumbotron p-4 mb-3">
-
+<div
+  markdown="1"
+  class="h-100 p-5 bg-body-tertiary border rounded-3"
+>
 Welcome to SFZTools!
 
 We have created this organization project to involve more people,

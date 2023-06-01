@@ -1,7 +1,7 @@
 @import "variables";
 @import "../../node_modules/bootstrap-table/dist/bootstrap-table.css";
 @import "../../node_modules/bootstrap/scss/bootstrap";
-@import "highlight-js";
+@import "docs";
 
 .navbar, .card-header
 {
@@ -14,12 +14,11 @@ aside
 }
 pre
 {
-	padding: 0.5rem 0.75rem;
 	border: 2px solid rgba($black, .2);
 	border-radius: 0.50rem;
 }
 /* Mimic Bootstrap tables for markdown tables only
-   from bootstrap/scss/_variables:
+   from bootstrap/scss/_variables: */
 
 $white:    #fff !default;
 $gray-300: #dee2e6 !default;
@@ -36,7 +35,7 @@ $border-width:                1px !default;
 $table-accent-bg:             rgba($black, .05) !default;
 $table-dark-bg:               $gray-800 !default;
 $table-striped-order:         odd !default;
-*/
+
 article
 {
 	> table
@@ -91,7 +90,6 @@ h1, h2, h3, h4, h5, h6
 }
 h1, h2, h3
 {
-	color: #003296;
 	margin-bottom: 0.6em;
 	border-bottom: 1px solid $gray-400;
 }
@@ -107,4 +105,15 @@ img
 {
 	max-width: 100%;
 	height: auto;
+}
+$color-mode-type: data;
+@include color-mode(light) {
+  h1, h2, h3 {
+    color: $blue;
+  }
+}
+@include color-mode(dark) {
+  h1, h2, h3 {
+    color: $gray-300;
+  }
 }

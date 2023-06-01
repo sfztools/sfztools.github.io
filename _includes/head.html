@@ -16,7 +16,9 @@
 		{%-endif %}
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		{% if site.google.analytics_code %}{%-include google-analytics.html-%}{% endif %}
+
 		<!-- Atom Feeds -->
+		<script src="{{ '/assets/js/color-modes.js' | relative_url }}"></script>
 		<link href="{{ '/atom.xml' | relative_url }}" rel="alternate" title="News"
 			type="application/atom+xml" />
 
