@@ -3,6 +3,7 @@
 /.jekyll-cache/
 /.sass-cache/
 /.vendor/
+/.vscode/
 /node_modules/
 /assets/css/*.map
 /assets/css/style.css
