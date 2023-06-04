@@ -20,6 +20,10 @@ defaults:
     comments:   false
 
 exclude:
+- .data/
+- .docs/
+- .include/
+- .layout/
 - vendor/bundle/
 - vendor/cache/
 - vendor/gems/
