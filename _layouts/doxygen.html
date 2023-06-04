@@ -2,7 +2,7 @@
 layout: "default"
 name:   "doxygen"
 ---
-<link type="text/css" href="{{ "/assets/css/doxygen.css" | relative_url }}" rel="stylesheet">
+<link type="text/css" href="{{ '/assets/css/doxygen.css' | relative_url }}" rel="stylesheet">
 
 {%-assign project_name    = page.dir | remove_first: '/' | split: '/' | first-%}
 {%-assign repo_url        = site.repository.owner_url | append: '/' | append: project_name-%}
