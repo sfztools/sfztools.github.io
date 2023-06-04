@@ -1,8 +1,6 @@
 ---
 title: "Home"
-lang: "en"
-layout: "home"
-date_fmt: "%B %d, %Y"
+no_title_header: true
 ---
 <div
   markdown="1"

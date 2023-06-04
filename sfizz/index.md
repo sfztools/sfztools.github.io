@@ -1,6 +1,6 @@
 ---
 title: "Home"
-layout: "home"
+no_title_header: true
 ---
 `sfizz` is a sample-based musical synthesizer.
 
