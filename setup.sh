@@ -1,13 +1,15 @@
 #!/bin/bash
 
+cd $PWD
+
 set -e
 
-cd $PWD
+script_name=$(basename $0 | sed "s/\.sh$//")
 
 if [ "$1" == "--help" ] || [ "$1" == "-h" ]; then
 	echo "Setup and run Jekyll"
 	echo ""
-	echo "Usage: ${0} [option]"
+	echo "Usage: ${script_name} [option]"
 	echo ""
 	echo "Options are not mandatory, only one at a time."
 	echo "-a, --assets      Build minimized css style and js script from sources."
