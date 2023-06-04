@@ -114,11 +114,9 @@ navigation:
     url: "https://github.com/sfztools/syntax-highlighting-vscode/"
 
 - label: "FAQ"
-  type: "normal"
   url: "/faq"
 
 - label: "News"
-  type: "normal"
   url: "/news"
 
 cards:
@@ -147,7 +145,6 @@ cards:
     icon_category: "fab"
 
   - label: "EMail"
-    type: "normal"
     icon_type: "at"
     icon_category: "fas"
     url: "/contacts"

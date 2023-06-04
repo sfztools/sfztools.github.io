@@ -58,17 +58,9 @@
 
 					<div class="collapse navbar-collapse" id="navbarContent">
 						<ul class="navbar-nav me-auto mt-2 mt-lg-0">
-	{% for item in current_locale_dir.layout.navigation %}
-		{% if item.type == "normal" %}
-							<li class="nav-item">
-								<a class="nav-link" href="{{ item.url | relative_url }}">
-			{%-if item.icon_type-%}
-									<i class="{{ item.icon_category }} fa-{{ item.icon_type }} fa-fw"
-										aria-hidden="true"></i>&nbsp;
-			{%-endif-%}
-										{{ item.label }}</a>
-		{% else %}
-			{% assign item_id = 'navbar' | append: item.label %}
+						{% for item in current_locale_dir.layout.navigation %}
+							{% if item.type == "dropdown" %}
+								{% assign item_id = 'navbar' | append: item.label %}
 							<li class="nav-item dropdown">
 								<a
 									class="nav-link dropdown-toggle"
@@ -79,44 +71,52 @@
 									aria-expanded="false"
 									aria-haspopup="true"
 								>
-			{%-if item.icon_type-%}
+								{%-if item.icon_type-%}
 									<i
 										class="{{ item.icon_category }} fa-{{ item.icon_type }} fa-fw"
 										aria-hidden="true"></i>&nbsp;
-			{%-endif-%}
+								{%-endif-%}
 									{{ item.label }}
 								</a>
 								<ul
 									class="dropdown-menu"
 									aria-labelledby="{{ item_id }}"
 								>
-			{% for subitem in item.pages %}
-				{% if subitem.label == nil %}
+								{% for subitem in item.pages %}
+									{% if subitem.label == nil %}
 									<div class="dropdown-divider"></div>
-				{% else %}
-					{%-assign disabled=""-%}
-					{%-if subitem.disabled-%}{%-assign disabled=" disabled"-%}{%-endif-%}
+									{% else %}
+										{%-assign disabled=""-%}
+										{%-if subitem.disabled-%}{%-assign disabled=" disabled"-%}{%-endif-%}
 									<li>
 										<a class="dropdown-item{{ disabled }}"
 											href="{{ subitem.url | relative_url }}"
 										>
-					{%-if subitem.icon_type-%}
+										{%-if subitem.icon_type-%}
 											<i
 												class="{{ subitem.icon_category }} fa-{{ subitem.icon_type }} fa-fw"
 												aria-hidden="true"></i>&nbsp;
-					{%-endif-%}
+										{%-endif-%}
 												{{ subitem.label }}
 										</a>
 									</li>
-				{% endif %}
-			{% endfor %}
+									{% endif %}
+								{% endfor %}
 								</ul>
-		{% endif %}
+							{% else %}
+							<li class="nav-item">
+								<a class="nav-link" href="{{ item.url | relative_url }}">
+								{%-if item.icon_type-%}
+									<i class="{{ item.icon_category }} fa-{{ item.icon_type }} fa-fw"
+										aria-hidden="true"></i>&nbsp;
+								{%-endif-%}
+										{{ item.label }}</a>
+							{% endif %}
 							</li>
-	{% endfor %}
+						{% endfor %}
 						</ul>
 						<ul class="navbar-nav">
-	{%comment%}
+						{%comment%}
 							<!-- Global Download ? -->
 							<li class="nav-item">
 								<a class="nav-link"
@@ -124,7 +124,7 @@
 								<i class="fas fa-download fa-fw" aria-hidden="true"></i>
 									{{ t.download }}</a>
 							</li>
-	{%endcomment%}
+						{%endcomment%}
 							<li class="nav-item">
 								<a class="nav-link"
 									href="{{ page_path_prefix | append: 'search/' | relative_url }}">
