@@ -25,11 +25,13 @@ if [ "$1" == "-i" ] || [ "$1" == "--install" ]; then
 	gem install bundler
 	bundle install
 	yarn --no-bin-links
+	exit 0
 fi
 
 # Rebuild minimized assets
 if [ ! -f "assets/css/style.min.css" ] || [ "$1" == "-a" ] || [ "$1" == "--assets" ]; then
 	yarn dist
+	exit 0
 fi
 
 # Enable Jekyll incremental build
