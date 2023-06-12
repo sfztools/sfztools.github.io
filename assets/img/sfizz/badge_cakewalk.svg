@@ -1,7 +1,7 @@
 ---
 layout: null
 ---
-{%- include sfizz/sfz_support.liquid -%}
-{%- include sfizz/sfz_support_badge.liquid
+{%- include sfizz/status/calc.liquid -%}
+{%- include sfizz/status/badge.liquid
 		title = "Cake"
 		done = cakeDone -%}

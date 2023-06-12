@@ -13,18 +13,30 @@
 
 {%-for category_ in site.data.sfz.syntax.categories-%}
 	{%-for toplevel_opcode in category_.opcodes-%}
-		{% include sfz/functions/addOpcodeToStat.liquid
+		{% include sfizz/status/functions/add_opcode.liquid
 			category = category_
 			opcode   = toplevel_opcode %}
 	{%-endfor-%}
 	{%-for category_type in category_.types-%}
 		{%-for toplevel_opcode in category_type.opcodes-%}
-			{% include sfz/functions/addOpcodeToStat.liquid
+			{% include sfizz/status/functions/add_opcode.liquid
 				category = category_type
 				opcode   = toplevel_opcode %}
 		{%-endfor-%}
 	{%-endfor-%}
 {%-endfor-%}
+
+{%- comment %}
+{%-assign sfz1Miss = sfz1Total | minus: sfz1Done | minus: sfz1Wip %}
+{%-assign sfz2Miss = sfz2Total | minus: sfz2Done | minus: sfz2Wip %}
+{%-assign cakeMiss = cakeTotal | minus: cakeDone | minus: cakeWip %}
+{%-assign ariaMiss = ariaTotal | minus: ariaDone | minus: ariaWip %}
+
+SFZ v1:   {{ sfz1Done }} + {{ sfz1Wip }} of {{ sfz1Total }} ({{ sfz1Miss }} missing)<br>
+SFZ v2:   {{ sfz2Done }} + {{ sfz2Wip }} of {{ sfz2Total }} ({{ sfz2Miss }} missing)<br>
+Cakewalk: {{ cakeDone }} + {{ cakeWip }} of {{ cakeTotal }} ({{ cakeMiss }} missing)<br>
+ARIA:     {{ ariaDone }} + {{ ariaWip }} of {{ ariaTotal }} ({{ ariaMiss }} missing)
+{%- endcomment %}
 
 {%-assign ariaDone = ariaDone | times: 100 | divided_by: ariaTotal-%}
 {%-assign cakeDone = cakeDone | times: 100 | divided_by: cakeTotal-%}
