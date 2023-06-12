@@ -110,6 +110,7 @@ opcodes:
 - name: "off_by"
 - name: "off_mode"
 - name: "off_time"
+- name: "output"
 - name: "polyphony"
 - name: "polyphony_group"
 - name: "note_polyphony"
