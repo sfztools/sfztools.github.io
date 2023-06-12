@@ -20,13 +20,8 @@ package-lock.json
 
 # MKDocs files
 __pycache__/
-_site_mkdocs/
-.data/
-.docs/
-.include/
-.layout/
-assets/css/doxygen-mk.css
-assets/js/base.js
+mkdocs/
+hooks.py
 main.py
 mkdocs.yml
 TODO.md
