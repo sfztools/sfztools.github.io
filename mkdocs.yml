@@ -1,0 +1,102 @@
+docs_dir:         "mkdocs/docs"
+
+site_name:        "SFZTools"
+site_author:      "SFZTools Organization"
+site_url:         "https://sfz.tools"
+site_dir:         "mkdocs/_site"
+site_description: "SFZTools website"
+
+repo_name:        "GitHub"
+repo_url:         "https://github.com/sfztools/sfztools.github.io"
+edit_uri:         "edit/master/docs/"
+remote_branch:    "www"
+
+extra:
+  site_web_author: "SFZTools Organization"
+  repo_owner_url:  "https://github.com/sfztools"
+  repo_branch:     "master"
+
+  cards:         "mkdocs/data/layout/cards.yml"
+  nav:           "mkdocs/data/layout/navigation.yml"
+  api:           "mkdocs/data/sfizz/api/sfizz_message.h.json"
+# TODO: data for both documentation and layout (currently using macros plugin)?
+  sfizz_support: "mkdocs/data/sfizz/support.yml"
+  sfz_syntax:    "mkdocs/data/sfz/syntax.yml"
+
+markdown_extensions:
+- pymdownx.emoji:
+    emoji_generator: !!python/name:pymdownx.emoji.to_png
+    alt: short
+    options:
+      attributes:
+        align: absmiddle
+        height: 20px
+        width: 20px
+hooks:
+- mkdocs/scripts/hooks.py
+
+plugins:
+  search: {}
+# FIXME: conflicts with # prefixed HTML unicode characters, see
+#        https://github.com/theskumar/autolink-references-mkdocs-plugin/issues/7
+# autolink_references:
+#   autolinks:
+#   - reference_prefix: '#'
+#     target_url: "https://github.com/sfztools/sfizz/issues/<num>"
+  blogging:
+    dirs:
+    - news/posts
+    locale: en
+    full_content: true
+    paging: true
+    show_total: false
+    size: 5
+    template: "mkdocs/blogging-template.html"
+    meta_time_format: "%Y-%m-%d %H:%M:%S"
+    time_format: "%Y-%m-%d %H:%M:%S"
+  exclude: # TODO: to remove when 1.5 comes out
+    glob:
+    - "*.j2"
+    - "info.md"
+# include_dir_to_nav: {}
+  macros:
+    include_yaml:
+    - sfizz_hpp:       "mkdocs/data/sfizz/api/sfizz.hpp.json"
+    - sfizz_h:         "mkdocs/data/sfizz/api/sfizz.h.json"
+    - sfizz_message_h: "mkdocs/data/sfizz/api/sfizz_message.h.json"
+    - sfizz_release:   "mkdocs/data/sfizz/release.yml"
+    - sfizz_support2:  "mkdocs/data/sfizz/support.yml"
+    - sfz_syntax2:     "mkdocs/data/sfz/syntax.yml"
+    include_dir:       "mkdocs/macros/includes"
+    module_name:       "mkdocs/macros/module"
+    verbose: true
+  mermaid2: {} # Flowcharts (engine description)
+
+extra_javascript:
+- https://unpkg.com/mermaid@8.6.4/dist/mermaid.min.js
+
+theme:
+  name:        null
+  custom_dir: "mkdocs/layout"
+  highlightjs: true
+  hljs_light: "github"
+  hljs_dark:  "github-dark-dimmed"
+  nav_style:  "dark"
+  locale:     "en"
+  bootstrap_version: "5.3.0"
+  favicons:
+    apple_touch_icon_size: "180x180"
+    msapp_tilecolor: "#ffffff"
+    theme_color: "#ffffff"
+  shortcuts:
+    help:     191 # ?
+    next:      78 # n
+    previous:  80 # p
+    search:    83 # s
+
+watch:
+- mkdocs/data
+- mkdocs/docs
+- mkdocs/macros/includes
+- mkdocs/layout
+- mkdocs/blogging-template.html

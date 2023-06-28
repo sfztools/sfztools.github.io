@@ -1,0 +1,1122 @@
+{
+  "name": "sfz::Sfizz",
+  "kind": "class",
+  "brief": "Synthesizer for SFZ instruments.",
+  "include": "sfizz.hpp",
+  "location": "src/sfizz.hpp",
+  "language": "C++",
+  "doxygen_version": "1.9.1",
+  "definitions": [
+    {
+      "kind": "public-type",
+      "members": [
+        {
+          "name": "ProcessMode",
+          "brief": "Processing mode.",
+          "since": "0.4.0",
+          "values": [
+            {
+              "name": "ProcessLive"
+            },
+            {
+              "name": "ProcessFreewheeling"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "private-attrib",
+      "members": [
+        {
+          "name": "synth",
+          "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+          "initializer": "{}"
+        }
+      ]
+    },
+    {
+      "kind": "public-func",
+      "members": [
+        {
+          "name": "Sfizz",
+          "brief": "Construct a new <a href='#Sfizz'>Sfizz</a> object.",
+          "description": "The synth by default is set at 48 kHz and a block size of 1024. You should change these values if they are not suited to your application."
+        },
+        {
+          "name": "~Sfizz"
+        },
+        {
+          "name": "Sfizz",
+          "brief": "Move constructor.",
+          "params": [
+            {
+              "name": "other",
+              "type": "<a href='#Sfizz'>Sfizz</a> &&"
+            }
+          ]
+        },
+        {
+          "name": "operator=",
+          "type": "<a href='#Sfizz'>Sfizz</a> &",
+          "brief": "Move assignment operator.",
+          "params": [
+            {
+              "name": "other",
+              "type": "<a href='#Sfizz'>Sfizz</a> &&"
+            }
+          ]
+        },
+        {
+          "name": "Sfizz",
+          "params": [
+            {
+              "name": "other",
+              "type": "const <a href='#Sfizz'>Sfizz</a> &"
+            }
+          ]
+        },
+        {
+          "name": "operator=",
+          "type": "<a href='#Sfizz'>Sfizz</a> &",
+          "params": [
+            {
+              "name": "other",
+              "type": "const <a href='#Sfizz'>Sfizz</a> &"
+            }
+          ]
+        },
+        {
+          "name": "Sfizz",
+          "brief": "Reference an existing synth handle.",
+          "params": [
+            {
+              "name": "synth",
+              "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *"
+            }
+          ]
+        },
+        {
+          "name": "handle",
+          "type": "<a href='#sfizz_synth_t'>sfizz_synth_t</a> *",
+          "brief": "Get the synth handle."
+        },
+        {
+          "name": "loadSfzFile",
+          "type": "bool",
+          "brief": "Empties the current regions and load a new SFZ file into the synth.",
+          "return": "<b style='color:blue'>false</b> if the file was not found or no regions were loaded, <b style='color:blue'>true</b> otherwise.",
+          "since": "0.2.0",
+          "params": [
+            {
+              "name": "path",
+              "type": "const std::string &",
+              "description": "The path to the file to load, as string."
+            }
+          ]
+        },
+        {
+          "name": "loadSfzString",
+          "type": "bool",
+          "brief": "Empties the current regions and load a new SFZ document from memory.",
+          "description": "This is similar to <a href='#loadSfzFile'>loadSfzFile()</a> in functionality. This accepts a virtual path name for the imaginary sfz file, which is not required to exist on disk. The purpose of the virtual path is to locate samples with relative paths.",
+          "return": "<b style='color:blue'>false</b> if no regions were loaded, <b style='color:blue'>true</b> otherwise.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "path",
+              "type": "const std::string &",
+              "description": "The virtual path of the SFZ file, as string."
+            },
+            {
+              "name": "text",
+              "type": "const std::string &",
+              "description": "The contents of the virtual SFZ file."
+            }
+          ]
+        },
+        {
+          "name": "loadScalaFile",
+          "type": "bool",
+          "brief": "Sets the tuning from a Scala file loaded from the file system.",
+          "return": "<b style='color:blue'>true</b> when tuning scale loaded OK, <b style='color:blue'>false</b> if some error occurred.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "path",
+              "type": "const std::string &",
+              "description": "The path to the file in Scala format."
+            }
+          ]
+        },
+        {
+          "name": "loadScalaString",
+          "type": "bool",
+          "brief": "Sets the tuning from a Scala file loaded from memory.",
+          "return": "<b style='color:blue'>true</b> when tuning scale loaded OK, <b style='color:blue'>false</b> if some error occurred.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "text",
+              "type": "const std::string &",
+              "description": "The contents of the file in Scala format."
+            }
+          ]
+        },
+        {
+          "name": "setScalaRootKey",
+          "type": "void",
+          "brief": "Sets the scala root key.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "rootKey",
+              "type": "int",
+              "description": "The MIDI number of the Scala root key (default 60 for C4)."
+            }
+          ]
+        },
+        {
+          "name": "getScalaRootKey",
+          "type": "int",
+          "brief": "Gets the scala root key.",
+          "return": "The MIDI number of the Scala root key (default 60 for C4).",
+          "since": "0.4.0"
+        },
+        {
+          "name": "setTuningFrequency",
+          "type": "void",
+          "brief": "Sets the reference tuning frequency.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "frequency",
+              "type": "float",
+              "description": "The frequency which indicates where standard tuning A4 is (default 440 Hz)."
+            }
+          ]
+        },
+        {
+          "name": "getTuningFrequency",
+          "type": "float",
+          "brief": "Gets the reference tuning frequency.",
+          "return": "The frequency which indicates where standard tuning A4 is (default 440 Hz).",
+          "since": "0.4.0"
+        },
+        {
+          "name": "loadStretchTuningByRatio",
+          "type": "void",
+          "brief": "Configure stretch tuning using a predefined parametric Railsback curve.",
+          "description": "A ratio 1/2 is supposed to match the average piano; 0 disables (the default).",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "ratio",
+              "type": "float",
+              "description": "The parameter in domain 0-1."
+            }
+          ]
+        },
+        {
+          "name": "getNumRegions",
+          "type": "int",
+          "brief": "Return the current number of regions loaded.",
+          "since": "0.2.0"
+        },
+        {
+          "name": "getNumGroups",
+          "type": "int",
+          "brief": "Return the current number of groups loaded.",
+          "since": "0.2.0"
+        },
+        {
+          "name": "getNumMasters",
+          "type": "int",
+          "brief": "Return the current number of masters loaded.",
+          "since": "0.2.0"
+        },
+        {
+          "name": "getNumCurves",
+          "type": "int",
+          "brief": "Return the current number of curves loaded.",
+          "since": "0.2.0"
+        },
+        {
+          "name": "getUnknownOpcodes",
+          "type": "const std::vector< std::string > &",
+          "brief": "Return a list of unsupported opcodes, if any.",
+          "since": "0.2.0"
+        },
+        {
+          "name": "getNumPreloadedSamples",
+          "type": "size_t",
+          "brief": "Return the number of preloaded samples in the synth.",
+          "since": "0.2.0"
+        },
+        {
+          "name": "setSamplesPerBlock",
+          "type": "void",
+          "brief": "Set the maximum size of the blocks for the callback.",
+          "description": "The actual size can be lower in each callback but should not be larger than this value.",
+          "since": "0.2.0",
+          "params": [
+            {
+              "name": "samplesPerBlock",
+              "type": "int",
+              "description": "The number of samples per block."
+            }
+          ]
+        },
+        {
+          "name": "setSampleRate",
+          "type": "void",
+          "brief": "Set the sample rate.",
+          "description": "If you do not call it it is initialized to <code>sfz::config::defaultSampleRate</code>.",
+          "since": "0.2.0",
+          "params": [
+            {
+              "name": "sampleRate",
+              "type": "float",
+              "description": "The sample rate."
+            }
+          ]
+        },
+        {
+          "name": "getSampleQuality",
+          "type": "int",
+          "brief": "Get the default resampling quality.",
+          "description": "This is the quality setting which the engine uses when the instrument does not use the opcode <code>sample_quality</code>. The engine uses distinct default quality settings for live mode and freewheeling mode, which both can be accessed by the means of this function.",
+          "return": "The sample quality for the given mode, in the range 0 to 10.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "mode",
+              "type": "<a href='#ProcessMode'>ProcessMode</a>",
+              "description": "The processing mode."
+            }
+          ]
+        },
+        {
+          "name": "setSampleQuality",
+          "type": "void",
+          "brief": "Set the default resampling quality.",
+          "description": "This is the quality setting which the engine uses when the instrument does not use the opcode <code>sample_quality</code>. The engine uses distinct default quality settings for live mode and freewheeling mode, which both can be accessed by the means of this function.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "mode",
+              "type": "<a href='#ProcessMode'>ProcessMode</a>",
+              "description": "The processing mode."
+            },
+            {
+              "name": "quality",
+              "type": "int",
+              "description": "The desired sample quality, in the range 0 to 10."
+            }
+          ]
+        },
+        {
+          "name": "getOscillatorQuality",
+          "type": "int",
+          "brief": "Get the default oscillator quality.",
+          "description": "This is the quality setting which the engine uses when the instrument does not use the opcode <code>oscillator_quality</code>. The engine uses distinct default quality settings for live mode and freewheeling mode, which both can be accessed by the means of this function.",
+          "return": "The oscillator quality for the given mode, in the range 0 to 3.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "mode",
+              "type": "<a href='#ProcessMode'>ProcessMode</a>",
+              "description": "The processing mode."
+            }
+          ]
+        },
+        {
+          "name": "setOscillatorQuality",
+          "type": "void",
+          "brief": "Set the default oscillator quality.",
+          "description": "This is the quality setting which the engine uses when the instrument does not use the opcode <code>oscillator_quality</code>. The engine uses distinct default quality settings for live mode and freewheeling mode, which both can be accessed by the means of this function.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "mode",
+              "type": "<a href='#ProcessMode'>ProcessMode</a>",
+              "description": "The processing mode."
+            },
+            {
+              "name": "quality",
+              "type": "int",
+              "description": "The desired oscillator quality, in the range 0 to 3."
+            }
+          ]
+        },
+        {
+          "name": "getVolume",
+          "type": "float",
+          "brief": "Return the current value for the volume, in dB.",
+          "since": "0.2.0"
+        },
+        {
+          "name": "setVolume",
+          "type": "void",
+          "brief": "Set the value for the volume.",
+          "description": "This value will be clamped within <code>sfz::default::volumeRange</code>.",
+          "since": "0.2.0",
+          "params": [
+            {
+              "name": "volume",
+              "type": "float",
+              "description": "The new volume."
+            }
+          ]
+        },
+        {
+          "name": "noteOn",
+          "type": "void",
+          "brief": "Send a note on event to the synth.",
+          "description": "This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.",
+          "since": "0.2.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
+            },
+            {
+              "name": "noteNumber",
+              "type": "int",
+              "description": "the midi note number, in domain 0 to 127."
+            },
+            {
+              "name": "velocity",
+              "type": "int",
+              "description": "the midi note velocity, in domain 0 to 127."
+            }
+          ]
+        },
+        {
+          "name": "hdNoteOn",
+          "type": "void",
+          "brief": "Send a high-precision note on event to the synth.",
+          "description": "This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
+            },
+            {
+              "name": "noteNumber",
+              "type": "int",
+              "description": "the midi note number, in domain 0 to 127."
+            },
+            {
+              "name": "velocity",
+              "type": "float",
+              "description": "the normalized midi note velocity, in domain 0 to 1."
+            }
+          ]
+        },
+        {
+          "name": "noteOff",
+          "type": "void",
+          "brief": "Send a note off event to the synth.",
+          "description": "This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.",
+          "since": "0.2.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
+            },
+            {
+              "name": "noteNumber",
+              "type": "int",
+              "description": "the midi note number, in domain 0 to 127."
+            },
+            {
+              "name": "velocity",
+              "type": "int",
+              "description": "the midi note velocity, in domain 0 to 127."
+            }
+          ]
+        },
+        {
+          "name": "hdNoteOff",
+          "type": "void",
+          "brief": "Send a note off event to the synth.",
+          "description": "This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
+            },
+            {
+              "name": "noteNumber",
+              "type": "int",
+              "description": "the midi note number, in domain 0 to 127."
+            },
+            {
+              "name": "velocity",
+              "type": "float",
+              "description": "the normalized midi note velocity, in domain 0 to 1."
+            }
+          ]
+        },
+        {
+          "name": "cc",
+          "type": "void",
+          "brief": "Send a CC event to the synth.",
+          "description": "This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.",
+          "since": "0.2.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
+            },
+            {
+              "name": "ccNumber",
+              "type": "int",
+              "description": "the cc number, in domain 0 to 127."
+            },
+            {
+              "name": "ccValue",
+              "type": "int",
+              "description": "the cc value, in domain 0 to 127."
+            }
+          ]
+        },
+        {
+          "name": "hdcc",
+          "type": "void",
+          "brief": "Send a high precision CC event to the synth.",
+          "description": "This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.",
+          "since": "0.4.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
+            },
+            {
+              "name": "ccNumber",
+              "type": "int",
+              "description": "the cc number, in domain 0 to 127."
+            },
+            {
+              "name": "normValue",
+              "type": "float",
+              "description": "the normalized cc value, in domain 0 to 1."
+            }
+          ]
+        },
+        {
+          "name": "automateHdcc",
+          "type": "void",
+          "brief": "Send a high precision CC automation to the synth.",
+          "description": "This updates the CC value known to the synth, but without performing additional MIDI-specific interpretations. (eg. the CC 120 and up)",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
+            },
+            {
+              "name": "ccNumber",
+              "type": "int",
+              "description": "the cc number, in domain 0 to 127."
+            },
+            {
+              "name": "normValue",
+              "type": "float",
+              "description": "the normalized cc value, in domain 0 to 1."
+            }
+          ]
+        },
+        {
+          "name": "pitchWheel",
+          "type": "void",
+          "brief": "Send a pitch bend event to the synth.",
+          "description": "This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.",
+          "since": "0.2.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
+            },
+            {
+              "name": "pitch",
+              "type": "int",
+              "description": "the pitch value centered between -8192 and 8192."
+            }
+          ]
+        },
+        {
+          "name": "hdPitchWheel",
+          "type": "void",
+          "brief": "Send a high-precision pitch bend event to the synth.",
+          "description": "This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
+            },
+            {
+              "name": "pitch",
+              "type": "float",
+              "description": "the normalized pitch, in domain -1 to 1."
+            }
+          ]
+        },
+        {
+          "name": "aftertouch",
+          "type": "SFIZZ_DEPRECATED_API void",
+          "brief": "Send an aftertouch event to the synth.",
+          "description": "This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.",
+          "since": "0.2.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
+            },
+            {
+              "name": "aftertouch",
+              "type": "int",
+              "description": "the aftertouch value, in domain 0 to 127."
+            }
+          ]
+        },
+        {
+          "name": "channelAftertouch",
+          "type": "void",
+          "brief": "Send a channel aftertouch (channel pressure) event to the synth.",
+          "description": "This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.",
+          "since": "0.2.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
+            },
+            {
+              "name": "aftertouch",
+              "type": "int",
+              "description": "the aftertouch value, in domain 0 to 127."
+            }
+          ]
+        },
+        {
+          "name": "hdChannelAftertouch",
+          "type": "void",
+          "brief": "Send a high-precision aftertouch event to the synth.",
+          "description": "This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
+            },
+            {
+              "name": "aftertouch",
+              "type": "float",
+              "description": "the normalized aftertouch value, in domain 0 to 1."
+            }
+          ]
+        },
+        {
+          "name": "polyAftertouch",
+          "type": "void",
+          "brief": "Send a polyphonic aftertouch event to the synth.",
+          "description": "This feature is experimental and needs more testing in the internal engine.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
+            },
+            {
+              "name": "noteNumber",
+              "type": "int",
+              "description": "the note number, in domain 0 to 127."
+            },
+            {
+              "name": "aftertouch",
+              "type": "int",
+              "description": "the aftertouch value, in domain 0 to 127."
+            }
+          ]
+        },
+        {
+          "name": "hdPolyAftertouch",
+          "type": "void",
+          "brief": "Send a high-precision polyphonic aftertouch event to the synth.",
+          "description": "This feature is experimental and needs more testing in the internal engine.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
+            },
+            {
+              "name": "noteNumber",
+              "type": "int",
+              "description": "the note number, in domain 0 to 127."
+            },
+            {
+              "name": "aftertouch",
+              "type": "float",
+              "description": "the normalized aftertouch value, in domain 0 to 1."
+            }
+          ]
+        },
+        {
+          "name": "tempo",
+          "type": "SFIZZ_DEPRECATED_API void",
+          "brief": "Send a tempo event to the synth.",
+          "description": "This command should be delay-ordered with all other time/signature commands, namely <a href='#tempo'>tempo()</a>, <a href='#timeSignature'>timeSignature()</a>, <a href='#timePosition'>timePosition()</a>, and <a href='#playbackState'>playbackState()</a>, otherwise the behavior of the synth is undefined.",
+          "since": "0.2.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
+            },
+            {
+              "name": "secondsPerBeat",
+              "type": "float",
+              "description": "the new period of the beat."
+            }
+          ]
+        },
+        {
+          "name": "bpmTempo",
+          "type": "void",
+          "brief": "Send a tempo event to the synth.",
+          "description": "This command should be delay-ordered with all other time/signature commands, namely <a href='#tempo'>tempo()</a>, <a href='#timeSignature'>timeSignature()</a>, <a href='#timePosition'>timePosition()</a>, and <a href='#playbackState'>playbackState()</a>, otherwise the behavior of the synth is undefined.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "the delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#renderBlock'>renderBlock()</a>."
+            },
+            {
+              "name": "beatsPerMinute",
+              "type": "float",
+              "description": "the new tempo, in beats per minute."
+            }
+          ]
+        },
+        {
+          "name": "timeSignature",
+          "type": "void",
+          "brief": "Send the time signature.",
+          "description": "This command should be delay-ordered with all other time/signature commands, namely <a href='#tempo'>tempo()</a>, <a href='#timeSignature'>timeSignature()</a>, <a href='#timePosition'>timePosition()</a>, and <a href='#playbackState'>playbackState()</a>, otherwise the behavior of the synth is undefined.",
+          "since": "0.5.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "The delay."
+            },
+            {
+              "name": "beatsPerBar",
+              "type": "int",
+              "description": "The number of beats per bar, or time signature numerator."
+            },
+            {
+              "name": "beatUnit",
+              "type": "int",
+              "description": "The note corresponding to one beat, or time signature denominator."
+            }
+          ]
+        },
+        {
+          "name": "timePosition",
+          "type": "void",
+          "brief": "Send the time position.",
+          "description": "This command should be delay-ordered with all other time/signature commands, namely <a href='#tempo'>tempo()</a>, <a href='#timeSignature'>timeSignature()</a>, <a href='#timePosition'>timePosition()</a>, and <a href='#playbackState'>playbackState()</a>, otherwise the behavior of the synth is undefined.",
+          "since": "0.5.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "The delay."
+            },
+            {
+              "name": "bar",
+              "type": "int",
+              "description": "The current bar."
+            },
+            {
+              "name": "barBeat",
+              "type": "double",
+              "description": "The fractional position of the current beat within the bar."
+            }
+          ]
+        },
+        {
+          "name": "playbackState",
+          "type": "void",
+          "brief": "Send the playback state.",
+          "description": "This command should be delay-ordered with all other time/signature commands, namely <a href='#tempo'>tempo()</a>, <a href='#timeSignature'>timeSignature()</a>, <a href='#timePosition'>timePosition()</a>, and <a href='#playbackState'>playbackState()</a>, otherwise the behavior of the synth is undefined.",
+          "since": "0.5.0",
+          "params": [
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "The delay."
+            },
+            {
+              "name": "playbackState",
+              "type": "int",
+              "description": "The playback state, 1 if playing, 0 if stopped."
+            }
+          ]
+        },
+        {
+          "name": "renderBlock",
+          "type": "void",
+          "brief": "Render an block of audio data in the buffer.",
+          "description": "This call will reset the synth in its waiting state for the next batch of events. The buffers must be float[numSamples][numOutputs * 2].",
+          "since": "0.2.0",
+          "params": [
+            {
+              "name": "buffers",
+              "type": "float **",
+              "description": "the buffers to write the next block into."
+            },
+            {
+              "name": "numFrames",
+              "type": "size_t",
+              "description": "the number of stereo frames in the block."
+            },
+            {
+              "name": "numOutputs",
+              "type": "int",
+              "description": "the number of stereo outputs."
+            }
+          ]
+        },
+        {
+          "name": "getNumActiveVoices",
+          "type": "int",
+          "brief": "Return the number of active voices.",
+          "since": "0.2.0"
+        },
+        {
+          "name": "getNumVoices",
+          "type": "int",
+          "brief": "Return the total number of voices in the synth (the polyphony).",
+          "since": "0.2.0"
+        },
+        {
+          "name": "setNumVoices",
+          "type": "void",
+          "brief": "Change the number of voices (the polyphony).",
+          "since": "0.2.0",
+          "params": [
+            {
+              "name": "numVoices",
+              "type": "int",
+              "description": "The number of voices."
+            }
+          ]
+        },
+        {
+          "name": "setOversamplingFactor",
+          "type": "bool",
+          "brief": "Set the oversampling factor to a new value.",
+          "description": "As of 1.0, This is an inactive stub for future work on oversampling in the engine.",
+          "return": "<b style='color:blue'>true</b> if the factor did indeed change, <b style='color:blue'>false</b> otherwise.",
+          "since": "0.2.0",
+          "params": [
+            {
+              "name": "factor",
+              "type": "int",
+              "description": "The oversampling factor."
+            }
+          ]
+        },
+        {
+          "name": "getOversamplingFactor",
+          "type": "int",
+          "brief": "Return the current oversampling factor.",
+          "description": "As of 1.0, This is an inactive stub for future work on oversampling in the engine.",
+          "since": "0.2.0"
+        },
+        {
+          "name": "setPreloadSize",
+          "type": "void",
+          "brief": "Set the preloaded file size.",
+          "since": "0.2.0",
+          "params": [
+            {
+              "name": "preloadSize",
+              "type": "uint32_t",
+              "description": "The preload size."
+            }
+          ]
+        },
+        {
+          "name": "getPreloadSize",
+          "type": "uint32_t",
+          "brief": "Return the current preloaded file size.",
+          "since": "0.2.0"
+        },
+        {
+          "name": "getAllocatedBuffers",
+          "type": "int",
+          "brief": "Return the number of allocated buffers.",
+          "since": "0.2.0"
+        },
+        {
+          "name": "getAllocatedBytes",
+          "type": "int",
+          "brief": "Return the number of bytes allocated through the buffers.",
+          "since": "0.2.0"
+        },
+        {
+          "name": "enableFreeWheeling",
+          "type": "void",
+          "brief": "Enable freewheeling on the synth.",
+          "description": "This will wait for background loaded files to finish loading before each render callback to ensure that there will be no dropouts.",
+          "since": "0.2.0"
+        },
+        {
+          "name": "disableFreeWheeling",
+          "type": "void",
+          "brief": "Disable freewheeling on the synth.",
+          "description": "You should disable freewheeling before live use of the plugin otherwise the audio thread will lock.",
+          "since": "0.2.0"
+        },
+        {
+          "name": "shouldReloadFile",
+          "type": "bool",
+          "brief": "Check if the SFZ should be reloaded.",
+          "description": "Depending on the platform this can create file descriptors.",
+          "return": "<b style='color:blue'>true</b> if any included files (including the root file) have been modified since the sfz file was loaded, <b style='color:blue'>false</b> otherwise.",
+          "since": "0.2.0"
+        },
+        {
+          "name": "shouldReloadScala",
+          "type": "bool",
+          "brief": "Check if the tuning (scala) file should be reloaded.",
+          "description": "Depending on the platform this can create file descriptors.",
+          "return": "<b style='color:blue'>true</b> if a scala file has been loaded and has changed, <b style='color:blue'>false</b> otherwise.",
+          "since": "0.4.0"
+        },
+        {
+          "name": "enableLogging",
+          "type": "SFIZZ_DEPRECATED_API void",
+          "brief": "Enable logging of timings to sidecar CSV files.",
+          "since": "0.3.0",
+          "note": "This can produce many outputs so use with caution."
+        },
+        {
+          "name": "enableLogging",
+          "type": "void",
+          "brief": "Enable logging of timings to sidecar CSV files.",
+          "since": "0.3.2",
+          "note": "This can produce many outputs so use with caution.",
+          "params": [
+            {
+              "name": "prefix",
+              "type": "const std::string &",
+              "description": "the file prefix to use for logging."
+            }
+          ]
+        },
+        {
+          "name": "setLoggingPrefix",
+          "type": "SFIZZ_DEPRECATED_API void",
+          "brief": "Set the logging prefix.",
+          "since": "0.3.2",
+          "params": [
+            {
+              "name": "prefix",
+              "type": "const std::string &",
+              "description": ""
+            }
+          ]
+        },
+        {
+          "name": "disableLogging",
+          "type": "void",
+          "brief": "Disable logging of timings to sidecar CSV files.",
+          "since": "0.3.0"
+        },
+        {
+          "name": "allSoundOff",
+          "type": "void",
+          "brief": "Shuts down the current processing, clear buffers and reset the voices.",
+          "since": "0.3.2"
+        },
+        {
+          "name": "addExternalDefinition",
+          "type": "void",
+          "brief": "Add external definitions prior to loading.",
+          "since": "0.4.0",
+          "note": "These do not get reset by loading or resetting the synth. You need to call clearExternalDefintions() to erase them.",
+          "params": [
+            {
+              "name": "id",
+              "type": "const std::string &",
+              "description": "The definition variable name."
+            },
+            {
+              "name": "value",
+              "type": "const std::string &",
+              "description": "The definition value."
+            }
+          ]
+        },
+        {
+          "name": "clearExternalDefinitions",
+          "type": "void",
+          "brief": "Clears external definitions for the next file loading.",
+          "since": "0.4.0"
+        },
+        {
+          "name": "getKeyLabels",
+          "type": "const std::vector< std::pair< uint8_t, std::string > > &",
+          "brief": "Get the key labels, if any.",
+          "since": "0.4.0"
+        },
+        {
+          "name": "getCCLabels",
+          "type": "const std::vector< std::pair< uint16_t, std::string > > &",
+          "brief": "Get the CC labels, if any.",
+          "since": "0.4.0"
+        },
+        {
+          "name": "exportMidnam",
+          "type": "std::string",
+          "brief": "Export a MIDI Name document describing the currently loaded SFZ file.",
+          "return": "A XML string.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "model",
+              "type": "const std::string &",
+              "description": "The model name used if a non-empty string, otherwise generated."
+            }
+          ]
+        },
+        {
+          "name": "sendMessage",
+          "type": "void",
+          "brief": "Send a message to the synth engine.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "client",
+              "type": "Client &",
+              "description": "The client sending the message."
+            },
+            {
+              "name": "delay",
+              "type": "int",
+              "description": "The delay of the message in the block, in samples."
+            },
+            {
+              "name": "path",
+              "type": "const char *",
+              "description": "The OSC address pattern."
+            },
+            {
+              "name": "sig",
+              "type": "const char *",
+              "description": "The OSC type tag string."
+            },
+            {
+              "name": "args",
+              "type": "const <a href='#sfizz_arg_t'>sfizz_arg_t</a> *",
+              "description": "The OSC arguments, whose number and format is determined the type tag string."
+            }
+          ]
+        },
+        {
+          "name": "setBroadcastCallback",
+          "type": "void",
+          "brief": "Set the function which receives broadcast messages from the synth engine.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "broadcast",
+              "type": "<a href='#sfizz_receive_t'>sfizz_receive_t</a> *",
+              "description": "The pointer to the receiving function."
+            },
+            {
+              "name": "data",
+              "type": "void *",
+              "description": "The opaque data pointer which is passed to the receiver."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "public-static-func",
+      "members": [
+        {
+          "name": "createClient",
+          "type": "ClientPtr",
+          "brief": "Create a new messaging client.",
+          "return": "The new client.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "data",
+              "type": "void *",
+              "description": "The opaque data pointer which is passed to the receiver."
+            }
+          ]
+        },
+        {
+          "name": "getClientData",
+          "type": "void *",
+          "brief": "Get the client data.",
+          "return": "The client data.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "client",
+              "type": "Client &",
+              "description": "The client."
+            }
+          ]
+        },
+        {
+          "name": "setReceiveCallback",
+          "type": "void",
+          "brief": "Set the function which receives reply messages from the synth engine.",
+          "since": "1.0.0",
+          "params": [
+            {
+              "name": "client",
+              "type": "Client &",
+              "description": "The client."
+            },
+            {
+              "name": "receive",
+              "type": "<a href='#sfizz_receive_t'>sfizz_receive_t</a> *",
+              "description": "The pointer to the receiving function."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

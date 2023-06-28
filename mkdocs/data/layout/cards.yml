@@ -1,0 +1,57 @@
+- label: Follow us
+  icon_type: eye
+  icon_category: fas
+  links:
+  - label: "Discord Chat"
+    url: "https://discord.gg/3ArE9Mw"
+    icon_type: "discord"
+    icon_category: "fab"
+
+  - label: "IRC"
+    url: https://kiwiirc.com/nextclient/#irc://irc.libera.chat:+6697/#sfztools
+    icon_type: "hashtag"
+    icon_category: "fas"
+
+  - label: "News Atom Feed"
+    url: "/atom.xml"
+    icon_type: "rss"
+    icon_category: "fas"
+
+  - label: "GitHub Organization"
+    url: "https://github.com/sfztools/"
+    icon_type: "github"
+    icon_category: "fab"
+
+  - label: "EMail"
+    icon_type: "at"
+    icon_category: "fas"
+    url: "/contacts"
+
+- label: "Quick links"
+  icon_type: "link"
+  icon_category: "fas"
+  links:
+  - label: "SFZ Format"
+    url: "https://sfzformat.github.io/"
+    icon_type: "book"
+    icon_category: "fas"
+
+  - label: "Free SFZ Instruments"
+    url: "https://github.com/sfzinstruments/"
+    icon_type: "download"
+    icon_category: "fas"
+
+  - label: "FreePats Instruments"
+    url: "https://freepats.zenvoid.org/"
+    icon_type: "download"
+    icon_category: "fas"
+
+  - label: "Linuxaudio.org"
+    url: "https://linuxaudio.org/"
+    icon_type: "music"
+    icon_category: "fas"
+
+  - label: "LinuxMAO"
+    url: "https://linuxmao.org/"
+    icon_type: "music"
+    icon_category: "fas"

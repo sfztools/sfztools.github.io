@@ -1,0 +1,4 @@
+*
+!.gitignore
+!color-modes.js
+!opcodes_table_filters.js

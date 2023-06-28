@@ -1,0 +1,3 @@
+{%- include "sfizz/sfz_support_status.j2" %}
+{%- import "sfizz/sfz_support_badge.j2" as sfz_support_badge with context %}
+{{- sfz_support_badge.set("SFZv1", sfz1Done) }}

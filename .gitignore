@@ -1,16 +1,16 @@
-/_site/
-/_temp/
-/.bundle/
-/.jekyll-cache/
-/.sass-cache/
-/.vendor/
-/.vscode/
-/node_modules/
-/assets/css/*.map
-/assets/css/style.css
-/assets/css/style.min.css
-/assets/js/*.map
-/assets/js/scripts.min.js
+_site/
+_temp/
+.bundle/
+.jekyll-cache/
+.sass-cache/
+.vendor/
+.vscode/
+node_modules/
+assets/css/*.map
+assets/css/style.css
+assets/css/style.min.css
+assets/js/*.map
+assets/js/scripts.min.js
 .jekyll-metadata
 Gemfile.lock
 package-lock.json
@@ -20,8 +20,4 @@ package-lock.json
 
 # MKDocs files
 __pycache__/
-mkdocs/
-hooks.py
-main.py
-mkdocs.yml
-TODO.md
+.bootstrap/

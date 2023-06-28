@@ -20,11 +20,12 @@ defaults:
     comments:   false
 
 exclude:
-- mkdocs/
+- gnuplot-src/
 - vendor/bundle/
 - vendor/cache/
 - vendor/gems/
 - vendor/ruby/
+- assets/css/style.css
 - Gemfile
 - Gemfile.lock
 - LICENSE
@@ -34,10 +35,14 @@ exclude:
 - package-lock.json
 - README.md
 - setup.sh
-- assets/css/style.css
-- TODO.md
+- sfztools.code-workspace
 - yarn.lock
 - yarn-error.log
+- mkdocs/
+- mkdocs.sh
+- mkdocs.yml
+- poetry.lock
+- pyproject.toml
 
 plugins:
 - jekyll-sitemap
