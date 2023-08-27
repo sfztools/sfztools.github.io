@@ -88,6 +88,9 @@ SFIZZ_PROFILE_BUILD       Profile the build time                              [d
 SFIZZ_RELEASE_ASSERTS     Forced assertions in release builds                 [default: OFF]
 ```
 
+On macOS it's possible to enable universal builds by adding
+`-D CMAKE_OSX_ARCHITECTURES="arm64;x86_64"`.
+
 ### Build
 
 The 3 basic steps are:
