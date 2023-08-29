@@ -2,6 +2,7 @@
 @import "../../.bootstrap/scss/bootstrap";
 @import "docs";
 
+a { text-decoration: none }
 pre {
 	border: 2px solid rgba($black, .2);
 	border-radius: 0.50rem;
