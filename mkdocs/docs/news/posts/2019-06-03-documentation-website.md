@@ -3,9 +3,6 @@ title:  "Documentation Website"
 author: "redtide"
 date:   "2019-06-03 00:00:00"
 ---
-Published by redtide at 2019-06-03 00:00:00
-
----
 This website is where you will find the sfizz sampler documentation.
 
 - Built on [Jekyll].
