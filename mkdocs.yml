@@ -51,7 +51,7 @@ plugins:
     paging: true
     show_total: false
     size: 5
-    template: "mkdocs/blogging-template.html"
+    template: "mkdocs/layout/blogging-plugin.html"
     meta_time_format: "%Y-%m-%d %H:%M:%S"
     time_format: "%Y-%m-%d %H:%M:%S"
   exclude: # TODO: to remove when 1.5 comes out
@@ -70,7 +70,7 @@ plugins:
     include_dir:       "mkdocs/macros/includes"
     module_name:       "mkdocs/macros/module"
     verbose: true
-  mermaid2: {} # Flowcharts (engine description)
+# mermaid2: {} # Flowcharts (engine description)
 
 extra_javascript:
 - https://unpkg.com/mermaid@8.6.4/dist/mermaid.min.js
@@ -99,4 +99,3 @@ watch:
 - mkdocs/docs
 - mkdocs/macros/includes
 - mkdocs/layout
-- mkdocs/blogging-template.html
