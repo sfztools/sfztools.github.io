@@ -18,7 +18,7 @@ categories:
       <code>first</code>: steals the first voice found in the arbitrarily sorted list of active voices<br/>
       <code>envelope_and_age</code>: balances between voice age and their recent envelope level<br/>
       <code>oldest</code>: returns the oldest voice (default)"
-  - name: "hint_ram_loading"
+  - name: "hint_ram_based"
   - name: "hint_sustain_cancels_release"
     comment: "Recreates a Linuxsampler behavior where pressing the sustain pedal
       puts the envelopes from release states back to their sustain states"
