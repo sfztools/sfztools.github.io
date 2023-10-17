@@ -44,12 +44,16 @@ headers:
     From ARIA v1.0.8.0+ an ‹<a href='/headers/effect'>effect<a>› section with a
     <a href='/opcodes/bus'>bus</a>=midi can be used instead."
   version: "ARIA"
+  deprecated: true
 
 - name: "sample"
   short_description: "Allows to embed sample data directly in SFZ files (Rapture)."
   version: "Cakewalk"
 # ------------------------------------------------------------------------------
 # Opcodes
+#
+# NOTE: unlike `min` and `max`, the `default` value is also used as a
+#       documentation string, thus not reliable to evaluate in parsers.
 # ------------------------------------------------------------------------------
 categories:
 - name: "Real-Time Instrument Script"
@@ -105,11 +109,19 @@ categories:
           value:
             type_name: "float"
             default: 0
-            min: 0
+            min: -100
             max: 100
             unit: "seconds"
         - name: "delay_curveccN"
           version: "ARIA"
+          short_description:
+            "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+            which MIDI CC N uses to modulate delay."
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
 
     - name: "delay_random"
       short_description: "Region random delay time."
@@ -146,13 +158,49 @@ categories:
         max: 4294967296
         unit: "sample units"
 
+    - name: "loop_count"
+      short_description: "The number of times a loop will repeat."
+      version: "SFZ v2"
+      alias:
+      - name: "loopcount"
+        version: "ARIA"
+      value:
+        type_name: "integer"
+
+    - name: "loop_crossfade"
+      short_description: "Loop cross fade."
+      version: "SFZ v2"
+#     alias:
+#     - name: "loopcrossfade"
+      value:
+        type_name: "float"
+        unit: "seconds"
+
+    - name: "loop_end"
+      short_description: "The loop end point, in samples."
+      version: "SFZ v1"
+      alias:
+      - name: "loopend"
+      value:
+        type_name: "integer"
+        unit: "sample units"
+        default: 0
+        min: 0
+        max: 4294967296
+      modulation:
+        midi_cc:
+        - name: "loop_lengthccN"
+          version: "Cakewalk"
+          short_description: "Change of loop end point."
+          alias:
+          - name: "loop_length_onccN"
+
     - name: "loop_mode"
       short_description:
         "Allows playing samples with loops defined in the unlooped mode."
       version: "SFZ v1"
       alias:
       - name: "loopmode"
-        version: "SFZ v2"
       value:
         type_name: "string"
         default:
@@ -187,7 +235,6 @@ categories:
       version: "SFZ v1"
       alias:
       - name: "loopstart"
-        version: "SFZ v2"
       value:
         type_name: "integer"
         unit: "sample units"
@@ -202,33 +249,30 @@ categories:
           alias:
           - name: "loop_start_onccN"
 
-    - name: "loop_end"
-      short_description: "The loop end point, in samples."
-      version: "SFZ v1"
-      alias:
-      - name: "loopend"
-        version: "SFZ v2"
-      value:
-        type_name: "integer"
-        unit: "sample units"
-        default: 0
-        min: 0
-        max: 4294967296
-      modulation:
-        midi_cc:
-        - name: "loop_lengthccN"
-          version: "Cakewalk"
-          short_description: "Change of loop end point."
-          alias:
-          - name: "loop_length_onccN"
-
     - name: "loop_tune"
       short_description: "Tuning for only the loop segment."
       version: "Cakewalk"
+      alias:
+      - name: "looptune"
+        version: "ARIA"
       value:
         type_name: "float"
         unit: "cents"
         default: 0
+
+    - name: "loop_type"
+      short_description: "Defines the looping mode."
+      version: "SFZ v2"
+      alias:
+      - name: "looptype"
+        version: "ARIA"
+      value:
+        type_name: "string"
+        default: "forward"
+        options:
+        - name: "forward"
+        - name: "backward"
+        - name: "alternate"
 
     - name: "offset"
       short_description: "The offset used to play the sample."
@@ -264,6 +308,16 @@ categories:
         min: 0
         max: 4294967296
         unit: "sample units"
+
+    - name: "offset_mode"
+      short_description: "Defines whether offset is measured in samples or percentage of sample length."
+      version: "ARIA"
+      value:
+        type_name: "string"
+        default: "samples"
+        options:
+        - name: "samples"
+        - name: "percent"
 
     - name: "sample"
       short_description: "Defines which sample file the region will play."
@@ -314,6 +368,14 @@ categories:
           version: "ARIA"
         - name: "delay_beats_curveccN"
           version: "ARIA"
+          short_description:
+            "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+            which MIDI CC N uses to modulate delay_beats."
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
 
     - name: "delay_beats_random"
       short_description:
@@ -340,30 +402,6 @@ categories:
         options:
         - name: "forward"
         - name: "reverse"
-
-    - name: "loop_count"
-      short_description: "The number of times a loop will repeat."
-      version: "SFZ v2"
-      value:
-        type_name: "integer"
-
-    - name: "loop_crossfade"
-      short_description: "Loop cross fade."
-      version: "SFZ v2"
-      value:
-        type_name: "float"
-        unit: "seconds"
-
-    - name: "loop_type"
-      short_description: "Defines the looping mode."
-      version: "SFZ v2"
-      value:
-        type_name: "string"
-        default: "forward"
-        options:
-        - name: "forward"
-        - name: "backward"
-        - name: "alternate"
 
     - name: "md5"
       short_description:
@@ -417,23 +455,32 @@ categories:
       type_name: "string"
 
   - name: "default_path"
-    short_description: "Relative path for samples."
+    short_description: "Default file path."
     version: "SFZ v2"
     value:
       type_name: "string"
 
   - name: "note_offset"
     short_description:
-      "Tells SFZ to shift all incoming MIDI data by the specified number of notes."
+      "MIDI note transpose; tells the SFZ player to offset all incoming MIDI notes by the specified number of semitones."
     version: "SFZ v2"
     value:
       type_name: "integer"
+      default: 0
+      min: -127
+      max: 127
+      unit: "semitones"
 
   - name: "octave_offset"
-    short_description: "Shifts all incoming MIDI data by the specified octave."
+    short_description:
+      "MIDI octave transpose; tells the SFZ player to offset all incoming MIDI notes by the specified number of octaves."
     version: "SFZ v2"
     value:
       type_name: "integer"
+      default: 0
+      min: -10
+      max: 10
+      unit: "octaves"
 
   - name: "label_ccN"
     short_description: "Creates a label for the MIDI CC."
@@ -535,7 +582,6 @@ categories:
     version: "ARIA"
     value:
       type_name: "string"
-      default: "null"
 
   - name: "master_label"
     short_description:
@@ -544,7 +590,6 @@ categories:
     version: "ARIA"
     value:
       type_name: "string"
-      default: "null"
 
   - name: "group_label"
     short_description:
@@ -553,7 +598,6 @@ categories:
     version: "ARIA"
     value:
       type_name: "string"
-      default: "null"
 
   - name: "region_label"
     short_description:
@@ -562,7 +606,6 @@ categories:
     version: "ARIA"
     value:
       type_name: "string"
-      default: "null"
 
   types:
   - name: "Voice Lifecycle"
@@ -577,23 +620,25 @@ categories:
       value:
         type_name: "integer"
         default: 0
-        min: 0
-        max: 4294967296
+        min: -2147483648
+        max: 2147483647
 
     - name: "off_by"
       short_description: "Region off group."
       version: "SFZ v1"
+      alias:
+      - name: "offby"
       value:
         type_name: "integer"
         default: 0
-        min: 0
-        max: 4294967296
-      alias:
-      - name: "offby"
+        min: -2147483648
+        max: 2147483647
 
     - name: "off_mode"
       short_description: "Region off mode."
       version: "SFZ v1"
+#     alias:
+#     - name: "offmode"
       value:
         type_name: "string"
         default: "fast"
@@ -841,7 +886,7 @@ categories:
       short_description: "Reassigns the sostenuto pedal CC to a non-standard value."
       version: "ARIA"
       value:
-        type_name: "float"
+        type_name: "integer"
         default: 66
         min: 0
         max: 127
@@ -870,7 +915,7 @@ categories:
       short_description: "Reassigns the sustain pedal CC to a non-standard value."
       version: "ARIA"
       value:
-        type_name: "float"
+        type_name: "integer"
         default: 64
         min: 0
         max: 127
@@ -1082,9 +1127,10 @@ categories:
         - name: "varNN_curveccX"
           short_description:
             "Specifies the ‹<a href='/headers/curve'>curve</a>› number
-            which MIDI CC X uses to modulate variable NN."
+            which MIDI CC X uses to modulate varNN."
           value:
             type_name: "integer"
+            default: 0
             min: 0
             max: 255
 
@@ -1220,8 +1266,8 @@ categories:
 
     - name: "lotimer"
       short_description:
-        "Region plays if timer is between <code>lotimer</code> and
-        <code>hitimer</code>."
+        "Region plays if the time passed since the last sample in the same group played
+        is between <code>lotimer</code> and <code>hitimer</code>."
       version: "SFZ v2"
       value:
         type_name: "float"
@@ -1269,7 +1315,7 @@ categories:
             "Region will play on note-off. The velocity used to play
             the note-off sample is the velocity value of the corresponding
             (previous) note-on message. Ignores sustain pedal."
-          version: "ARIA"
+          version: "SFZ v2"
 
     - name: "on_loccN"
       short_description:
@@ -1398,8 +1444,12 @@ categories:
             version: "ARIA"
         - name: "pan_curveccN"
           version: "Cakewalk"
+          short_description:
+            "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+            which MIDI CC N uses to modulate pan."
           value:
             type_name: "integer"
+            default: 0
             min: 0
             max: 255
         - name: "pan_smoothccN"
@@ -1436,6 +1486,14 @@ categories:
           version: "ARIA"
         - name: "position_curveccN"
           version: "ARIA"
+          short_description:
+            "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+            which MIDI CC N uses to modulate position."
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         - name: "position_smoothccN"
           version: "ARIA"
         - name: "position_stepccN"
@@ -1463,6 +1521,11 @@ categories:
     - name: "position_veltrack"
       short_description: ""
       version: "ARIA"
+      value:
+        type_name: "integer"
+        default: 0
+        min: -200
+        max: 200
 
     - name: "volume"
       short_description: "The volume for the region, in decibels."
@@ -1492,8 +1555,12 @@ categories:
             unit: "dB"
         - name: "volume_curveccN"
           version: "SFZ v2"
+          short_description:
+            "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+            which MIDI CC N uses to modulate volume."
           value:
             type_name: "integer"
+            default: 0
             min: 0
             max: 255
         - name: "volume_smoothccN"
@@ -1520,8 +1587,12 @@ categories:
           version: "Cakewalk"
         - name: "width_curveccN"
           version: "Cakewalk"
+          short_description:
+            "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+            which MIDI CC N uses to modulate width."
           value:
             type_name: "integer"
+            default: 0
             min: 0
             max: 255
         - name: "width_smoothccN"
@@ -1570,6 +1641,14 @@ categories:
           - name: "amp_veltrack_ccN"
         - name: "amp_veltrack_curveccN"
           version: "ARIA"
+          short_description:
+            "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+            which MIDI CC N uses to modulate amp_veltrack."
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
 
     - name: "amp_veltrack_random"
       short_description: ""
@@ -1606,7 +1685,7 @@ categories:
       short_description:
         "Applies only to regions that triggered through trigger=release.
         The volume decrease (in decibels) per seconds
-        after the note has been attacked."
+        after the corresponding attack region was triggered."
       version: "SFZ v1"
       value:
         type_name: "float"
@@ -1614,6 +1693,27 @@ categories:
         min: 0
         max: 200
         unit: "dB"
+
+    - name: "rt_decayN"
+      short_description:
+        "Applies only to regions that triggered through trigger=release.
+        The volume decrease (in decibels) per seconds after the
+        corresponding attack region was triggered, for decrease curve segment number N."
+      version: "ARIA"
+      value:
+        type_name: "float"
+        default: 0
+        min: 0
+        max: 200
+        unit: "dB"
+
+    - name: "rt_decayN_time"
+      short_description:
+        "The duration of release sample volue decrease curve segment number N."
+      version: "ARIA"
+      value:
+        type_name: "float"
+        unit: "seconds"
 
     - name: "xf_cccurve"
       short_description: "MIDI controllers crossfade curve for the region."
@@ -1815,12 +1915,16 @@ categories:
           - name: "amplitude_ccN"
           value:
             type_name: "float"
-            min: 0
+            min: -100
             max: 100
             unit: "%"
         - name: "amplitude_curveccN"
+          short_description:
+            "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+            which MIDI CC N uses to modulate amplitude."
           value:
             type_name: "integer"
+            default: 0
             min: 0
             max: 255
         - name: "amplitude_smoothccN"
@@ -1974,7 +2078,7 @@ categories:
       version: "SFZ v1"
       value:
         type_name: "float"
-        default: "eq1_freq=50<br>eq1_freq=500<br>eq1_freq=5000"
+        default: "eq1_freq=50<br>eq2_freq=500<br>eq3_freq=5000"
         min: 0
         max: 30000
         unit: "Hz"
@@ -2090,11 +2194,14 @@ categories:
             version: "SFZ v2"
         - name: "cutoff_curveccN"
           version: "SFZ v2"
+          short_description:
+            "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+            which MIDI CC N uses to modulate cutoff."
           value:
             type_name: "integer"
+            default: 0
             min: 0
             max: 255
-            unit: "cents"
         - name: "cutoff_smoothccN"
           version: "SFZ v2"
           value:
@@ -2133,8 +2240,17 @@ categories:
         version: "SFZ v2"
         modulation:
           midi_cc:
+          - name: "cutoff2_ccN"
           - name: "cutoff2_onccN"
           - name: "cutoff2_curveccN"
+            short_description:
+              "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+              which MIDI CC N uses to modulate cutoff2."
+            value:
+              type_name: "integer"
+              default: 0
+              min: 0
+              max: 255
           - name: "cutoff2_smoothccN"
           - name: "cutoff2_stepccN"
           - name: "cutoff2_chanaft"
@@ -2202,6 +2318,8 @@ categories:
       alias:
       - name: "cutoff_random"
         version: "SFZ v2"
+      - name: "cutoff2_random"
+        version: "ARIA"
 
     - name: "fil_type"
       short_description: "Filter type."
@@ -2315,15 +2433,19 @@ categories:
           value:
             type_name: "float"
             default: 0
-            min: 0
+            min: -40
             max: 40
             unit: "dB"
           alias:
           - name: "resonance_ccN"
         - name: "resonance_curveccN"
           version: "SFZ v2"
+          short_description:
+            "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+            which MIDI CC N uses to modulate resonance."
           value:
             type_name: "integer"
+            default: 0
             min: 0
             max: 255
         - name: "resonance_smoothccN"
@@ -2348,15 +2470,19 @@ categories:
             value:
               type_name: "float"
               default: 0
-              min: 0
+              min: -40
               max: 40
               unit: "dB"
             alias:
             - name: "resonance2_ccN"
               version: "SFZ v2" # TODO: Inherit from the last defined?
           - name: "resonance2_curveccN"
+            short_description:
+              "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+              which MIDI CC N uses to modulate resonance2."
             value:
               type_name: "integer"
+              default: 0
               min: 0
               max: 255
           - name: "resonance2_smoothccN"
@@ -2374,6 +2500,17 @@ categories:
     - name: "resonance_random"
       short_description:
         "Filter cutoff resonance random value, in decibels."
+      version: "ARIA"
+      value:
+        type_name: "float"
+        default: 0
+        min: 0
+        max: 40
+        unit: "dB"
+
+    - name: "resonance2_random"
+      short_description:
+        "Filter#2 cutoff resonance random value, in decibels."
       version: "ARIA"
       value:
         type_name: "float"
@@ -2551,13 +2688,17 @@ categories:
             unit: "cents"
         - name: "pitch_curveccN"
           version: "SFZ v2"
+          short_description:
+            "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+            which MIDI CC N uses to modulate pitch."
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
           alias:
           - name: "tune_curveccN"
             version: "ARIA"
-          value:
-            type_name: "integer"
-            min: 0
-            max: 255
         - name: "pitch_smoothccN"
           version: "SFZ v2"
           value:
@@ -2586,8 +2727,8 @@ categories:
       value:
         type_name: "integer"
         default: 0
-        min: -100
-        max: 100
+        min: -9600
+        max: 9600
         unit: "cents"
 
     - name: "master_tune"
@@ -2599,8 +2740,8 @@ categories:
       value:
         type_name: "integer"
         default: 0
-        min: -100
-        max: 100
+        min: -9600
+        max: 9600
         unit: "cents"
 
     - name: "global_tune"
@@ -2612,8 +2753,8 @@ categories:
       value:
         type_name: "integer"
         default: 0
-        min: -100
-        max: 100
+        min: -9600
+        max: 9600
         unit: "cents"
 
     - name: "pitch_keycenter"
@@ -2635,6 +2776,7 @@ categories:
         default: 100
         min: -1200
         max: 1200
+        unit: "cents"
       alias:
       - name: "tune_keytrack"
         version: "ARIA"
@@ -2732,6 +2874,13 @@ categories:
             min: -100
             max: 100
             unit: "seconds"
+        - name: "ampeg_attack_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "ampeg_vel2attack"
           short_description: "Velocity effect on EG attack time."
@@ -2772,13 +2921,17 @@ categories:
             version: "SFZ v2"
         - name: "ampeg_decay_curveccN"
           version: "ARIA"
+          short_description:
+            "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+            which MIDI CC N uses to modulate ampeg_decay."
           value:
             type_name: "integer"
+            default: 0
             min: 0
             max: 255
         velocity:
         - name: "ampeg_vel2decay"
-          short_description: "Velocity effect on pitch EG decay time."
+          short_description: "Velocity effect on EG decay time."
           alias:
           - name: "amp_vel2decay"
             deprecated: true
@@ -2815,6 +2968,13 @@ categories:
           alias:
           - name: "ampeg_delay_onccN"
             version: "SFZ v2"
+        - name: "ampeg_delay_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "ampeg_vel2delay"
           short_description: "Velocity effect on EG delay time."
@@ -2856,8 +3016,12 @@ categories:
             version: "SFZ v2"
         - name: "ampeg_hold_curveccN"
           version: "ARIA"
+          short_description:
+            "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+            which MIDI CC N uses to modulate ampeg_hold."
           value:
             type_name: "integer"
+            default: 0
             min: 0
             max: 255
         velocity:
@@ -2899,6 +3063,13 @@ categories:
             min: -100
             max: 100
             unit: "seconds"
+        - name: "ampeg_release_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "ampeg_vel2release"
           short_description: "Velocity effect on EG release time."
@@ -2940,8 +3111,12 @@ categories:
             unit: "%"
         - name: "ampeg_sustain_curveccN"
           version: "ARIA"
+          short_description:
+            "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+            which MIDI CC N uses to modulate ampeg_sustain."
           value:
             type_name: "integer"
+            default: 0
             min: 0
             max: 255
         velocity:
@@ -2980,6 +3155,13 @@ categories:
             min: -100
             max: 100
             unit: "seconds"
+        - name: "ampeg_start_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
 
     - name: "ampeg_attack_shape"
       short_description: "Specifies the curvature of attack stage of the envelope."
@@ -3150,6 +3332,13 @@ categories:
             unit: "seconds"
           alias:
           - name: "fileg_attackccN"
+        - name: "fileg_attack_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "fileg_vel2attack"
           short_description: "Velocity effect on EG attack time."
@@ -3188,6 +3377,13 @@ categories:
             max: 100
           alias:
           - name: "fileg_decayccN"
+        - name: "fileg_decay_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "fileg_vel2decay"
           short_description: "Velocity effect on filter EG decay time."
@@ -3227,6 +3423,13 @@ categories:
             max: 100
           alias:
           - name: "fileg_delayccN"
+        - name: "fileg_delay_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "fileg_vel2delay"
           short_description: "Velocity effect on filter EG delay time."
@@ -3259,12 +3462,20 @@ categories:
         - name: "fileg_depth_onccN"
           version: "ARIA"
           value:
-            type_name: "float"
+            type_name: "integer"
             default: 0
-            min: -1
-            max: 1
+            min: -12000
+            max: 12000
+            unit: "cents"
           alias:
           - name: "fileg_depthccN"
+        - name: "fileg_depth_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "fileg_vel2depth"
           short_description:
@@ -3305,6 +3516,13 @@ categories:
             max: 100
           alias:
           - name: "fileg_holdccN"
+        - name: "fileg_hold_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "fileg_vel2hold"
           short_description: "Velocity effect on EG hold time."
@@ -3344,6 +3562,13 @@ categories:
             unit: "seconds"
           alias:
           - name: "fileg_releaseccN"
+        - name: "fileg_release_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "fileg_vel2release"
           short_description: "Velocity effect on EG release time."
@@ -3380,6 +3605,13 @@ categories:
             unit: "seconds"
           alias:
           - name: "fileg_startccN"
+        - name: "fileg_start_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
 
     - name: "fileg_sustain"
       short_description: "EG sustain level, in percentage."
@@ -3406,6 +3638,13 @@ categories:
             unit: "seconds"
           alias:
           - name: "fileg_sustainccN"
+        - name: "fileg_sustain_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "fileg_vel2sustain"
           short_description: "Velocity effect on EG sustain level, in percentage."
@@ -3437,6 +3676,13 @@ categories:
         midi_cc:
         - name: "pitcheg_attack_onccN"
           version: "ARIA"
+        - name: "pitcheg_attack_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "pitcheg_vel2attack"
           short_description: "Velocity effect on EG attack time."
@@ -3473,9 +3719,16 @@ categories:
             default: 0
             min: -100
             max: 100
+        - name: "pitcheg_decay_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "pitcheg_vel2decay"
-          short_description: "Velocity effect on pitch EG decay time."
+          short_description: "Velocity effect on EG decay time."
           alias:
           - name: "pitch_vel2decay"
             version: "Cakewalk"
@@ -3510,9 +3763,16 @@ categories:
             default: 0
             min: -100
             max: 100
+        - name: "pitcheg_delay_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "pitcheg_vel2delay"
-          short_description: "Velocity effect on pitch EG delay time."
+          short_description: "Velocity effect on EG delay time."
           alias:
           - name: "pitch_vel2delay"
             version: "Cakewalk"
@@ -3542,12 +3802,20 @@ categories:
         - name: "pitcheg_depth_onccN"
           version: "ARIA"
           value:
-            type_name: "float"
+            type_name: "integer"
             default: 0
-            min: -1
-            max: 1
+            min: -12000
+            max: 12000
+            unit: "cents"
           alias:
           - name: "pitcheg_depthccN"
+        - name: "pitcheg_depth_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "pitcheg_vel2depth"
           short_description:
@@ -3586,6 +3854,13 @@ categories:
             default: 0
             min: -100
             max: 100
+        - name: "pitcheg_hold_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "pitcheg_vel2hold"
           short_description: "Velocity effect on EG hold time."
@@ -3623,6 +3898,13 @@ categories:
             min: -100
             max: 100
             unit: "seconds"
+        - name: "pitcheg_release_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "pitcheg_vel2release"
           short_description: "Velocity effect on EG release time."
@@ -3657,6 +3939,13 @@ categories:
             min: -100
             max: 100
             unit: "seconds"
+        - name: "pitcheg_start_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
 
     - name: "pitcheg_sustain"
       short_description: "EG sustain level, in percentage."
@@ -3681,6 +3970,13 @@ categories:
             min: -100
             max: 100
             unit: "seconds"
+        - name: "pitcheg_sustain_curveccN"
+          version: "ARIA"
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
         velocity:
         - name: "pitcheg_vel2sustain"
           short_description: "Velocity effect on EG sustain level, in percentage."
@@ -3733,6 +4029,15 @@ categories:
     - name: "egN_ampeg"
       short_description: ""
       version: "ARIA"
+
+    - name: "egN_dynamic"
+      short_description: "Specifies when envelope durations are recalculated."
+      version: "ARIA"
+      value:
+        type_name: "integer"
+        default: 0
+        min: 0
+        max: 1
 
     - name: "egN_shapeX"
       short_description: ""
@@ -3792,14 +4097,30 @@ categories:
       modulation:
         midi_cc:
         - name: "egN_pan_curveccX"
+          short_description:
+            "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+            which MIDI CC X uses to modulate egN_pan."
+          value:
+            type_name: "integer"
+            default: 0
+            min: 0
+            max: 255
 
     - name: "egN_freq_lfoX"
-      short_description: ""
+      short_description: "Allows egN to shape a change to lfoX's frequency"
       version: "SFZ v2"
+      value:
+        type_name: "float"
+        default: 0
+        unit: "Hz"
 
     - name: "egN_depth_lfoX"
-      short_description: ""
+      short_description: "Allows egN to scale lfoX's effect on its targets"
       version: "SFZ v2"
+      value:
+        type_name: "float"
+        default: 100
+        unit: "%"
 
     - name: "egN_depthadd_lfoX"
       short_description: ""
@@ -4374,8 +4695,12 @@ categories:
       modulation:
         midi_cc:
         - name: "lfoN_pitch_curveccX"
+          short_description:
+            "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+            which MIDI CC X uses to modulate lfoN_pitch."
           value:
             type_name: "integer"
+            default: 0
             min: 0
             max: 255
         - name: "lfoN_pitch_onccX"
@@ -4529,15 +4854,15 @@ categories:
   url: "/headers/curve"
   opcodes:
   - name: "curve_index"
-    short_description: "Curve ID definition."
+    short_description: "Curve definition ID."
     version: "ARIA"
     value:
       type_name: "integer"
       min: 0
       max: 255
 
-  - name: "vN"
-    short_description: ""
+  - name: "vNNN"
+    short_description: "Defines a point in a custom curve definition."
     version: "SFZ v2"
     index:
       type_name: "integer"
@@ -4624,6 +4949,14 @@ categories:
       midi_cc:
       - name: "bitred_onccN"
       - name: "bitred_curveccN"
+        short_description:
+          "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+          which MIDI CC N uses to modulate bitred."
+        value:
+          type_name: "integer"
+          default: 0
+          min: 0
+          max: 255
       - name: "bitred_smoothccN"
       - name: "bitred_stepccN"
 
@@ -4716,6 +5049,14 @@ categories:
       midi_cc:
       - name: "decim_onccN"
       - name: "decim_curveccN"
+        short_description:
+          "Specifies the ‹<a href='/headers/curve'>curve</a>› number
+          which MIDI CC N uses to modulate decim."
+        value:
+          type_name: "integer"
+          default: 0
+          min: 0
+          max: 255
       - name: "decim_smoothccN"
       - name: "decim_stepccN"
 
@@ -5555,7 +5896,7 @@ categories:
       max: 10
 
   - name: "image"
-    short_description: ""
+    short_description: "Sets the background image of the instrument."
     version: "Cakewalk"
     value:
       type_name: "string"
