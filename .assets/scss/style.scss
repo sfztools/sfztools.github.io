@@ -52,13 +52,13 @@ $color-mode-type: data;
 	h1, h2, h3 {
 		color: $body-color;
 	}
-	--bs-body-bg:    $body-bg;
-	--bs-body-color: $body-color;
+	--bs-body-bg:            $body-bg;
+	--bs-body-color:         $body-color;
 }
 @include color-mode(dark) {
 	h1, h2, h3 {
 		color: $body-color-dark;
 	}
-	--bs-body-bg-dark:    $body-bg-dark;
-	--bs-body-color-dark: $body-color-dark;
+	--bs-body-bg-dark:        $body-bg-dark;
+	--bs-body-color-dark:     $body-color-dark;
 }

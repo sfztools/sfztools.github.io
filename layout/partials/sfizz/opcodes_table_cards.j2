@@ -1,0 +1,78 @@
+{#- TODO: see TODO.md #}
+						<div>
+							<div class="card mb-3">
+								<div class="card-header bg-dark text-bg-dark">
+									Opcode Filters
+								</div>
+								<div class="card-body" style="padding: 0.5rem">
+									<input
+										id="search-opcodes"
+										placeholder="Search for opcodes..."
+										data-filter-column="1">
+									<div><b>Versions</b></div>
+								{%- set sfizz_support_layout = load_yaml(config.extra.sfizz_support_layout) %}
+								{%- for version in sfizz_support_layout.versions %}
+									{%- set id = "chk-" + version | lower | replace("sfz v", '') %}
+									<div>
+										<input
+											type="checkbox"
+											class="versions-checkbox"
+											id="{{ id }}"
+											value="{%- if version != 'Unknown' %}{{ version }}{%- endif %}">
+											{{ version }}
+									</div>
+								{%- endfor %}
+									<div><b>Support</b></div>
+									<div>
+										<input
+											type="checkbox"
+											class="support-checkbox"
+											id="chk-y"
+											value=":heavy_check_mark:,:new:">
+											Supported
+									</div>
+									<div>
+										<input
+											type="checkbox"
+											class="support-checkbox"
+											id="chk-n"
+											value=":x:">
+											Unsupported
+									</div>
+									<div>
+										<input
+											type="checkbox"
+											class="support-checkbox"
+											id="chk-w"
+											value=":construction:">
+											WIP
+									</div>
+									<div><b>Categories</b></div>
+								{%- set sfz_syntax_layout = load_yaml(config.extra.sfz_syntax_layout) %}
+								{%- for category in sfz_syntax_layout.categories %}
+									{%- if category.opcodes | count > 0 %}
+										{%- set id = "chk-" + category.id %}
+									<div class="checkbox-filter {{ category.id }}">
+										<input
+											type="checkbox"
+											class="categories-checkbox"
+											id="{{ id }}"
+											value="{{ category.name }}">
+										{{ category.name }}
+									</div>
+									{%- endif %}
+									{%- for category_type in category.types %}
+										{%- set id = "chk-" + category_type.id %}
+									<div class="checkbox-filter {{ category_type.id }}">
+										<input
+											type="checkbox"
+											class="categories-checkbox"
+											id="{{ id }}"
+											value="{{ category_type.name }}">
+										{{ category_type.name }}
+									</div>
+									{%- endfor %}
+								{%- endfor %}
+								</div>
+							</div>
+						</div>

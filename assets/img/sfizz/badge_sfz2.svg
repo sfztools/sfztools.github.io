@@ -1,7 +1,0 @@
----
-layout: null
----
-{%- include sfizz/status/calc.liquid -%}
-{%- include sfizz/status/badge.liquid
-		title = "SFZv2"
-		done = sfz2Done -%}

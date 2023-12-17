@@ -1,28 +1,26 @@
-docs_dir:         "mkdocs/docs"
-
+docs_dir:         "docs"
 site_name:        "SFZTools"
 site_author:      "SFZTools Organization"
 site_url:         "https://sfz.tools"
-site_dir:         "mkdocs/_site"
+site_dir:         "_site"
 site_description: "SFZTools website"
-
 repo_name:        "GitHub"
 repo_url:         "https://github.com/sfztools/sfztools.github.io"
 edit_uri:         "edit/master/docs/"
 remote_branch:    "www"
-
 extra:
-  site_web_author: "SFZTools Organization"
-  repo_owner_url:  "https://github.com/sfztools"
-  repo_branch:     "master"
-
-  cards:         "mkdocs/data/layout/cards.yml"
-  nav:           "mkdocs/data/layout/navigation.yml"
-  api:           "mkdocs/data/sfizz/api/sfizz_message.h.json"
-# TODO: data for both documentation and layout (currently using macros plugin)?
-  sfizz_support: "mkdocs/data/sfizz/support.yml"
-  sfz_syntax:    "mkdocs/data/sfz/syntax.yml"
-
+  site_since:           "2019"
+  site_web_author:      "SFZTools Organization"
+  repo_owner_url:       "https://github.com/sfztools"
+  repo_branch:          "master"
+  cards:                "data/layout/cards.yml"
+  nav:                  "data/layout/navigation.yml"
+  api:                  "data/sfizz/api/sfizz_message.h.json"
+  sfizz_support_layout: "data/sfizz/support.yml"
+  sfz_syntax_layout:    "data/sfz/syntax.yml"
+hooks:
+- scripts/hooks.py
+#- scripts/sfz.py
 markdown_extensions:
 - pymdownx.emoji:
     emoji_generator: !!python/name:pymdownx.emoji.to_png
@@ -32,9 +30,6 @@ markdown_extensions:
         align: absmiddle
         height: 20px
         width: 20px
-hooks:
-- mkdocs/scripts/hooks.py
-
 plugins:
   search: {}
 # FIXME: conflicts with # prefixed HTML unicode characters, see
@@ -51,33 +46,36 @@ plugins:
     paging: true
     show_total: false
     size: 5
-    template: "mkdocs/layout/blogging-plugin.html"
-    meta_time_format: "%Y-%m-%d %H:%M:%S"
+    template: "layout/blogging-plugin.html"
+    meta_time_format: "%Y-%m-%dT%H:%M:%S%z"
     time_format: "%Y-%m-%d %H:%M:%S"
   exclude: # TODO: to remove when 1.5 comes out
     glob:
+    - "docs/templates"
     - "*.j2"
-    - "info.md"
+  gen-files:
+    scripts:
+    - scripts/generators/atom_feed.py
+    - scripts/generators/svg_badge.py
 # include_dir_to_nav: {}
   macros:
     include_yaml:
-    - sfizz_hpp:       "mkdocs/data/sfizz/api/sfizz.hpp.json"
-    - sfizz_h:         "mkdocs/data/sfizz/api/sfizz.h.json"
-    - sfizz_message_h: "mkdocs/data/sfizz/api/sfizz_message.h.json"
-    - sfizz_release:   "mkdocs/data/sfizz/release.yml"
-    - sfizz_support2:  "mkdocs/data/sfizz/support.yml"
-    - sfz_syntax2:     "mkdocs/data/sfz/syntax.yml"
-    include_dir:       "mkdocs/macros/includes"
-    module_name:       "mkdocs/macros/module"
+    - sfizz_hpp:            "data/sfizz/api/sfizz.hpp.json"
+    - sfizz_h:              "data/sfizz/api/sfizz.h.json"
+    - sfizz_message_h:      "data/sfizz/api/sfizz_message.h.json"
+    - sfizz_release:        "data/sfizz/release.yml"
+# TODO: data for both documentation and layout/theme?
+    - sfizz_support_macros: "data/sfizz/support.yml"
+    - sfz_syntax_macros:    "data/sfz/syntax.yml"
+    include_dir:            "macros/includes"
+  # module_name:            "macros/module"
     verbose: true
 # mermaid2: {} # Flowcharts (engine description)
-
-extra_javascript:
-- https://unpkg.com/mermaid@8.6.4/dist/mermaid.min.js
-
+#extra_javascript:
+#- https://unpkg.com/mermaid@8.6.4/dist/mermaid.min.js
 theme:
   name:        null
-  custom_dir: "mkdocs/layout"
+  custom_dir: "layout"
   highlightjs: true
   hljs_light: "github"
   hljs_dark:  "github-dark-dimmed"
@@ -93,9 +91,8 @@ theme:
     next:      78 # n
     previous:  80 # p
     search:    83 # s
-
 watch:
-- mkdocs/data
-- mkdocs/docs
-- mkdocs/macros/includes
-- mkdocs/layout
+- data
+- docs
+- macros/includes
+- layout

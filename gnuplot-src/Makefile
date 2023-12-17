@@ -1,6 +1,6 @@
 
 GP_INPUTS := $(wildcard sfizz/*.gp)
-SVG_OUTPUTS := $(GP_INPUTS:%.gp=../assets/img/%.svg)
+SVG_OUTPUTS := $(GP_INPUTS:%.gp=../docs/assets/img/%.svg)
 
 all: $(SVG_OUTPUTS)
 
@@ -9,6 +9,6 @@ clean:
 
 .PHONY: all clean
 
-../assets/img/%.svg: %.gp
+../docs/assets/img/%.svg: %.gp
 	@mkdir -p $(dir $@)
 	gnuplot $< > $@
