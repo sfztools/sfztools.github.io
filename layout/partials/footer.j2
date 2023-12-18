@@ -1,7 +1,7 @@
 			<hr>
 			<footer>
 				<p style="text-align:left">
-					Copyright &copy; 2019-{{ build_date_utc.strftime('%Y') }}
+					Copyright &copy; {{ config.extra.site_since }}-{{ build_date_utc.strftime('%Y') }}
 					{{ config.site_author }}
 					<span style="float:right">
 					{%- if page.meta.layout == "doxygen" %}

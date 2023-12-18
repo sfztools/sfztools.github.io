@@ -2,15 +2,17 @@ docs_dir:         "docs"
 site_name:        "SFZTools"
 site_author:      "SFZTools Organization"
 site_url:         "https://sfz.tools"
-site_dir:         "_site"
 site_description: "SFZTools website"
+site_dir:         "_site"
 repo_name:        "GitHub"
 repo_url:         "https://github.com/sfztools/sfztools.github.io"
 edit_uri:         "edit/master/docs/"
 remote_branch:    "www"
 extra:
-  site_since:           "2019"
+  site_since:           2019
   site_web_author:      "SFZTools Organization"
+  show_logo:            true
+  show_name:            true
   repo_owner_url:       "https://github.com/sfztools"
   repo_branch:          "master"
   cards:                "data/layout/cards.yml"
@@ -18,18 +20,24 @@ extra:
   api:                  "data/sfizz/api/sfizz_message.h.json"
   sfizz_support_layout: "data/sfizz/support.yml"
   sfz_syntax_layout:    "data/sfz/syntax.yml"
+extra_css:
+- "assets/css/fork-awesome.min.css"
+- "assets/css/bootstrap-table.min.css"
+extra_javascript:
+- "assets/js/bootstrap-table.min.js"
+- "assets/js/mermaid.min.js"
 hooks:
-- scripts/hooks.py
-#- scripts/sfz.py
+- "scripts/hooks.py"
+#- "scripts/sfz.py"
 markdown_extensions:
 - pymdownx.emoji:
     emoji_generator: !!python/name:pymdownx.emoji.to_png
-    alt: short
+    alt: "short"
     options:
       attributes:
-        align: absmiddle
-        height: 20px
-        width: 20px
+        align:  "absmiddle"
+        height: "20px"
+        width:  "20px"
 plugins:
   search: {}
 # FIXME: conflicts with # prefixed HTML unicode characters, see
@@ -40,8 +48,8 @@ plugins:
 #     target_url: "https://github.com/sfztools/sfizz/issues/<num>"
   blogging:
     dirs:
-    - news/posts
-    locale: en
+    - "news/posts"
+    locale: "en"
     full_content: true
     paging: true
     show_total: false
@@ -64,15 +72,12 @@ plugins:
     - sfizz_h:              "data/sfizz/api/sfizz.h.json"
     - sfizz_message_h:      "data/sfizz/api/sfizz_message.h.json"
     - sfizz_release:        "data/sfizz/release.yml"
-# TODO: data for both documentation and layout/theme?
+    # TODO: data for both documentation and layout/theme?
     - sfizz_support_macros: "data/sfizz/support.yml"
     - sfz_syntax_macros:    "data/sfz/syntax.yml"
     include_dir:            "macros/includes"
   # module_name:            "macros/module"
     verbose: true
-# mermaid2: {} # Flowcharts (engine description)
-#extra_javascript:
-#- https://unpkg.com/mermaid@8.6.4/dist/mermaid.min.js
 theme:
   name:        null
   custom_dir: "layout"
@@ -92,7 +97,7 @@ theme:
     previous:  80 # p
     search:    83 # s
 watch:
-- data
-- docs
-- macros/includes
-- layout
+- "data"
+- "docs"
+- "macros/includes"
+- "layout"
