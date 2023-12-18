@@ -1,23 +1,5 @@
-_site/
-_temp/
-.bundle/
-.jekyll-cache/
-.sass-cache/
-.vendor/
-.vscode/
-node_modules/
-assets/css/*.map
-assets/css/style.css
-assets/css/style.min.css
-assets/js/*.map
-assets/js/scripts.min.js
-.jekyll-metadata
-Gemfile.lock
-package-lock.json
-*.code-workspace
-*.diff
-*.log
-
-# MKDocs files
+/.bootstrap/
+/_site/
+/docs/assets/fonts/
+/docs/info.md
 __pycache__/
-.bootstrap/
