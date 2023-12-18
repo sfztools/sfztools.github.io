@@ -1,6 +1,6 @@
-- label: Follow us
-  icon_type: eye
-  icon_category: fa
+- label: "Follow us"
+  icon_type: "eye"
+  icon_category: "fa"
   links:
   - label: "Discord Chat"
     url: "https://discord.gg/3ArE9Mw"
@@ -8,7 +8,7 @@
     icon_category: "fa"
 
   - label: "IRC"
-    url: https://kiwiirc.com/nextclient/#irc://irc.libera.chat:+6697/#sfztools
+    url: "https://kiwiirc.com/nextclient/#irc://irc.libera.chat:+6697/#sfztools"
     icon_type: "hashtag"
     icon_category: "fa"
 
