@@ -1,4 +1,4 @@
 ---
-title: Latest News
+title: "Latest News"
 ---
 {{ blog_content }}

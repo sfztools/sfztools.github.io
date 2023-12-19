@@ -1,6 +1,6 @@
 ---
 title: "sfizz_message.h"
-layout: doxygen
+#template: doxygen
 no_title_header: true
 styles: ['doxygen']
 ---
