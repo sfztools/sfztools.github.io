@@ -32,7 +32,8 @@
 		{%-endfor %}
 
 		{%-for style in page.meta.styles %}
-		<link href="{{ 'assets/css/' + style + '.css'|url }}" rel="stylesheet">
+		{%-set href = "assets/css/" + style + ".css" %}
+		<link href="{{ href|url }}" rel="stylesheet">
 		{%-endfor %}
 
 {% include "partials/custom-styles.html" %}
