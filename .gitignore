@@ -1,5 +1,11 @@
 /.bootstrap/
 /_site/
+
+# fork-awesome
 /docs/assets/fonts/
+
+# fontawesome
+/docs/assets/webfonts/
+
 /docs/info.md
 __pycache__/
