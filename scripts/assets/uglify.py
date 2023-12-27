@@ -12,7 +12,7 @@ def silentremove(filename):
       raise
 
 def css_compile():
-  source = ".assets/scss/style.scss"
+  source = "assets/scss/style.scss"
   dest   = "docs/assets/css/style.min.css"
 
   silentremove(dest)
@@ -25,7 +25,7 @@ def css_compile():
   subprocess.Popen(arguments, stdout=subprocess.PIPE)
 
 def js_uglify():
-  sourcedir = ".assets/js/"
+  sourcedir = "assets/js/"
   for filename in os.listdir(sourcedir):
     source = sourcedir + filename
     dest   = "docs/assets/js/" + os.path.splitext(filename)[0] + ".min.js"

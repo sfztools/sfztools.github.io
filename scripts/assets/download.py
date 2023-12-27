@@ -10,9 +10,12 @@ versions = {
   "anchor":          "4.3.1",
   "bootstrap":       "5.3.0",
   "bootstrap-table": "1.22.1",
-  "fa":              "1.2.0",
+  "fontawesome":     "6.5.1",
+  "fork-awesome":    "1.2.0",
   "hljs":            "11.8.0",
   "jquery":          "3.6.0",
+# "ekko-lightbox":   "5.3.0",
+  "bs5-lightbox":    "1.8.3",
   "mermaid":         "10.6.1",
   "popper":          "2.11.8"
 }
@@ -55,9 +58,9 @@ def download_forkawesome():
   if os.path.isfile("docs/assets/fonts/forkawesome-webfont.ttf"):
     return
 
-  fa_zip = versions["fa"] + ".zip"
+  fa_zip = versions["fork-awesome"] + ".zip"
   fa_url = "https://github.com/ForkAwesome/Fork-Awesome/archive/" + fa_zip
-  fa_dir = "Fork-Awesome-" + versions["fa"]
+  fa_dir = "Fork-Awesome-" + versions["fork-awesome"]
   fa_fnt = fa_dir + "/fonts"
   tmp    = tempfile.NamedTemporaryFile(delete=False)
   try:
@@ -69,12 +72,35 @@ def download_forkawesome():
     tmp.close()
     os.unlink(tmp.name)
 
+def download_fontawesome():
+  if os.path.isfile("docs/assets/webfonts/fa-brands-400.ttf"):
+    return
+
+  fa_dir = "fontawesome-free-" + versions["fontawesome"] + "-web"
+  fa_zip = fa_dir + ".zip"
+  fa_url = "https://use.fontawesome.com/releases/v" \
+         + versions["fontawesome"] + '/'  + fa_zip
+  fa_fnt = fa_dir + "/webfonts"
+  tmp    = tempfile.NamedTemporaryFile(delete=False)
+  try:
+    download_helper(fa_url, tmp.name, False)
+    shutil.unpack_archive(tmp.name, ".", "zip")
+    shutil.move(fa_fnt, "docs/assets/")
+    shutil.move(fa_dir + "/css/brands.min.css",       "docs/assets/css/")
+    shutil.move(fa_dir + "/css/fontawesome.min.css",  "docs/assets/css/")
+    shutil.move(fa_dir + "/css/solid.min.css",        "docs/assets/css/")
+    shutil.move(fa_dir + "/css/v4-font-face.min.css", "docs/assets/css/")
+    shutil.rmtree(fa_dir)
+  finally:
+    tmp.close()
+    os.unlink(tmp.name)
+
 def download():
   css_urls = [
     "https://unpkg.com/bootstrap-table@"         + versions["bootstrap-table"] + "/dist/bootstrap-table.min.css",
     "https://unpkg.com/bootstrap-table@"         + versions["bootstrap-table"] + "/dist/extensions/filter-control/bootstrap-table-filter-control.min.css",
-    "https://cdn.jsdelivr.net/npm/fork-awesome@" + versions["fa"]              + "/css/fork-awesome.min.css",
-    "https://cdn.jsdelivr.net/npm/fork-awesome@" + versions["fa"]              + "/css/fork-awesome.min.css.map",
+    "https://cdn.jsdelivr.net/npm/fork-awesome@" + versions["fork-awesome"]    + "/css/fork-awesome.min.css",
+    "https://cdn.jsdelivr.net/npm/fork-awesome@" + versions["fork-awesome"]    + "/css/fork-awesome.min.css.map",
     "https://cdn.jsdelivr.net/npm/highlight.js@" + versions["hljs"]            + "/styles/github.min.css",
     "https://cdn.jsdelivr.net/npm/highlight.js@" + versions["hljs"]            + "/styles/github-dark-dimmed.min.css",
   ]
@@ -83,6 +109,8 @@ def download():
     "https://cdn.jsdelivr.net/npm/bootstrap@"               + versions["bootstrap"]       + "/dist/js/bootstrap.min.js",
     "https://unpkg.com/bootstrap-table@"                    + versions["bootstrap-table"] + "/dist/bootstrap-table.min.js",
     "https://unpkg.com/bootstrap-table@"                    + versions["bootstrap-table"] + "/dist/extensions/filter-control/bootstrap-table-filter-control.min.js",
+    "https://cdn.jsdelivr.net/npm/bs5-lightbox@"            + versions["bs5-lightbox"]    + "/dist/index.bundle.min.js",
+    "https://cdn.jsdelivr.net/npm/bs5-lightbox@"            + versions["bs5-lightbox"]    + "/dist/index.bundle.min.js.map",
     "https://cdn.jsdelivr.net/npm/jquery@"                  + versions["jquery"]          + "/dist/jquery.min.js",
     "https://cdn.jsdelivr.net/npm/jquery@"                  + versions["jquery"]          + "/dist/jquery.min.map",
     "https://cdn.jsdelivr.net/npm/mermaid@"                 + versions["mermaid"]         + "/dist/mermaid.min.js",
@@ -95,7 +123,8 @@ def download():
   ]
 
   download_bootstrap()
-  download_forkawesome()
+  download_fontawesome()
+# download_forkawesome()
 
   path = "docs/assets/css"
   for url in css_urls:

@@ -27,8 +27,7 @@ extra_javascript:
 - "assets/js/bootstrap-table.min.js"
 - "assets/js/mermaid.min.js"
 hooks:
-- "scripts/hooks.py"
-#- "scripts/sfz.py"
+- "scripts/fs.py"
 markdown_extensions:
 - pymdownx.emoji:
     emoji_generator: !!python/name:pymdownx.emoji.to_png
