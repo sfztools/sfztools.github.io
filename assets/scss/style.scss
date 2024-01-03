@@ -3,27 +3,25 @@
 @import "docs";
 
 a { text-decoration: none }
-pre {
-	border: 2px solid rgba($black, .2);
-	border-radius: 0.50rem;
+blockquote {
+	display: block;
+	border-width: 2px 0;
+	border-style: solid;
+	border-color: $border-color;
+	padding: 1.5em 0 0.5em;
+	margin: 1.5em 0;
+	position: relative;
 }
-#scrollButton {
-	display: none;
-	position: fixed;
-	bottom: 20px;
-	right: 30px;
-	z-index: 99;
-	font-size: 18px;
-	border: none;
-	outline: none;
-	background-color: $scrollbutton-bg;
-	color: $scrollbutton-color;
-	cursor: pointer;
-	padding: 6px;
-	border-radius: 50%;
-}
-#scrollButton:hover {
-	background-color: $scrollbutton-bg-hover;
+blockquote:before {
+	content: '\201C';
+	position: absolute;
+	top: 1rem;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 3rem;
+	height: 2rem;
+	font-size: x-large;
+	text-align: center;
 }
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
@@ -47,20 +45,45 @@ img {
 	max-width: 100%;
 	height: auto;
 }
-$color-mode-type: data;
-@include color-mode(light) {
-	h1, h2, h3 {
-		color: $body-color;
-	}
-	--bs-body-bg:    $body-bg;
-	--bs-body-color: $body-color;
+pre {
+	border-width:  2px;
+	border-style:  solid;
+	border-radius: 0.50rem;
 }
-@include color-mode(dark) {
-	h1, h2, h3 {
-		color: $body-color-dark;
+//	Mimic Bootstrap tables for markdown tables
+article table {
+	width:           100%;
+	border-collapse: collapse;
+	margin-bottom:   1em;
+	thead > tr > th {
+			color:            $light;
+			background-color: $dark;
 	}
-	--bs-body-bg-dark:    $body-bg-dark;
-	--bs-body-color-dark: $body-color-dark;
+	thead	> tr > th,
+	tbody > tr > td {
+		text-align:   left;
+		padding:      5px 10px;
+		border-width: $border-width;
+		border-style: solid;
+	}
+}
+#scrollButton {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	z-index: 99;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	background-color: $scrollbutton-bg;
+	color: $scrollbutton-color;
+	cursor: pointer;
+	padding: 6px;
+	border-radius: 50%;
+}
+#scrollButton:hover {
+	background-color: $scrollbutton-bg-hover;
 }
 .navbar-brand img {
 	height: 30px;
@@ -93,4 +116,21 @@ $color-mode-type: data;
 		width: 100%;
 		height: 100%;
 	}
+}
+$color-mode-type: data;
+@include color-mode(light) {
+	h1, h2, h3  { color:    $body-color; }
+	pre, table, thead, th, td {
+		border-color:         $border-color
+	}
+	--bs-body-bg:           $body-bg;
+	--bs-body-color:        $body-color;
+}
+@include color-mode(dark) {
+	h1, h2, h3  { color:    $body-color-dark }
+	pre, table, thead, th, td {
+		border-color:         $gray-800
+	}
+	--bs-body-bg-dark:      $body-bg-dark;
+	--bs-body-color-dark:   $body-color-dark;
 }

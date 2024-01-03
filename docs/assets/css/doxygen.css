@@ -75,7 +75,7 @@ dl.todo.DocNodeRTL {
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
   margin-bottom: -1px;
-  background-image: url(./../img/nav_f.png);
+  background-image: url(../img/nav_f.png);
   background-repeat: repeat-x;
   background-color: #DBE8F5;
   line-height: 1.25;
@@ -89,7 +89,7 @@ dl.todo.DocNodeRTL {
   padding: 6px 10px 2px 10px;
   background-color: #FAFCFD;
   border-top-width: 0;
-  background-image:url(./../img/nav_g.png);
+  background-image:url(../img/nav_g.png);
   background-repeat:repeat-x;
   background-color: #FFFFFF;
   /* opera specific markup */
