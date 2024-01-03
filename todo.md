@@ -2,20 +2,21 @@
 
 ## FIXME
 
+- Cache assets in CI instead download on each run
+- `assets/img/sfizz/badge_*.svg`: count percentage (temporarily hardcoded)
 - Fix opcodes tables: version not correctly inherited by modulation aliases
-- Fix `doxygen.j2` enumerations (L38). See also
+- Automate and make better Doxygen documentation. See also
   <https://github.com/mkdocs/mkdocs/discussions/3247>
-- assets/img/sfizz/badge_*.svg: count percentage (temporarily hardcoded)
-- Convert `export-release-notes.js` to Python and automate creation of
-  `data/sfizz/release.yml` via CI
+- Automate release updates for post, atom feed and downloads page via CI
 
 ## TODO
 
+- Versioning
+- Make a theme and move `layout/partials/sfizz/` in `overrides`
 - Adapt old Jekyll 404 page to MKDocs theme partial
 - Pages and TOC sidebars
 - GitHub issues links in release posts, see
   <https://github.com/theskumar/autolink-references-mkdocs-plugin/issues/7>
-- make a theme and move `layout/partials/sfizz/opcodes_table_cards.j2` in `overrides`
 - Site translation?
 
 ### Create a new "mkdocs-sass-plugin"
