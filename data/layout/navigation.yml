@@ -56,7 +56,7 @@
   - label: "GitHub Repository"
     url: "https://github.com/sfztools/sfizz/"
     icon_type: "github"
-    icon_category: "fa"
+    icon_category: "fab"
 
 #- label: "BeatBox"
 #  type: "dropdown"
@@ -76,11 +76,11 @@
 #  - label: "GitHub Repository"
 #    url: "https://github.com/sfztools/beatbox/"
 #    icon_type: "github"
-#    icon_category: "fa"
+#    icon_category: "fab"
 
 - label: "Tools"
   type: "dropdown"
-  icon_type: "textpattern"
+  icon_type: "screwdriver-wrench"
   icon_category: "fa"
   pages:
   - label: "sfz-flat"
@@ -91,7 +91,7 @@
 
 - label: "Syntax Highlight"
   type: "dropdown"
-  icon_type: "textpattern"
+  icon_type: "code"
   icon_category: "fa"
   pages:
   - label: "Emacs"

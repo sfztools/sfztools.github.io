@@ -1,33 +1,45 @@
 docs_dir:         "docs"
+site_dir:         "_site"
 site_name:        "SFZTools"
 site_author:      "SFZTools Organization"
+site_description: "SFZTools Website"
 site_url:         "https://sfz.tools"
-site_description: "SFZTools website"
-site_dir:         "_site"
-repo_name:        "GitHub"
 repo_url:         "https://github.com/sfztools/sfztools.github.io"
 edit_uri:         "edit/master/docs/"
 remote_branch:    "www"
+repo_name:        "GitHub"
 extra:
-  site_since:           2019
-  site_web_author:      "SFZTools Organization"
-  show_logo:            true
-  show_name:            true
-  repo_owner_url:       "https://github.com/sfztools"
-  repo_branch:          "master"
-  cards:                "data/layout/cards.yml"
-  nav:                  "data/layout/navigation.yml"
-  api:                  "data/sfizz/api/sfizz_message.h.json"
-  sfizz_support_layout: "data/sfizz/support.yml"
-  sfz_syntax_layout:    "data/sfz/syntax.yml"
+  site_since:      2019
+  site_web_author: "SFZTools Organization"
+  show_copyright:  true
+  show_logo:       true
+  show_name:       true
+  repo_owner_url:  "https://github.com/sfztools"
+  repo_branch:     "master"
+  data:
+    layout:
+      cards: "data/layout/cards.yml"
+      nav:   "data/layout/navigation.yml"
+    sfizz:
+      api:
+        message:   "data/sfizz/api/sfizz_message.h.json"
+        sfizz_h:   "data/sfizz/api/sfizz.h.json"
+        sfizz_hpp: "data/sfizz/api/sfizz.hpp.json"
+      support:     "data/sfizz/support.yml"
+    sfz:           "data/sfz/syntax.yml"
 extra_css:
-- "assets/css/fork-awesome.min.css"
+- "assets/css/fontawesome.min.css"
+- "assets/css/brands.min.css"
+- "assets/css/solid.min.css"
+- "assets/css/v4-font-face.min.css"
 - "assets/css/bootstrap-table.min.css"
 extra_javascript:
 - "assets/js/bootstrap-table.min.js"
 - "assets/js/mermaid.min.js"
 hooks:
-- "scripts/fs.py"
+- "scripts/hooks/fs.py"
+- "scripts/hooks/gh_emojis.py"
+- "scripts/hooks/sfizz.py"
 markdown_extensions:
 - pymdownx.emoji:
     emoji_generator: !!python/name:pymdownx.emoji.to_png
@@ -53,7 +65,7 @@ plugins:
     paging: true
     show_total: false
     size: 5
-    template: "layout/blogging-plugin.html"
+    template: "layout/blogging-plugin.j2"
     meta_time_format: "%Y-%m-%dT%H:%M:%S%z"
     time_format: "%Y-%m-%d %H:%M:%S"
   exclude: # TODO: to remove when 1.5 comes out
