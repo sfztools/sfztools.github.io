@@ -1,8 +1,5 @@
 import jinja2, mkdocs_gen_files, os, yaml
 
-#with open("mkdocs.yml") as f:
-#  config = yaml.load(f, Loader=yaml.FullLoader)
-
 with open("data/sfizz/support.yml") as f:
   sfizz_support = yaml.load(f, Loader=yaml.FullLoader)
 

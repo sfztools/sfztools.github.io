@@ -2,12 +2,12 @@
 
 {% macro render_blog(title, description, time, url, pg) -%}
 	<h3><a href="{{ url }}">{{ title }}</a></h3>
-	{{- "Published by " + pg.meta['author'] + " on " + time
+	{{-"Published by " + pg.meta['author'] + " on " + time
 		if "author" in pg.meta else "" }}
 	{% if show_tags and "tags" in pg.meta %}
 		{% call render_tags(pg.meta["tags"], index_url) %}
 		{% endcall %}
 	{% endif %}
 	<p>{{ description }}</p>
-	{{- caller() }}
-{%- endmacro %}
+	{{-caller() }}
+{%-endmacro %}

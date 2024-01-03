@@ -1,4 +1,3 @@
-{#- TODO: see TODO.md #}
 						<div>
 							<div class="card mb-3">
 								<div class="card-header bg-dark text-bg-dark">
@@ -10,7 +9,7 @@
 										placeholder="Search for opcodes..."
 										data-filter-column="1">
 									<div><b>Versions</b></div>
-								{%- set sfizz_support_layout = load_yaml(config.extra.sfizz_support_layout) %}
+								{%- set sfizz_support_layout = load_yaml(config.extra["data"].sfizz.support) %}
 								{%- for version in sfizz_support_layout.versions %}
 									{%- set id = "chk-" + version | lower | replace("sfz v", '') %}
 									<div>
@@ -48,7 +47,7 @@
 											WIP
 									</div>
 									<div><b>Categories</b></div>
-								{%- set sfz_syntax_layout = load_yaml(config.extra.sfz_syntax_layout) %}
+								{%- set sfz_syntax_layout = load_yaml(config.extra["data"].sfz) %}
 								{%- for category in sfz_syntax_layout.categories %}
 									{%- if category.opcodes | count > 0 %}
 										{%- set id = "chk-" + category.id %}

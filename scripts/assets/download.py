@@ -1,89 +1,84 @@
 #!/usr/bin/env python3
 
-import os
-import requests
-import shutil
-import tempfile
+import argparse, os, requests, shutil, tempfile, yaml
 from urllib.parse import urlparse
 
-versions = {
-  "anchor":          "4.3.1",
-  "bootstrap":       "5.3.0",
-  "bootstrap-table": "1.22.1",
-  "fontawesome":     "6.5.1",
-  "fork-awesome":    "1.2.0",
-  "hljs":            "11.8.0",
-  "jquery":          "3.6.0",
-# "ekko-lightbox":   "5.3.0",
-  "bs5-lightbox":    "1.8.3",
-  "mermaid":         "10.6.1",
-  "popper":          "2.11.8"
-}
+_assets = {}
 
-def download_helper(url, path, check=True):
+def _get(url, path, overwrite=False):
   filename = path
   if os.path.isdir(filename):
     filename += '/' + os.path.basename(urlparse(url).path)
-
-  if check and os.path.isfile(filename):
+  if not overwrite and os.path.isfile(filename):
     return
-
   print("Downloading " + url + " to " + path)
   headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/114.0"}
   response = requests.get(url, headers=headers)
   with open(filename, "wb") as file:
     file.write(response.content)
-    file.close()
 
-def download_bootstrap():
+def get(args):
+  _get(args.url, args.path, args.overwrite)
+
+def get_bs5(dummy):
   if os.path.isfile(".bootstrap/scss/bootstrap.scss"):
     return
-
-  bootstrap_dir  = ".bootstrap/bootstrap-" + versions["bootstrap"]
-  bootstrap_scss = bootstrap_dir + "/scss"
-  bootstrap_src  = "https://github.com/twbs/bootstrap/archive/refs/tags/v" + \
-    versions["bootstrap"] + ".tar.gz"
-
+  for lib in _assets:
+    if lib["name"] == "bootstrap":
+      version = lib["version"]
+      break
+  dest_dir     = ".bootstrap/bootstrap-" + version
+  partial      = "/scss"
+  partial_dest = dest_dir + partial
+  archive_ext  = ".tar.gz"
+  archive_url  = "https://github.com/twbs/bootstrap/archive/refs/tags/v" + \
+    version + archive_ext
   tmp = tempfile.NamedTemporaryFile(delete=False)
   try:
-    download_helper(bootstrap_src, tmp.name, False)
+    _get(archive_url, tmp.name, True)
     shutil.unpack_archive(tmp.name, ".bootstrap/", "gztar")
-    shutil.move(bootstrap_scss, ".bootstrap/")
-    shutil.rmtree(bootstrap_dir)
+    shutil.move(partial_dest, ".bootstrap/")
+    shutil.rmtree(dest_dir)
   finally:
     tmp.close()
     os.unlink(tmp.name)
-
-def download_forkawesome():
+"""
+def get_forkawesome(dummy):
   if os.path.isfile("docs/assets/fonts/forkawesome-webfont.ttf"):
     return
-
-  fa_zip = versions["fork-awesome"] + ".zip"
+  for lib in _assets:
+    if lib["name"] == "fork-awesome":
+      version = lib["version"]
+      break
+  fa_zip = version + ".zip"
   fa_url = "https://github.com/ForkAwesome/Fork-Awesome/archive/" + fa_zip
-  fa_dir = "Fork-Awesome-" + versions["fork-awesome"]
+  fa_dir = "Fork-Awesome-" + version
   fa_fnt = fa_dir + "/fonts"
   tmp    = tempfile.NamedTemporaryFile(delete=False)
   try:
-    download_helper(fa_url, tmp.name, False)
+    _get(fa_url, tmp.name, True)
     shutil.unpack_archive(tmp.name, ".", "zip")
     shutil.move(fa_fnt, "docs/assets/")
     shutil.rmtree(fa_dir)
   finally:
     tmp.close()
     os.unlink(tmp.name)
-
-def download_fontawesome():
+"""
+def get_fa(dummy):
   if os.path.isfile("docs/assets/webfonts/fa-brands-400.ttf"):
     return
-
-  fa_dir = "fontawesome-free-" + versions["fontawesome"] + "-web"
+  for lib in _assets:
+    if lib["name"] == "fontawesome":
+      version = lib["version"]
+      break
+  fa_dir = "fontawesome-free-" + version + "-web"
   fa_zip = fa_dir + ".zip"
   fa_url = "https://use.fontawesome.com/releases/v" \
-         + versions["fontawesome"] + '/'  + fa_zip
+         + version + '/'  + fa_zip
   fa_fnt = fa_dir + "/webfonts"
   tmp    = tempfile.NamedTemporaryFile(delete=False)
   try:
-    download_helper(fa_url, tmp.name, False)
+    _get(fa_url, tmp.name, True)
     shutil.unpack_archive(tmp.name, ".", "zip")
     shutil.move(fa_fnt, "docs/assets/")
     shutil.move(fa_dir + "/css/brands.min.css",       "docs/assets/css/")
@@ -95,49 +90,49 @@ def download_fontawesome():
     tmp.close()
     os.unlink(tmp.name)
 
-def download():
-  css_urls = [
-    "https://unpkg.com/bootstrap-table@"         + versions["bootstrap-table"] + "/dist/bootstrap-table.min.css",
-    "https://unpkg.com/bootstrap-table@"         + versions["bootstrap-table"] + "/dist/extensions/filter-control/bootstrap-table-filter-control.min.css",
-    "https://cdn.jsdelivr.net/npm/fork-awesome@" + versions["fork-awesome"]    + "/css/fork-awesome.min.css",
-    "https://cdn.jsdelivr.net/npm/fork-awesome@" + versions["fork-awesome"]    + "/css/fork-awesome.min.css.map",
-    "https://cdn.jsdelivr.net/npm/highlight.js@" + versions["hljs"]            + "/styles/github.min.css",
-    "https://cdn.jsdelivr.net/npm/highlight.js@" + versions["hljs"]            + "/styles/github-dark-dimmed.min.css",
-  ]
-  js_urls = [
-    "https://cdn.jsdelivr.net/npm/anchor-js@"               + versions["anchor"]          + "/anchor.min.js",
-    "https://cdn.jsdelivr.net/npm/bootstrap@"               + versions["bootstrap"]       + "/dist/js/bootstrap.min.js",
-    "https://unpkg.com/bootstrap-table@"                    + versions["bootstrap-table"] + "/dist/bootstrap-table.min.js",
-    "https://unpkg.com/bootstrap-table@"                    + versions["bootstrap-table"] + "/dist/extensions/filter-control/bootstrap-table-filter-control.min.js",
-    "https://cdn.jsdelivr.net/npm/bs5-lightbox@"            + versions["bs5-lightbox"]    + "/dist/index.bundle.min.js",
-    "https://cdn.jsdelivr.net/npm/bs5-lightbox@"            + versions["bs5-lightbox"]    + "/dist/index.bundle.min.js.map",
-    "https://cdn.jsdelivr.net/npm/jquery@"                  + versions["jquery"]          + "/dist/jquery.min.js",
-    "https://cdn.jsdelivr.net/npm/jquery@"                  + versions["jquery"]          + "/dist/jquery.min.map",
-    "https://cdn.jsdelivr.net/npm/mermaid@"                 + versions["mermaid"]         + "/dist/mermaid.min.js",
-    "https://unpkg.com/@popperjs/core@"                     + versions["popper"]          + "/dist/umd/popper.min.js",
-    "https://unpkg.com/@popperjs/core@"                     + versions["popper"]          + "/dist/umd/popper.min.js.map",
-    "https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@" + versions["hljs"]            + "/highlight.min.js",
-    "https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@" + versions["hljs"]            + "/languages/bash.min.js",
-    "https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@" + versions["hljs"]            + "/languages/cpp.min.js",
-    "https://cdn.jsdelivr.net/gh/sfz/highlight.js@master/dist/sfz.min.js"
-  ]
+def get_assets(dummy):
+  for library in _assets:
+    if "css" in library:
+      for asset in library["css"]:
+        dest_dir = "docs/assets/css"
+        url = library["url_prefix"] + library["version"] + asset
+        _get(url, dest_dir)
 
-  download_bootstrap()
-  download_fontawesome()
-# download_forkawesome()
-
-  path = "docs/assets/css"
-  for url in css_urls:
-    download_helper(url, path)
-
-  path = "docs/assets/js"
-  for url in js_urls:
-    download_helper(url, path)
+  for library in _assets:
+    if "js" in library:
+      for asset in library["js"]:
+        dest_dir = "docs/assets/js"
+        url = library["url_prefix"] + library["version"] + asset
+        _get(url, dest_dir)
 
 def main():
+  global _assets
   if not os.path.isfile(os.getcwd() + "/mkdocs.yml"):
     raise SystemExit("Error: You must run this file from the main directory")
-  download()
+  f          = open("data/assets.yml")
+  _assets    = yaml.load(f, Loader=yaml.FullLoader)
+  parser     = argparse.ArgumentParser()
+  subparsers = parser.add_subparsers(
+    title = "subcommands",
+    help  = "download operations"
+  )
+  get_parser = subparsers.add_parser("get", help = "download a file.")
+  get_parser.set_defaults(func=get)
+  get_parser.add_argument("url",       type=str,  help="download url")
+  get_parser.add_argument("path",      type=str,  help="file or directory destination path")
+  get_parser.add_argument("overwrite", type=bool, help="overwrite if exists", default=False, nargs='?')
 
-if __name__ == '__main__':
+  sts_parser = subparsers.add_parser("get_assets", help = "download assets from yaml list.")
+  sts_parser.set_defaults(func=get_assets)
+
+  bs5_parser = subparsers.add_parser("get_bs5", help = "download bootstrap 5 library.")
+  bs5_parser.set_defaults(func=get_bs5)
+
+  fa_parser = subparsers.add_parser("get_fa", help = "download fontawesome 6 library.")
+  fa_parser.set_defaults(func=get_fa)
+
+  args = parser.parse_args()
+  args.func(args)
+
+if __name__ == "__main__":
   main()

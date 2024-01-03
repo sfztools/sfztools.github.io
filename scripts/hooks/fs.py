@@ -5,6 +5,11 @@ def path_exists(path):
     return os.path.exists(path)
   return False
 
+def abs_path(path):
+  if not path_exists(path):
+    return None
+  return os.path.abspath(path)
+
 def load_json(path):
   if not path_exists(path):
     return None
@@ -19,5 +24,6 @@ def load_yaml(path):
 
 def on_env(env, **kwargs):
   env.globals["path_exists"] = path_exists
+  env.globals["abs_path"]    = abs_path
   env.globals["load_json"]   = load_json
   env.globals["load_yaml"]   = load_yaml

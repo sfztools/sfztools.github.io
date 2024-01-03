@@ -51,10 +51,8 @@
 {%- endmacro %} {# add_opcode_to_stat #}
 
 {%- macro calc(done, wip) %}
-
 	{%- set status_total = namespace() %}
 	{%- set status_total.aria = 0 %}
-	{%- set status_total.cake = 0 %}
 	{%- set status_total.sfz1 = 0 %}
 	{%- set status_total.sfz2 = 0 %}
 
@@ -90,5 +88,4 @@ ARIA:     {{ done.aria }} + {{ wip.aria }} of {{ status_total.aria }} ({{ ariaMi
 		{%- set done.sfz2 = done.sfz2 * 100 // status_total.sfz2 %}
 		{%- set wip.sfz2  = wip.sfz2  * 100 // status_total.sfz2 %}
 	{%- endif %}
-
 {%- endmacro %}

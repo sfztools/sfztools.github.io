@@ -1,6 +1,6 @@
 {%- set categories = [] %}
 {%- set category_ids = [] %}
-{%- for category in sfz_syntax_macros.categories %}
+{%- for category in sfz_syntax_layout.categories %}
 	{%- if category.opcodes %}
 		{{- categories.append(category.name) or '' }}
 		{{- category_ids.append(category.id) or '' }}
