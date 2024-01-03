@@ -1,6 +1,9 @@
 /.bootstrap/
 /_site/
 
+# track sfz database externally
+/data/sfz/syntax.yml
+
 # fork-awesome
 /docs/assets/fonts/
 
