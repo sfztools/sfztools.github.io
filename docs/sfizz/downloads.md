@@ -1,10 +1,9 @@
 ---
 title: Downloads
 ---
-{# TODO: Get these values from GitHub REST API #}
 `sfizz` {{ sfizz_release.version }} - [released] on {{ sfizz_release.date }}
 
-<h2><i class="fa fa-linux"> Linux</i></h2>
+<h2><i class="fab fa-linux fa-fw"></i>Linux</h2>
 
 Packages for a wide variety of Linux distributions.
 
@@ -21,7 +20,7 @@ Packages for a wide variety of Linux distributions.
   64-bit Current
 </a>
 
-<h2><i class="fa fa-windows"> Windows</i></h2>
+<h2><i class="fab fa-windows fa-fw"></i>Windows</h2>
 
 Installers for Microsoft Windows 7 and up, all 64-bit and 32-bit editions.
 
@@ -38,7 +37,7 @@ Installers for Microsoft Windows 7 and up, all 64-bit and 32-bit editions.
   32-bit
 </a>
 
-<h2><i class="fa fa-apple"> macOS</i></h2>
+<h2><i class="fab fa-apple fa-fw"></i>macOS</h2>
 
 Universal macOS package, for 64-bit Intel and Apple Silicon.
 
@@ -49,7 +48,7 @@ Universal macOS package, for 64-bit Intel and Apple Silicon.
   Universal
 </a>
 
-<h2><i class="fa fa-github"> Source code</i></h2>
+<h2><i class="fab fa-github fa-fw"></i>Source code</h2>
 
 Archive of the source code, available under a free software license.
 
@@ -66,5 +65,6 @@ Archive of the source code, available under a free software license.
   role="button">
   Plugins source archive (library included)
 </a>
+
 
 [released]: https://github.com/sfztools/sfizz/releases/tag/{{ sfizz_release.version }}

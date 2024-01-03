@@ -1,8 +1,7 @@
 ---
-title: "sfizz_message.h"
-#template: doxygen
 no_title_header: true
-styles: ['doxygen']
+project:  "sfizz"
+filename: "sfizz_message.h"
+template: "doxygen.j2"
+styles:  ["doxygen"]
 ---
-{%- import "doxygen.j2" as doxygen with context %}
-{{- doxygen.from_json("sfizz", sfizz_message_h) }}

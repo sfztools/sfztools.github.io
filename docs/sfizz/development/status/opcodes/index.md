@@ -1,12 +1,7 @@
 ---
-title: "Opcodes Support Table"
-cards: "partials/sfizz/opcodes_table_cards.j2"
-scripts: ["opcodes_table_filters"]
 no_title_header: true
+title:    "Opcodes Support Table"
+template: "sfizz/opcodes_table_generator.j2"
+cards:    "sfizz/opcodes_table_cards.j2"
+scripts: ["opcodes_table_filters"]
 ---
-<div markdown="0">
-
-{% include "sfizz/opcodes_table_generator.j2" %}
-{# Table data is in `data/sfizz/support.yml` #}
-
-</div>
