@@ -1,13 +1,13 @@
-# MKDocs issues
+# todo list
 
 ## FIXME
 
-- Cache assets in CI instead download on each run
-- `assets/img/sfizz/badge_*.svg`: count percentage (temporarily hardcoded)
-- Fix opcodes tables: version not correctly inherited by modulation aliases
-- Automate and make better Doxygen documentation. See also
+1. `assets/img/sfizz/badge_*.svg`: count percentage (temporarily hardcoded)
+2. Automate release updates for post, atom feed and downloads page via CI
+3. Cache assets in CI instead download on each run
+4. Fix opcodes table: version not correctly inherited by modulation aliases
+5. Automate and make better Doxygen documentation. See also
   <https://github.com/mkdocs/mkdocs/discussions/3247>
-- Automate release updates for post, atom feed and downloads page via CI
 
 ## TODO
 
