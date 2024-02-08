@@ -1,0 +1,3627 @@
+<!DOCTYPE html>
+<html
+	lang="en"
+	data-bs-theme="auto"
+>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="SFZTools Organization">
+		<meta name="web-author" content="SFZTools Organization">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>sfizz.h - SFZTools</title>
+
+		<script src="../../../assets/js/color-modes.js"></script>
+		<link href="../../../atom.xml" rel="alternate" title="News" type="application/atom+xml" />
+
+		
+		<!-- realfavicongenerator.net -->
+		<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/ico/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/ico/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../../../assets/ico/favicon-16x16.png">
+		<link rel="manifest" href="../../../assets/ico/site.webmanifest">
+		<link rel="mask-icon" href="../../../assets/ico/safari-pinned-tab.svg" color="#5bbad5">
+		<link rel="shortcut icon" href="../../../assets/ico/favicon.ico">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-config" content="../../../assets/ico/browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
+		<link href="../../../assets/css/style.min.css" rel="stylesheet" media="screen">
+		<link href="../../../../../../assets/css/fontawesome.min.css" rel="stylesheet">
+		<link href="../../../../../../assets/css/brands.min.css" rel="stylesheet">
+		<link href="../../../../../../assets/css/solid.min.css" rel="stylesheet">
+		<link href="../../../../../../assets/css/v4-font-face.min.css" rel="stylesheet">
+		<link href="../../../../../../assets/css/bootstrap-table.min.css" rel="stylesheet">
+		<link href="../../../assets/css/doxygen.css" rel="stylesheet">		<link
+			rel="stylesheet"
+			href="../../../assets/css/github.min.css"
+			disabled="disabled"
+			id="hljs_light"
+		/>
+		<link
+			rel="stylesheet"
+			href="../../../assets/css/github-dark-dimmed.min.css"
+			disabled="disabled"
+			id="hljs_dark"
+		/>
+	</head>
+	<body>
+		<button onclick="topFunction()" id="scrollButton" title="Go to top">Top</button>
+		<div class="container">			<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  		<!--!
+				Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License
+				https://fontawesome.com/license/free
+				(Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+				Copyright 2023 Fonticons, Inc.
+			-->
+				<symbol id="sun" viewBox="0 0 512 512">
+					<path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z" />
+				</symbol>
+				<symbol id="moon" viewBox="0 0 384 512">
+					<path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z" />
+				</symbol>
+				<symbol id="circle-half-stroke" viewBox="0 0 512 512">
+					<path d="M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z" />
+				</symbol>
+				<symbol id="check" viewBox="0 0 448 512">
+					<path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+				</symbol>
+			</svg>
+			<nav
+				class="navbar navbar-expand-lg bg-dark text-bg-dark"
+				data-bs-theme="dark"
+			>
+				<div class="container-fluid">
+
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarContent"
+						aria-controls="navbarContent"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+					<a
+						class="navbar-brand"
+						href="../../.."
+						>
+							<img
+								alt="Logo image"
+								src="../../../assets/img/logo.svg"
+							/>
+						SFZTools
+					</a>
+
+					<div class="collapse navbar-collapse" id="navbarContent">
+						<ul class="navbar-nav mt-2 mt-lg-0">
+							<li class="nav-item dropdown">
+								<a
+									class="nav-link dropdown-toggle"
+									href="#"
+									id="navbarsfizz"
+									role="button"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+									aria-haspopup="true"
+								>
+									<i
+										class="fa fa-play-circle fa-fw"
+										aria-hidden="true"></i>
+									sfizz
+								</a>
+								<ul
+									class="dropdown-menu"
+									aria-labelledby="navbarsfizz"
+								>
+									<li>
+										<a class="dropdown-item"
+											href="/sfizz/"
+										>
+											<i
+												class="fa fa-home fa-fw"
+												aria-hidden="true"
+											></i>
+											Home
+										</a>
+									</li>
+									<div class="dropdown-divider"></div>
+									<li>
+										<a class="dropdown-item"
+											href="/sfizz/quick_reference"
+										>
+											<i
+												class="fa fa-book fa-fw"
+												aria-hidden="true"
+											></i>
+											Quick Reference
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item"
+											href="/sfizz/engine_description"
+										>
+											<i
+												class="fa fa-book fa-fw"
+												aria-hidden="true"
+											></i>
+											The Engine
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item"
+											href="https://sfz.tools/sfizz-wiki"
+										>
+											<i
+												class="fa fa-book fa-fw"
+												aria-hidden="true"
+											></i>
+											Wiki
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item"
+											href="/sfizz/faq"
+										>
+											<i
+												class="fa fa-question-circle fa-fw"
+												aria-hidden="true"
+											></i>
+											FAQ
+										</a>
+									</li>
+									<div class="dropdown-divider"></div>
+									<li>
+										<a class="dropdown-item"
+											href="/sfizz/api"
+										>
+											<i
+												class="fa fa-code fa-fw"
+												aria-hidden="true"
+											></i>
+											API
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item"
+											href="/sfizz/development/build"
+										>
+											<i
+												class="fa fa-code fa-fw"
+												aria-hidden="true"
+											></i>
+											Build
+										</a>
+									</li>
+									<div class="dropdown-divider"></div>
+									<li>
+										<a class="dropdown-item"
+											href="/sfizz/development/status/opcodes/"
+										>
+											<i
+												class="fa fa-table fa-fw"
+												aria-hidden="true"
+											></i>
+											Opcodes
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item"
+											href="/sfizz/development/status"
+										>
+											<i
+												class="fa fa-bar-chart fa-fw"
+												aria-hidden="true"
+											></i>
+											Status
+										</a>
+									</li>
+									<div class="dropdown-divider"></div>
+									<li>
+										<a class="dropdown-item"
+											href="/sfizz/downloads"
+										>
+											<i
+												class="fa fa-download fa-fw"
+												aria-hidden="true"
+											></i>
+											Downloads
+										</a>
+									</li>
+									<div class="dropdown-divider"></div>
+									<li>
+										<a class="dropdown-item"
+											href="https://github.com/sfztools/sfizz/"
+										>
+											<i
+												class="fab fa-github fa-fw"
+												aria-hidden="true"
+											></i>
+											GitHub Repository
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item dropdown">
+								<a
+									class="nav-link dropdown-toggle"
+									href="#"
+									id="navbarTools"
+									role="button"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+									aria-haspopup="true"
+								>
+									<i
+										class="fa fa-screwdriver-wrench fa-fw"
+										aria-hidden="true"></i>
+									Tools
+								</a>
+								<ul
+									class="dropdown-menu"
+									aria-labelledby="navbarTools"
+								>
+									<li>
+										<a class="dropdown-item"
+											href="https://github.com/sfztools/sfz-flat/"
+										>
+											sfz-flat
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item"
+											href="https://github.com/sfztools/sfz-opcode-checker/"
+										>
+											sfz-opcode-checker
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item dropdown">
+								<a
+									class="nav-link dropdown-toggle"
+									href="#"
+									id="navbarSyntax Highlight"
+									role="button"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+									aria-haspopup="true"
+								>
+									<i
+										class="fa fa-code fa-fw"
+										aria-hidden="true"></i>
+									Syntax Highlight
+								</a>
+								<ul
+									class="dropdown-menu"
+									aria-labelledby="navbarSyntax Highlight"
+								>
+									<li>
+										<a class="dropdown-item"
+											href="https://github.com/sfztools/emacs-sfz-mode/"
+										>
+											Emacs
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item"
+											href="https://github.com/sfztools/syntax-highlighting-gedit/"
+										>
+											gedit
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item"
+											href="https://github.com/sfztools/syntax-highlighting-geany/"
+										>
+											Geany
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item"
+											href="https://github.com/sfztools/syntax-highlighting-sublime-text/"
+										>
+											Sublime Text
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item"
+											href="https://github.com/sfztools/sfz.vim"
+										>
+											Vim
+										</a>
+									</li>
+									<li>
+										<a class="dropdown-item"
+											href="https://github.com/sfztools/syntax-highlighting-vscode/"
+										>
+											VSCode
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a
+									class="nav-link"
+									href="/faq"
+								>
+									FAQ
+								</a>
+							</li>
+							<li class="nav-item">
+								<a
+									class="nav-link"
+									href="/news"
+								>
+									News
+								</a>
+							</li>
+						</ul>
+						<ul class="navbar-nav ms-auto">
+							<li class="nav-item">
+									<a
+										href="#"
+										class="nav-link"
+										data-bs-toggle="modal"
+										data-bs-target="#mkdocs_search_modal">
+											<i class="fa fa-search"></i> Search
+									</a>
+							</li>
+							<li class="nav-item dropdown">
+								<button
+									class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center"
+									id="bd-theme"
+									type="button"
+									aria-expanded="false"
+									data-bs-toggle="dropdown"
+									data-bs-display="static"
+									aria-label="Toggle theme (auto)">
+									<svg class="bi my-1 theme-icon-active"><use href="#circle-half-stroke"></use></svg>
+									<span class="d-lg-none ms-2" id="bd-theme-text">Toggle theme</span>
+								</button>
+								<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme-text">
+									<li>
+										<button
+											type="button"
+											class="dropdown-item d-flex align-items-center"
+											data-bs-theme-value="light"
+											aria-pressed="false">
+											<svg class="bi me-2 opacity-50 theme-icon"><use href="#sun"></use></svg>
+											Light
+											<svg class="bi ms-auto d-none"><use href="#check"></use></svg>
+										</button>
+									</li>
+									<li>
+										<button
+											type="button"
+											class="dropdown-item d-flex align-items-center"
+											data-bs-theme-value="dark"
+											aria-pressed="false">
+											<svg class="bi me-2 opacity-50 theme-icon"><use href="#moon"></use></svg>
+											Dark
+											<svg class="bi ms-auto d-none"><use href="#check"></use></svg>
+										</button>
+									</li>
+									<li>
+										<button
+											type="button"
+											class="dropdown-item d-flex align-items-center active"
+											data-bs-theme-value="auto"
+											aria-pressed="true">
+											<svg class="bi me-2 opacity-50 theme-icon"><use href="#circle-half-stroke"></use></svg>
+											Auto
+											<svg class="bi ms-auto d-none"><use href="#check"></use></svg>
+										</button>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<div class="row mt-4" id="content">
+	<title>sfizz.h - SFZTools</title>
+
+
+<h1><a href="https://github.com/sfztools/sfizz/blob/master/src/sfizz.h">sfizz.h</a> File Reference</h1>
+sfizz public C API.<h2 class="groupheader">Macros</h2>
+<h3 class="memtitle">SFIZZ_OUT_OF_BOUNDS_LABEL_INDEX</h3>
+<div class="memitem">
+  <div class="memproto">
+    <table class="memname">
+      <tr>
+        <td class="memname"><span class='type'>#define</span> <b>SFIZZ_OUT_OF_BOUNDS_LABEL_INDEX (-1)</b>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="memdoc">
+    <p>Index out of bound error for the requested CC/key label.</p>
+    <dl class="section since">
+      <dt>Since</dt>
+      <dd>0.4.0</dd>
+    </dl>
+  </div>
+</div>
+<h2 class="groupheader">Enumerations</h2>
+<h3 class="memtitle">sfizz_oversampling_factor_t</h3>
+  <div class="memitem">
+    <div class="memdoc">
+      <span class="type">enum</span>&nbsp;sfizz_oversampling_factor_t&nbsp;&#123;<br/>
+        <b class="tab">SFIZZ_OVERSAMPLING_X1</b>
+        = 1<br/>
+        <b class="tab">SFIZZ_OVERSAMPLING_X2</b>
+        = 2<br/>
+        <b class="tab">SFIZZ_OVERSAMPLING_X4</b>
+        = 4<br/>
+        <b class="tab">SFIZZ_OVERSAMPLING_X8</b>
+        = 8<br/>
+&#125;
+      <p>Oversampling factor.</p>
+        <dl class="section since">
+          <dt>Since</dt>
+          <dd>0.2.0</dd>
+        </dl>
+    </div>
+  </div>
+<h3 class="memtitle">sfizz_process_mode_t</h3>
+  <div class="memitem">
+    <div class="memdoc">
+      <span class="type">enum</span>&nbsp;sfizz_process_mode_t&nbsp;&#123;<br/>
+        <b class="tab">SFIZZ_PROCESS_LIVE</b>
+        <br/>
+        <b class="tab">SFIZZ_PROCESS_FREEWHEELING</b>
+        <br/>
+&#125;
+      <p>Processing mode.</p>
+        <dl class="section since">
+          <dt>Since</dt>
+          <dd>0.5.0</dd>
+        </dl>
+    </div>
+  </div>
+  <hr/><h2 class="groupheader">Typedefs</h2>
+<h3 class="memtitle">sfizz_synth_t</h3>
+<div class="memitem">
+  <div class="memproto">
+    <table class="memname">
+      <tr>
+        <td class="memname"><span class='type'>typedef struct <a href='#sfizz_synth_t'>sfizz_synth_t</a></span> <b>sfizz_synth_t</b>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="memdoc">
+    <p>Synth handle.</p>
+    <dl class="section since">
+      <dt>Since</dt>
+      <dd>0.2.0</dd>
+    </dl>
+  </div>
+</div>
+<h3 class="memtitle">sfizz_client_t</h3>
+<div class="memitem">
+  <div class="memproto">
+    <table class="memname">
+      <tr>
+        <td class="memname"><span class='type'>typedef struct <a href='#sfizz_client_t'>sfizz_client_t</a></span> <b>sfizz_client_t</b>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="memdoc">
+    <p>Client for communicating with the synth engine in either direction.</p>
+    <dl class="section since">
+      <dt>Since</dt>
+      <dd>1.0.0</dd>
+    </dl>
+  </div>
+</div>
+<h2 class="groupheader" id="functions">Functions</h2>
+      
+<h3 class="memtitle" id="sfizz_create_synth">sfizz_create_synth</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API <a href='#sfizz_synth_t'>sfizz_synth_t</a> *</span>
+            <span class="func">sfizz_create_synth</span>
+          </td>
+          <td>&#40;</td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Creates a sfizz synth.</p>This object has to be freed by the caller using <a href='#sfizz_free'>sfizz_free()</a>. The synth by default is set at 48 kHz and a maximum block size of 1024. You should change these values if they are not correct for your application.
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_free">sfizz_free</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_free</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Frees an existing sfizz synth.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth to destroy.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_add_ref">sfizz_add_ref</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_add_ref</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Adds a reference to an existing sfizz synth.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth to reference.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_load_file">sfizz_load_file</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API bool</span>
+            <span class="func">sfizz_load_file</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">const char *</td>
+          <td class="paramname"><em>path</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Loads an SFZ file.</p>The file path can be absolute or relative. All file operations for this SFZ file will be relative to the parent directory of the SFZ file.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">path</td><td>A null-terminated string representing a path to an SFZ file.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd><b style='color:blue'>true</b> when file loading went OK, <b style='color:blue'>false</b> if some error occured while loading.</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_load_string">sfizz_load_string</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API bool</span>
+            <span class="func">sfizz_load_string</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">const char *</td>
+          <td class="paramname"><em>path</em></td>
+          <td>,</td>
+          <td class="paramtype">const char *</td>
+          <td class="paramname"><em>text</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Loads an SFZ file from textual data.</p>This accepts a virtual path name for the imaginary sfz file, which is not required to exist on disk. The purpose of the virtual path is to locate samples with relative paths.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">path</td><td>The virtual path of the SFZ file.</td></tr>
+            <tr><td class="paramname">text</td><td>The contents of the virtual SFZ file.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd><b style='color:blue'>true</b> when file loading went OK, <b style='color:blue'>false</b> if some error occured while loading.</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_load_scala_file">sfizz_load_scala_file</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API bool</span>
+            <span class="func">sfizz_load_scala_file</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">const char *</td>
+          <td class="paramname"><em>path</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Sets the tuning from a Scala file loaded from the file system.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">path</td><td>The path to the file in Scala format.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd><b style='color:blue'>true</b> when tuning scale loaded OK, <b style='color:blue'>false</b> if some error occurred.</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_load_scala_string">sfizz_load_scala_string</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API bool</span>
+            <span class="func">sfizz_load_scala_string</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">const char *</td>
+          <td class="paramname"><em>text</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Sets the tuning from a Scala file loaded from memory.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">text</td><td>The contents of the file in Scala format.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd><b style='color:blue'>true</b> when tuning scale loaded OK, <b style='color:blue'>false</b> if some error occurred.</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_set_scala_root_key">sfizz_set_scala_root_key</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_set_scala_root_key</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>root_key</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Sets the scala root key.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">root_key</td><td>The MIDI number of the Scala root key (default 60 for C4).</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_scala_root_key">sfizz_get_scala_root_key</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API int</span>
+            <span class="func">sfizz_get_scala_root_key</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Gets the scala root key.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd>The MIDI number of the Scala root key (default 60 for C4).</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_set_tuning_frequency">sfizz_set_tuning_frequency</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_set_tuning_frequency</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">float</td>
+          <td class="paramname"><em>frequency</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Sets the reference tuning frequency.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">frequency</td><td>The frequency which indicates where standard tuning A4 is (default 440 Hz).</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_tuning_frequency">sfizz_get_tuning_frequency</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API float</span>
+            <span class="func">sfizz_get_tuning_frequency</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Gets the reference tuning frequency.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd>The frequency which indicates where standard tuning A4 is (default 440 Hz).</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_load_stretch_tuning_by_ratio">sfizz_load_stretch_tuning_by_ratio</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_load_stretch_tuning_by_ratio</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">float</td>
+          <td class="paramname"><em>ratio</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Configure stretch tuning using a predefined parametric Railsback curve.</p>A ratio 1/2 is supposed to match the average piano; 0 disables (the default).
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">ratio</td><td>The parameter in domain 0-1.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_num_regions">sfizz_get_num_regions</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API int</span>
+            <span class="func">sfizz_get_num_regions</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Return the number of regions in the currently loaded SFZ file.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_num_groups">sfizz_get_num_groups</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API int</span>
+            <span class="func">sfizz_get_num_groups</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Return the number of groups in the currently loaded SFZ file.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_num_masters">sfizz_get_num_masters</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API int</span>
+            <span class="func">sfizz_get_num_masters</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Return the number of masters in the currently loaded SFZ file.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_num_curves">sfizz_get_num_curves</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API int</span>
+            <span class="func">sfizz_get_num_curves</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Return the number of curves in the currently loaded SFZ file.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_export_midnam">sfizz_export_midnam</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API char *</span>
+            <span class="func">sfizz_export_midnam</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">const char *</td>
+          <td class="paramname"><em>model</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Export a MIDI Name document describing the currently loaded SFZ file.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">model</td><td>The model name used if a non-empty string, otherwise generated.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd>A newly allocated XML string, which must be freed after use using <a href='#sfizz_free_memory'>sfizz_free_memory()</a>.</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.3.1</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_num_preloaded_samples">sfizz_get_num_preloaded_samples</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API size_t</span>
+            <span class="func">sfizz_get_num_preloaded_samples</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Return the number of preloaded samples for the current SFZ file.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_num_active_voices">sfizz_get_num_active_voices</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API int</span>
+            <span class="func">sfizz_get_num_active_voices</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Return the number of active voices.</p>Note that this function is a basic indicator and does not aim to be perfect. In particular, it runs on the calling thread so voices may well start or stop while the function is checking which voice is active.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_set_samples_per_block">sfizz_set_samples_per_block</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_set_samples_per_block</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>samples_per_block</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Set the expected number of samples per block.</p>If unsure, give an upper bound since right now ugly things may happen if you go over this number.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">samples_per_block</td><td>The number of samples per block.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_set_sample_rate">sfizz_set_sample_rate</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_set_sample_rate</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">float</td>
+          <td class="paramname"><em>sample_rate</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Set the sample rate for the synth.</p>This is the output sample rate. This setting does not affect the internal processing.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth</td></tr>
+            <tr><td class="paramname">sample_rate</td><td>The sample rate.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_note_on">sfizz_send_note_on</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_note_on</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>note_number</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>velocity</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send a note on event to the synth.</p>This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay of the event in the block, in samples.</td></tr>
+            <tr><td class="paramname">note_number</td><td>The MIDI note number, in domain 0 to 127.</td></tr>
+            <tr><td class="paramname">velocity</td><td>The MIDI velocity, in domain 0 to 127.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_hd_note_on">sfizz_send_hd_note_on</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_hd_note_on</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>note_number</em></td>
+          <td>,</td>
+          <td class="paramtype">float</td>
+          <td class="paramname"><em>velocity</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send a high-precision on event to the synth.</p>This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay of the event in the block, in samples.</td></tr>
+            <tr><td class="paramname">note_number</td><td>The MIDI note number, in domain 0 to 127.</td></tr>
+            <tr><td class="paramname">velocity</td><td>The normalized MIDI velocity, in domain 0 to 1.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_note_off">sfizz_send_note_off</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_note_off</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>note_number</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>velocity</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send a note off event to the synth.</p>This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay of the event in the block, in samples.</td></tr>
+            <tr><td class="paramname">note_number</td><td>The MIDI note number, in domain 0 to 127.</td></tr>
+            <tr><td class="paramname">velocity</td><td>The MIDI velocity, in domain 0 to 127.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_hd_note_off">sfizz_send_hd_note_off</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_hd_note_off</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>note_number</em></td>
+          <td>,</td>
+          <td class="paramtype">float</td>
+          <td class="paramname"><em>velocity</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send a high-precision note off event to the synth.</p>This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay of the event in the block, in samples.</td></tr>
+            <tr><td class="paramname">note_number</td><td>The MIDI note number, in domain 0 to 127.</td></tr>
+            <tr><td class="paramname">velocity</td><td>The normalized MIDI velocity, in domain 0 to 1.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_cc">sfizz_send_cc</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_cc</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>cc_number</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>cc_value</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send a CC event to the synth.</p>This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay of the event in the block, in samples.</td></tr>
+            <tr><td class="paramname">cc_number</td><td>The MIDI CC number, in domain 0 to 127.</td></tr>
+            <tr><td class="paramname">cc_value</td><td>The MIDI CC value, in domain 0 to 127.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_hdcc">sfizz_send_hdcc</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_hdcc</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>cc_number</em></td>
+          <td>,</td>
+          <td class="paramtype">float</td>
+          <td class="paramname"><em>norm_value</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send a high precision CC event to the synth.</p>This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay of the event in the block, in samples.</td></tr>
+            <tr><td class="paramname">cc_number</td><td>The MIDI CC number, in domain 0 to 127.</td></tr>
+            <tr><td class="paramname">norm_value</td><td>The normalized CC value, in domain 0 to 1.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_automate_hdcc">sfizz_automate_hdcc</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_automate_hdcc</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>cc_number</em></td>
+          <td>,</td>
+          <td class="paramtype">float</td>
+          <td class="paramname"><em>norm_value</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send a high precision CC automation to the synth.</p>This updates the CC value known to the synth, but without performing additional MIDI-specific interpretations. (eg. the CC 120 and up)
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay of the event in the block, in samples.</td></tr>
+            <tr><td class="paramname">cc_number</td><td>The MIDI CC number, in domain 0 to 127.</td></tr>
+            <tr><td class="paramname">norm_value</td><td>The normalized CC value, in domain 0 to 1.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_pitch_wheel">sfizz_send_pitch_wheel</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_pitch_wheel</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>pitch</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send a pitch wheel event.</p>This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay.</td></tr>
+            <tr><td class="paramname">pitch</td><td>The pitch.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_hd_pitch_wheel">sfizz_send_hd_pitch_wheel</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_hd_pitch_wheel</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">float</td>
+          <td class="paramname"><em>pitch</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send a high-precision pitch wheel event.</p>This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay.</td></tr>
+            <tr><td class="paramname">pitch</td><td>The normalized pitch, in domain -1 to 1.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_aftertouch">sfizz_send_aftertouch</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API SFIZZ_DEPRECATED_API void</span>
+            <span class="func">sfizz_send_aftertouch</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>aftertouch</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send an aftertouch event.</p>This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#sfizz_render_block'>sfizz_render_block()</a>.</td></tr>
+            <tr><td class="paramname">aftertouch</td><td>The aftertouch value, in domain 0 to 127.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_channel_aftertouch">sfizz_send_channel_aftertouch</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_channel_aftertouch</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>aftertouch</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send a channel aftertouch (channel pressure) event.</p>This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#sfizz_render_block'>sfizz_render_block()</a>.</td></tr>
+            <tr><td class="paramname">aftertouch</td><td>The aftertouch value, in domain 0 to 127.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_hd_channel_aftertouch">sfizz_send_hd_channel_aftertouch</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_hd_channel_aftertouch</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">float</td>
+          <td class="paramname"><em>aftertouch</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send a high-precision aftertouch event.</p>This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#sfizz_render_block'>sfizz_render_block()</a>.</td></tr>
+            <tr><td class="paramname">aftertouch</td><td>The normalized aftertouch value, in domain 0 to 1.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_poly_aftertouch">sfizz_send_poly_aftertouch</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_poly_aftertouch</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>note_number</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>aftertouch</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send a polyphonic aftertouch event.</p>This feature is experimental and needs more testing in the internal engine. 
+This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#sfizz_render_block'>sfizz_render_block()</a>.</td></tr>
+            <tr><td class="paramname">note_number</td><td>The note number, in domain 0 to 127.</td></tr>
+            <tr><td class="paramname">aftertouch</td><td>The aftertouch value, in domain 0 to 127.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_hd_poly_aftertouch">sfizz_send_hd_poly_aftertouch</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_hd_poly_aftertouch</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>note_number</em></td>
+          <td>,</td>
+          <td class="paramtype">float</td>
+          <td class="paramname"><em>aftertouch</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send a high-precision polyphonic aftertouch event.</p>This feature is experimental and needs more testing in the internal engine. 
+This command should be delay-ordered with all other midi-type events (notes, CCs, aftertouch and pitch-wheel), otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay at which the event occurs; this should be lower than the size of the block in the next call to <a href='#sfizz_render_block'>sfizz_render_block()</a>.</td></tr>
+            <tr><td class="paramname">note_number</td><td>The note number, in domain 0 to 127.</td></tr>
+            <tr><td class="paramname">aftertouch</td><td>The normalized aftertouch value, in domain 0 to 1.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_tempo">sfizz_send_tempo</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API SFIZZ_DEPRECATED_API void</span>
+            <span class="func">sfizz_send_tempo</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">float</td>
+          <td class="paramname"><em>seconds_per_beat</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send a tempo event.</p>This command should be delay-ordered with all other time/signature commands, namely <a href='#sfizz_send_tempo'>sfizz_send_tempo()</a>, <a href='#sfizz_send_time_signature'>sfizz_send_time_signature()</a>, <a href='#sfizz_send_time_position'>sfizz_send_time_position()</a>, and <a href='#sfizz_send_playback_state'>sfizz_send_playback_state()</a>, otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay.</td></tr>
+            <tr><td class="paramname">seconds_per_beat</td><td>The seconds per beat.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_bpm_tempo">sfizz_send_bpm_tempo</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_bpm_tempo</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">float</td>
+          <td class="paramname"><em>beats_per_minute</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send a tempo event.</p>This command should be delay-ordered with all other time/signature commands, namely <a href='#sfizz_send_tempo'>sfizz_send_tempo()</a>, <a href='#sfizz_send_time_signature'>sfizz_send_time_signature()</a>, <a href='#sfizz_send_time_position'>sfizz_send_time_position()</a>, and <a href='#sfizz_send_playback_state'>sfizz_send_playback_state()</a>, otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay.</td></tr>
+            <tr><td class="paramname">beats_per_minute</td><td>The new tempo, in beats per minute.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_time_signature">sfizz_send_time_signature</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_time_signature</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>beats_per_bar</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>beat_unit</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send the time signature.</p>This command should be delay-ordered with all other time/signature commands, namely <a href='#sfizz_send_tempo'>sfizz_send_tempo()</a>, <a href='#sfizz_send_time_signature'>sfizz_send_time_signature()</a>, <a href='#sfizz_send_time_position'>sfizz_send_time_position()</a>, and <a href='#sfizz_send_playback_state'>sfizz_send_playback_state()</a>, otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay.</td></tr>
+            <tr><td class="paramname">beats_per_bar</td><td>The number of beats per bar, or time signature numerator.</td></tr>
+            <tr><td class="paramname">beat_unit</td><td>The note corresponding to one beat, or time signature denominator.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.5.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_time_position">sfizz_send_time_position</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_time_position</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>bar</em></td>
+          <td>,</td>
+          <td class="paramtype">double</td>
+          <td class="paramname"><em>bar_beat</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send the time position.</p>This command should be delay-ordered with all other time/signature commands, namely <a href='#sfizz_send_tempo'>sfizz_send_tempo()</a>, <a href='#sfizz_send_time_signature'>sfizz_send_time_signature()</a>, <a href='#sfizz_send_time_position'>sfizz_send_time_position()</a>, and <a href='#sfizz_send_playback_state'>sfizz_send_playback_state()</a>, otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay.</td></tr>
+            <tr><td class="paramname">bar</td><td>The current bar.</td></tr>
+            <tr><td class="paramname">bar_beat</td><td>The fractional position of the current beat within the bar.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.5.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_playback_state">sfizz_send_playback_state</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_playback_state</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>playback_state</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send the playback state.</p>This command should be delay-ordered with all other time/signature commands, namely <a href='#sfizz_send_tempo'>sfizz_send_tempo()</a>, <a href='#sfizz_send_time_signature'>sfizz_send_time_signature()</a>, <a href='#sfizz_send_time_position'>sfizz_send_time_position()</a>, and <a href='#sfizz_send_playback_state'>sfizz_send_playback_state()</a>, otherwise the behavior of the synth is undefined.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay.</td></tr>
+            <tr><td class="paramname">playback_state</td><td>The playback state, 1 if playing, 0 if stopped.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.5.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_render_block">sfizz_render_block</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_render_block</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">float **</td>
+          <td class="paramname"><em>channels</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>num_channels</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>num_frames</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Render a block audio data into a stereo channel.</p>No other channel configuration is supported. The synth will gracefully ignore your request if you provide a value. You should pass all the relevant events for the block (midi notes, CCs, ...) before rendering each block. The synth will memorize the inputs and render sample accurates envelopes depending on the input events passed to it.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">channels</td><td>Pointers to the left and right channel of the output.</td></tr>
+            <tr><td class="paramname">num_channels</td><td>Should be equal to 2 for the time being.</td></tr>
+            <tr><td class="paramname">num_frames</td><td>Number of frames to fill. This should be less than or equal to the expected samples_per_block.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_preload_size">sfizz_get_preload_size</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API unsigned int</span>
+            <span class="func">sfizz_get_preload_size</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Get the size of the preloaded data.</p>This returns the number of floats used in the preloading buffers.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_set_preload_size">sfizz_set_preload_size</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_set_preload_size</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">unsigned int</td>
+          <td class="paramname"><em>preload_size</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Set the size of the preloaded data in number of floats (not bytes).</p>This will disable the callbacks for the duration of the load. This function takes a lock ; prefer calling it out of the RT thread. It can also take a long time to return. If the new preload size is the same as the current one, it will release the lock immediately and exit.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">preload_size</td><td>The preload size.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_oversampling_factor">sfizz_get_oversampling_factor</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API <a href='#sfizz_oversampling_factor_t'>sfizz_oversampling_factor_t</a></span>
+            <span class="func">sfizz_get_oversampling_factor</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Get the internal oversampling rate.</p>As of 1.0, This is an inactive stub for future work on oversampling in the engine.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_set_oversampling_factor">sfizz_set_oversampling_factor</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API bool</span>
+            <span class="func">sfizz_set_oversampling_factor</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype"><a href='#sfizz_oversampling_factor_t'>sfizz_oversampling_factor_t</a></td>
+          <td class="paramname"><em>oversampling</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Set the internal oversampling rate.</p>As of 1.0, This is an inactive stub for future work on oversampling in the engine.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">oversampling</td><td>The oversampling factor.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd><b style='color:blue'>true</b> if the oversampling factor was correct, <b style='color:blue'>false</b> otherwise.</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_sample_quality">sfizz_get_sample_quality</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API int</span>
+            <span class="func">sfizz_get_sample_quality</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype"><a href='#sfizz_process_mode_t'>sfizz_process_mode_t</a></td>
+          <td class="paramname"><em>mode</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Get the default resampling quality.</p>This is the quality setting which the engine uses when the instrument does not use the opcode <code>sample_quality</code>. The engine uses distinct default quality settings for live mode and freewheeling mode, which both can be accessed by the means of this function.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">mode</td><td>The processing mode.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd>The sample quality for the given mode, in the range 0 to 10.</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_set_sample_quality">sfizz_set_sample_quality</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_set_sample_quality</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype"><a href='#sfizz_process_mode_t'>sfizz_process_mode_t</a></td>
+          <td class="paramname"><em>mode</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>quality</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Set the default resampling quality.</p>This is the quality setting which the engine uses when the instrument does not use the opcode <code>sample_quality</code>. The engine uses distinct default quality settings for live mode and freewheeling mode, which both can be accessed by the means of this function.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">mode</td><td>The processing mode.</td></tr>
+            <tr><td class="paramname">quality</td><td>The desired sample quality, in the range 0 to 10.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_oscillator_quality">sfizz_get_oscillator_quality</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API int</span>
+            <span class="func">sfizz_get_oscillator_quality</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype"><a href='#sfizz_process_mode_t'>sfizz_process_mode_t</a></td>
+          <td class="paramname"><em>mode</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Get the default oscillator quality.</p>This is the quality setting which the engine uses when the instrument does not use the opcode <code>oscillator_quality</code>. The engine uses distinct default quality settings for live mode and freewheeling mode, which both can be accessed by the means of this function.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">mode</td><td>The processing mode.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd>The oscillator quality for the given mode, in the range 0 to 10.</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_set_oscillator_quality">sfizz_set_oscillator_quality</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_set_oscillator_quality</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype"><a href='#sfizz_process_mode_t'>sfizz_process_mode_t</a></td>
+          <td class="paramname"><em>mode</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>quality</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Set the default oscillator quality.</p>This is the quality setting which the engine uses when the instrument does not use the opcode <code>oscillator_quality</code>. The engine uses distinct default quality settings for live mode and freewheeling mode, which both can be accessed by the means of this function.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">mode</td><td>The processing mode.</td></tr>
+            <tr><td class="paramname">quality</td><td>The desired oscillator quality, in the range 0 to 10.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_set_volume">sfizz_set_volume</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_set_volume</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">float</td>
+          <td class="paramname"><em>volume</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Set the global instrument volume.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">volume</td><td>The new volume.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_volume">sfizz_get_volume</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API float</span>
+            <span class="func">sfizz_get_volume</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Return the global instrument volume.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_set_num_voices">sfizz_set_num_voices</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_set_num_voices</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>num_voices</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Set the number of voices used by the synth.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">num_voices</td><td>The number of voices.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_num_voices">sfizz_get_num_voices</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API int</span>
+            <span class="func">sfizz_get_num_voices</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Return the number of voices.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_num_buffers">sfizz_get_num_buffers</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API int</span>
+            <span class="func">sfizz_get_num_buffers</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Return the number of allocated buffers from the synth.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_num_bytes">sfizz_get_num_bytes</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API int</span>
+            <span class="func">sfizz_get_num_bytes</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Get the number of bytes allocated from the synth.</p>Note that this value can be less than the actual memory usage since it only counts the buffer objects managed by sfizz.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_enable_freewheeling">sfizz_enable_freewheeling</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_enable_freewheeling</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Enable freewheeling on the synth.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_disable_freewheeling">sfizz_disable_freewheeling</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_disable_freewheeling</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Disable freewheeling on the synth.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_unknown_opcodes">sfizz_get_unknown_opcodes</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API char *</span>
+            <span class="func">sfizz_get_unknown_opcodes</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Return a comma separated list of unknown opcodes.</p>The caller has to free() the string returned. This function allocates memory, do not call on the audio thread.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_should_reload_file">sfizz_should_reload_file</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API bool</span>
+            <span class="func">sfizz_should_reload_file</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Check if the SFZ should be reloaded.</p>Depending on the platform this can create file descriptors.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd><b style='color:blue'>true</b> if any included files (including the root file) have been modified since the sfz file was loaded, <b style='color:blue'>false</b> otherwise.</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.2.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_should_reload_scala">sfizz_should_reload_scala</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API bool</span>
+            <span class="func">sfizz_should_reload_scala</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Check if the scala file should be reloaded.</p>Depending on the platform this can create file descriptors.
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd><b style='color:blue'>true</b> if the scala file has been modified since loading.</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_enable_logging">sfizz_enable_logging</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_enable_logging</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">const char *</td>
+          <td class="paramname"><em>prefix</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Enable logging of timings to sidecar CSV files.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">prefix</td><td>The prefix.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.3.0</dd>
+      </dl>
+      <dl class="section note">
+        <dt>Note</dt>
+        <dd>This can produce many outputs so use with caution.</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_disable_logging">sfizz_disable_logging</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_disable_logging</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Disable logging.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.3.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_set_logging_prefix">sfizz_set_logging_prefix</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API SFIZZ_DEPRECATED_API void</span>
+            <span class="func">sfizz_set_logging_prefix</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">const char *</td>
+          <td class="paramname"><em>prefix</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Enable logging of timings to sidecar CSV files.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">prefix</td><td>The prefix.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.3.2</dd>
+      </dl>
+      <dl class="section note">
+        <dt>Note</dt>
+        <dd>This can produce many outputs so use with caution.</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_all_sound_off">sfizz_all_sound_off</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_all_sound_off</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Shuts down the current processing, clear buffers and reset the voices.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.3.2</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_add_external_definitions">sfizz_add_external_definitions</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_add_external_definitions</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">const char *</td>
+          <td class="paramname"><em>id</em></td>
+          <td>,</td>
+          <td class="paramtype">const char *</td>
+          <td class="paramname"><em>value</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Add external definitions prior to loading.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">id</td><td>The definition variable name.</td></tr>
+            <tr><td class="paramname">value</td><td>The definition value.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+      <dl class="section note">
+        <dt>Note</dt>
+        <dd>These do not get reset by loading or resetting the synth. You need to call <a href='#sfizz_clear_external_definitions'>sfizz_clear_external_definitions()</a> to erase them.</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_clear_external_definitions">sfizz_clear_external_definitions</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_clear_external_definitions</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Clears external definitions for the next file loading.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_num_key_labels">sfizz_get_num_key_labels</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API unsigned int</span>
+            <span class="func">sfizz_get_num_key_labels</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Get the number of key labels registered in the current sfz file.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_key_label_number">sfizz_get_key_label_number</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API int</span>
+            <span class="func">sfizz_get_key_label_number</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>label_index</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Get the key number for the label registered at index label_index.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">label_index</td><td>The label index.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd>the number or SFIZZ_OUT_OF_BOUNDS_LABEL_INDEX if the index is out of bounds.</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_key_label_text">sfizz_get_key_label_text</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API const char *</span>
+            <span class="func">sfizz_get_key_label_text</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>label_index</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Get the key text for the label registered at index label_index.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">label_index</td><td>The label index.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd>the label or <b>nullptr</b> if the index is out of bounds.</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_num_cc_labels">sfizz_get_num_cc_labels</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API unsigned int</span>
+            <span class="func">sfizz_get_num_cc_labels</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Get the number of CC labels registered in the current sfz file.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_cc_label_number">sfizz_get_cc_label_number</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API int</span>
+            <span class="func">sfizz_get_cc_label_number</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>label_index</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Get the CC number for the label registered at index label_index.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">label_index</td><td>The label index.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd>the number or SFIZZ_OUT_OF_BOUNDS_LABEL_INDEX if the index is out of bounds.</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_cc_label_text">sfizz_get_cc_label_text</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API const char *</span>
+            <span class="func">sfizz_get_cc_label_text</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>label_index</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Get the CC text for the label registered at index label_index.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">label_index</td><td>The label index.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd>the label or <b>nullptr</b> if the index is out of bounds.</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>0.4.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_free_memory">sfizz_free_memory</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_free_memory</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype">void *</td>
+          <td class="paramname"><em>ptr</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Free a block of memory allocated by the library.</p>1.0.0
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">ptr</td><td>The address of the memory to free.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_create_client">sfizz_create_client</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API <a href='#sfizz_client_t'>sfizz_client_t</a> *</span>
+            <span class="func">sfizz_create_client</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype">void *</td>
+          <td class="paramname"><em>data</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Create a new messaging client.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">data</td><td>The opaque data pointer which is passed to the receiver.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd>The new client.</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_delete_client">sfizz_delete_client</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_delete_client</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_client_t'>sfizz_client_t</a> *</td>
+          <td class="paramname"><em>client</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Destroy a messaging client.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">client</td><td>The client.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_get_client_data">sfizz_get_client_data</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void *</span>
+            <span class="func">sfizz_get_client_data</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_client_t'>sfizz_client_t</a> *</td>
+          <td class="paramname"><em>client</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Get the client data.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">client</td><td>The client.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section return">
+        <dt>Returns</dt>
+        <dd>The client data.</dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_set_receive_callback">sfizz_set_receive_callback</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_set_receive_callback</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_client_t'>sfizz_client_t</a> *</td>
+          <td class="paramname"><em>client</em></td>
+          <td>,</td>
+          <td class="paramtype"><a href='#sfizz_receive_t'>sfizz_receive_t</a> *</td>
+          <td class="paramname"><em>receive</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Set the function which receives reply messages from the synth engine.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">client</td><td>The client.</td></tr>
+            <tr><td class="paramname">receive</td><td>The pointer to the receiving function.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_send_message">sfizz_send_message</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_send_message</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype"><a href='#sfizz_client_t'>sfizz_client_t</a> *</td>
+          <td class="paramname"><em>client</em></td>
+          <td>,</td>
+          <td class="paramtype">int</td>
+          <td class="paramname"><em>delay</em></td>
+          <td>,</td>
+          <td class="paramtype">const char *</td>
+          <td class="paramname"><em>path</em></td>
+          <td>,</td>
+          <td class="paramtype">const char *</td>
+          <td class="paramname"><em>sig</em></td>
+          <td>,</td>
+          <td class="paramtype">const <a href='#sfizz_arg_t'>sfizz_arg_t</a> *</td>
+          <td class="paramname"><em>args</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Send a message to the synth engine.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">client</td><td>The client sending the message.</td></tr>
+            <tr><td class="paramname">delay</td><td>The delay of the message in the block, in samples.</td></tr>
+            <tr><td class="paramname">path</td><td>The OSC address pattern.</td></tr>
+            <tr><td class="paramname">sig</td><td>The OSC type tag string.</td></tr>
+            <tr><td class="paramname">args</td><td>The OSC arguments, whose number and format is determined the type tag string.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+      
+<h3 class="memtitle" id="sfizz_set_broadcast_callback">sfizz_set_broadcast_callback</h3>
+  <div class="memitem">
+    <div class="memproto">
+      <table class="memname"><tbody>
+        <tr>
+          <td class="memname"><span class="type">SFIZZ_EXPORTED_API void</span>
+            <span class="func">sfizz_set_broadcast_callback</span>
+          </td>
+          <td>&#40;</td>
+          <td class="paramtype"><a href='#sfizz_synth_t'>sfizz_synth_t</a> *</td>
+          <td class="paramname"><em>synth</em></td>
+          <td>,</td>
+          <td class="paramtype"><a href='#sfizz_receive_t'>sfizz_receive_t</a> *</td>
+          <td class="paramname"><em>broadcast</em></td>
+          <td>,</td>
+          <td class="paramtype">void *</td>
+          <td class="paramname"><em>data</em></td>
+          <td>&#41;</td>
+          <td></td>
+        </tr>
+      </tbody></table>
+    </div>
+    <div class="memdoc"><p>Set the function which receives broadcast messages from the synth engine.</p>
+      <dl class="params">
+        <dt>Parameters</dt>
+        <dd>
+          <table class="params"><tbody>
+            <tr><td class="paramname">synth</td><td>The synth.</td></tr>
+            <tr><td class="paramname">broadcast</td><td>The pointer to the receiving function.</td></tr>
+            <tr><td class="paramname">data</td><td>The opaque data pointer which is passed to the receiver.</td></tr>
+          </tbody></table>
+        </dd>
+      </dl>
+      <dl class="section since">
+        <dt>Since</dt>
+        <dd>1.0.0</dd>
+      </dl>
+    </div>
+  </div>
+			</div>			<hr>
+			<footer>
+				<p style="text-align:left">
+					Copyright &copy; 2019-2024
+					SFZTools Organization
+					<span style="float:right">
+						This site is open source.
+						<a href="https://github.com/sfztools/sfztools.github.io/edit/master/docs/sfizz/api/sfizz.h.md">
+						Improve this page</a>
+					</span>
+				</p>
+			</footer>
+		</div>		<script>
+			var base_url	= "../../..",
+					shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+		</script>
+		<script src="../../../assets/js/jquery.min.js"></script>
+		<script async defer src="../../../assets/js/popper.min.js"></script>
+		<script async defer src="../../../assets/js/bootstrap.min.js"></script>
+		<script async defer src="../../../assets/js/anchor.min.js"></script>
+		<script async defer src="../../../assets/js/base.min.js"></script>
+		<script async defer src="../../../assets/js/scroll-to-top.min.js"></script>
+		<script async defer src="../../../../../../assets/js/bootstrap-table.min.js"></script>
+		<script async defer src="../../../../../../assets/js/mermaid.min.js"></script>
+		<script async defer src="../../../../../../search/main.js"></script>		<script
+			type="text/javascript"
+			src="../../../assets/js/highlight.min.js">
+		</script>
+		<script
+			type="text/javascript"
+			src="../../../assets/js/bash.min.js">
+		</script>
+		<script
+			type="text/javascript"
+			src="../../../assets/js/cpp.min.js">
+		</script>
+		<script
+			type="text/javascript"
+			src="../../../assets/js/sfz.min.js">
+		</script>
+		<script>hljs.highlightAll();</script>
+		<script>
+			window.addEventListener("load", function (event) {
+				if (anchors) {
+					anchors.options.placement = 'left';
+					anchors.add();
+				}
+			});
+		</script><!-- Search Dialog -->
+<div
+	class="modal fade"
+	id="mkdocs_search_modal"
+	tabindex="-1"
+	role="dialog"
+	aria-labelledby="searchModalLabel"
+	aria-hidden="true"
+>
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content bg-body">
+			<div class="modal-header">
+				<h4 class="modal-title"
+						id="searchModalLabel">Search</h4>
+				<button
+					type="button"
+					class="btn-close"
+					data-bs-dismiss="modal"
+					aria-label="Close"
+				>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>From here you can search these documents. Enter your search terms below.</p>
+				<form>
+					<div class="form-group">
+						<input
+							type="search"
+							class="form-control"
+							placeholder="Search..."
+							id="mkdocs-search-query"
+							title="Type search term here"
+						>
+					</div>
+				</form>
+				<div
+						id="mkdocs-search-results"
+						data-no-results-text="No results found">
+				</div>
+			</div>
+			<div class="modal-footer"></div>
+		</div>
+	</div>
+</div><!-- Keyboard Dialog -->
+				<div
+						class="modal"
+						id="mkdocs_keyboard_modal"
+						tabindex="-1"
+						role="dialog"
+						aria-labelledby="keyboardModalLabel"
+						aria-hidden="true"
+				>
+						<div class="modal-dialog">
+								<div class="modal-content">
+										<div class="modal-header">
+												<h4 class="modal-title"
+														id="keyboardModalLabel">Keyboard Shortcuts</h4>
+												<button
+														type="button"
+														class="close"
+														data-dismiss="modal"
+												>
+														<span aria-hidden="true">&times;</span>
+														<span class="visually-hidden">Close</span>
+												</button>
+										</div>
+										<div class="modal-body">
+										<table class="table">
+												<thead>
+												<tr>
+														<th style="width: 20%;">Keys</th>
+														<th>Action</th>
+												</tr>
+												</thead>
+												<tbody>
+												<tr>
+														<td class="help shortcut"><kbd>?</kbd></td>
+														<td>Open this help</td>
+												</tr>
+												<tr>
+														<td class="next shortcut"><kbd>n</kbd></td>
+														<td>Next page</td>
+												</tr>
+												<tr>
+														<td class="prev shortcut"><kbd>p</kbd></td>
+														<td>Previous page</td>
+												</tr>
+												<tr>
+														<td class="search shortcut"><kbd>s</kbd></td>
+														<td>Search</td>
+												</tr>
+												</tbody>
+										</table>
+										</div>
+										<div class="modal-footer">
+										</div>
+								</div>
+						</div>
+				</div>
+	</body>
+</html>
