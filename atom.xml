@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>SFZTools news</title>
+	<link href="https://sfz.tools//atom.xml" rel="self"/>
+	<icon>https://sfz.tools//assets/ico/favicon.ico</icon>
+	<link href="https://sfz.tools/"/>
+	<updated>2024-04-12T08:59:51+00:00</updated>
+	<id>https://sfz.tools/</id>
+	<entry>
+		<title>sfizz 1.2.3 release</title>
+		<author><name>sfztools</name></author>
+		<link href="https://sfz.tools//news/posts/2024-01-15-sfizz-1.2.3-release/"/>
+		<published>2024-01-15T20:20:47+00:00</published>
+		<id>/news/posts/2024-01-15-sfizz-1.2.3-release</id>
+		<content type="html"><h3>Added</h3>
+<ul>
+<li>Support for curvecc opcodes on v1 EGs (@PythonBlue)</li>
+<li>Support for <code>lotimer/hitimer</code> (@essej)</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>Allow polyphonic aftertouch (cc 130) to respect the note number, which improves e.g. the choking logic (@essej)</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>Adjusted the gain compensation on pan stages (@cvde)</li>
+<li>Ensure that voices are cleaned up before being force-reused (@iv-m)</li>
+<li>Fixed a bug in the wavpack wrapper for multichannel files (@KKQ-KKQ)</li>
+<li>Fixed a bug in the way the tuning root was computed (@KKQ-KKQ)</li>
+<li>Fixed a bug where samples would be loaded in RAM twice when using <code>hint_ram_based=1</code></li>
+<li>Fixed a bug where quasi-simultaneous notes would not properly choke each other</li>
+<li>Don't send a note off event if a note was choked by a CC event.</li>
+</ul>
+<h2>Download links</h2>
+<ul>
+<li><a href="https://github.com/sfztools/sfizz/releases/download/1.2.3/sfizz-1.2.3-macos.tar.gz">sfizz-1.2.3-macos.tar.gz</a></li>
+<li><a href="https://github.com/sfztools/sfizz/releases/download/1.2.3/sfizz-1.2.3-win32.zip">sfizz-1.2.3-win32.zip</a></li>
+<li><a href="https://github.com/sfztools/sfizz/releases/download/1.2.3/sfizz-1.2.3-win64.zip">sfizz-1.2.3-win64.zip</a></li>
+<li><a href="https://github.com/sfztools/sfizz/releases/download/1.2.3/sfizz-1.2.3.tar.gz">sfizz-1.2.3.tar.gz</a></li>
+<li><a href="https://github.com/sfztools/sfizz/releases/tag/1.2.3">GitHub Release</a></li>
+<li><a href="../../sfizz/downloads.md">Downloads</a></li>
+</ul></content>
+	</entry>
+	<entry>
+		<title>sfizz 1.2.2 release</title>
+		<author><name>redtide</name></author>
+		<link href="https://sfz.tools//news/posts/2023-08-26-sfizz-1.2.2-release/"/>
+		<published>2023-08-26T00:00:00+00:00</published>
+		<id>/news/posts/2023-08-26-sfizz-1.2.2-release</id>
+		<content type="html"><h2>Library</h2>
+<h3>Added</h3>
+<ul>
+<li>WavPack support (#1129 by @lucianoiam)</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>The project has been split into 2 repositories to separate
+  the library from the UI/plugins. (#1162)</li>
+<li>Unclamp the cutoff and add OSC queries for the cutoff modifiers (#1100 by @PythonBlue)</li>
+<li>SIMDe update (#1161 #1163)</li>
+<li>Update cpuid, dr_libs and stb_vorbis libraries (#1164)</li>
+<li>Various CMake and CI changes/fixes, also because the repository split
+  Minimum CMake version required is now 3.15 for Windows, 3.13 for other systems</li>
+<li>Configurable amount of Control Change messages via CMake' <code>MIDI_CC_COUNT</code> variable,
+  Config.h is now a generated file</li>
+<li>Update Abseil to 20230125.3 (#1169)</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>Crash fix for reloading SFZ: needed to copy preloadCallCount in FilePool
+  copy constructors (#1170 by @essej)</li>
+<li>Temporary fixes to build benchmarks and tests (see #1148)</li>
+<li>Fixed FlexEGs shape (#1176 #1177)</li>
+<li>Fixed build on Windows</li>
+<li>Fixed modulation matrix when CC modulations are per voice (#1173 #1179 by @PythonBlue)</li>
+<li>Fixed and reenabled tests</li>
+<li>Modifications to support universal x86_64/ARM builds on macOS (#1183 by @essej)</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>VCPKG and MinGW CI builds</li>
+</ul>
+<h2>Plugins</h2>
+<h3>Added</h3>
+<ul>
+<li>New repository for UI/plugins. (sfztools/sfizz#1162)</li>
+<li>CI: Restored the macOS universal build that was working in AppVeyor
+  (sfztools/sfizz@15628e13290e9be4e33ebf74aef286a5e3221579) but sacrifice
+  WavPack assembly optimizations, see
+  <a href="https://github.com/dbry/WavPack/issues/93">https://github.com/dbry/WavPack/issues/93</a></li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>Updated VST3 SDK to v3.7.7, including our custom AU wrapper (#25)</li>
+<li>Updated VSTGUI to v4.12.3 (patched), this requires Windows 10 or later</li>
+<li>Updated stb_image to v2.28</li>
+<li>Updated LV2 bundled library to v1.18</li>
+<li>Various CMake and CI changes/fixes, also because the repository split
+  Minimum CMake version required is now 3.15 for Windows, 3.13 for other systems</li>
+<li>Using linters for all type of plugins supported in CI</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>Various code fixes for the newer version of VSTGUI; Windows 10 minimum required</li>
+</ul>
+<h3>Removed</h3>
+<ul>
+<li>macOS: removed DMG resources and Carbon support from VSTGUI</li>
+</ul>
+<p>See:</p>
+<ul>
+<li><a href="https://github.com/sfztools/sfizz/releases/tag/1.2.2">GitHub library release page</a></li>
+<li><a href="https://github.com/sfztools/sfizz-ui/releases/tag/1.2.2">GitHub plugins release page</a></li>
+</ul>
+<h2>Download links:</h2>
+<ul>
+<li><a href="https://github.com/sfztools/sfizz-ui/releases/download/1.2.2/sfizz-1.2.2-macos.pkg">sfizz-1.2.2-macos.pkg</a></li>
+<li><a href="https://github.com/sfztools/sfizz-ui/releases/download/1.2.2/sfizz-1.2.2-win32.exe">sfizz-1.2.2-win32.exe</a></li>
+<li><a href="https://github.com/sfztools/sfizz-ui/releases/download/1.2.2/sfizz-1.2.2-win64.exe">sfizz-1.2.2-win64.exe</a></li>
+<li><a href="https://github.com/sfztools/sfizz/releases/download/1.2.2/sfizz-1.2.2.tar.gz">Library source archive</a></li>
+<li><a href="https://github.com/sfztools/sfizz-ui/releases/download/1.2.2/sfizz-1.2.2.tar.gz">Plugins + library source archive</a></li>
+</ul></content>
+	</entry>
+	<entry>
+		<title>sfizz 1.2.1 release</title>
+		<author><name>github-actions[bot]</name></author>
+		<link href="https://sfz.tools//news/posts/2023-04-15-sfizz-1.2.1-release/"/>
+		<published>2023-04-15T00:06:30+00:00</published>
+		<id>/news/posts/2023-04-15-sfizz-1.2.1-release</id>
+		<content type="html"><ul>
+<li>Mac OS Installer (#93 #1087)</li>
+<li>Updated bundled dependencies and added more options to use those
+  preinstalled in system (#1104 #1117 #1143 #1145 #1149)</li>
+<li>CI: Various updates and fixes for GitHub Actions; removed Travis and Appveyor</li>
+<li>Add LFO frequency as an EG target (#1103)</li>
+<li>New <code>image_controls</code> opcode to add a background image on UI' Controls tab (#1156)</li>
+<li>Disabled temporarily the embedded sample test</li>
+<li>Parse 0-valued note ons as note offs (#1072 #1073)</li>
+<li>Correct a bug with dynamic updates on offed EGs (#2 #1088)</li>
+<li>jack: Wait for CLI thread to finish on quit (#1097)</li>
+<li>Fix libsndfile build and add CI (#1112 #1090)</li>
+<li>Last keyswitches don't change the midi state (#1113 #1074)</li>
+<li>Add section suffix to man pages (#1124)</li>
+<li>HiDPI: Added a Zoom menu in Settings to apply an user' zoom ratio preference
+  (#1123 #1153)</li>
+<li>Colored logo button on mouse hover (#1151)</li>
+<li>Centered, full-size background images container (#1152)</li>
+<li>XP style tooltips (#1156)</li>
+<li>Window size has been changed to be compatible with ARIA banks
+  (775x335 for image backgrounds) (#1140 #1156)</li>
+<li>The CC knobs rotator and title label have a white color
+  on a semi-transparent background in the controls tab (#1156)</li>
+<li>The info tab becomes a dark and semi-transparent overlay dialog above the
+  Home tab; both will display the same background image when available (#1156)</li>
+<li>Handle LV2 scaleFactor supportedOption (#1153)</li>
+<li>Added suffix "-multi" to LV2 and VST3. (#1084)</li>
+<li>Fix LV2 manifest when using PSA (#1114)</li>
+<li>Fix 2 bugs in LV2 and VST3 for loads and stores (#1115 #1098)</li>
+</ul>
+<p>See: <a href="https://github.com/sfztools/sfizz/releases/tag/1.2.1">GitHub release page</a></p>
+<h2>Download links:</h2>
+<ul>
+<li><a href="https://github.com/sfztools/sfizz/releases/download/1.2.1/sfizz-1.2.1-macos.pkg">sfizz-1.2.1-macos.pkg</a></li>
+<li><a href="https://github.com/sfztools/sfizz/releases/download/1.2.1/sfizz-1.2.1-moddevices.tar.gz">sfizz-1.2.1-moddevices.tar.gz</a></li>
+<li><a href="https://github.com/sfztools/sfizz/releases/download/1.2.1/sfizz-1.2.1-win32.exe">sfizz-1.2.1-win32.exe</a></li>
+<li><a href="https://github.com/sfztools/sfizz/releases/download/1.2.1/sfizz-1.2.1-win64.exe">sfizz-1.2.1-win64.exe</a></li>
+<li><a href="https://github.com/sfztools/sfizz/releases/download/1.2.1/sfizz-1.2.1.tar.gz">sfizz-1.2.1.tar.gz</a></li>
+</ul></content>
+	</entry>
+</feed>
